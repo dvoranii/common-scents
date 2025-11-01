@@ -13,15 +13,14 @@ export const theme = {
     black: "#111111",
   },
   spacing: {
-    xs: "0.25rem", // 4px
-    sm: "0.5rem", // 8px
-    md: "1rem", // 16px
-    lg: "1.5rem", // 24px
-    xl: "2rem", // 32px
-    "2xl": "3rem", // 48px
-    "3xl": "4rem", // 64px
-    "4xl": "6rem", // 96px
-    "5xl": "8rem", // 128px
+    xs: "clamp(0.25rem, 0.5vw, 0.5rem)",
+    sm: "clamp(0.5rem, 1vw, 1rem)",
+    md: "clamp(0.75rem, 1.5vw, 1.5rem)",
+    lg: "clamp(1rem, 2vw, 2rem)",
+    xl: "clamp(1.5rem, 3vw, 3rem)",
+    "2xl": "clamp(2rem, 4vw, 4rem)",
+    "3xl": "clamp(2.5rem, 5vw, 5rem)",
+    "4xl": "clamp(3rem, 6vw, 8rem)",
   },
   fonts: {
     heading: "'Playfair Display', serif",

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PageContainer = styled.div`
   min-height: 100vh;
-  background: ${(props) => props.theme.colors.white};
+  background: white;
 `;
 
 export const HeroSection = styled.section`
@@ -13,7 +13,7 @@ export const HeroSection = styled.section`
   background: linear-gradient(
     to bottom,
     ${(props) => props.theme.colors.primary},
-    ${(props) => props.theme.colors.white}
+    white
   );
 `;
 
@@ -68,7 +68,7 @@ export const PrimaryButton = styled.button`
   position: relative;
   background: linear-gradient(to bottom, #efad70, #e88e44);
   border: 2px solid #e78732;
-  color: ${(props) => props.theme.colors.white};
+  color: white;
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.base};
   padding: ${(props) => `${props.theme.spacing.md} ${props.theme.spacing.xl}`};
@@ -134,7 +134,7 @@ export const SecondaryButton = styled.button`
   }
 
   &:hover {
-    color: #e88e44;
+    color: white;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
     border: 2px solid transparent;
 
@@ -175,8 +175,9 @@ export const SectionTitle = styled.h2`
 
 export const ReviewsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   gap: ${(props) => props.theme.spacing.xl};
+  padding: 0 20px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(3, 1fr);
@@ -198,7 +199,6 @@ export const ReviewCard = styled.div`
 
 export const ReviewImage = styled.div`
   height: 256px;
-  /* background: linear-gradient(to bottom right, #e7e5e4, #d6d3d1); */
   background: white;
 
   display: flex;
@@ -209,8 +209,6 @@ export const ReviewImage = styled.div`
 export const BottleImage = styled.img`
   height: 100%;
   object-fit: contain;
-  /* border-radius: ${(props) => props.theme.spacing.sm}; */
-  /* filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5)); */
 `;
 
 export const ReviewContent = styled.div`
@@ -268,11 +266,15 @@ export const CategoryCard = styled.div<{ bgColor: string }>`
   }
 `;
 
-export const CategoryIcon = styled.div`
+interface CategoryIconColor {
+  $color?: string;
+}
+
+export const CategoryIcon = styled.div<CategoryIconColor>`
   display: flex;
   justify-content: center;
   margin-bottom: ${(props) => props.theme.spacing.md};
-  color: ${(props) => props.theme.colors.primaryLight};
+  color: ${(props) => props.$color || "darkbrown"};
 `;
 
 export const CategoryName = styled.h3`
