@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CarouselWrapper = styled.div`
+  padding: 0 60px;
   .flickity-enabled {
     position: relative;
   }
@@ -90,6 +91,27 @@ export const CarouselWrapper = styled.div`
 
   .flickity-prev-next-button.next {
     right: -52px;
+  }
+
+  /* Tablet: Move buttons below carousel, flanking the dots */
+  @media (max-width: ${(props) => props.theme.breakpoints.desktop}) {
+    .flickity-prev-next-button {
+      top: 70%;
+      bottom: 0;
+      transform: translateY(100%);
+      margin-top: ${(props) => props.theme.spacing.xl};
+    }
+
+    .flickity-prev-next-button.previous {
+      left: 48%;
+      transform: translateX(-100%) translateX(-80px);
+    }
+
+    .flickity-prev-next-button.next {
+      right: 48%;
+      left: auto;
+      transform: translateX(100%) translateX(80px);
+    }
   }
 
   /* Hide buttons on mobile */
