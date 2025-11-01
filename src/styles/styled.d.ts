@@ -24,7 +24,7 @@ declare module "styled-components" {
       "2xl": string;
       "3xl": string;
       "4xl": string;
-      "5xl": string;
+      // "5xl": string;
     };
     fonts: {
       heading: string;

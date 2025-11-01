@@ -8,6 +8,7 @@ import {
   CategoryCard,
   CategoryIcon,
   CategoryName,
+  GradientHoverLink,
   GuideItem,
   GuideMeta,
   GuideMetaTitle,
@@ -26,11 +27,13 @@ import {
   ReviewImage,
   ReviewLink,
   ReviewsGrid,
+  ReviewTextWrapper,
   ReviewTitle,
   SecondaryButton,
   Section,
   SectionContent,
   SectionTitle,
+  SeeMoreWrapper,
   Tagline,
   TitleContainer,
 } from "./Home.styled";
@@ -71,7 +74,6 @@ const HomePage: React.FC = () => {
         </HeroContent>
       </HeroSection>
 
-      {/* Featured Reviews */}
       <Section>
         <SectionContent>
           <SectionTitle>Featured Reviews</SectionTitle>
@@ -86,21 +88,26 @@ const HomePage: React.FC = () => {
                   />
                 </ReviewImage>
                 <ReviewContent>
-                  <ReviewTitle>
-                    {fragrance.name} - {fragrance.house}
-                  </ReviewTitle>
-                  <ReviewDescription>
-                    {fragrance.shortDescription}
-                  </ReviewDescription>
+                  <ReviewTextWrapper>
+                    <ReviewTitle>
+                      {fragrance.name} - {fragrance.house}
+                    </ReviewTitle>
+                    <ReviewDescription>
+                      {fragrance.shortDescription}
+                    </ReviewDescription>
+                  </ReviewTextWrapper>
                   <ReviewLink>Read Review →</ReviewLink>
                 </ReviewContent>
               </ReviewCard>
             ))}
           </ReviewsGrid>
+
+          <SeeMoreWrapper>
+            <GradientHoverLink href="#">See More Reviews</GradientHoverLink>
+          </SeeMoreWrapper>
         </SectionContent>
       </Section>
 
-      {/* Scent Categories */}
       <Section altBg>
         <SectionContent>
           <SectionTitle>Scent Categories</SectionTitle>
@@ -119,7 +126,7 @@ const HomePage: React.FC = () => {
           </Carousel>
         </SectionContent>
       </Section>
-      {/* Fragrance Tips & Guides */}
+
       <Section>
         <SectionContent>
           <GuideMetaTitle>Fragrance Tips & Guides</GuideMetaTitle>

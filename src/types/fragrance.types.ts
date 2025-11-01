@@ -9,6 +9,7 @@ export interface Fragrance {
   season?: string[];
   occasion?: string[];
   type?: string[];
+  categorySlugs: string[];
   thumbnailImage: string;
   heroImage?: string;
   fragranticaUrl: string;

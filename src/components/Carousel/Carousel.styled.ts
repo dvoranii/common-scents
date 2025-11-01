@@ -82,7 +82,7 @@ export const CarouselWrapper = styled.div`
 
   .flickity-prev-next-button {
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-100%);
   }
 
   .flickity-prev-next-button.previous {

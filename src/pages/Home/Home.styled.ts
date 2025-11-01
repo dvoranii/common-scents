@@ -173,6 +173,67 @@ export const SectionTitle = styled.h2`
   }
 `;
 
+export const SeeMoreWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: ${(props) => props.theme.spacing.md};
+`;
+
+export const GradientHoverLink = styled.a`
+  text-align: center;
+  margin: 0 auto;
+  font-size: ${(props) => props.theme.fontSizes.lg};
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+
+  /* Gradient wipe effect */
+  background: linear-gradient(
+    to right,
+    #b45309 0%,
+    #b45309 50%,
+    ${(props) => props.theme.colors.text} 50%,
+    ${(props) => props.theme.colors.text} 100%
+  );
+
+  background-size: 200% 100%;
+  background-position: 100% 0;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: background-position 0.5s ease, transform 0.2s ease;
+
+  &:hover {
+    background-position: 0% 0;
+  }
+
+  /* Underline animation */
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #b45309;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+`;
+
+export const BottleImage = styled.img`
+  height: 100%;
+  object-fit: contain;
+`;
+
+// Reviews Section
 export const ReviewsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
@@ -185,6 +246,9 @@ export const ReviewsGrid = styled.div`
 `;
 
 export const ReviewCard = styled.div`
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
   background-color: #fef3c7;
   border-radius: ${(props) => props.theme.spacing.sm};
   overflow: hidden;
@@ -198,27 +262,34 @@ export const ReviewCard = styled.div`
 `;
 
 export const ReviewImage = styled.div`
-  height: 256px;
+  flex: 1;
   background: white;
-
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const BottleImage = styled.img`
-  height: 100%;
-  object-fit: contain;
-`;
-
 export const ReviewContent = styled.div`
   padding: ${(props) => props.theme.spacing.lg};
+  flex: 0.6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media screen and (max-width: 912px) {
+    flex: 1;
+  }
+  @media screen and (max-width: 768px) {
+    flex: 0.7;
+  }
 `;
 
 export const ReviewTitle = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading};
   font-size: ${(props) => props.theme.fontSizes["2xl"]};
-  margin-bottom: ${(props) => props.theme.spacing.md};
   color: ${(props) => props.theme.colors.text};
 `;
 
@@ -227,7 +298,10 @@ export const ReviewDescription = styled.p`
   font-size: ${(props) => props.theme.fontSizes.base};
   color: ${(props) => props.theme.colors.textLight};
   margin-bottom: ${(props) => props.theme.spacing.md};
+  margin-top: ${(props) => props.theme.spacing.sm};
 `;
+
+export const ReviewTextWrapper = styled.div``;
 
 export const ReviewLink = styled.button`
   font-family: ${(props) => props.theme.fonts.body};
@@ -242,6 +316,8 @@ export const ReviewLink = styled.button`
     color: #b45309;
   }
 `;
+
+// Categories
 
 export const CategoriesGrid = styled.div`
   display: grid;
