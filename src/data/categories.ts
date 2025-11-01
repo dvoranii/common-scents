@@ -15,64 +15,64 @@ export const categories: Category[] = [
   {
     name: "Fresh & Citrus",
     icon: Leaf,
-    color: "#e8f5e8",
-    iconColor: "#388e3c", // Forest Green
+    color: "linear-gradient(to bottom, #e8f5e8, #e8f5c8)",
+    iconColor: "#388e3c",
     slug: "fresh-citrus",
   },
   {
     name: "Woody",
     icon: Trees,
-    color: "#d4b5a0",
-    iconColor: "#5d4037", // Dark Coffee Brown
+    color: "linear-gradient(to bottom, #f5e6d3, #d4b5a0)",
+    iconColor: "#5d4037",
     slug: "woody",
   },
   {
     name: "Floral",
     icon: Flower,
-    color: "#f8d7da",
-    iconColor: "#c2185b", // Deep Raspberry Pink
+    color: "linear-gradient(to bottom, #fce4ec, #f8d7da)",
+    iconColor: "#c2185b",
     slug: "floral",
   },
   {
     name: "Spicy",
     icon: Flame,
-    color: "#ffeaa7",
-    iconColor: "#d35400", // Burnt Orange
+    color: "linear-gradient(to bottom, #fff3e0, #ffeaa7)",
+    iconColor: "#d35400",
     slug: "spicy",
   },
   {
     name: "Fougère",
     icon: Mountain,
-    color: "#a8e6cf",
-    iconColor: "#00796b", // Dark Teal
+    color: "linear-gradient(to bottom, #e0f2f1, #a8e6cf)",
+    iconColor: "#00796b",
     slug: "fougere",
   },
   {
     name: "Gourmande",
     icon: Coffee,
-    color: "#fdcb6e",
-    iconColor: "#795548", // Dark Chocolate Brown
+    color: "linear-gradient(to bottom, #fff8e1, #fdcb6e)",
+    iconColor: "#795548",
     slug: "gourmande",
   },
   {
     name: "Oriental",
     icon: Sparkles,
-    color: "#fab1a0",
-    iconColor: "#8e44ad", // Deep Purple
+    color: "linear-gradient(to bottom, #f3e5f5, #fab1a0)",
+    iconColor: "#8e44ad",
     slug: "oriental",
   },
   {
     name: "Chypre",
     icon: Gem,
-    color: "#74b9ff",
-    iconColor: "#00579c", // Deep Sapphire Blue
+    color: "linear-gradient(to bottom, #e3f2fd, #74b9ff)",
+    iconColor: "#00579c",
     slug: "chypre",
   },
   {
     name: "Niche Picks",
     icon: Star,
-    color: "#e8d5c4",
-    iconColor: "#f39c12", // Deep Gold
+    color: "linear-gradient(to bottom, #fffde7, #e8d5c4)",
+    iconColor: "#f39c12",
     slug: "niche",
   },
 ];

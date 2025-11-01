@@ -21,10 +21,9 @@ declare module "styled-components" {
       md: string;
       lg: string;
       xl: string;
-      "2xl": string;
-      "3xl": string;
-      "4xl": string;
-      // "5xl": string;
+      xxl: string;
+      xxxl: string;
+      xxxxl: string;
     };
     fonts: {
       heading: string;
@@ -36,12 +35,9 @@ declare module "styled-components" {
       base: string;
       lg: string;
       xl: string;
-      "2xl": string;
-      "3xl": string;
-      "4xl": string;
-      "5xl": string;
-      "6xl": string;
-      "7xl": string;
+      xxl: string;
+      xxxl: string;
+      xxxxl: string;
     };
     breakpoints: {
       mobile: string;

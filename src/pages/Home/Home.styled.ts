@@ -7,8 +7,7 @@ export const PageContainer = styled.div`
 
 export const HeroSection = styled.section`
   color: ${(props) => props.theme.colors.black};
-  padding: ${(props) =>
-    `${props.theme.spacing["4xl"]} ${props.theme.spacing.lg}`};
+  padding: ${(props) => `${props.theme.spacing} ${props.theme.spacing.lg}`};
   text-align: center;
   background: linear-gradient(
     to bottom,
@@ -20,6 +19,7 @@ export const HeroSection = styled.section`
 export const HeroContent = styled.div`
   max-width: 1280px;
   margin: 0 auto;
+  padding-top: ${(props) => props.theme.spacing.xxxxl};
 `;
 
 export const LogoContainer = styled.div`
@@ -37,13 +37,13 @@ export const TitleContainer = styled.div`
 `;
 export const MainTitle = styled.h1`
   font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes["6xl"]};
+  font-size: ${(props) => props.theme.fontSizes.xxxxl};
   font-weight: 700;
   letter-spacing: 0.1em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes["4xl"]};
+    font-size: ${(props) => props.theme.fontSizes.xxxxl};
   }
 `;
 
@@ -151,7 +151,7 @@ export const SecondaryButton = styled.button`
 
 export const Section = styled.section<{ altBg?: boolean }>`
   padding: ${(props) =>
-    `${props.theme.spacing["3xl"]} ${props.theme.spacing.lg}`};
+    `${props.theme.spacing.xxxl} ${props.theme.spacing.lg}`};
   background-color: ${(props) =>
     props.altBg ? props.theme.colors.backgroundAlt : "transparent"};
 `;
@@ -163,13 +163,13 @@ export const SectionContent = styled.div`
 
 export const SectionTitle = styled.h2`
   font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes["5xl"]};
+  font-size: ${(props) => props.theme.fontSizes.xxxxl};
   text-align: center;
-  margin-bottom: ${(props) => props.theme.spacing["2xl"]};
+  margin-bottom: ${(props) => props.theme.spacing.xxl};
   color: ${(props) => props.theme.colors.text};
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes["3xl"]};
+    font-size: ${(props) => props.theme.fontSizes.xxxl};
   }
 `;
 
@@ -177,7 +177,7 @@ export const SeeMoreWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: ${(props) => props.theme.spacing.md};
+  padding-top: ${(props) => props.theme.spacing.lg};
 `;
 
 export const GradientHoverLink = styled.a`
@@ -288,8 +288,9 @@ export const ReviewContent = styled.div`
 `;
 
 export const ReviewTitle = styled.h3`
+  text-align: center;
   font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes["2xl"]};
+  font-size: ${(props) => props.theme.fontSizes.xl};
   color: ${(props) => props.theme.colors.text};
 `;
 
@@ -330,7 +331,7 @@ export const CategoriesGrid = styled.div`
 `;
 
 export const CategoryCard = styled.div<{ bgColor: string }>`
-  background-color: ${(props) => props.bgColor};
+  background: ${(props) => props.bgColor};
   padding: ${(props) => props.theme.spacing.xl};
   border-radius: ${(props) => props.theme.spacing.sm};
   text-align: center;
@@ -383,25 +384,25 @@ export const GuideItem = styled.div`
 
 export const GuideTitle = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes["2xl"]};
+  font-size: ${(props) => props.theme.fontSizes.xxl};
   margin-bottom: ${(props) => props.theme.spacing.sm};
   color: ${(props) => props.theme.colors.text};
   cursor: pointer;
   transition: color 0.3s;
 
   &:hover {
-    color: ${(props) => props.theme.colors.primary};
+    color: #888888;
   }
 `;
 
 export const GuideMetaTitle = styled.h2`
   font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes["5xl"]};
-  margin-bottom: ${(props) => props.theme.spacing["2xl"]};
+  font-size: ${(props) => props.theme.fontSizes.xxxxl};
+  margin-bottom: ${(props) => props.theme.spacing.xxl};
   color: ${(props) => props.theme.colors.text};
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes["3xl"]};
+    font-size: ${(props) => props.theme.fontSizes.xxxl};
   }
 `;
 

@@ -12,7 +12,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.body};
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
-    /* line-height: 1.6; */
     overflow-x: hidden;
   }
 
