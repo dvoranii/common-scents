@@ -19,4 +19,8 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li``;
 
-export const NavLink = styled.a``;
+export const NavLink = styled.a<{ $textColour?: string }>`
+  color: ${(props) =>
+    props.$textColour ? props.$textColour : props.theme.colors.black};
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+`;

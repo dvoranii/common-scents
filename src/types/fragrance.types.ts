@@ -43,6 +43,15 @@ export interface Guide {
   category?: string;
   thumbnailImage?: string;
 }
+export interface Academy {
+  id: string;
+  slug: string;
+  title: string;
+  author?: string;
+  date?: string;
+  category?: string;
+  thumbnailImage?: string;
+}
 
 export interface Category {
   name: string;
@@ -50,4 +59,11 @@ export interface Category {
   iconColor?: string;
   color: string;
   slug: string;
+}
+
+export interface Occasion {
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
 }

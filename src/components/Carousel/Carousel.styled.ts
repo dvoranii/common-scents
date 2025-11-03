@@ -22,7 +22,6 @@ export const CarouselWrapper = styled.div`
     height: 100%;
   }
 
-  /* draggable */
   .flickity-enabled.is-draggable {
     -webkit-tap-highlight-color: transparent;
     user-select: none;
@@ -83,6 +82,9 @@ export const CarouselWrapper = styled.div`
   .flickity-prev-next-button {
     top: 50%;
     transform: translateY(-100%);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
   }
 
   .flickity-prev-next-button.previous {
@@ -93,10 +95,9 @@ export const CarouselWrapper = styled.div`
     right: -52px;
   }
 
-  /* Tablet: Move buttons below carousel, flanking the dots */
   @media (max-width: ${(props) => props.theme.breakpoints.desktop}) {
     .flickity-prev-next-button {
-      top: 70%;
+      top: 72%;
       bottom: 0;
       transform: translateY(100%);
       margin-top: ${(props) => props.theme.spacing.xl};
@@ -114,7 +115,6 @@ export const CarouselWrapper = styled.div`
     }
   }
 
-  /* Hide buttons on mobile */
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     .flickity-prev-next-button {
       display: none;

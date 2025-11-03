@@ -10,21 +10,20 @@ export const guides: Guide[] = [
   },
   {
     id: "2",
-    slug: "perfume-notes-explained",
-    title: "Perfume Notes Explained: Top, Heart, and Base",
-    date: "March 12, 2024",
-    category: "Education",
-  },
-  {
-    id: "3",
     slug: "storage-tips",
     title: "Storage Tips to Keep Scents Fresh Longer",
     category: "Tips",
   },
   {
-    id: "4",
+    id: "3",
     slug: "fragrance-by-season",
-    title: "Fragrance by Season",
+    title: "Fragrance by Season: Matching Scents to Weather",
+    category: "Tips",
+  },
+  {
+    id: "4",
+    slug: "how-to-apply-fragrance",
+    title: "How to Apply Fragrance the Right Way",
     category: "Tips",
   },
 ];
