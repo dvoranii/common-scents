@@ -1,16 +1,6 @@
 // src/data/occasionDetails.ts
 
-interface Setting {
-  title: string;
-  description: string;
-  examples: string[];
-}
-
-interface OccasionDetail {
-  subtitle?: string;
-  fullDescription: string;
-  settings: Setting[];
-}
+import type { OccasionDetail } from "../types/data.types";
 
 export const occasionDetails: Record<string, OccasionDetail> = {
   "date-night": {

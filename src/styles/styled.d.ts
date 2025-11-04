@@ -38,6 +38,7 @@ declare module "styled-components" {
       xxl: string;
       xxxl: string;
       xxxxl: string;
+      xxxxxl: string;
     };
     breakpoints: {
       mobile: string;

@@ -59,6 +59,7 @@ export interface Category {
   iconColor?: string;
   color: string;
   slug: string;
+  description?: string;
 }
 
 export interface Occasion {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import {
   Nav,
@@ -7,6 +7,13 @@ import {
   NavList,
   NavItem,
   NavLink,
+  BurgerButton,
+  MobileNavOverlay,
+  MobileNavSidebar,
+  MobileNavList,
+  MobileNavItem,
+  MobileNavLink,
+  AnimatedBurgerIcon,
 } from "./Navigation.styled";
 
 const OCCASION_NAV_COLORS: Record<string, string> = {
@@ -37,35 +44,76 @@ const getNavColor = (pathname: string): string | undefined => {
 export const Navigation: React.FC = () => {
   const location = useLocation();
   const navColor = getNavColor(location.pathname);
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  const getXColour = () => {
+    return isMobileNavOpen ? "#000000" : navColor;
+  };
+
+  const toggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const closeMobileNav = () => {
+    setIsMobileNavOpen(false);
+  };
+
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/reviews", label: "Reviews" },
+    { to: "/guides", label: "Tips & Guides" },
+  ];
 
   return (
-    <NavWrapperOuter>
-      <NavWrapperInner>
-        <Nav>
-          <NavList>
-            <NavItem>
-              <NavLink as={Link} to="/" $textColour={navColor}>
-                Home
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink as={Link} to="/about" $textColour={navColor}>
-                About
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink as={Link} to="/reviews" $textColour={navColor}>
-                Reviews
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink as={Link} to="/guides" $textColour={navColor}>
-                Tips & Guides
-              </NavLink>
-            </NavItem>
-          </NavList>
-        </Nav>
-      </NavWrapperInner>
-    </NavWrapperOuter>
+    <>
+      <NavWrapperOuter>
+        <NavWrapperInner>
+          <Nav>
+            <NavList>
+              {navItems.map((item) => (
+                <NavItem key={item.to}>
+                  <NavLink as={Link} to={item.to} $textColour={navColor}>
+                    {item.label}
+                  </NavLink>
+                </NavItem>
+              ))}
+            </NavList>
+          </Nav>
+        </NavWrapperInner>
+      </NavWrapperOuter>
+
+      <BurgerButton
+        onClick={toggleMobileNav}
+        $textColour={navColor}
+        $xColour={getXColour()}
+        aria-label={isMobileNavOpen ? "Close menu" : "Open menu"}
+      >
+        <AnimatedBurgerIcon $isOpen={isMobileNavOpen} $xColour={getXColour()}>
+          <div />
+        </AnimatedBurgerIcon>
+      </BurgerButton>
+      <MobileNavOverlay $isOpen={isMobileNavOpen} onClick={closeMobileNav}>
+        <MobileNavSidebar
+          $isOpen={isMobileNavOpen}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <MobileNavList>
+            {navItems.map((item) => (
+              <MobileNavItem key={item.to}>
+                <MobileNavLink
+                  as={Link}
+                  to={item.to}
+                  onClick={closeMobileNav}
+                  $isActive={location.pathname === item.to}
+                >
+                  {item.label}
+                </MobileNavLink>
+              </MobileNavItem>
+            ))}
+          </MobileNavList>
+        </MobileNavSidebar>
+      </MobileNavOverlay>
+    </>
   );
 };

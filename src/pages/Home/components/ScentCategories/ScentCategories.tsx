@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { getAllCategories } from "../../../../utils/categoriesUtils";
 import { CarouselSlide, Carousel } from "../../../../components/Carousel";
 import {
@@ -13,7 +14,12 @@ import {
 } from "../../../../styles/CommonStyles";
 
 export const ScentCategories: React.FC = () => {
+  const navigate = useNavigate();
   const categories = getAllCategories();
+
+  const handleCategoryClick = (slug: string) => {
+    navigate(`/categories/${slug}`);
+  };
 
   return (
     <Section altBg $hasBgImg>
@@ -23,7 +29,10 @@ export const ScentCategories: React.FC = () => {
         <Carousel>
           {categories.map((category) => (
             <CarouselSlide key={category.slug}>
-              <CategoryCard bgColor={category.color}>
+              <CategoryCard
+                bgColor={category.color}
+                onClick={() => handleCategoryClick(category.slug)}
+              >
                 <CategoryIcon $color={category.iconColor}>
                   <category.icon size={48} />
                 </CategoryIcon>
