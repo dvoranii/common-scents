@@ -1,0 +1,96 @@
+export interface Fragrance {
+  id: string;
+  slug: string;
+  name: string;
+  house: string;
+  houseLogo: string;
+  releaseYear?: number;
+  concentration?: string;
+  price?: number;
+  season?: string[];
+  occasion?: string[];
+  type?: string[];
+  notes?: FragranceNotes;
+  accords?: Accords[];
+  categorySlugs: string[];
+  thumbnailImage: string;
+  heroImage?: string;
+  fragranticaUrl: string;
+  youtubeUrl?: string;
+  longevity?: number;
+  projection?: number;
+  rating: number;
+  ratingCount: string;
+  shortDescription: string;
+  perfumers?: Perfumer[];
+  reviewContent?: {
+    overview: string;
+    notes?: {
+      top: string[];
+      heart: string[];
+      base: string[];
+    };
+    notesDescription?: string;
+    bestTime?: string;
+    whoShouldWear?: string;
+    performance?: string;
+    reactions?: string;
+    conclusion?: string;
+  };
+}
+
+interface Accords {
+  name: string;
+  color: string;
+}
+
+interface Note {
+  name: string;
+  image: string;
+}
+
+export interface FragranceNotes {
+  top: Note[];
+  middle: Note[];
+  base: Note[];
+}
+
+export interface Perfumer {
+  name: string;
+  image: string;
+}
+
+export interface Guide {
+  id: string;
+  slug: string;
+  title: string;
+  author?: string;
+  date?: string;
+  category?: string;
+  thumbnailImage?: string;
+}
+export interface Academy {
+  id: string;
+  slug: string;
+  title: string;
+  author?: string;
+  date?: string;
+  category?: string;
+  thumbnailImage?: string;
+}
+
+export interface Category {
+  name: string;
+  icon: React.ElementType;
+  iconColor?: string;
+  color: string;
+  slug: string;
+  description?: string;
+}
+
+export interface Occasion {
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
+}
