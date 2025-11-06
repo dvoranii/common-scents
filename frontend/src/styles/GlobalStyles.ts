@@ -15,9 +15,14 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: ${(props) => props.theme.fonts.heading};
+  h1, h2 {
+    font-family: ${(props) => props.theme.fonts.heading1};
     font-weight: 700;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: ${(props) => props.theme.fonts.heading2};
+    font-weight: 500;
   }
 
   button {

@@ -26,7 +26,8 @@ declare module "styled-components" {
       xxxxl: string;
     };
     fonts: {
-      heading: string;
+      heading1: string;
+      heading2: string;
       body: string;
     };
     fontSizes: {

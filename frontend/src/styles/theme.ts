@@ -23,7 +23,8 @@ export const theme = {
     xxxxl: "clamp(3rem, 6vw, 6rem)",
   },
   fonts: {
-    heading: "'Playfair Display', serif",
+    heading1: "'Playfair Display', serif",
+    heading2: "'Lato', sans-serif",
     body: "'Lato', sans-serif",
   },
   fontSizes: {

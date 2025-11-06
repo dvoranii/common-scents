@@ -18,7 +18,6 @@ export const IntroSection = styled.section`
   padding: ${(props) => props.theme.spacing.xl};
   border-radius: 12px;
   margin-bottom: ${(props) => props.theme.spacing.xl};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: ${(props) => props.theme.spacing.lg};
@@ -56,7 +55,6 @@ export const Paragraph = styled.p`
   font-size: ${(props) => props.theme.fontSizes.base};
   line-height: 1.8;
   color: ${(props) => props.theme.colors.black};
-  margin-bottom: ${(props) => props.theme.spacing.lg};
 
   strong {
     color: ${(props) => props.theme.colors.text};

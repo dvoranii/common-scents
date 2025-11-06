@@ -21,7 +21,7 @@ const CreedVikingCologneReview: React.FC = () => {
   return (
     <PageWrapper>
       {/* AUTOMATED HEADER - Uses data from fragrances.ts */}
-      <FragranceHeader fragrance={fragrance} bottleImageSize="large" />
+      <FragranceHeader fragrance={fragrance} bottleImageSize="medium" />
       <PerfumersDisplay perfumers={fragrance.perfumers} />
       {/* MANUAL INTRO PARAGRAPH */}
       <IntroSection>
@@ -132,6 +132,7 @@ const CreedVikingCologneReview: React.FC = () => {
           <li>Weekend outings and brunches</li>
           <li>Business meetings and formal events</li>
         </ul>
+        <br />
         <Paragraph>
           <strong>Less Ideal For:</strong>
         </Paragraph>

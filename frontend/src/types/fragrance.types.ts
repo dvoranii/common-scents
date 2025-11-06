@@ -39,11 +39,6 @@ export interface Fragrance {
   };
 }
 
-interface Accords {
-  name: string;
-  color: string;
-}
-
 interface Note {
   name: string;
   image: string;
@@ -93,4 +88,11 @@ export interface Occasion {
   slug: string;
   image: string;
   description: string;
+}
+
+export interface Accords {
+  name: string;
+  width: string;
+  background: string;
+  color: string;
 }

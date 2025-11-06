@@ -127,6 +127,7 @@ const ArmafClubDeNuitManReview: React.FC = () => {
           <li>When you want maximum compliments</li>
           <li>Younger social gatherings</li>
         </ul>
+        <br />
         <Paragraph>
           <strong>Avoid Wearing:</strong>
         </Paragraph>

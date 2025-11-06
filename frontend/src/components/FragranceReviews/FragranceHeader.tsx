@@ -13,12 +13,13 @@ import {
   RatingValue,
   HouseLogo,
   HouseLogoWrapper,
-  HeaderCol1,
-  HeaderCol2,
   BrandWrapper,
+  AccordsAndLogoWrapper,
+  BottleWrapper,
 } from "./FragranceHeader.styled";
 import RatingStars from "./RatingStars/RatingStars";
 import { NotesDisplay } from "./NoteDisplay/NoteDisplay";
+import { AccordsDisplay } from "./AccordsDisplay/AccordsDisplay";
 
 interface Props {
   fragrance: Fragrance;
@@ -32,41 +33,42 @@ export const FragranceHeader: React.FC<Props> = ({
   return (
     <>
       <HeaderWrapper>
-        <HeaderCol1>
-          <BrandWrapper>
-            <BrandName>{fragrance.house}</BrandName>
-            <FragranceName>{fragrance.name}</FragranceName>
-          </BrandWrapper>
+        <BrandWrapper>
+          <BrandName>{fragrance.house}</BrandName>
+          <FragranceName>{fragrance.name}</FragranceName>
+        </BrandWrapper>
 
-          <MetadataItem>
-            {fragrance.releaseYear}&nbsp;&nbsp;•&nbsp;&nbsp;
-            {fragrance.concentration}
-            &nbsp;&nbsp;•&nbsp;&nbsp;${fragrance.price}/100ml
-          </MetadataItem>
+        <MetadataItem>
+          {fragrance.releaseYear}&nbsp;&nbsp;•&nbsp;&nbsp;
+          {fragrance.concentration}
+          &nbsp;&nbsp;•&nbsp;&nbsp;${fragrance.price}/100ml
+        </MetadataItem>
 
-          {fragrance.rating && (
-            <RatingContainer>
-              <RatingValue>{fragrance.rating.toFixed(1)}</RatingValue>
-              <RatingStars rating={fragrance.rating} />
-              <RatingCount>({fragrance.ratingCount} ratings)</RatingCount>
-            </RatingContainer>
-          )}
-        </HeaderCol1>
-        <HeaderCol2>
+        {fragrance.rating && (
+          <RatingContainer>
+            <RatingValue>{fragrance.rating.toFixed(1)}</RatingValue>
+            <RatingStars rating={fragrance.rating} />
+            <RatingCount>({fragrance.ratingCount} ratings)</RatingCount>
+          </RatingContainer>
+        )}
+      </HeaderWrapper>
+
+      <HeroSection>
+        <BottleWrapper>
+          <BottleImage
+            src={fragrance.heroImage}
+            alt={`${fragrance.name} bottle`}
+            $size={bottleImageSize}
+          />
+        </BottleWrapper>
+        <AccordsAndLogoWrapper>
+          <AccordsDisplay accords={fragrance.accords} />
           {fragrance.houseLogo && (
             <HouseLogoWrapper>
               <HouseLogo src={fragrance.houseLogo} />
             </HouseLogoWrapper>
           )}
-        </HeaderCol2>
-      </HeaderWrapper>
-
-      <HeroSection>
-        <BottleImage
-          src={fragrance.heroImage}
-          alt={`${fragrance.name} bottle`}
-          $size={bottleImageSize}
-        />
+        </AccordsAndLogoWrapper>
 
         <NotesDisplay notes={fragrance.notes} />
 

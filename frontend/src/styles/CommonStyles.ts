@@ -36,7 +36,7 @@ export const SectionTitle = styled.h2<{
   $leftAligned?: boolean;
   $marginBottom?: string;
 }>`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
   text-align: ${(props) => (props.$leftAligned ? "left" : "center")};
   margin-bottom: ${(props) =>

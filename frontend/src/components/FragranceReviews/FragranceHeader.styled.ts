@@ -1,10 +1,6 @@
-// src/components/FragranceReview/FragranceHeader.styled.ts
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
   padding: 80px 20px 0 20px;
   ${(props) => props.theme.spacing.lg};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
@@ -15,14 +11,6 @@ export const HeaderWrapper = styled.div`
   }
 `;
 
-export const HeaderCol1 = styled.div`
-  width: fit-content;
-`;
-export const HeaderCol2 = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 export const BrandWrapper = styled.div``;
 
 export const BrandName = styled.p`
@@ -31,11 +19,6 @@ export const BrandName = styled.p`
   text-transform: uppercase;
   letter-spacing: 2px;
   color: ${(props) => props.theme.colors.text};
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes.xs};
-    letter-spacing: 1.5px;
-  }
 `;
 
 export const FragranceName = styled.h1`
@@ -44,29 +27,12 @@ export const FragranceName = styled.h1`
   color: ${(props) => props.theme.colors.text};
   margin-bottom: ${(props) => props.theme.spacing.md};
   line-height: 1.2;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes.xl};
-  }
 `;
-
-// export const FragranceMetadata = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   gap: ${(props) => props.theme.spacing.sm};
-//   margin-bottom: ${(props) => props.theme.spacing.md};
-//   flex-wrap: wrap;
-// `;
 
 export const MetadataItem = styled.span`
   font-size: ${(props) => props.theme.fontSizes.base};
   color: ${(props) => props.theme.colors.black};
   font-weight: 500;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes.sm};
-  }
 `;
 
 export const RatingDisplay = styled.div`
@@ -80,25 +46,52 @@ export const RatingDisplay = styled.div`
 `;
 
 export const HeroSection = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   ${(props) => props.theme.spacing.lg};
   max-width: 1600px;
   margin: 0 auto;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2vw;
+  padding-top: ${(props) => props.theme.spacing.xl};
+
+  @media screen and (max-width: 1100px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.8fr 1fr;
+  }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: ${(props) => props.theme.spacing.xl};
     padding: ${(props) => props.theme.spacing.xl};
     ${(props) => props.theme.spacing.md};
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    grid-template-rows: 0.5fr 0.5fr;
+  }
+
+  @media screen and (max-width: 520px) {
+    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    grid-template-columns: 1fr;
+  }
 `;
 
+export const BottleWrapper = styled.div`
+  /* padding: ${(props) =>
+    `0 ${props.theme.spacing.xxl} 0 ${props.theme.spacing.xxl}`}; */
+  flex: 1;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 100%;
+  }
+`;
 export const BottleImage = styled.img<{
   $size?: "small" | "medium" | "large" | "xlarge";
 }>`
-  width: 100%;
+  width: 70%;
+  min-width: 200px;
   max-width: ${(props) => {
     switch (props.$size) {
       case "small":
@@ -119,9 +112,9 @@ export const BottleImage = styled.img<{
   display: block;
   border-radius: 12px;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    max-width: 300px;
-  }
+  /* @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 50%;
+  } */
 `;
 export const StatsGrid = styled.div`
   display: grid;
@@ -182,7 +175,6 @@ export const StatCard = styled.div`
 export const RatingContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-bottom: ${(props) => props.theme.spacing.md};
   margin-top: ${(props) => props.theme.spacing.sm};
   gap: 0.5rem;
@@ -201,15 +193,33 @@ export const RatingCount = styled.span`
   font-family: sans-serif;
 `;
 
-// Logo
-
 export const HouseLogoWrapper = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 10px;
+  padding-top: ${(props) => props.theme.spacing.xl};
+  @media (max-width: 520px) {
+    display: flex;
+    justify-content: center;
+    padding-top: ${(props) => props.theme.spacing.xxxxl};
+  }
 `;
 
 export const HouseLogo = styled.img`
-  width: clamp(150px, 15vw, 175px);
+  min-width: 150px;
+  width: clamp(150px, 8vw, 200px);
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 40%;
+  }
+`;
+
+export const AccordsAndLogoWrapper = styled.div`
+  flex: 1;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 520px) {
+    grid-row: 2;
+  }
 `;

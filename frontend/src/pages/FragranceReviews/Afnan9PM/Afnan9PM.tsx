@@ -131,6 +131,7 @@ const Afnan9PMReview: React.FC = () => {
           <li>Going out with friends in cold weather</li>
           <li>When you want maximum attention</li>
         </ul>
+        <br />
         <Paragraph>
           <strong>Don't Wear It:</strong>
         </Paragraph>
