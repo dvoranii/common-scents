@@ -75,6 +75,8 @@ export const HeroSection = styled.div`
   @media screen and (max-width: 520px) {
     grid-template-rows: 0.5fr 0.5fr 0.5fr;
     grid-template-columns: 1fr;
+    column-gap: 0;
+    padding: ${(props) => props.theme.spacing.md};
   }
 `;
 
@@ -214,6 +216,10 @@ export const HouseLogo = styled.img`
 
 export const AccordsAndLogoWrapper = styled.div`
   flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 100%;

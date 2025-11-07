@@ -14,7 +14,7 @@ export const accordPresets: Record<string, Omit<Accords, "width">> = {
   },
   warmSpicy: {
     name: "Warm Spicy",
-    background: "#E4957A",
+    background: "#CC3300",
     color: "white",
   },
   fruity: {

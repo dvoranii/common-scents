@@ -10,9 +10,22 @@ import {
 } from "./Afnan9PM.styled";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
+import SummarySection from "../../../components/SummarySection/SummarySection";
+import { useFragranceReviews } from "../../../hooks/useFragranceReviews";
+import { saveFragranceUrl } from "../../../services/cache.service";
+import { useEffect } from "react";
 
 const Afnan9PMReview: React.FC = () => {
   const fragrance = getFragranceBySlug("afnan-9pm");
+
+  useEffect(() => {
+    if (fragrance) {
+      saveFragranceUrl(fragrance.fragranticaUrl);
+    }
+  }, []);
+
+  const { isReviewsLoading, reviewsSummary, handleSummarizeReviews } =
+    useFragranceReviews();
 
   if (!fragrance) {
     return <Navigate to="/" replace />;
@@ -22,7 +35,12 @@ const Afnan9PMReview: React.FC = () => {
     <PageWrapper>
       <FragranceHeader fragrance={fragrance} />
       <PerfumersDisplay perfumers={fragrance.perfumers} />
-
+      <SummarySection
+        title="Community Reviews Analysis"
+        onGenerate={handleSummarizeReviews}
+        isLoading={isReviewsLoading}
+        content={reviewsSummary}
+      />
       <IntroSection>
         <Paragraph>
           <strong>Afnan 9PM</strong> is a sophisticated evening scent that

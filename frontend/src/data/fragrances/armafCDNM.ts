@@ -34,16 +34,11 @@ export const armafClubDeNuitMan: Fragrance = {
 
   accords: [
     createAccord("warmSpicy", "85%"),
-    createAccord("sweet", "80%"),
-    {
-      name: "Amber",
-      width: "75%",
-      background: "rgb(255, 204, 153)",
-      color: "rgb(38, 50, 70)",
-    },
+    createAccord("freshSpicy", "68%"),
     createAccord("citrus", "60%"),
-    createAccord("leather", "55%"),
-    createAccord("aromatic", "45%"),
+    createAccord("amber", "57.6583%"),
+    createAccord("cinnamon", "57.6583%"),
+    createAccord("woody", "48.1812%"),
   ],
 
   notes: {
