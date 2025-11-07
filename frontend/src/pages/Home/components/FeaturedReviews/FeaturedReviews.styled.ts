@@ -20,7 +20,7 @@ export const ReviewCard = styled.div`
   border-radius: ${(props) => props.theme.spacing.sm};
   overflow: hidden;
   transition: box-shadow 0.3s;
-  border: 1px solid grey;
+  border: 1px solid lightgrey;
 
   &:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -56,7 +56,7 @@ export const ReviewContent = styled.div`
 
 export const ReviewTitle = styled.h3`
   text-align: center;
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xl};
   color: ${(props) => props.theme.colors.text};
 `;

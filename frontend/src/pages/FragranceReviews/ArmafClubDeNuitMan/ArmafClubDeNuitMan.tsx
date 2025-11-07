@@ -9,6 +9,7 @@ import {
   NotesList,
 } from "./ArmafClubDeNuitMan.styled";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
+import SummarySection from "../../../components/SummarySection/SummarySection";
 
 const ArmafClubDeNuitManReview: React.FC = () => {
   const fragrance = getFragranceBySlug("armaf-club-de-nuit-man");
@@ -21,7 +22,7 @@ const ArmafClubDeNuitManReview: React.FC = () => {
     <PageWrapper>
       {/* AUTOMATED HEADER - Uses data from fragrances.ts */}
       <FragranceHeader fragrance={fragrance} bottleImageSize="xlarge" />
-
+      <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
       <IntroSection>
         <Paragraph>
           <strong>Armaf Club de Nuit Man</strong> is the often-overlooked gem in

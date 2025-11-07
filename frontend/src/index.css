@@ -20,7 +20,7 @@ body {
   line-height: 1.25;
   background-color: #fff;
   color: #000;
-  position: relative;
+  /* position: relative; */
 }
 
 img,

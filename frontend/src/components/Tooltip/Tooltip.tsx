@@ -6,17 +6,20 @@ import {
   TooltipIcon,
 } from "./Tooltip.styled";
 interface TooltipProps {
-  content: string;
+  textContent: string | (() => string);
   position?: "top" | "bottom" | "right";
   children?: React.ReactNode;
 }
 
 const Tooltip: React.FC<TooltipProps> = ({
-  content,
+  textContent,
   position = "bottom",
   children,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+
+  const tooltipContent =
+    typeof textContent === "function" ? textContent() : textContent;
 
   return (
     <TooltipContainer
@@ -25,7 +28,7 @@ const Tooltip: React.FC<TooltipProps> = ({
     >
       {children || <TooltipIcon>?</TooltipIcon>}
       <TooltipContent $visible={isVisible} $position={position}>
-        {content}
+        {tooltipContent}
       </TooltipContent>
     </TooltipContainer>
   );

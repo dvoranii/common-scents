@@ -112,8 +112,6 @@ export const BurgerButton = styled.button<{
   border: none;
   cursor: pointer;
   z-index: 1001;
-  /* color: ${(props) =>
-    props.$textColour ? props.$textColour : props.theme.colors.black}; */
   color: ${(props) =>
     props.$xColour || props.$textColour || props.theme.colors.black};
   padding: 8px;
@@ -156,7 +154,6 @@ export const MobileNavSidebar = styled.div<{ $isOpen: boolean }>`
     z-index: 999;
     transition: right 0.3s ease;
     padding: ${(props) => props.theme.spacing.xxl};
-    ${(props) => props.theme.spacing.xl};
   }
 `;
 

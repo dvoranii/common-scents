@@ -8,7 +8,7 @@ export const PageContainer = styled.div`
 
 export const Section = styled.section<{ altBg?: boolean; $hasBgImg?: boolean }>`
   padding: ${(props) =>
-    `${props.theme.spacing.xxxl} ${props.theme.spacing.lg}`};
+    `${props.theme.spacing.xxxl}  ${props.theme.spacing.lg}`};
   background-color: ${(props) =>
     props.altBg ? props.theme.colors.backgroundAlt : "transparent"};
 

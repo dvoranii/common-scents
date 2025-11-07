@@ -11,21 +11,9 @@ import {
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
-import { useFragranceReviews } from "../../../hooks/useFragranceReviews";
-import { saveFragranceUrl } from "../../../services/cache.service";
-import { useEffect } from "react";
 
 const Afnan9PMReview: React.FC = () => {
   const fragrance = getFragranceBySlug("afnan-9pm");
-
-  useEffect(() => {
-    if (fragrance) {
-      saveFragranceUrl(fragrance.fragranticaUrl);
-    }
-  }, []);
-
-  const { isReviewsLoading, reviewsSummary, handleSummarizeReviews } =
-    useFragranceReviews();
 
   if (!fragrance) {
     return <Navigate to="/" replace />;
@@ -35,12 +23,7 @@ const Afnan9PMReview: React.FC = () => {
     <PageWrapper>
       <FragranceHeader fragrance={fragrance} />
       <PerfumersDisplay perfumers={fragrance.perfumers} />
-      <SummarySection
-        title="Community Reviews Analysis"
-        onGenerate={handleSummarizeReviews}
-        isLoading={isReviewsLoading}
-        content={reviewsSummary}
-      />
+      <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
       <IntroSection>
         <Paragraph>
           <strong>Afnan 9PM</strong> is a sophisticated evening scent that
@@ -57,7 +40,6 @@ const Afnan9PMReview: React.FC = () => {
         </Paragraph>
       </IntroSection>
 
-      {/* MANUAL DETAILED REVIEW */}
       <ReviewSection>
         <SectionTitle>Fragrance Overview</SectionTitle>
         <Paragraph>
@@ -239,9 +221,6 @@ const Afnan9PMReview: React.FC = () => {
           fall/winter evening powerhouse—it's nearly perfect.
         </Paragraph>
       </ReviewSection>
-
-      {/* AUTOMATED AI TOOLS - Uses fragrance data */}
-      {/* <AITools fragrance={fragrance} /> */}
     </PageWrapper>
   );
 };

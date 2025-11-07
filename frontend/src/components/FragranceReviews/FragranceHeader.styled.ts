@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-  padding: 80px 20px 0 20px;
-  ${(props) => props.theme.spacing.lg};
+  padding: 80px 0px 0 0px;
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+  /* @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: ${(props) => props.theme.spacing.xl};
-    ${(props) => props.theme.spacing.md};
-  }
+  } */
 `;
 
 export const BrandWrapper = styled.div``;
@@ -47,46 +45,34 @@ export const RatingDisplay = styled.div`
 
 export const HeroSection = styled.div`
   display: flex;
-  ${(props) => props.theme.spacing.lg};
   max-width: 1600px;
   margin: 0 auto;
   align-items: flex-start;
   justify-content: center;
   gap: 2vw;
-  padding-top: ${(props) => props.theme.spacing.xl};
+  padding-top: ${(props) => props.theme.spacing.md};
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 940px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.8fr 1fr;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    flex-direction: column;
-    gap: ${(props) => props.theme.spacing.xl};
-    padding: ${(props) => props.theme.spacing.xl};
-    ${(props) => props.theme.spacing.md};
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    grid-template-rows: 0.5fr 0.5fr;
-  }
-
-  @media screen and (max-width: 520px) {
     grid-template-rows: 0.5fr 0.5fr 0.5fr;
     grid-template-columns: 1fr;
     column-gap: 0;
     padding: ${(props) => props.theme.spacing.md};
+    width: 100%;
   }
 `;
 
 export const BottleWrapper = styled.div`
-  /* padding: ${(props) =>
-    `0 ${props.theme.spacing.xxl} 0 ${props.theme.spacing.xxl}`}; */
   flex: 1;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 `;
 export const BottleImage = styled.img<{
@@ -113,10 +99,6 @@ export const BottleImage = styled.img<{
   margin: 0 auto;
   display: block;
   border-radius: 12px;
-
-  /* @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    width: 50%;
-  } */
 `;
 export const StatsGrid = styled.div`
   display: grid;
@@ -198,10 +180,10 @@ export const RatingCount = styled.span`
 export const HouseLogoWrapper = styled.div`
   width: 100%;
   padding-top: ${(props) => props.theme.spacing.xl};
-  @media (max-width: 520px) {
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: flex;
     justify-content: center;
-    padding-top: ${(props) => props.theme.spacing.xxxxl};
   }
 `;
 
@@ -212,6 +194,10 @@ export const HouseLogo = styled.img`
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 40%;
   }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding-top: ${(props) => props.theme.spacing.xxl};
+    padding-bottom: ${(props) => props.theme.spacing.xxl};
+  }
 `;
 
 export const AccordsAndLogoWrapper = styled.div`
@@ -221,11 +207,7 @@ export const AccordsAndLogoWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    width: 100%;
-  }
-
-  @media screen and (max-width: 520px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     grid-row: 2;
   }
 `;

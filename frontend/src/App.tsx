@@ -5,10 +5,12 @@ import AppRouter from "./AppRouter";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <AppRouter />
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <AppRouter />
+      </ThemeProvider>
+    </>
   );
 }
 

@@ -9,7 +9,7 @@ export const getFragranceBySlug = (slug: string): Fragrance | undefined =>
   findBySlug(fragrances, slug);
 
 export const getFragrancesByType = (type: string): Fragrance[] =>
-  filterByField(fragrances, "type", type);
+  filterByField(fragrances, "category", type);
 
 export const getFragrancesBySeason = (season: string): Fragrance[] =>
   filterByField(fragrances, "season", season);

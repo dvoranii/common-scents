@@ -33,8 +33,8 @@ export const TitleContainer = styled.div`
 `;
 
 export const MainTitle = styled.h1`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.xxxxl};
+  font-family: ${(props) => props.theme.fonts.heading1};
+  font-size: ${(props) => props.theme.fontSizes.xxxxxl};
   font-weight: 700;
   letter-spacing: 0.1em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);

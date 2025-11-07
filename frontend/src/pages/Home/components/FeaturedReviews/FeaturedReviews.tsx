@@ -54,7 +54,9 @@ export const FeaturedReviews: React.FC = () => {
         </ReviewsGrid>
 
         <SeeMoreWrapper>
-          <GradientHoverLink href="#">See More Reviews</GradientHoverLink>
+          <GradientHoverLink href="/fragrance-reviews">
+            See More Reviews
+          </GradientHoverLink>
         </SeeMoreWrapper>
       </SectionContent>
     </Section>

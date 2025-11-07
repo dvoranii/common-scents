@@ -4,9 +4,12 @@ export const NotesColumn = styled.div`
   flex: 1;
   border-radius: 20px;
 
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 940px) {
     grid-column: span 2;
-    padding-top: 1.2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -16,7 +19,9 @@ export const NotesSectionTitle = styled.h2`
   color: rgb(38, 50, 70);
   margin-bottom: ${(props) => props.theme.spacing.lg};
   text-align: left;
-  @media screen and (max-width: 1100px) {
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    align-self: baseline;
     font-size: ${(props) => props.theme.fontSizes.xxl};
   }
 `;
@@ -33,23 +38,26 @@ export const NoteType = styled.h3`
     margin-top: 0;
   }
 
-  @media screen and (max-width: 1100px) {
+  /* @media screen and (max-width: 1100px) {
     font-size: ${(props) => props.theme.fontSizes.lg};
     text-align: center;
-  }
+  } */
 `;
 
 export const NotesGrid = styled.div`
   display: flex;
   margin-bottom: ${(props) => props.theme.spacing.md};
 
-  @media screen and (max-width: 1088px) {
+  @media screen and (max-width: 940px) {
+    flex-wrap: wrap;
+  }
+  /* @media screen and (max-width: 1088px) {
     flex-wrap: wrap;
   }
   @media screen and (max-width: 1100px) {
     gap: ${(props) => props.theme.spacing.md};
     justify-content: center;
-  }
+  } */
 `;
 
 export const NoteItem = styled.div`
@@ -69,10 +77,10 @@ export const NoteImage = styled.img`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.2s ease;
 
-  @media screen and (max-width: 1100px) {
+  /* @media screen and (max-width: 1100px) {
     width: 3.5rem;
     height: 3.5rem;
-  }
+  } */
 `;
 
 export const NoteName = styled.span`
@@ -83,7 +91,7 @@ export const NoteName = styled.span`
   max-width: 80px;
   line-height: 1.3;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  /* @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     font-size: 0.7rem;
-  }
+  } */
 `;

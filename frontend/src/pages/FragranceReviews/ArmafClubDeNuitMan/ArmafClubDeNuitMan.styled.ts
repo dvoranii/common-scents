@@ -17,7 +17,6 @@ export const IntroSection = styled.section`
   background: ${(props) => props.theme.colors.background};
   padding: ${(props) => props.theme.spacing.xl};
   border-radius: 12px;
-  margin-bottom: ${(props) => props.theme.spacing.xl};
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: ${(props) => props.theme.spacing.lg};
@@ -25,10 +24,9 @@ export const IntroSection = styled.section`
 `;
 
 export const ReviewSection = styled.section`
-  background: white;
-  padding: ${(props) => props.theme.spacing.xl};
+  padding: 0 ${(props) => props.theme.spacing.xl} 0
+    ${(props) => props.theme.spacing.xl};
   border-radius: 12px;
-  margin-bottom: ${(props) => props.theme.spacing.xl};
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: ${(props) => props.theme.spacing.lg};
@@ -39,7 +37,7 @@ export const SectionTitle = styled.h2`
   font-size: ${(props) => props.theme.fontSizes.xl};
   font-weight: 700;
   color: ${(props) => props.theme.colors.text};
-  margin-bottom: ${(props) => props.theme.spacing.lg};
+  margin-bottom: ${(props) => props.theme.spacing.sm};
   margin-top: ${(props) => props.theme.spacing.xl};
 
   &:first-child {

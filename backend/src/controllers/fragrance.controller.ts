@@ -13,7 +13,7 @@ export const summarizeFragranceReviews = async (
   res: Response
 ): Promise<void> => {
   try {
-    const { url } = req.body;
+    const { url, numberOfReviews } = req.body;
 
     if (!url) {
       res.status(400).json({ error: "URL is required" });
@@ -21,10 +21,15 @@ export const summarizeFragranceReviews = async (
     }
 
     await scraperService.initialize();
-    const reviews = await scraperService.scrapeFragranceReviews(url);
+    const reviews = await scraperService.scrapeFragranceReviews(
+      url,
+      numberOfReviews || 10
+    );
     await scraperService.close();
 
-    const prompt = `Here are 10 recent reviews for this fragrance:
+    const prompt = `Here are ${
+      numberOfReviews || 10
+    } recent reviews for this fragrance:
         
         ${reviews
           .map((r, i) => `Review ${i + 1} (Rating: ${r.rating}/5): ${r.text}`)

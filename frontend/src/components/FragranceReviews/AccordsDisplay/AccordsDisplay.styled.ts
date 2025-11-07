@@ -5,8 +5,8 @@ export const AccordsColumn = styled.div`
   max-width: 620px;
   border-radius: 20px;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    min-width: 100%;
+  @media screen and (max-width: 560px) {
+    min-width: 80%;
   }
 `;
 
@@ -17,9 +17,8 @@ export const SectionTitle = styled.h2`
   margin-bottom: ${(props) => props.theme.spacing.sm};
   text-align: left;
 
-  @media (max-width: 1100px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     font-size: ${(props) => props.theme.fontSizes.xxl};
-    margin-bottom: ${(props) => props.theme.spacing.md};
   }
 `;
 
@@ -45,9 +44,4 @@ export const AccordItem = styled.div<{
   color: ${(props) => props.$color};
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  /* @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
-  } */
 `;

@@ -6,66 +6,122 @@ import {
   GenerateSummaryButton,
   LoadingContainer,
   LoadingText,
+  RadioGroup,
+  RadioInput,
+  RadioLabel,
+  ReviewCountSelector,
   SectionContainer,
+  SelectorTitle,
+  SummaryButtonWrapper,
   SummaryText,
   SummaryTitle,
   TitleContainer,
 } from "./SummarySection.styled";
+import { useFragranceReviews } from "../../hooks/useFragranceReviews";
+import { useState } from "react";
 
 interface SummarySectionProps {
-  title: string;
-  onGenerate: () => Promise<void>;
-  isLoading: boolean;
-  content: string | null;
+  fragranticaUrl: string;
 }
 
-const SummarySection: React.FC<SummarySectionProps> = ({
-  title,
-  onGenerate,
-  isLoading,
-  content,
-}) => {
-  const { displayedText, isTyping } = useTypewriter(content || "", 15);
+const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
+  const [numberOfReviews, setNumberOfReviews] = useState(10);
+
+  const { isReviewsLoading, reviewsSummary, handleSummarizeReviews } =
+    useFragranceReviews(numberOfReviews);
+
+  const handleSummarizeReviewsWithUrl = () => {
+    handleSummarizeReviews(fragranticaUrl);
+  };
+
+  const { displayedText, isTyping } = useTypewriter(reviewsSummary || "", 15);
 
   const getButtonText = () => {
-    if (isLoading) return "Analyzing Reviews...";
-    if (content) return "Analysis Complete";
+    if (isReviewsLoading) return "Analyzing Reviews...";
+    if (reviewsSummary) return "Analysis Complete";
     return "Summarize Fragrantica Reviews";
   };
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNumberOfReviews(parseInt(event.target.value, 10));
+    console.log(event.target.value);
+  };
+
   return (
-    <SectionContainer>
-      <TitleContainer>
-        <SummaryTitle>{title}</SummaryTitle>
-        <Tooltip
-          content="We analyze the 10 most recent reviews to identify common themes and sentiments. This may take a few seconds."
-          position="right"
-        />
-      </TitleContainer>
+    <>
+      <SectionContainer>
+        <TitleContainer>
+          <SummaryTitle>Community Reviews - AI Analysis</SummaryTitle>
+          <Tooltip
+            textContent={`We analyze the ${numberOfReviews} most recent reviews to identify common themes and sentiments. This may take a few seconds.`}
+            position="right"
+          />
+        </TitleContainer>
 
-      <Disclaimer role="note">
-        Note: Fragrance preferences are highly personal. For the most accurate
-        impression, we recommend testing the scent yourself.
-      </Disclaimer>
+        <Disclaimer role="note">
+          Note: Fragrance preferences are highly personal. For the most accurate
+          impression, we recommend testing the scent yourself.
+        </Disclaimer>
 
-      <GenerateSummaryButton
-        onClick={() => onGenerate()}
-        disabled={isLoading || content !== null}
-      >
-        {getButtonText()}
-      </GenerateSummaryButton>
+        <SelectorTitle>Number of reviews to analyze:</SelectorTitle>
+        <ReviewCountSelector>
+          <RadioGroup>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="reviewCount"
+                value="10"
+                checked={numberOfReviews === 10}
+                onChange={handleChange}
+              />
+              10 Reviews
+            </RadioLabel>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="reviewCount"
+                value="25"
+                checked={numberOfReviews === 25}
+                onChange={handleChange}
+              />
+              25 Reviews
+            </RadioLabel>
+            <RadioLabel>
+              <RadioInput
+                type="radio"
+                name="reviewCount"
+                value="50"
+                checked={numberOfReviews === 50}
+                onChange={handleChange}
+              />
+              50 Reviews
+            </RadioLabel>
+          </RadioGroup>
+        </ReviewCountSelector>
 
-      {isLoading && (
-        <LoadingContainer>
-          <LoadingSpinner />
-          <LoadingText>Gathering the 10 most recent reviews...</LoadingText>
-        </LoadingContainer>
-      )}
+        <SummaryButtonWrapper>
+          <GenerateSummaryButton
+            onClick={handleSummarizeReviewsWithUrl}
+            disabled={isReviewsLoading || reviewsSummary !== null}
+          >
+            {getButtonText()}
+          </GenerateSummaryButton>
+        </SummaryButtonWrapper>
 
-      {content && (
-        <SummaryText $isTyping={isTyping}>{displayedText}</SummaryText>
-      )}
-    </SectionContainer>
+        {isReviewsLoading && (
+          <LoadingContainer>
+            <LoadingSpinner />
+            <LoadingText>
+              Gathering the {numberOfReviews} most recent reviews...
+            </LoadingText>
+          </LoadingContainer>
+        )}
+
+        {reviewsSummary && (
+          <SummaryText $isTyping={isTyping}>{displayedText}</SummaryText>
+        )}
+      </SectionContainer>
+    </>
   );
 };
 

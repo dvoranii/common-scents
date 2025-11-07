@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const TooltipContainer = styled.div`
   position: relative;
   display: inline-block;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: none;
+  }
 `;
 
 export const TooltipIcon = styled.span`

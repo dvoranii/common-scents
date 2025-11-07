@@ -40,7 +40,7 @@ export const CategoryIcon = styled.div<CategoryIconProps>`
 `;
 
 export const CategoryName = styled.h1`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxxl};
   color: ${(props) => props.theme.colors.text};
   margin: 0;
@@ -57,7 +57,7 @@ export const CategoryDescription = styled.p`
 `;
 
 export const SectionTitle = styled.h3`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading2};
   font-size: ${(props) => props.theme.fontSizes.xxxl};
   text-align: center;
   color: ${(props) => props.theme.colors.text};
@@ -152,7 +152,7 @@ export const NoteProfileCard = styled.div`
 `;
 
 export const NoteProfileTitle = styled.h4`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.lg};
   color: ${(props) => props.theme.colors.text};
   margin-bottom: ${(props) => props.theme.spacing.sm};

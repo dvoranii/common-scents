@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { summarizeFragranceReviews } from "../services/api.service";
-import { getSavedFragranceUrl } from "../services/cache.service";
+// import { getSavedFragranceUrl } from "../services/cache.service";
 
-export const useFragranceReviews = () => {
+export const useFragranceReviews = (numberOfReviews: number) => {
   const [isReviewsLoading, setIsReviewsLoading] = useState(false);
   const [reviewsSummary, setReviewsSummary] = useState<string | null>(null);
 
   const handleSummarizeReviews = async (url?: string) => {
     setIsReviewsLoading(true);
     try {
-      const fragranceUrl = url || getSavedFragranceUrl();
-      if (!fragranceUrl) throw new Error("Fragrance URL not available");
+      if (!url) throw new Error("Fragrance URL not available");
 
-      const data = await summarizeFragranceReviews(fragranceUrl);
+      const data = await summarizeFragranceReviews(url, numberOfReviews);
       setReviewsSummary(data.summary);
     } catch (error: unknown) {
       console.error("Error summarizing reviews", error);

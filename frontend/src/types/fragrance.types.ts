@@ -9,7 +9,7 @@ export interface Fragrance {
   price?: number;
   season?: string[];
   occasion?: string[];
-  type?: string[];
+  category?: string[];
   notes?: FragranceNotes;
   accords?: Accords[];
   categorySlugs: string[];

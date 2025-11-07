@@ -1,6 +1,9 @@
 const BASE_URL = "http://localhost:3001";
 
-export const summarizeFragranceReviews = async (url: string) => {
+export const summarizeFragranceReviews = async (
+  url: string,
+  numberOfReviews: number
+) => {
   try {
     const response = await fetch(`${BASE_URL}/api/fragrance/reviews`, {
       method: "POST",
@@ -8,7 +11,7 @@ export const summarizeFragranceReviews = async (url: string) => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ url }),
+      body: JSON.stringify({ url, numberOfReviews }),
     });
 
     if (!response.ok) {

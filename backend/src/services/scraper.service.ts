@@ -22,6 +22,8 @@ class ScraperService {
   ): Promise<any[]> {
     if (!this.page) throw new Error("Page not initialized");
 
+    console.log(count);
+    console.log(url);
     try {
       await this.page.goto(`${url}#all-reviews`, {
         waitUntil: "domcontentloaded",
