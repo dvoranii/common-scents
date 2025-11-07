@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
 import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import { generateTagsFromFragrances } from "../../utils/tagUtils";
+import { getAllFragrances } from "../../utils/fragranceUtils";
+// import { Fragrance } from "../../types/fragrance.types";
 import {
   PageWrapper,
   TopControlsWrapper,
@@ -21,9 +23,17 @@ import {
   RemoveTagButton,
   ActiveFiltersSummary,
   FilterSummaryText,
-  ContentPlaceholder,
   ClearButton,
   TagSectionHeader,
+  FragranceGrid,
+  FragranceHouse,
+  ThumbnailNotes,
+  ThumbnailContent,
+  FragranceName,
+  //   FragranceGender,
+  ThumbnailCard,
+  ThumbnailImage,
+  NameAndHouseWrapper,
 } from "./FragranceReviews.styled";
 
 const FragranceReviews: React.FC = () => {
@@ -32,6 +42,7 @@ const FragranceReviews: React.FC = () => {
   const [filterMode, setFilterMode] = useState<"ANY" | "ALL">("ANY");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
+  const allFragrances = useMemo(() => getAllFragrances(), []);
   const availableTags = useMemo(() => generateTagsFromFragrances(), []);
 
   const groupedTags = useMemo(() => {
@@ -43,6 +54,37 @@ const FragranceReviews: React.FC = () => {
     };
     return groups;
   }, [availableTags]);
+
+  const filteredFragrances = useMemo(() => {
+    return allFragrances.filter((fragrance) => {
+      const matchesSearch =
+        searchQuery === "" ||
+        fragrance.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        fragrance.house.toLowerCase().includes(searchQuery.toLowerCase());
+
+      let matchesTags = true;
+      if (selectedTags.length > 0) {
+        if (filterMode === "ANY") {
+          matchesTags = selectedTags.some(
+            (tag) =>
+              fragrance.house === tag ||
+              fragrance.season?.includes(tag) ||
+              fragrance.occasion?.includes(tag) ||
+              fragrance.category?.includes(tag)
+          );
+        } else {
+          matchesTags = selectedTags.every(
+            (tag) =>
+              fragrance.house === tag ||
+              fragrance.season?.includes(tag) ||
+              fragrance.occasion?.includes(tag) ||
+              fragrance.category?.includes(tag)
+          );
+        }
+      }
+      return matchesSearch && matchesTags;
+    });
+  }, [allFragrances, searchQuery, selectedTags, filterMode]);
 
   const toggleTag = (tagName: string) => {
     if (selectedTags.includes(tagName)) {
@@ -56,13 +98,20 @@ const FragranceReviews: React.FC = () => {
     return availableTags.find((t) => t.name === tagName)?.color || "#6b7280";
   };
 
+  const clearAllFilters = () => {
+    setSearchQuery("");
+    setSelectedTags([]);
+  };
+
+  const hasActiveFilters = searchQuery !== "" || selectedTags.length > 0;
+
   return (
     <PageWrapper>
       <TopControlsWrapper>
         <SearchWrapper>
           <SearchBar
             type="text"
-            placeholder="Search..."
+            placeholder="Search by name or brand..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -225,11 +274,26 @@ const FragranceReviews: React.FC = () => {
       {selectedTags.length > 0 && (
         <ActiveFiltersSummary>
           <FilterSummaryText>
-            Filtering by {selectedTags.length} tag
-            {selectedTags.length !== 1 ? "s" : ""} (
-            {filterMode === "ANY" ? "matching any" : "matching all"}):
+            {hasActiveFilters && (
+              <>
+                Showing {filteredFragrances.length} of {allFragrances.length}{" "}
+                fragrances
+                {selectedTags.length > 0 && (
+                  <>
+                    {" "}
+                    • Filtering by {selectedTags.length} tag
+                    {selectedTags.length !== 1 ? "s" : ""} (
+                    {filterMode === "ANY" ? "matching any" : "matching all"})
+                  </>
+                )}
+              </>
+            )}
           </FilterSummaryText>
-          <TagsContainer>
+          <ClearButton onClick={clearAllFilters} style={{ marginTop: "8px" }}>
+            Clear All Filters
+          </ClearButton>
+
+          <TagsContainer style={{ marginTop: "8px" }}>
             {selectedTags.map((tag) => (
               <Tag
                 key={tag}
@@ -254,9 +318,45 @@ const FragranceReviews: React.FC = () => {
         </ActiveFiltersSummary>
       )}
 
-      <ContentPlaceholder>
-        Your fragrance reviews will appear here
-      </ContentPlaceholder>
+      <FragranceGrid>
+        {filteredFragrances.map((fragrance) => (
+          <ThumbnailCard
+            key={fragrance.id}
+            to={`/fragrance-reviews/${fragrance.slug}`}
+          >
+            <ThumbnailImage
+              src={fragrance.thumbnailImage}
+              alt={fragrance.name}
+            />
+            <ThumbnailContent>
+              <NameAndHouseWrapper>
+                <FragranceHouse>{fragrance.house}</FragranceHouse>
+                <FragranceName>{fragrance.name}</FragranceName>
+              </NameAndHouseWrapper>
+              {/* <FragranceGender>{fragrance.gender}</FragranceGender> */}
+
+              {fragrance.notes && (
+                <ThumbnailNotes>
+                  {fragrance.notes.top
+                    .slice(0, 3)
+                    .map((note) => note.name)
+                    .join(" • ")}
+                </ThumbnailNotes>
+              )}
+            </ThumbnailContent>
+          </ThumbnailCard>
+        ))}
+      </FragranceGrid>
+
+      {filteredFragrances.length === 0 && (
+        <div style={{ textAlign: "center", padding: "48px", color: "#6b7280" }}>
+          No fragrances found matching your search and filters.
+          <br />
+          <ClearButton onClick={clearAllFilters} style={{ marginTop: "16px" }}>
+            Clear All Filters
+          </ClearButton>
+        </div>
+      )}
     </PageWrapper>
   );
 };

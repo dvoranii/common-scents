@@ -1,4 +1,3 @@
-// src/pages/FragranceReviews/Afnan9PM/Afnan9PM.styled.ts
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`

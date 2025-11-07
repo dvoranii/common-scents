@@ -46,7 +46,7 @@ export const FeaturedReviews: React.FC = () => {
                   </ReviewDescription>
                 </ReviewTextWrapper>
                 <ReviewLink to={`/fragrance-reviews/${fragrance.slug}`}>
-                  Read Review →
+                  Read Review
                 </ReviewLink>
               </ReviewContent>
             </ReviewCard>

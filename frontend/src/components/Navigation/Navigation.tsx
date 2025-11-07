@@ -61,7 +61,7 @@ export const Navigation: React.FC = () => {
   const navItems = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
-    { to: "/reviews", label: "Reviews" },
+    { to: "/fragrance-reviews", label: "Reviews" },
     { to: "/guides", label: "Tips & Guides" },
   ];
 
