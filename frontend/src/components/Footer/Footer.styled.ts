@@ -5,6 +5,16 @@ export const Container = styled.div`
   min-height: 250px;
   background: linear-gradient(to top, #efad70, #e88e44);
   border-top: 4px solid #e78732;
+  position: relative;
+`;
+
+export const Trademark = styled.p`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  font-family: "Lato", sans-serif;
+  padding-bottom: 12px;
 `;
 export const ContainerInner = styled.div`
   width: 100%;

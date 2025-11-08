@@ -5,13 +5,16 @@ import {
   HeroSection,
   HeroContent,
   LogoContainer,
-  TitleContainer,
-  MainTitle,
-  Tagline,
   ButtonGroup,
   PrimaryButton,
   SecondaryButton,
 } from "./Hero.styled";
+import { Link } from "react-router-dom";
+import {
+  MainTitle,
+  TitleContainer,
+  Tagline,
+} from "../../../../styles/CommonStyles";
 
 export const Hero: React.FC = () => {
   const secondaryButtonRef = usePositionAwareButton();
@@ -25,11 +28,14 @@ export const Hero: React.FC = () => {
 
         <TitleContainer>
           <MainTitle>Common Scents</MainTitle>
-          <Tagline>MAKING SCENTS MAKE SENSE</Tagline>
+          <Tagline>Making Scents Make Sense</Tagline>
         </TitleContainer>
 
         <ButtonGroup>
-          <PrimaryButton>Explore Reviews</PrimaryButton>
+          <Link to="/fragrance-reviews">
+            <PrimaryButton>Explore Reviews</PrimaryButton>
+          </Link>
+
           <SecondaryButton ref={secondaryButtonRef}>
             Watch on YouTube
             <span></span>

@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import { Layout } from "./components/Layout/Layout";
-// import { Navigation } from "./components/Navigation/Navigation";
 import HomePage from "./pages/Home/Home";
 import OccasionDetailPage from "./pages/Occasions/OccasionDetailPage";
 import CategoryDetailPage from "./pages/Categories/CategoryDetailPage";
 import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
 import FragranceReviews from "./pages/FragranceReviews/FragranceReviews";
-// import Footer from "./components/Footer/Footer";
+import About from "./pages/About/About";
 
 function AppRouter() {
   return (
@@ -25,6 +24,7 @@ function AppRouter() {
               element={<CategoryDetailPage />}
             />
             <Route path="/fragrance-reviews" element={<FragranceReviews />} />
+            <Route path="/about" element={<About />} />
 
             {fragranceReviewRoutes.map(({ slug, component: Component }) => (
               <Route
@@ -38,7 +38,6 @@ function AppRouter() {
               />
             ))}
           </Routes>
-          {/* <Footer /> */}
         </Layout>
       </Router>
     </>

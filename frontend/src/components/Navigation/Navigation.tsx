@@ -63,6 +63,7 @@ export const Navigation: React.FC = () => {
     { to: "/about", label: "About" },
     { to: "/fragrance-reviews", label: "Reviews" },
     { to: "/guides", label: "Tips & Guides" },
+    { to: "/academy", label: "Academy" },
   ];
 
   return (

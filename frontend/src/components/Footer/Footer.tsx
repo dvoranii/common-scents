@@ -4,12 +4,14 @@ import {
   NavList,
   ImgWrapper,
   LogoImg,
+  Trademark,
 } from "./Footer.styled";
 import { Link } from "react-router-dom";
 
 import Logo from "../../assets/cs-bulb.png";
 
 const Footer: React.FC = () => {
+  const currentYear = new Date(Date.now()).getFullYear();
   return (
     <>
       <Container>
@@ -32,6 +34,9 @@ const Footer: React.FC = () => {
             <LogoImg src={Logo} />
           </ImgWrapper>
         </ContainerInner>
+        <Trademark>
+          © {currentYear} Common Scents™. All rights reserved.
+        </Trademark>
       </Container>
     </>
   );

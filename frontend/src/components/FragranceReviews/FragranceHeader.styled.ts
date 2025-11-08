@@ -3,10 +3,6 @@ import styled from "styled-components";
 export const HeaderWrapper = styled.div`
   padding: 80px 0px 0 0px;
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
-
-  /* @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    padding: ${(props) => props.theme.spacing.xl};
-  } */
 `;
 
 export const BrandWrapper = styled.div``;
@@ -22,7 +18,7 @@ export const BrandName = styled.p`
 export const FragranceName = styled.h1`
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
   font-weight: 700;
-  color: ${(props) => props.theme.colors.text};
+  color: rgb(38, 50, 70);
   margin-bottom: ${(props) => props.theme.spacing.md};
   line-height: 1.2;
 `;
@@ -165,8 +161,8 @@ export const RatingContainer = styled.div`
 `;
 
 export const RatingValue = styled.span`
-  font-size: ${(props) => props.theme.fontSizes.xxxl};
-  font-family: sans-serif;
+  font-size: ${(props) => props.theme.fontSizes.xxl};
+  font-family: "Lato", sans-serif;
   font-weight: bold;
   color: #1e293b;
 `;

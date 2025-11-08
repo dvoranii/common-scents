@@ -8,6 +8,7 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+
   body {
     font-family: ${(props) => props.theme.fonts.body};
     background-color: ${(props) => props.theme.colors.background};

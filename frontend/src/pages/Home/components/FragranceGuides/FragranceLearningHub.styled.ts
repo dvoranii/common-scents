@@ -45,7 +45,7 @@ export const GuideItem = styled.div`
 `;
 
 export const GuideTitle = styled.h3`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxl};
   margin-bottom: ${(props) => props.theme.spacing.sm};
   color: ${(props) => props.theme.colors.text};

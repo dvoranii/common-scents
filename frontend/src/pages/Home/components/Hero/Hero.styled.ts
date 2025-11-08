@@ -22,34 +22,9 @@ export const LogoContainer = styled.div`
   justify-content: center;
 
   img {
-    width: 30vh;
+    width: 25vh;
     max-width: 250px;
   }
-`;
-
-export const TitleContainer = styled.div`
-  width: fit-content;
-  margin: 0 auto;
-`;
-
-export const MainTitle = styled.h1`
-  font-family: ${(props) => props.theme.fonts.heading1};
-  font-size: ${(props) => props.theme.fontSizes.xxxxxl};
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    font-size: ${(props) => props.theme.fontSizes.xxxxl};
-  }
-`;
-
-export const Tagline = styled.p`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.xl};
-  letter-spacing: 0.15em;
-  margin-bottom: ${(props) => props.theme.spacing.sm};
-  margin-top: ${(props) => props.theme.spacing.sm};
 `;
 
 export const ButtonGroup = styled.div`
@@ -67,8 +42,10 @@ export const PrimaryButton = styled.button`
   color: white;
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.base};
-  padding: ${(props) => `${props.theme.spacing.md} ${props.theme.spacing.xl}`};
-  border-radius: ${(props) => props.theme.spacing.sm};
+  padding: 16px 32px;
+  height: fit-content;
+  /* border-radius: ${(props) => props.theme.spacing.sm}; */
+  border-radius: 12px;
   cursor: pointer;
   overflow: hidden;
   z-index: 1;
@@ -109,8 +86,11 @@ export const SecondaryButton = styled.button`
   border: 2px solid #c7c6cb;
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.base};
-  padding: ${(props) => `${props.theme.spacing.md} ${props.theme.spacing.xl}`};
-  border-radius: ${(props) => props.theme.spacing.sm};
+  /* padding: ${(props) =>
+    `${props.theme.spacing.md} ${props.theme.spacing.xl}`}; */
+  padding: 16px 32px;
+  /* border-radius: ${(props) => props.theme.spacing.sm}; */
+  border-radius: 12px;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.4s ease-in-out;

@@ -11,6 +11,7 @@ import {
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
+import ScrollableSection from "../../../components/ScrollableSection/ScrollableSection";
 
 const CreedVikingCologneReview: React.FC = () => {
   const fragrance = getFragranceBySlug("creed-viking-cologne");
@@ -25,7 +26,9 @@ const CreedVikingCologneReview: React.FC = () => {
         <FragranceHeader fragrance={fragrance} bottleImageSize="medium" />
         <PerfumersDisplay perfumers={fragrance.perfumers} />
 
-        <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
+        <ScrollableSection id="community-reviews">
+          <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
+        </ScrollableSection>
 
         <IntroSection>
           <Paragraph>

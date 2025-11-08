@@ -9,8 +9,6 @@ export const Wrapper = styled.div`
 
 export const Main = styled.main`
   flex: 1;
-  max-width: 1600px;
   margin: 0 auto;
-  padding: ${(props) => props.theme.spacing.xl};
   width: 100%;
 `;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
-  min-height: 100vh;
   background-color: ${(props) => props.theme.colors.background};
 `;
 
@@ -26,7 +25,7 @@ export const ContentContainer = styled.div`
 `;
 
 export const OccasionTitle = styled.h1`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
   text-align: center;
   color: ${(props) => props.theme.colors.text};
@@ -55,11 +54,13 @@ export const SettingsSection = styled.section`
 `;
 
 export const SectionTitle = styled.h3`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxl};
   text-align: center;
-  color: ${(props) => props.theme.colors.text};
+  /* color: ${(props) => props.theme.colors.text}; */
+  color: rgb(38, 50, 70);
   margin-bottom: ${(props) => props.theme.spacing.xl};
+  font-weight: 600;
 `;
 
 export const SettingGrid = styled.div`
@@ -89,7 +90,7 @@ export const SettingCard = styled.div`
 `;
 
 export const SettingTitle = styled.h4`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading2};
   font-size: ${(props) => props.theme.fontSizes.xl};
   color: ${(props) => props.theme.colors.text};
   margin-bottom: ${(props) => props.theme.spacing.sm};
