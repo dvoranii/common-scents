@@ -7,6 +7,8 @@ import CategoryDetailPage from "./pages/Categories/CategoryDetailPage";
 import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
 import FragranceReviews from "./pages/FragranceReviews/FragranceReviews";
 import About from "./pages/About/About";
+import Guides from "./pages/TipsAndGuides/Guides";
+import Academy from "./pages/Academy/Academy";
 
 function AppRouter() {
   return (
@@ -25,6 +27,8 @@ function AppRouter() {
             />
             <Route path="/fragrance-reviews" element={<FragranceReviews />} />
             <Route path="/about" element={<About />} />
+            <Route path="/guides" element={<Guides />} />
+            <Route path="/academy" element={<Academy />} />
 
             {fragranceReviewRoutes.map(({ slug, component: Component }) => (
               <Route

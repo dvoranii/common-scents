@@ -1,16 +1,11 @@
 import styled from "styled-components";
 import WhiteTextureBG from "../assets/white-texture-bg.jpg";
 
-export const PageContainer = styled.div`
-  min-height: 100vh;
-  background: white;
-`;
-
 export const Section = styled.section<{ altBg?: boolean; $hasBgImg?: boolean }>`
   padding: ${(props) =>
     `${props.theme.spacing.xxxl}  ${props.theme.spacing.lg}`};
   background-color: ${(props) =>
-    props.altBg ? props.theme.colors.backgroundAlt : "transparent"};
+    props.altBg ? props.theme.colors.backgroundAlt : "#fff"};
 
   ${(props) =>
     props.$hasBgImg &&
@@ -84,4 +79,31 @@ export const Tagline = styled.p`
   letter-spacing: 1px;
   margin-bottom: ${(props) => props.theme.spacing.sm};
   margin-top: ${(props) => props.theme.spacing.sm};
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 25vh;
+    max-width: 250px;
+  }
+`;
+
+export const HeroSection = styled.section`
+  color: ${(props) => props.theme.colors.black};
+  padding: 0px 40px 20px 40px;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    ${(props) => props.theme.colors.primary},
+    white
+  );
+`;
+
+export const HeroContent = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: ${(props) => props.theme.spacing.xxxxl};
 `;

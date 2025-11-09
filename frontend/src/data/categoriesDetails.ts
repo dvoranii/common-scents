@@ -410,15 +410,19 @@ export const categoriesDetail: Record<string, CategoryDetail> = {
         description:
           "Rare, complex spices that create mysterious, luxurious scents",
         examples: [
-          { image: IncenseExampleImg, alt: "Bergamot", title: "Bergamot" },
-          { image: FrankincenseExampleImg, alt: "Lemon", title: "Lemon" },
-          { image: MyrrhExampleImg, alt: "Orange", title: "Orange" },
+          { image: IncenseExampleImg, alt: "Incense", title: "Incense" },
+          {
+            image: FrankincenseExampleImg,
+            alt: "Frankincense",
+            title: "Frankincense",
+          },
+          { image: MyrrhExampleImg, alt: "Myrrh", title: "Myrrh" },
           {
             image: LabdanumExampleImg,
-            alt: "Grapefruit",
-            title: "Grapefruit",
+            alt: "Labdanum",
+            title: "Labdanum",
           },
-          { image: OpoponaxExampleImg, alt: "Mandarin", title: "Mandarin" },
+          { image: OpoponaxExampleImg, alt: "Opoponax", title: "Opoponax" },
         ],
       },
     ],

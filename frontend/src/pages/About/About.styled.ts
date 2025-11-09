@@ -1,46 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const HeroSection = styled.section`
-  color: ${(props) => props.theme.colors.black};
-  padding: 0px 40px 20px 40px;
-  text-align: center;
-  background: linear-gradient(
-    to bottom,
-    ${(props) => props.theme.colors.primary},
-    white
-  );
-`;
-
-export const HeroContent = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-top: ${(props) => props.theme.spacing.xxxxl};
-`;
-
-export const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
-  img {
-    width: 25vh;
-    max-width: 250px;
-  }
-`;
-
-export const TitleContainer = styled.div`
-  width: fit-content;
-  margin: 0 auto;
-`;
-
-export const Tagline = styled.p`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.xl};
-  letter-spacing: 1px;
-  margin-bottom: ${(props) => props.theme.spacing.sm};
-  margin-top: ${(props) => props.theme.spacing.sm};
-`;
-
 export const SecondaryTagline = styled.p`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.lg};
@@ -107,7 +67,7 @@ export const AboutImg = styled.img`
   height: auto;
   object-fit: contain;
   border-radius: 12px;
-  max-height: 600px; /* Optional: prevent it from getting too tall */
+  max-height: 600px;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     max-height: 400px;
@@ -138,13 +98,6 @@ export const MissionText = styled.p`
 export const ContentSection3 = styled.section`
   width: 100%;
   background: #ffffff;
-`;
-
-export const DifferenceLink = styled(Link)`
-  display: inline-block;
-  font-size: ${(props) => props.theme.fontSizes.base};
-  padding-top: 1rem;
-  font-weight: bold;
 `;
 
 export const ContentSection3Inner = styled.div`
@@ -197,4 +150,16 @@ export const DifferenceDescription = styled.p`
   font-size: ${(props) => props.theme.fontSizes.base};
   line-height: 1.7;
   color: ${(props) => props.theme.colors.text || "#333"};
+`;
+
+export const DifferenceLink = styled(Link)`
+  display: inline-block;
+  font-size: ${(props) => props.theme.fontSizes.base};
+  padding-top: 1rem;
+  font-weight: bold;
+  transition: all 300ms ease;
+
+  &:hover {
+    color: #e99047;
+  }
 `;

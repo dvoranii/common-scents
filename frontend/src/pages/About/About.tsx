@@ -1,7 +1,4 @@
 import {
-  HeroSection,
-  HeroContent,
-  LogoContainer,
   SecondaryTagline,
   ContentSection1,
   ContentSection2,
@@ -31,6 +28,9 @@ import {
   MainTitle,
   TitleContainer,
   Tagline,
+  LogoContainer,
+  HeroSection,
+  HeroContent,
 } from "../../styles/CommonStyles";
 
 const About: React.FC = () => {
@@ -145,6 +145,9 @@ const About: React.FC = () => {
                 straightforward perspectives from someone who genuinely loves
                 this craft.
               </DifferenceDescription>
+              <DifferenceLink to={"/fragrance-reviews"}>
+                See Reviews
+              </DifferenceLink>
             </DifferenceCard>
 
             <DifferenceCard>
@@ -157,6 +160,7 @@ const About: React.FC = () => {
                 understanding the evolution of modern perfumery. This is
                 fragrance education made accessible.
               </DifferenceDescription>
+              <DifferenceLink to={"/academy"}>Read More</DifferenceLink>
             </DifferenceCard>
           </DifferenceGrid>
         </ContentSection2Inner>

@@ -1,31 +1,21 @@
 import styled from "styled-components";
 
-export const HeroSection = styled.section`
-  color: ${(props) => props.theme.colors.black};
-  padding: ${(props) => `${props.theme.spacing} ${props.theme.spacing.lg}`};
-  text-align: center;
-  background: linear-gradient(
-    to bottom,
-    ${(props) => props.theme.colors.primary},
-    white
-  );
-`;
+// export const HeroSection = styled.section`
+//   color: ${(props) => props.theme.colors.black};
+//   padding: ${(props) => `${props.theme.spacing} ${props.theme.spacing.lg}`};
+//   text-align: center;
+//   background: linear-gradient(
+//     to bottom,
+//     ${(props) => props.theme.colors.primary},
+//     white
+//   );
+// `;
 
-export const HeroContent = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-top: ${(props) => props.theme.spacing.xxxxl};
-`;
-
-export const LogoContainer = styled.div`
-  display: flex;
-  justify-content: center;
-
-  img {
-    width: 25vh;
-    max-width: 250px;
-  }
-`;
+// export const HeroContent = styled.div`
+//   max-width: 1280px;
+//   margin: 0 auto;
+//   padding-top: ${(props) => props.theme.spacing.xxxxl};
+// `;
 
 export const ButtonGroup = styled.div`
   display: flex;

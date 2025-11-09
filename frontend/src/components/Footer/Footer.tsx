@@ -27,7 +27,9 @@ const Footer: React.FC = () => {
               <li>
                 <Link to="/fragrance-reviews">Reviews</Link>
               </li>
-              <li>Tips & Guides</li>
+              <li>
+                <Link to="/guides">Tips & Guides</Link>
+              </li>
             </ul>
           </NavList>
           <ImgWrapper>
