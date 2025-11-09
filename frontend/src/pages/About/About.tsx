@@ -43,7 +43,7 @@ const About: React.FC = () => {
           </LogoContainer>
 
           <TitleContainer>
-            <MainTitle>About Common Scents</MainTitle>
+            <MainTitle $center>About Common Scents</MainTitle>
             <Tagline>Making Scents Make Sense</Tagline>
             <SecondaryTagline>
               Exploring the art, science, and storytelling behind fragrances

@@ -8,6 +8,7 @@ import {
   Paragraph,
   NotesList,
 } from "./CreedVikingCologne.styled";
+import { MainTitle } from "../../../styles/CommonStyles";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
@@ -31,6 +32,8 @@ const CreedVikingCologneReview: React.FC = () => {
         </ScrollableSection>
 
         <IntroSection>
+          <MainTitle>Let's Review</MainTitle>
+          <br />
           <Paragraph>
             <strong>Creed Viking Cologne</strong> is the refreshing 2022
             reinterpretation of the original Viking, offering a lighter, more
@@ -46,7 +49,6 @@ const CreedVikingCologneReview: React.FC = () => {
           </Paragraph>
         </IntroSection>
 
-        {/* MANUAL DETAILED REVIEW */}
         <ReviewSection>
           <SectionTitle>Fragrance Overview</SectionTitle>
           <Paragraph>

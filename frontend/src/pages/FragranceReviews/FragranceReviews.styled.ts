@@ -286,7 +286,10 @@ export const FragranceGrid = styled.div`
   }
 
   @media (max-width: 900px) {
+    max-width: 670px;
+    margin: 0 auto;
     grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2.4rem;
   }
 
   @media (max-width: 640px) {

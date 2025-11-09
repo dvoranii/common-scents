@@ -10,6 +10,7 @@ import {
 } from "./ArmafClubDeNuitMan.styled";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import SummarySection from "../../../components/SummarySection/SummarySection";
+import { MainTitle } from "../../../styles/CommonStyles";
 
 const ArmafClubDeNuitManReview: React.FC = () => {
   const fragrance = getFragranceBySlug("armaf-club-de-nuit-man");
@@ -20,10 +21,11 @@ const ArmafClubDeNuitManReview: React.FC = () => {
 
   return (
     <PageWrapper>
-      {/* AUTOMATED HEADER - Uses data from fragrances.ts */}
       <FragranceHeader fragrance={fragrance} bottleImageSize="xlarge" />
       <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
       <IntroSection>
+        <MainTitle>Let's Review</MainTitle>
+        <br />
         <Paragraph>
           <strong>Armaf Club de Nuit Man</strong> is the often-overlooked gem in
           Armaf's lineup that brilliantly captures the Paco Rabanne 1 Million
@@ -39,7 +41,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
         </Paragraph>
       </IntroSection>
 
-      {/* MANUAL DETAILED REVIEW */}
       <ReviewSection>
         <SectionTitle>Fragrance Overview</SectionTitle>
         <Paragraph>

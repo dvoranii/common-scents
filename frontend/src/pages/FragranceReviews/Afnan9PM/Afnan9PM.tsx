@@ -11,6 +11,7 @@ import {
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
+import { MainTitle } from "../../../styles/CommonStyles";
 
 const Afnan9PMReview: React.FC = () => {
   const fragrance = getFragranceBySlug("afnan-9pm");
@@ -25,6 +26,8 @@ const Afnan9PMReview: React.FC = () => {
       <PerfumersDisplay perfumers={fragrance.perfumers} />
       <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
       <IntroSection>
+        <MainTitle>Let's Review</MainTitle>
+        <br />
         <Paragraph>
           <strong>Afnan 9PM</strong> is a sophisticated evening scent that
           punches way above its $35 price point. Released in 2020, this EDP has

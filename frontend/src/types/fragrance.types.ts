@@ -60,8 +60,10 @@ export interface Guide {
   slug: string;
   title: string;
   author?: string;
-  date?: string;
+  date: string;
+  time: string;
   category?: string;
+  description: string;
   thumbnailImage?: string;
 }
 export interface Academy {
@@ -69,8 +71,10 @@ export interface Academy {
   slug: string;
   title: string;
   author?: string;
-  date?: string;
+  date: string;
+  time: string;
   category?: string;
+  description: string;
   thumbnailImage?: string;
 }
 

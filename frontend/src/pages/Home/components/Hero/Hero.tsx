@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
         </LogoContainer>
 
         <TitleContainer>
-          <MainTitle>Common Scents</MainTitle>
+          <MainTitle $center>Common Scents</MainTitle>
           <Tagline>Making Scents Make Sense</Tagline>
         </TitleContainer>
 

@@ -90,7 +90,7 @@ export const SettingCard = styled.div`
 `;
 
 export const SettingTitle = styled.h4`
-  font-family: ${(props) => props.theme.fonts.heading2};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xl};
   color: ${(props) => props.theme.colors.text};
   margin-bottom: ${(props) => props.theme.spacing.sm};

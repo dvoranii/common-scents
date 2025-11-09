@@ -6,7 +6,7 @@ import {
   PageWrapper,
   HeroImage,
   ContentContainer,
-  OccasionTitle,
+  // OccasionTitle,
   OccasionSubtitle,
   Description,
   SettingsSection,
@@ -18,6 +18,8 @@ import {
   ExampleScents,
   FragranceListPlaceholder,
 } from "./OccasionDetailPage.styled";
+
+import { MainTitle } from "../../styles/CommonStyles";
 
 const OccasionDetailPage: React.FC = () => {
   const { occasionSlug } = useParams<{ occasionSlug: string }>();
@@ -33,7 +35,7 @@ const OccasionDetailPage: React.FC = () => {
       <HeroImage src={occasion.image} alt={occasion.title} />
 
       <ContentContainer>
-        <OccasionTitle>{occasion.title}</OccasionTitle>
+        <MainTitle $center>{occasion.title}</MainTitle>
 
         {details?.subtitle && (
           <OccasionSubtitle>{details.subtitle}</OccasionSubtitle>
