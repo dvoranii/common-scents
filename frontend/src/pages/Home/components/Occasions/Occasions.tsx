@@ -28,12 +28,12 @@ export const ScentOccasions: React.FC = () => {
               to={`/occasions/${occasion.slug}`}
             >
               <OccasionImage
-                src={occasion.image}
-                alt={occasion.title}
+                src={occasion.thumbnail}
+                alt={occasion.name}
                 loading="lazy"
               />
               <OccasionOverlay>
-                <OccasionTitle>{occasion.title}</OccasionTitle>
+                <OccasionTitle>{occasion.name}</OccasionTitle>
                 <p>{occasion.description}</p>
               </OccasionOverlay>
             </OccasionCard>

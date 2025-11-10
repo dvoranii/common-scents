@@ -1,4 +1,3 @@
-// FragranceReviews.styled.ts
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -15,6 +14,7 @@ export const TopControlsWrapper = styled.div`
   gap: ${(props) => props.theme.spacing.md};
   margin: ${(props) => props.theme.spacing.xl} 0
     ${(props) => props.theme.spacing.xl} 0;
+  padding: ${(props) => props.theme.spacing.xl} 20px 0 20px;
 `;
 
 export const SearchWrapper = styled.div`

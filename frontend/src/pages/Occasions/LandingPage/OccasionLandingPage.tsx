@@ -1,0 +1,19 @@
+import React from "react";
+import BrowseLandingTemplate from "../../../components/BrowseLandingTemplate/BrowseLandingTemplate";
+import { getAllOccasions } from "../../../utils/occasionsUtils";
+
+const OccasionLandingPage: React.FC = () => {
+  const occasions = getAllOccasions();
+
+  return (
+    <BrowseLandingTemplate
+      title="Scent Categories"
+      introText="The right fragrance sets the perfect mood for any moment. From confidence-boosting scents for the workday to magnetic fragrances for date night, discover recommendations tailored to life's many occasions. Find your perfect scent for every situation."
+      items={occasions}
+      basePath="/occasions"
+      tagline="Know the best time and occasion to wear specific fragrances"
+    />
+  );
+};
+
+export default OccasionLandingPage;

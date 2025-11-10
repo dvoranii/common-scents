@@ -2,8 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Suspense } from "react";
 import { Layout } from "./components/Layout/Layout";
 import HomePage from "./pages/Home/Home";
-import OccasionDetailPage from "./pages/Occasions/OccasionDetailPage";
-import CategoryDetailPage from "./pages/Categories/CategoryDetailPage";
+import OccasionLandingPage from "./pages/Occasions/LandingPage/OccasionLandingPage";
+import OccasionDetailPage from "./pages/Occasions/DetailPage/OccasionDetailPage";
+import CategoriesLandingPage from "./pages/Categories/LandingPage/CategoriesLandingPage";
+import CategoryDetailPage from "./pages/Categories/DetailPage/CategoryDetailPage";
 import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
 import FragranceReviews from "./pages/FragranceReviews/FragranceReviews";
 import About from "./pages/About/About";
@@ -17,10 +19,13 @@ function AppRouter() {
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/occasions" element={<OccasionLandingPage />} />
             <Route
               path="/occasions/:occasionSlug"
               element={<OccasionDetailPage />}
             />
+
+            <Route path="/categories" element={<CategoriesLandingPage />} />
             <Route
               path="/categories/:categorySlug"
               element={<CategoryDetailPage />}

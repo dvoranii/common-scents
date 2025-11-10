@@ -14,16 +14,20 @@ import {
   MobileNavItem,
   MobileNavLink,
   AnimatedBurgerIcon,
+  DropdownContainer,
+  DropdownLink,
+  DropdownMenu,
+  DropdownMenuItem,
 } from "./Navigation.styled";
 
 const OCCASION_NAV_COLORS: Record<string, string> = {
   "date-night": "#ffffff",
-  "daily-driver": "#0b7bfc",
+  "daily-driver": "#ffffff",
   "night-out": "#ffffff",
-  formal: "#eeeeee",
-  office: "#34495E",
-  "active-gym": "#ffe1de",
-  "summer-vibes": "#392300",
+  formal: "#ffffff",
+  office: "#1d2636",
+  "active-gym": "#ffffff",
+  "summer-vibes": "#111111",
   "cold-weather": "#ffffff",
 };
 
@@ -62,9 +66,27 @@ export const Navigation: React.FC = () => {
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/fragrance-reviews", label: "Reviews" },
-    { to: "/guides", label: "Tips & Guides" },
+  ];
+
+  const learnItems = [
+    { to: "/guides", label: "Tips & Guides" },
     { to: "/academy", label: "Academy" },
   ];
+
+  const exploreItems = [
+    { to: "/categories", label: "Scent Categories" },
+    { to: "/occasions", label: "Occasions" },
+  ];
+
+  const LEARN_PATH_SEGMENTS = ["guides", "academy"];
+  const EXPLORE_PATH_SEGMENTS = ["categories", "occasions"];
+
+  const isLearnActive = LEARN_PATH_SEGMENTS.some((segment) =>
+    location.pathname.includes(segment)
+  );
+  const isExploreActive = EXPLORE_PATH_SEGMENTS.some((segment) =>
+    location.pathname.includes(segment)
+  );
 
   return (
     <>
@@ -74,11 +96,65 @@ export const Navigation: React.FC = () => {
             <NavList>
               {navItems.map((item) => (
                 <NavItem key={item.to}>
-                  <NavLink as={Link} to={item.to} $textColour={navColor}>
+                  <NavLink
+                    as={Link}
+                    to={item.to}
+                    $textColour={navColor}
+                    $isActive={location.pathname == item.to}
+                  >
                     {item.label}
                   </NavLink>
                 </NavItem>
               ))}
+
+              <NavItem>
+                <DropdownContainer>
+                  <NavLink
+                    as="span"
+                    $textColour={navColor}
+                    $isActive={isLearnActive}
+                  >
+                    Learn
+                  </NavLink>
+                  <DropdownMenu>
+                    {learnItems.map((item) => (
+                      <DropdownMenuItem key={item.to}>
+                        <DropdownLink
+                          as={Link}
+                          to={item.to}
+                          $isActive={location.pathname == item.to}
+                        >
+                          {item.label}
+                        </DropdownLink>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenu>
+                </DropdownContainer>
+              </NavItem>
+              <NavItem>
+                <DropdownContainer>
+                  <NavLink
+                    as="span"
+                    $textColour={navColor}
+                    $isActive={isExploreActive}
+                  >
+                    Explore
+                  </NavLink>
+                  <DropdownMenu>
+                    {exploreItems.map((item) => (
+                      <DropdownMenuItem key={item.to}>
+                        <DropdownLink
+                          as={Link}
+                          to={item.to}
+                          $isActive={location.pathname == item.to}
+                        >
+                          {item.label}
+                        </DropdownLink>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenu>
+                </DropdownContainer>
+              </NavItem>
             </NavList>
           </Nav>
         </NavWrapperInner>
@@ -112,6 +188,47 @@ export const Navigation: React.FC = () => {
                 </MobileNavLink>
               </MobileNavItem>
             ))}
+
+            <MobileNavItem>
+              <MobileNavLink
+                as={Link}
+                to="/guides"
+                onClick={closeMobileNav}
+                $isActive={location.pathname === "/guides"}
+              >
+                Tips & Guides
+              </MobileNavLink>
+            </MobileNavItem>
+            <MobileNavItem>
+              <MobileNavLink
+                as={Link}
+                to="/academy"
+                onClick={closeMobileNav}
+                $isActive={location.pathname === "/academy"}
+              >
+                Academy
+              </MobileNavLink>
+            </MobileNavItem>
+            <MobileNavItem>
+              <MobileNavLink
+                as={Link}
+                to="/categories"
+                onClick={closeMobileNav}
+                $isActive={location.pathname === "/categories"}
+              >
+                Scent Categories
+              </MobileNavLink>
+            </MobileNavItem>
+            <MobileNavItem>
+              <MobileNavLink
+                as={Link}
+                to="/occasions"
+                onClick={closeMobileNav}
+                $isActive={location.pathname === "/occasions"}
+              >
+                Occasions
+              </MobileNavLink>
+            </MobileNavItem>
           </MobileNavList>
         </MobileNavSidebar>
       </MobileNavOverlay>

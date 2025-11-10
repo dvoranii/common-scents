@@ -3,8 +3,8 @@ import { useParams, Navigate } from "react-router-dom";
 import {
   getAllCategories,
   getCategoryBySlug,
-} from "../../utils/categoriesUtils";
-import { categoriesDetail } from "../../data/categoriesDetails";
+} from "../../../utils/categoriesUtils";
+import { categoriesDetail } from "../../../data/categoriesDetails";
 import {
   PageWrapper,
   CategoryHeader,
@@ -29,8 +29,8 @@ import {
   ExampleImage,
   CharactersticsAndBestForSection,
 } from "./CategoryDetailPage.styled";
-import { SectionTitle } from "../../styles/CommonStyles";
-import PageNavigation from "../../components/PageNavigation/PageNavigation";
+import { SectionTitle } from "../../../styles/CommonStyles";
+import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 
 const CategoryDetailPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();

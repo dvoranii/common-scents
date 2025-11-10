@@ -37,7 +37,7 @@ interface ContentListingTemplateProps {
   title: string;
   tagline: string;
   items: ContentItem[];
-  basePath: string; // e.g., "/acs" or "/guides"
+  basePath: string;
   showLoadMore?: boolean;
   initialVisibleCount?: number;
   itemsPerLoad?: number;

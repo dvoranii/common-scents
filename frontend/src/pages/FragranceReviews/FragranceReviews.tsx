@@ -2,7 +2,6 @@ import React, { useMemo, useState } from "react";
 import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import { generateTagsFromFragrances } from "../../utils/tagUtils";
 import { getAllFragrances } from "../../utils/fragranceUtils";
-// import { Fragrance } from "../../types/fragrance.types";
 import {
   PageWrapper,
   TopControlsWrapper,
@@ -30,7 +29,6 @@ import {
   ThumbnailNotes,
   ThumbnailContent,
   FragranceName,
-  //   FragranceGender,
   ThumbnailCard,
   ThumbnailImage,
   NameAndHouseWrapper,
@@ -106,7 +104,7 @@ const FragranceReviews: React.FC = () => {
   const hasActiveFilters = searchQuery !== "" || selectedTags.length > 0;
 
   return (
-    <PageWrapper>
+    <>
       <TopControlsWrapper>
         <SearchWrapper>
           <SearchBar
@@ -271,93 +269,100 @@ const FragranceReviews: React.FC = () => {
         </FilterDropdownWrapper>
       </TopControlsWrapper>
 
-      {selectedTags.length > 0 && (
-        <ActiveFiltersSummary>
-          <FilterSummaryText>
-            {hasActiveFilters && (
-              <>
-                Showing {filteredFragrances.length} of {allFragrances.length}{" "}
-                fragrances
-                {selectedTags.length > 0 && (
-                  <>
-                    {" "}
-                    • Filtering by {selectedTags.length} tag
-                    {selectedTags.length !== 1 ? "s" : ""} (
-                    {filterMode === "ANY" ? "matching any" : "matching all"})
-                  </>
-                )}
-              </>
-            )}
-          </FilterSummaryText>
-          <ClearButton onClick={clearAllFilters} style={{ marginTop: "8px" }}>
-            Clear All Filters
-          </ClearButton>
-
-          <TagsContainer style={{ marginTop: "8px" }}>
-            {selectedTags.map((tag) => (
-              <Tag
-                key={tag}
-                $color={getTagColor(tag)}
-                $isSelected={true}
-                $isSmall
-              >
-                {tag}
-                <RemoveTagButton
-                  $isSmall
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleTag(tag);
-                  }}
-                  aria-label={`Remove ${tag} filter`}
-                >
-                  ×
-                </RemoveTagButton>
-              </Tag>
-            ))}
-          </TagsContainer>
-        </ActiveFiltersSummary>
-      )}
-
-      <FragranceGrid>
-        {filteredFragrances.map((fragrance) => (
-          <ThumbnailCard
-            key={fragrance.id}
-            to={`/fragrance-reviews/${fragrance.slug}`}
-          >
-            <ThumbnailImage
-              src={fragrance.thumbnailImage}
-              alt={fragrance.name}
-            />
-            <ThumbnailContent>
-              <NameAndHouseWrapper>
-                <FragranceHouse>{fragrance.house}</FragranceHouse>
-                <FragranceName>{fragrance.name}</FragranceName>
-              </NameAndHouseWrapper>
-              {/* <FragranceGender>{fragrance.gender}</FragranceGender> */}
-
-              {fragrance.notes && (
-                <ThumbnailNotes>
-                  {fragrance.notes.top
-                    .slice(0, 3)
-                    .map((note) => note.name)
-                    .join(" • ")}
-                </ThumbnailNotes>
+      <PageWrapper>
+        {selectedTags.length > 0 && (
+          <ActiveFiltersSummary>
+            <FilterSummaryText>
+              {hasActiveFilters && (
+                <>
+                  Showing {filteredFragrances.length} of {allFragrances.length}{" "}
+                  fragrances
+                  {selectedTags.length > 0 && (
+                    <>
+                      {" "}
+                      • Filtering by {selectedTags.length} tag
+                      {selectedTags.length !== 1 ? "s" : ""} (
+                      {filterMode === "ANY" ? "matching any" : "matching all"})
+                    </>
+                  )}
+                </>
               )}
-            </ThumbnailContent>
-          </ThumbnailCard>
-        ))}
-      </FragranceGrid>
+            </FilterSummaryText>
+            <ClearButton onClick={clearAllFilters} style={{ marginTop: "8px" }}>
+              Clear All Filters
+            </ClearButton>
 
-      {filteredFragrances.length === 0 && (
-        <div style={{ textAlign: "center", padding: "48px", color: "#6b7280" }}>
-          No fragrances found matching your search and filters.
-          <br />
-          <ClearButton onClick={clearAllFilters} style={{ marginTop: "16px" }}>
-            Clear All Filters
-          </ClearButton>
-        </div>
-      )}
-    </PageWrapper>
+            <TagsContainer style={{ marginTop: "8px" }}>
+              {selectedTags.map((tag) => (
+                <Tag
+                  key={tag}
+                  $color={getTagColor(tag)}
+                  $isSelected={true}
+                  $isSmall
+                >
+                  {tag}
+                  <RemoveTagButton
+                    $isSmall
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleTag(tag);
+                    }}
+                    aria-label={`Remove ${tag} filter`}
+                  >
+                    ×
+                  </RemoveTagButton>
+                </Tag>
+              ))}
+            </TagsContainer>
+          </ActiveFiltersSummary>
+        )}
+
+        <FragranceGrid>
+          {filteredFragrances.map((fragrance) => (
+            <ThumbnailCard
+              key={fragrance.id}
+              to={`/fragrance-reviews/${fragrance.slug}`}
+            >
+              <ThumbnailImage
+                src={fragrance.thumbnailImage}
+                alt={fragrance.name}
+              />
+              <ThumbnailContent>
+                <NameAndHouseWrapper>
+                  <FragranceHouse>{fragrance.house}</FragranceHouse>
+                  <FragranceName>{fragrance.name}</FragranceName>
+                </NameAndHouseWrapper>
+                {/* <FragranceGender>{fragrance.gender}</FragranceGender> */}
+
+                {fragrance.notes && (
+                  <ThumbnailNotes>
+                    {fragrance.notes.top
+                      .slice(0, 3)
+                      .map((note) => note.name)
+                      .join(" • ")}
+                  </ThumbnailNotes>
+                )}
+              </ThumbnailContent>
+            </ThumbnailCard>
+          ))}
+        </FragranceGrid>
+
+        {filteredFragrances.length === 0 && (
+          <div
+            style={{ textAlign: "center", padding: "48px", color: "#6b7280" }}
+          >
+            No fragrances found matching your search and filters.
+            <br />
+            <ClearButton
+              onClick={clearAllFilters}
+              style={{ marginTop: "16px" }}
+            >
+              Clear All Filters
+            </ClearButton>
+          </div>
+        )}
+      </PageWrapper>
+    </>
   );
 };
 

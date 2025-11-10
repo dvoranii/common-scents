@@ -4,7 +4,7 @@ import type { OccasionDetail } from "../types/data.types";
 
 export const occasionDetails: Record<string, OccasionDetail> = {
   "date-night": {
-    subtitle: "Fragrances that set the mood.",
+    subtitle: "FRAGRANCES THAT SET THE MOOD.",
     fullDescription:
       "Date Night fragrances are designed to captivate — warm, sweet, and magnetic scents that leave a lasting impression. These are scents that invite closeness, spark attraction, and project confidence without overwhelming your partner. Think seductive vanilla, smooth tonka bean, or spicy cardamom — notes that create an aura of intrigue.",
     settings: [
@@ -29,7 +29,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   "daily-driver": {
-    subtitle: "Your everyday signature.",
+    subtitle: "YOUR EVERYDAY SIGNATURE.",
     fullDescription:
       "Daily Driver fragrances are the workhorses of your collection — versatile, easy-to-wear scents that work in virtually any situation. These are crowd-pleasers that won't offend in close quarters, yet still make a subtle statement. Perfect for running errands, casual hangouts, or days when you want to smell great without overthinking it.",
     settings: [
@@ -54,7 +54,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   "night-out": {
-    subtitle: "Own the room.",
+    subtitle: "OWN THE ROOM.",
     fullDescription:
       "Night Out fragrances are bold, attention-grabbing, and unapologetically loud. These are the scents that announce your presence before you enter the room — sweet, spicy, and projection-heavy. Perfect for clubs, parties, and any environment where you want to stand out and be remembered.",
     settings: [
@@ -79,7 +79,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   formal: {
-    subtitle: "Refined elegance.",
+    subtitle: "REFINED ELEGANCE.",
     fullDescription:
       "Formal fragrances exude sophistication and refinement — these are the scents you wear when you need to make a polished, professional impression. Think weddings, black-tie events, business dinners, and important meetings. These fragrances are complex, mature, and commanding without being overpowering.",
     settings: [
@@ -104,7 +104,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   office: {
-    subtitle: "Professional and subtle.",
+    subtitle: "PROFESSIONAL AND SUBTLE.",
     fullDescription:
       "Office fragrances are the art of restraint — clean, fresh, and professional scents that enhance rather than dominate. These fragrances are designed for close-quarters environments where you want to smell good without overwhelming colleagues. Think crisp citrus, soft woods, and fresh aromatic notes.",
     settings: [
@@ -127,7 +127,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   "active-gym": {
-    subtitle: "Fresh energy.",
+    subtitle: "FRESH ENERGY.",
     fullDescription:
       "Active fragrances are built for movement — fresh, clean, and energizing scents that won't clash with sweat or become overwhelming during physical activity. These are light, aquatic, and citrus-forward fragrances that keep you feeling fresh throughout your workout or outdoor adventures.",
     settings: [
@@ -150,7 +150,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   "summer-vibes": {
-    subtitle: "Bright, breezy, sun-soaked.",
+    subtitle: "BRIGHT, BREEZY, SUN-SOAKED.",
     fullDescription:
       "Summer fragrances are all about freshness and vitality — light, citrusy, aquatic scents that evoke beach days, tropical vacations, and sun-drenched afternoons. These fragrances are designed to be refreshing in heat, never heavy or suffocating. Perfect for hot weather and outdoor summer activities.",
     settings: [
@@ -174,7 +174,7 @@ export const occasionDetails: Record<string, OccasionDetail> = {
     ],
   },
   "cold-weather": {
-    subtitle: "Warm, cozy, full-bodied.",
+    subtitle: "WARM, COZY, FULL-BODIED.",
     fullDescription:
       "Cold Weather fragrances are the olfactory equivalent of a warm blanket — rich, spicy, and enveloping scents that thrive in cooler temperatures. These are full-bodied fragrances with heavy doses of vanilla, tonka, amber, and warm spices. Perfect for fall and winter when you want maximum projection and longevity.",
     settings: [

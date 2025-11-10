@@ -1,10 +1,12 @@
-import React from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { getAllOccasions, getOccasionBySlug } from "../../utils/occasionsUtils";
-import { occasionDetails } from "../../data/occasionDetails";
+import {
+  getAllOccasions,
+  getOccasionBySlug,
+} from "../../../utils/occasionsUtils";
+import { occasionDetails } from "../../../data/occasionDetails";
 import {
   PageWrapper,
-  HeroImage,
+  HeroImageContainer,
   ContentContainer,
   OccasionSubtitle,
   Description,
@@ -16,9 +18,40 @@ import {
   SettingDescription,
   ExampleScents,
   FragranceListPlaceholder,
+  HeroImageContainerInner,
 } from "./OccasionDetailPage.styled";
-import { MainTitle } from "../../styles/CommonStyles";
-import PageNavigation from "../../components/PageNavigation/PageNavigation";
+import { MainTitle } from "../../../styles/CommonStyles";
+import PageNavigation from "../../../components/PageNavigation/PageNavigation";
+
+const OCCASION_TITLE_COLORS: Record<string, string> = {
+  "date-night": "#ffffff",
+  "daily-driver": "#ffffff",
+  "night-out": "#ffffff",
+  formal: "#ffffff",
+  office: "#1d2636",
+  "active-gym": "#ffffff",
+  "summer-vibes": "#ffffff",
+  "cold-weather": "#ffffff",
+};
+
+const OCCASION_OVERLAY_OPACITY: Record<string, number> = {
+  "date-night": 0.35,
+  "daily-driver": 0.4,
+  "night-out": 0,
+  formal: 0.5,
+  office: 0,
+  "active-gym": 0.3,
+  "summer-vibes": 0.25,
+  "cold-weather": 0.5,
+};
+
+const getTitleColor = (slug: string): string => {
+  return OCCASION_TITLE_COLORS[slug] || "#ffffff";
+};
+
+const overlayOpacity = (slug: string): number => {
+  return OCCASION_OVERLAY_OPACITY[slug] ?? true;
+};
 
 const OccasionDetailPage: React.FC = () => {
   const { occasionSlug } = useParams<{ occasionSlug: string }>();
@@ -30,17 +63,28 @@ const OccasionDetailPage: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
+  const titleColor = getTitleColor(occasion.slug);
+
   return (
     <PageWrapper>
-      <HeroImage src={occasion.image} alt={occasion.title} />
+      <HeroImageContainer
+        $bgImg={occasion.image}
+        $overlayOpacity={overlayOpacity(occasion.slug)}
+      >
+        <HeroImageContainerInner>
+          <MainTitle $center $color={titleColor}>
+            {occasion.name}
+          </MainTitle>
+
+          {details?.subtitle && (
+            <OccasionSubtitle $color={titleColor}>
+              {details.subtitle}
+            </OccasionSubtitle>
+          )}
+        </HeroImageContainerInner>
+      </HeroImageContainer>
 
       <ContentContainer>
-        <MainTitle $center>{occasion.title}</MainTitle>
-
-        {details?.subtitle && (
-          <OccasionSubtitle>{details.subtitle}</OccasionSubtitle>
-        )}
-
         <Description>
           {details?.fullDescription || occasion.description}
         </Description>
@@ -69,7 +113,7 @@ const OccasionDetailPage: React.FC = () => {
 
         <PageNavigation
           currentSlug={occasionSlug!}
-          items={occasions.map((cat) => ({ slug: cat.slug, title: cat.title }))}
+          items={occasions.map((cat) => ({ slug: cat.slug, title: cat.name }))}
           basePath="/occasions"
         />
       </ContentContainer>

@@ -4,19 +4,58 @@ export const PageWrapper = styled.div`
   background-color: ${(props) => props.theme.colors.background};
 `;
 
-export const HeroImage = styled.img`
+export const HeroImageContainer = styled.div<{
+  $bgImg: string;
+  $overlayOpacity?: number;
+}>`
   width: 100%;
-  height: 400px;
-  object-fit: cover;
-  padding-bottom: ${(props) => props.theme.spacing.xl};
+  height: 300px;
+  background-image: url(${(props) => props.$bgImg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+
+  ${(props) =>
+    props.$overlayOpacity &&
+    props.$overlayOpacity > 0 &&
+    `
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, ${props.$overlayOpacity});
+      z-index: 1;
+    }
+  `}
+
+  @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
+    height: 400px;
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     height: 500px;
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    height: 600px;
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    height: 700px;
   }
+`;
+
+export const HeroImageContainerInner = styled.div`
+  max-width: 1200px;
+  z-index: 999;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: ${(props) => props.theme.spacing.xl};
+  position: relative;
 `;
 
 export const ContentContainer = styled.div`
@@ -24,20 +63,16 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const OccasionTitle = styled.h1`
-  font-family: ${(props) => props.theme.fonts.heading1};
-  font-size: ${(props) => props.theme.fontSizes.xxxxl};
+export const OccasionSubtitle = styled.h2<{ $color?: string }>`
   text-align: center;
-  color: ${(props) => props.theme.colors.text};
-  margin-bottom: ${(props) => props.theme.spacing.md};
-`;
-
-export const OccasionSubtitle = styled.h2`
-  text-align: center;
-  color: ${(props) => props.theme.colors.textLight};
-  font-size: ${(props) => props.theme.fontSizes.lg};
+  color: ${(props) => props.$color || props.theme.colors.text};
+  font-size: ${(props) => props.theme.fontSizes.base};
   font-weight: 400;
+  font-family: "Lato";
   margin-bottom: ${(props) => props.theme.spacing.xl};
+  letter-spacing: 2px;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
+  padding-top: 8px;
 `;
 
 export const Description = styled.p`

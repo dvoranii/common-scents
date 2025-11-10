@@ -55,13 +55,13 @@ export const SectionSubtitle = styled.p`
   max-width: 600px;
 `;
 
-export const MainTitle = styled.h1<{ $center?: boolean }>`
+export const MainTitle = styled.h1<{ $center?: boolean; $color?: string }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxxl};
   font-weight: 500;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  color: rgb(38, 50, 70);
+  color: ${(props) => (props.$color ? props.$color : "rgb(38, 50, 70)")};
   text-align: ${(props) => (props.$center ? "center" : "left")};
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: ${(props) => props.theme.fontSizes.xxxxl};

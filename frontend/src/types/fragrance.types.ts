@@ -77,7 +77,6 @@ export interface Academy {
   description: string;
   thumbnailImage?: string;
 }
-
 export interface Category {
   name: string;
   icon: React.ElementType;
@@ -88,9 +87,10 @@ export interface Category {
 }
 
 export interface Occasion {
-  title: string;
+  name: string;
   slug: string;
   image: string;
+  thumbnail?: string;
   description: string;
 }
 

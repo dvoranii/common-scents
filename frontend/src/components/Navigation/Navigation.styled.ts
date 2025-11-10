@@ -4,6 +4,7 @@ export const NavWrapperOuter = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 99;
 
   @media (max-width: 768px) {
     display: none;
@@ -25,13 +26,65 @@ export const NavList = styled.ul`
 
 export const NavItem = styled.li``;
 
-export const NavLink = styled.a<{ $textColour?: string }>`
+export const NavLink = styled.a<{ $textColour?: string; $isActive?: boolean }>`
   color: ${(props) =>
     props.$textColour ? props.$textColour : props.theme.colors.black};
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   font-size: ${(props) => props.theme.fontSizes.base};
+  font-weight: ${(props) => (props.$isActive ? "600" : "400")};
   letter-spacing: 0.25px;
   text-transform: uppercase;
+`;
+
+export const DropdownMenu = styled.ul`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 4px 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+`;
+
+export const DropdownContainer = styled.div`
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover ${DropdownMenu} {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+`;
+
+export const DropdownMenuItem = styled.li`
+  list-style: none;
+  border-bottom: 1px solid #eee;
+`;
+
+export const DropdownLink = styled.a<{ $isActive?: boolean }>`
+  display: block;
+  padding: ${(props) => `${props.theme.spacing.sm} ${props.theme.spacing.md}`};
+  color: ${(props) =>
+    props.$isActive ? "#e78732" : `${props.theme.colors.text}`};
+  text-decoration: none;
+  font-size: ${(props) => props.theme.fontSizes.base};
+  font-weight: ${(props) => (props.$isActive ? "600" : "400")};
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: ${(props) => (props.$isActive ? "#fff" : "#eee")};
+    cursor: ${(props) => (props.$isActive ? "default" : "pointer")};
+  }
 `;
 
 export const AnimatedBurgerIcon = styled.div<{
@@ -49,7 +102,6 @@ export const AnimatedBurgerIcon = styled.div<{
     position: absolute;
     width: 100%;
     height: 2px;
-    /* background-color: currentColor; */
     background-color: ${(props) =>
       props.$isOpen && props.$xColour ? props.$xColour : "currentColor"};
     top: 0;
