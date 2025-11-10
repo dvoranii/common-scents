@@ -1,12 +1,11 @@
 import React from "react";
 import { useParams, Navigate } from "react-router-dom";
-import { getOccasionBySlug } from "../../utils/occasionsUtils";
+import { getAllOccasions, getOccasionBySlug } from "../../utils/occasionsUtils";
 import { occasionDetails } from "../../data/occasionDetails";
 import {
   PageWrapper,
   HeroImage,
   ContentContainer,
-  // OccasionTitle,
   OccasionSubtitle,
   Description,
   SettingsSection,
@@ -18,13 +17,14 @@ import {
   ExampleScents,
   FragranceListPlaceholder,
 } from "./OccasionDetailPage.styled";
-
 import { MainTitle } from "../../styles/CommonStyles";
+import PageNavigation from "../../components/PageNavigation/PageNavigation";
 
 const OccasionDetailPage: React.FC = () => {
   const { occasionSlug } = useParams<{ occasionSlug: string }>();
   const occasion = occasionSlug ? getOccasionBySlug(occasionSlug) : undefined;
   const details = occasionSlug ? occasionDetails[occasionSlug] : undefined;
+  const occasions = getAllOccasions();
 
   if (!occasion) {
     return <Navigate to="/" replace />;
@@ -66,6 +66,12 @@ const OccasionDetailPage: React.FC = () => {
             Fragrance recommendations coming soon...
           </p>
         </FragranceListPlaceholder>
+
+        <PageNavigation
+          currentSlug={occasionSlug!}
+          items={occasions.map((cat) => ({ slug: cat.slug, title: cat.title }))}
+          basePath="/occasions"
+        />
       </ContentContainer>
     </PageWrapper>
   );

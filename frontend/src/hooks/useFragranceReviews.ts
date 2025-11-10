@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { summarizeFragranceReviews } from "../services/api.service";
-// import { getSavedFragranceUrl } from "../services/cache.service";
 
 export const useFragranceReviews = (numberOfReviews: number) => {
   const [isReviewsLoading, setIsReviewsLoading] = useState(false);

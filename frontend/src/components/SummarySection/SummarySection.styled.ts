@@ -106,18 +106,19 @@ export const ReviewCountSelector = styled.div`
   border: 1px solid #e0e0e0;
 `;
 
-export const RadioLabel = styled.label`
+export const RadioLabel = styled.label<{ $disabled?: boolean }>`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  cursor: pointer;
+  cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
   font-family: sans-serif;
   font-size: 0.9rem;
-  color: #333;
+  color: ${(props) => (props.$disabled ? "#999" : "#333")};
   transition: color 0.2s ease;
+  opacity: ${(props) => (props.$disabled ? 0.6 : 1)};
 
   &:hover {
-    color: #2196f3;
+    color: ${(props) => (props.$disabled ? "#999" : "#2196f3")};
   }
 `;
 
@@ -149,12 +150,23 @@ export const RadioInput = styled.input`
     }
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: #2196f3;
   }
 
-  &:focus {
+  &:focus:not(:disabled) {
     box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: #ddd;
+
+    &:checked {
+      background-color: #ccc;
+      border-color: #ccc;
+    }
   }
 `;
 

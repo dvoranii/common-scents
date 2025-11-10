@@ -18,7 +18,7 @@ import {
   TitleContainer,
 } from "./SummarySection.styled";
 import { useFragranceReviews } from "../../hooks/useFragranceReviews";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface SummarySectionProps {
   fragranticaUrl: string;
@@ -26,26 +26,53 @@ interface SummarySectionProps {
 
 const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
   const [numberOfReviews, setNumberOfReviews] = useState(10);
+  const [currentSummary, setCurrentSummary] = useState<string | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [pendingReviewCount, setPendingReviewCount] = useState<number | null>(
+    null
+  );
+
+  const reviewsToUseForApi = pendingReviewCount || numberOfReviews;
 
   const { isReviewsLoading, reviewsSummary, handleSummarizeReviews } =
-    useFragranceReviews(numberOfReviews);
+    useFragranceReviews(reviewsToUseForApi);
+
+  useEffect(() => {
+    if (reviewsSummary) {
+      setCurrentSummary(reviewsSummary);
+      setIsGenerating(false);
+
+      if (pendingReviewCount) {
+        setNumberOfReviews(pendingReviewCount);
+        setPendingReviewCount(null);
+      }
+    }
+  }, [reviewsSummary, pendingReviewCount]);
 
   const handleSummarizeReviewsWithUrl = () => {
+    setIsGenerating(true);
+    setCurrentSummary(null);
     handleSummarizeReviews(fragranticaUrl);
   };
 
   const { displayedText, isTyping } = useTypewriter(reviewsSummary || "", 15);
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newNumberOfReviews = parseInt(event.target.value, 10);
+    setPendingReviewCount(newNumberOfReviews);
+  };
+
   const getButtonText = () => {
-    if (isReviewsLoading) return "Analyzing Reviews...";
-    if (reviewsSummary) return "Analysis Complete";
+    if (isReviewsLoading || isGenerating) return "Analyzing Reviews...";
+    if (currentSummary && isTyping) return "Summary Typing...";
+    if (currentSummary) return "Generate New Summary";
     return "Summarize Fragrantica Reviews";
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNumberOfReviews(parseInt(event.target.value, 10));
-    console.log(event.target.value);
-  };
+  const isButtonDisabled = isReviewsLoading || isGenerating || isTyping;
+  const areRadiosDisabled = isReviewsLoading || isGenerating || isTyping;
+
+  const displayReviewCount = pendingReviewCount || numberOfReviews;
 
   return (
     <>
@@ -66,33 +93,36 @@ const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
         <SelectorTitle>Number of reviews to analyze:</SelectorTitle>
         <ReviewCountSelector>
           <RadioGroup>
-            <RadioLabel>
+            <RadioLabel $disabled={areRadiosDisabled}>
               <RadioInput
                 type="radio"
                 name="reviewCount"
                 value="10"
-                checked={numberOfReviews === 10}
+                checked={displayReviewCount === 10}
                 onChange={handleChange}
+                disabled={areRadiosDisabled}
               />
               10 Reviews
             </RadioLabel>
-            <RadioLabel>
+            <RadioLabel $disabled={areRadiosDisabled}>
               <RadioInput
                 type="radio"
                 name="reviewCount"
                 value="25"
-                checked={numberOfReviews === 25}
+                checked={displayReviewCount === 25}
                 onChange={handleChange}
+                disabled={areRadiosDisabled}
               />
               25 Reviews
             </RadioLabel>
-            <RadioLabel>
+            <RadioLabel $disabled={areRadiosDisabled}>
               <RadioInput
                 type="radio"
                 name="reviewCount"
                 value="50"
-                checked={numberOfReviews === 50}
+                checked={displayReviewCount === 50}
                 onChange={handleChange}
+                disabled={areRadiosDisabled}
               />
               50 Reviews
             </RadioLabel>
@@ -102,22 +132,22 @@ const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
         <SummaryButtonWrapper>
           <GenerateSummaryButton
             onClick={handleSummarizeReviewsWithUrl}
-            disabled={isReviewsLoading || reviewsSummary !== null}
+            disabled={isButtonDisabled}
           >
             {getButtonText()}
           </GenerateSummaryButton>
         </SummaryButtonWrapper>
 
-        {isReviewsLoading && (
+        {(isReviewsLoading || isGenerating) && (
           <LoadingContainer>
             <LoadingSpinner />
             <LoadingText>
-              Gathering the {numberOfReviews} most recent reviews...
+              Gathering the {displayReviewCount} most recent reviews...
             </LoadingText>
           </LoadingContainer>
         )}
 
-        {reviewsSummary && (
+        {currentSummary && (
           <SummaryText $isTyping={isTyping}>{displayedText}</SummaryText>
         )}
       </SectionContainer>

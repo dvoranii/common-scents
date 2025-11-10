@@ -195,7 +195,7 @@ export const CharactersticsAndBestForSection = styled.section`
   display: flex;
   justify-content: center;
   margin: 60px auto;
-  max-width: 1600px;
+  max-width: 1200px;
   width: 90%;
 
   @media screen and (max-width: 600px) {
@@ -206,11 +206,13 @@ export const CharacteristicsSection = styled.div`
   margin: ${(props) => props.theme.spacing.xxxl} 0;
   flex: 1;
   border-right: 1px solid grey;
+  padding: 0 20px;
 `;
 
 export const BestForSection = styled.div`
   margin: ${(props) => props.theme.spacing.xxxl} 0;
   flex: 1;
+  padding: 0.75rem;
 `;
 
 export const CharacteristicsGrid = styled.div`
@@ -230,51 +232,4 @@ export const CharacteristicChip = styled.span<{ $bgColour?: string }>`
   border-radius: 20px;
   font-size: ${(props) => props.theme.fontSizes.sm};
   font-weight: 500;
-`;
-
-export const CategoryNavigation = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4rem;
-  padding: 2rem;
-  border-top: 1px solid #e0e0e0;
-`;
-
-export const NavButtonWrapper = styled.div`
-  flex: 1;
-  display: flex;
-
-  &:first-child {
-    justify-content: flex-start;
-  }
-
-  &:last-child {
-    justify-content: flex-end;
-  }
-`;
-
-export const NavButton = styled.button<{ $position: "left" | "right" }>`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: #e99047;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: #efac6f;
-    color: black;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
 `;

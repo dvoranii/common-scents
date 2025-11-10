@@ -1,6 +1,5 @@
-// Update CategoryDetailPage.tsx
 import React from "react";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import {
   getAllCategories,
   getCategoryBySlug,
@@ -29,42 +28,19 @@ import {
   DescriptionWrapper,
   ExampleImage,
   CharactersticsAndBestForSection,
-  CategoryNavigation,
-  NavButton,
-  NavButtonWrapper,
 } from "./CategoryDetailPage.styled";
 import { SectionTitle } from "../../styles/CommonStyles";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import PageNavigation from "../../components/PageNavigation/PageNavigation";
 
 const CategoryDetailPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
-  const navigate = useNavigate();
   const category = categorySlug ? getCategoryBySlug(categorySlug) : undefined;
   const details = categorySlug ? categoriesDetail[categorySlug] : undefined;
-
   const categories = getAllCategories();
-  const currentIndex = categories.findIndex(
-    (cat: { slug: string | undefined }) => cat.slug === categorySlug
-  );
-  const nextCategory =
-    currentIndex < categories.length - 1 ? categories[currentIndex + 1] : null;
-  const prevCategory = currentIndex > 0 ? categories[currentIndex - 1] : null;
 
   if (!category) {
     return <Navigate to="/" replace />;
   }
-
-  const handleNext = () => {
-    if (nextCategory) {
-      navigate(`/categories/${nextCategory.slug}`);
-    }
-  };
-
-  const handlePrev = () => {
-    if (prevCategory) {
-      navigate(`/categories/${prevCategory.slug}`);
-    }
-  };
 
   return (
     <PageWrapper>
@@ -149,25 +125,11 @@ const CategoryDetailPage: React.FC = () => {
         )}
       </CharactersticsAndBestForSection>
 
-      <CategoryNavigation>
-        <NavButtonWrapper>
-          {prevCategory && (
-            <NavButton onClick={handlePrev} $position="left">
-              <ChevronLeft size={20} />
-              {prevCategory.name}
-            </NavButton>
-          )}
-        </NavButtonWrapper>
-
-        <NavButtonWrapper>
-          {nextCategory && (
-            <NavButton onClick={handleNext} $position="right">
-              {nextCategory.name}
-              <ChevronRight size={20} />
-            </NavButton>
-          )}
-        </NavButtonWrapper>
-      </CategoryNavigation>
+      <PageNavigation
+        currentSlug={categorySlug!}
+        items={categories.map((cat) => ({ slug: cat.slug, title: cat.name }))}
+        basePath="/categories"
+      />
     </PageWrapper>
   );
 };

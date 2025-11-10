@@ -17,7 +17,6 @@ export const PrimaryButton = styled.button`
   font-size: ${(props) => props.theme.fontSizes.base};
   padding: 16px 32px;
   height: fit-content;
-  /* border-radius: ${(props) => props.theme.spacing.sm}; */
   border-radius: 12px;
   cursor: pointer;
   overflow: hidden;
