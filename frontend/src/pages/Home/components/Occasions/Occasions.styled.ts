@@ -53,7 +53,7 @@ export const OccasionOverlay = styled.div`
 `;
 
 export const OccasionTitle = styled.h3`
-  font-family: ${(props) => props.theme.fonts.heading};
+  font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xl};
   margin: 0;
   color: white;

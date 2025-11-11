@@ -82,6 +82,7 @@ export const Description = styled.p`
   text-align: center;
   max-width: 800px;
   margin: 0 auto ${(props) => props.theme.spacing.xxl};
+  padding-top: ${(props) => props.theme.spacing.xxl};
 `;
 
 export const SettingsSection = styled.section`
