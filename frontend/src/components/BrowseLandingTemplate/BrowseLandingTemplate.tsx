@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardDescription,
   CardImage,
+  CardTextWrapper,
 } from "./BrowseLandingTemplate.styled";
 import {
   HeroSection,
@@ -28,6 +29,8 @@ interface BrowseLandingTemplateProps {
   items: Category[] | Occasion[];
   basePath: string;
   tagline: string;
+  cardPadding?: string;
+  cardTextPadding?: string;
 }
 
 const isCategory = (item: Category | Occasion): item is Category => {
@@ -44,6 +47,8 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
   items,
   basePath,
   tagline,
+  cardPadding,
+  cardTextPadding,
 }) => {
   return (
     <>
@@ -71,7 +76,10 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
                 to={`${basePath}/${item.slug}`}
                 style={{ textDecoration: "none" }}
               >
-                <Card $bgColor={isCategory(item) ? item.color : undefined}>
+                <Card
+                  $bgColor={isCategory(item) ? item.color : undefined}
+                  $padding={cardPadding}
+                >
                   {isCategory(item) && (
                     <CardIcon $color={item.iconColor}>
                       <item.icon size={48} />
@@ -82,8 +90,10 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
                     <CardImage src={item.image} alt={item.name} />
                   )}
 
-                  <CardTitle>{item.name}</CardTitle>
-                  <CardDescription>{item.description}</CardDescription>
+                  <CardTextWrapper $padding={cardTextPadding}>
+                    <CardTitle>{item.name}</CardTitle>
+                    <CardDescription>{item.description}</CardDescription>
+                  </CardTextWrapper>
                 </Card>
               </Link>
             ))}

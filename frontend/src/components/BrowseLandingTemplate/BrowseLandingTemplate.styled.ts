@@ -25,10 +25,10 @@ export const CardGrid = styled.div`
   margin-top: 40px;
 `;
 
-export const Card = styled.div<{ $bgColor?: string }>`
+export const Card = styled.div<{ $bgColor?: string; $padding?: string }>`
   background: ${(props) => props.$bgColor || "#fff"};
   border-radius: 12px;
-  padding: 40px 30px;
+  padding: ${(props) => (props.$padding ? props.$padding : "40px 30px")};
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -53,7 +53,6 @@ export const CardImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
   margin-bottom: 20px;
 `;
 
@@ -67,4 +66,8 @@ export const CardDescription = styled.p`
   font-size: 1rem;
   line-height: 1.6;
   color: ${(props) => props.theme.colors.text};
+`;
+
+export const CardTextWrapper = styled.div<{ $padding?: string }>`
+  padding: ${(props) => (props.$padding ? props.$padding : "0px")};
 `;

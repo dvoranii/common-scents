@@ -12,6 +12,8 @@ const OccasionLandingPage: React.FC = () => {
       items={occasions}
       basePath="/occasions"
       tagline="Know the best time and occasion to wear specific fragrances"
+      cardPadding="0px"
+      cardTextPadding="20px"
     />
   );
 };
