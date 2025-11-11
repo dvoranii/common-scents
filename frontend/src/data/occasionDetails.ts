@@ -2,6 +2,31 @@
 
 import type { OccasionDetail } from "../types/data.types";
 
+import OpenOfficeImg from "../assets/Occasions/Details/open-office.avif";
+import ClientMeetingImg from "../assets/Occasions/Details/client-meeting.png";
+import VideoCallImg from "../assets/Occasions/Details/video-call.png";
+import WFHImg from "../assets/Occasions/Details/wfh.png";
+import WeekendComfortImg from "../assets/Occasions/Details/weekend-comfort.png";
+import CasualOutingImg from "../assets/Occasions/Details/casual-outing.png";
+import NightClubImg from "../assets/Occasions/Details/nightclub.png";
+import HousePartyImg from "../assets/Occasions/Details/house-party.png";
+import LateNightBarImg from "../assets/Occasions/Details/late-night-bar.png";
+import BlackTieImg from "../assets/Occasions/Details/black-tie.png";
+import WeddingGuestImg from "../assets/Occasions/Details/wedding-guest.png";
+import BusinessDinnerImg from "../assets/Occasions/Details/business-dinner.png";
+import GymSessionImg from "../assets/Occasions/Details/gym-session.png";
+import OutdoorSportsImg from "../assets/Occasions/Details/outdoor-sports.png";
+import PostWorkoutImg from "../assets/Occasions/Details/post-workout.png";
+import DateNightImg from "../assets/Occasions/Details/date-night.png";
+import DinnerDateImg from "../assets/Occasions/Details/dinner-date.png";
+import OutdoorWalkImg from "../assets/Occasions/Details/outdoor-walk.png";
+import BeachDayImg from "../assets/Occasions/Details/beach-day.png";
+import SummerPartyImg from "../assets/Occasions/Details/summer-party.png";
+import VacationImg from "../assets/Occasions/Details/vacation.png";
+import WinterNightImg from "../assets/Occasions/Details/winter-night.png";
+import HolidayGatheringImg from "../assets/Occasions/Details/holiday-gathering.png";
+import CozyIndoorsImg from "../assets/Occasions/Details/cozy-indoors.png";
+
 export const occasionDetails: Record<string, OccasionDetail> = {
   "date-night": {
     subtitle: "FRAGRANCES THAT SET THE MOOD.",
@@ -12,19 +37,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Casual Bar",
         description:
           "Playful and energetic — perfect for first dates or casual meetups.",
-        examples: ["Versace Eros", "Ferragamo Uomo"],
+        image: DateNightImg,
       },
       {
         title: "Dinner Date",
         description:
           "Smooth and seductive scents that complement an intimate setting.",
-        examples: ["Stronger With You Intensely", "Le Male Le Parfum"],
+        image: DinnerDateImg,
       },
       {
         title: "Outdoor Walk",
         description:
           "Fresh and inviting, leaving a pleasant trail without being heavy.",
-        examples: ["Bleu de Chanel", "Dior Homme Cologne"],
+        image: OutdoorWalkImg,
       },
     ],
   },
@@ -37,19 +62,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Work From Home",
         description:
           "Light and uplifting scents that boost your mood throughout the day.",
-        examples: ["Dior Homme Cologne", "Acqua di Gio"],
+        image: WFHImg,
       },
       {
         title: "Casual Outings",
         description:
-          "Universally appealing fragrances for shopping, coffee dates, or errands.",
-        examples: ["Bleu de Chanel EDT", "Versace Pour Homme"],
+          "Universally appealing fragrances for shopping, brunch, or errands.",
+        image: CasualOutingImg,
       },
       {
         title: "Weekend Comfort",
         description:
           "Relaxed, easy-going scents for low-key weekend activities.",
-        examples: ["L'Homme Yves Saint Laurent", "Prada L'Homme"],
+        image: WeekendComfortImg,
       },
     ],
   },
@@ -62,19 +87,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Nightclub",
         description:
           "Powerful, sweet fragrances that cut through crowds and loud music.",
-        examples: ["Versace Eros", "One Million Prive"],
+        image: NightClubImg,
       },
       {
         title: "House Party",
         description:
           "Bold scents that make an impression in close social settings.",
-        examples: ["Invictus Legend", "Stronger With You Intensely"],
+        image: HousePartyImg,
       },
       {
         title: "Late Night Bar",
         description:
           "Seductive, mysterious fragrances for intimate nighttime venues.",
-        examples: ["Spicebomb Extreme", "La Nuit de L'Homme"],
+        image: LateNightBarImg,
       },
     ],
   },
@@ -87,19 +112,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Black Tie Events",
         description:
           "Luxurious, complex scents that match the elegance of formal attire.",
-        examples: ["Dior Homme Intense", "Tom Ford Oud Wood"],
+        image: BlackTieImg,
       },
       {
         title: "Wedding Guest",
         description:
           "Memorable yet appropriate fragrances that photograph well.",
-        examples: ["Bleu de Chanel Parfum", "Creed Aventus"],
+        image: WeddingGuestImg,
       },
       {
         title: "Business Dinner",
         description:
           "Sophisticated scents that command respect in professional settings.",
-        examples: ["Terre d'Hermès", "Giorgio Armani Code"],
+        image: BusinessDinnerImg,
       },
     ],
   },
@@ -112,17 +137,17 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Open Office",
         description:
           "Light, inoffensive fragrances perfect for shared workspaces.",
-        examples: ["Prada L'Homme", "Dior Homme Cologne"],
+        image: OpenOfficeImg,
       },
       {
         title: "Client Meetings",
         description: "Polished, professional scents that inspire confidence.",
-        examples: ["Bleu de Chanel EDT", "Acqua di Gio Profumo"],
+        image: ClientMeetingImg,
       },
       {
         title: "Video Calls",
         description: "Subtle scents for your own comfort during remote work.",
-        examples: ["Versace Pour Homme", "L'Homme Yves Saint Laurent"],
+        image: VideoCallImg,
       },
     ],
   },
@@ -135,17 +160,17 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Gym Session",
         description:
           "Ultra-light, fresh scents that won't become cloying when you sweat.",
-        examples: ["Acqua di Gio", "Cool Water"],
+        image: GymSessionImg,
       },
       {
         title: "Outdoor Sports",
         description: "Energizing fragrances for hiking, biking, or running.",
-        examples: ["Dior Sauvage EDT", "Versace Man Eau Fraiche"],
+        image: OutdoorSportsImg,
       },
       {
         title: "Post-Workout",
         description: "Clean, refreshing scents to apply after showering.",
-        examples: ["Prada Luna Rossa", "Bleu de Chanel EDT"],
+        image: PostWorkoutImg,
       },
     ],
   },
@@ -157,19 +182,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
       {
         title: "Beach Day",
         description:
-          "Aquatic, fresh scents that complement sunscreen and sea breeze.",
-        examples: ["Light Blue Pour Homme", "Versace Man Eau Fraiche"],
+          "Aquatic, fresh scents that complement sun and sea breeze.",
+        image: BeachDayImg,
       },
       {
         title: "Summer Party",
         description: "Vibrant, tropical fragrances for outdoor gatherings.",
-        examples: ["Dior Homme Cologne", "Acqua di Gio"],
+        image: SummerPartyImg,
       },
       {
         title: "Vacation Mode",
         description:
           "Carefree, easy-wearing scents for traveling and relaxation.",
-        examples: ["Prada Luna Rossa", "Bleu de Chanel EDT"],
+        image: VacationImg,
       },
     ],
   },
@@ -182,18 +207,18 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Winter Nights",
         description:
           "Rich, heavy fragrances that project beautifully in cold air.",
-        examples: ["Spicebomb Extreme", "Stronger With You Intensely"],
+        image: WinterNightImg,
       },
       {
         title: "Holiday Gatherings",
         description: "Warm, inviting scents perfect for festive occasions.",
-        examples: ["One Million Prive", "Le Male Le Parfum"],
+        image: HolidayGatheringImg,
       },
       {
         title: "Cozy Indoors",
         description:
           "Comforting fragrances for staying warm during cold months.",
-        examples: ["Dior Homme Intense", "Giorgio Armani Code"],
+        image: CozyIndoorsImg,
       },
     ],
   },

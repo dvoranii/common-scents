@@ -4,6 +4,8 @@ import { useTypewriter } from "../../hooks/useTypewriter";
 import {
   Disclaimer,
   GenerateSummaryButton,
+  InfoMessage,
+  InfoSymbol,
   LoadingContainer,
   LoadingText,
   RadioGroup,
@@ -129,6 +131,13 @@ const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
           </RadioGroup>
         </ReviewCountSelector>
 
+        {displayReviewCount === 50 && !isReviewsLoading && !isGenerating && (
+          <InfoMessage>
+            <InfoSymbol>!</InfoSymbol> Analyzing 50 reviews may take 15-20
+            seconds.
+          </InfoMessage>
+        )}
+
         <SummaryButtonWrapper>
           <GenerateSummaryButton
             onClick={handleSummarizeReviewsWithUrl}
@@ -143,6 +152,7 @@ const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
             <LoadingSpinner />
             <LoadingText>
               Gathering the {displayReviewCount} most recent reviews...
+              {displayReviewCount === 50 && " This may take 15-20 seconds."}
             </LoadingText>
           </LoadingContainer>
         )}

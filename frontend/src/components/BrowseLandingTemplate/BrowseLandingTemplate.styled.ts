@@ -58,7 +58,7 @@ export const CardImage = styled.img`
 
 export const CardTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   color: ${(props) => props.theme.colors.text};
 `;
 

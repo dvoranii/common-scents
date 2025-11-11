@@ -82,7 +82,7 @@ export const Description = styled.p`
   text-align: center;
   max-width: 800px;
   margin: 0 auto ${(props) => props.theme.spacing.xxl};
-  padding-top: ${(props) => props.theme.spacing.xxl};
+  padding: ${(props) => props.theme.spacing.xxl} 20px 0 20px;
 `;
 
 export const SettingsSection = styled.section`
@@ -91,9 +91,8 @@ export const SettingsSection = styled.section`
 
 export const SectionTitle = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading1};
-  font-size: ${(props) => props.theme.fontSizes.xxxl};
+  font-size: ${(props) => props.theme.fontSizes.xxxxl};
   text-align: center;
-  /* color: ${(props) => props.theme.colors.text}; */
   color: rgb(38, 50, 70);
   margin-bottom: ${(props) => props.theme.spacing.xl};
   font-weight: 600;
@@ -103,6 +102,7 @@ export const SettingGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${(props) => props.theme.spacing.xl};
+  padding: 0 60px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
@@ -111,11 +111,15 @@ export const SettingGrid = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  @media screen and (max-width: 450px) {
+    padding: 0 20px;
+  }
 `;
 
 export const SettingCard = styled.div`
   border-radius: ${(props) => props.theme.spacing.md};
-  padding: ${(props) => props.theme.spacing.xl};
+  padding: ${(props) => props.theme.spacing.md};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
@@ -139,11 +143,8 @@ export const SettingDescription = styled.p`
   margin-bottom: ${(props) => props.theme.spacing.md};
 `;
 
-export const ExampleScents = styled.p`
-  font-style: italic;
-  font-size: ${(props) => props.theme.fontSizes.sm};
-  color: ${(props) => props.theme.colors.primary};
-  font-weight: 500;
+export const SettingImage = styled.img`
+  width: 100%;
 `;
 
 export const FragranceListPlaceholder = styled.section`

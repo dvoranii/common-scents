@@ -35,6 +35,23 @@ export const SummaryText = styled.div<{ $isTyping?: boolean }>`
   min-height: 100px;
 `;
 
+export const InfoMessage = styled.p`
+  display: flex;
+  gap: 4px;
+`;
+export const InfoSymbol = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background: #2196f3;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+`;
+
 export const SummaryButtonWrapper = styled.div`
   width: 100%;
   display: flex;

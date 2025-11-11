@@ -7,13 +7,13 @@ const OccasionLandingPage: React.FC = () => {
 
   return (
     <BrowseLandingTemplate
-      title="Scent Categories"
+      title="Fragrance Occasions"
       introText="The right fragrance sets the perfect mood for any moment. From confidence-boosting scents for the workday to magnetic fragrances for date night, discover recommendations tailored to life's many occasions. Find your perfect scent for every situation."
       items={occasions}
       basePath="/occasions"
       tagline="Know the best time and occasion to wear specific fragrances"
       cardPadding="0px"
-      cardTextPadding="20px"
+      cardTextPadding="0px 20px 40px 20px"
     />
   );
 };

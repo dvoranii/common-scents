@@ -1,7 +1,7 @@
 interface Setting {
   title: string;
   description: string;
-  examples: string[];
+  image?: string;
 }
 
 export interface OccasionDetail {

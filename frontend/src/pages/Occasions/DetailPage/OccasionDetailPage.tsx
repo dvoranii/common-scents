@@ -16,9 +16,9 @@ import {
   SettingCard,
   SettingTitle,
   SettingDescription,
-  ExampleScents,
   FragranceListPlaceholder,
   HeroImageContainerInner,
+  SettingImage,
 } from "./OccasionDetailPage.styled";
 import { MainTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
@@ -97,7 +97,7 @@ const OccasionDetailPage: React.FC = () => {
                 <SettingCard key={setting.title}>
                   <SettingTitle>{setting.title}</SettingTitle>
                   <SettingDescription>{setting.description}</SettingDescription>
-                  <ExampleScents>{setting.examples.join(" • ")}</ExampleScents>
+                  <SettingImage src={setting.image} />
                 </SettingCard>
               ))}
             </SettingGrid>
