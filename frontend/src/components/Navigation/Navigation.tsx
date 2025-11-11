@@ -114,7 +114,7 @@ export const Navigation: React.FC = () => {
                     $textColour={navColor}
                     $isActive={isLearnActive}
                   >
-                    Learn
+                    Learn▾
                   </NavLink>
                   <DropdownMenu>
                     {learnItems.map((item) => (
@@ -138,7 +138,7 @@ export const Navigation: React.FC = () => {
                     $textColour={navColor}
                     $isActive={isExploreActive}
                   >
-                    Explore
+                    Explore▾
                   </NavLink>
                   <DropdownMenu>
                     {exploreItems.map((item) => (

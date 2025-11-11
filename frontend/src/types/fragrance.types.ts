@@ -65,6 +65,9 @@ export interface Guide {
   category?: string;
   description: string;
   thumbnailImage?: string;
+  topics?: string[];
+  contentType?: string[];
+  tags?: string[];
 }
 export interface Academy {
   id: string;

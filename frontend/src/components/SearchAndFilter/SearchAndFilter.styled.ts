@@ -227,20 +227,6 @@ export const RemoveTagButton = styled.button<{ $isSmall?: boolean }>`
   }
 `;
 
-export const ActiveFiltersSummary = styled.div`
-  margin-bottom: 16px;
-  padding: 12px;
-  background: #f9fafb;
-  border-radius: 4px;
-`;
-
-export const FilterSummaryText = styled.span`
-  font-size: ${(props) => props.theme.fontSizes.sm};
-  color: #4b5563;
-  display: block;
-  margin-bottom: 8px;
-`;
-
 export const TagSectionHeader = styled.div`
   display: flex;
   justify-content: flex-end;

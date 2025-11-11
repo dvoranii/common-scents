@@ -12,14 +12,7 @@ export const academy: Academy[] = [
       "Trace the remarkable journey of the House of Creed from its origins as a London tailoring business in 1760 to becoming one of the world's most prestigious fragrance houses.",
     topics: ["History", "Brand Stories", "Luxury Perfumery"],
     contentType: ["History", "Brand Profile"],
-    tags: [
-      "Creed",
-      "heritage",
-      "royal",
-      "artisan",
-      "family business",
-      "luxury",
-    ],
+    tags: ["Creed", "heritage", "royal", "artisan", "luxury"],
   },
   {
     id: "2",
@@ -38,7 +31,6 @@ export const academy: Academy[] = [
       "Italian",
       "cultural",
       "traditions",
-      "global",
     ],
   },
   {
@@ -92,15 +84,7 @@ export const academy: Academy[] = [
       "Decode the mystery behind fragrance concentrations and learn how Eau de Toilette, Eau de Parfum, and Parfum differ in longevity, projection, and ideal usage scenarios.",
     topics: ["Education", "Buying Guide", "Technical"],
     contentType: ["Guide", "Education"],
-    tags: [
-      "EDT",
-      "EDP",
-      "parfum",
-      "concentration",
-      "longevity",
-      "projection",
-      "buying guide",
-    ],
+    tags: ["EDT", "EDP", "parfum", "concentration", "longevity", "projection"],
   },
   {
     id: "6",
@@ -133,14 +117,7 @@ export const academy: Academy[] = [
       "Discover the science behind nose blindness and learn practical strategies to prevent olfactory fatigue so you can fully appreciate your fragrances throughout the day.",
     topics: ["Science", "Health", "Tips"],
     contentType: ["Science", "Guide"],
-    tags: [
-      "olfactory fatigue",
-      "nose blindness",
-      "science",
-      "tips",
-      "health",
-      "practical advice",
-    ],
+    tags: ["olfactory fatigue", "nose blindness", "science", "tips", "health"],
   },
   {
     id: "8",
@@ -158,7 +135,6 @@ export const academy: Academy[] = [
       "eco-friendly",
       "innovation",
       "environment",
-      "responsible",
     ],
   },
 ];

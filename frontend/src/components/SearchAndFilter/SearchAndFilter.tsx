@@ -19,8 +19,6 @@ import {
   RemoveTagButton,
   TagSectionHeader,
   ClearButton,
-  ActiveFiltersSummary,
-  FilterSummaryText,
 } from "./SearchAndFilter.styled";
 
 export interface TagGroup {
@@ -40,12 +38,6 @@ export interface SearchAndFilterConfig<T> {
   getTagColor: (tagName: string) => string;
   searchPlaceholder?: string;
   renderResults: (filteredItems: T[]) => React.ReactNode;
-  renderSummary?: (
-    filteredCount: number,
-    totalCount: number,
-    selectedTagCount: number,
-    mode: "ANY" | "ALL"
-  ) => React.ReactNode;
 }
 
 const SearchAndFilter = <T,>({
@@ -56,7 +48,6 @@ const SearchAndFilter = <T,>({
   getTagColor,
   searchPlaceholder = "Search...",
   renderResults,
-  renderSummary,
 }: SearchAndFilterConfig<T>): React.ReactElement => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -99,13 +90,6 @@ const SearchAndFilter = <T,>({
         : [...prev, tagName]
     );
   }, []);
-
-  const clearAllFilters = useCallback(() => {
-    setSearchQuery("");
-    setSelectedTags([]);
-  }, []);
-
-  const hasActiveFilters = searchQuery !== "" || selectedTags.length > 0;
 
   return (
     <>
@@ -219,70 +203,7 @@ const SearchAndFilter = <T,>({
         </FilterDropdownWrapper>
       </TopControlsWrapper>
 
-      {selectedTags.length > 0 && (
-        <ActiveFiltersSummary>
-          <FilterSummaryText>
-            {renderSummary ? (
-              renderSummary(
-                filteredItems.length,
-                items.length,
-                selectedTags.length,
-                filterMode
-              )
-            ) : (
-              <>
-                Showing {filteredItems.length} of {items.length} items
-                {selectedTags.length > 0 && (
-                  <>
-                    {" "}
-                    • Filtering by {selectedTags.length} tag
-                    {selectedTags.length !== 1 ? "s" : ""} (
-                    {filterMode === "ANY" ? "matching any" : "matching all"})
-                  </>
-                )}
-              </>
-            )}
-          </FilterSummaryText>
-          <ClearButton onClick={clearAllFilters} style={{ marginTop: "8px" }}>
-            Clear All Filters
-          </ClearButton>
-
-          <TagsContainer style={{ marginTop: "8px" }}>
-            {selectedTags.map((tag) => (
-              <Tag
-                key={tag}
-                $color={getTagColor(tag)}
-                $isSelected={true}
-                $isSmall
-              >
-                {tag}
-                <RemoveTagButton
-                  $isSmall
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    toggleTag(tag);
-                  }}
-                  aria-label={`Remove ${tag} filter`}
-                >
-                  ×
-                </RemoveTagButton>
-              </Tag>
-            ))}
-          </TagsContainer>
-        </ActiveFiltersSummary>
-      )}
-
       {renderResults(filteredItems)}
-
-      {filteredItems.length === 0 && hasActiveFilters && (
-        <div style={{ textAlign: "center", padding: "48px", color: "#6b7280" }}>
-          No items found matching your search and filters.
-          <br />
-          <ClearButton onClick={clearAllFilters} style={{ marginTop: "16px" }}>
-            Clear All Filters
-          </ClearButton>
-        </div>
-      )}
     </>
   );
 };

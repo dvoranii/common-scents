@@ -90,25 +90,6 @@ const FragranceReviews: React.FC = () => {
     </PageWrapper>
   );
 
-  const renderSummary = (
-    filteredCount: number,
-    totalCount: number,
-    selectedTagCount: number,
-    mode: "ANY" | "ALL"
-  ) => (
-    <>
-      Showing {filteredCount} of {totalCount} fragrances
-      {selectedTagCount > 0 && (
-        <>
-          {" "}
-          • Filtering by {selectedTagCount} tag
-          {selectedTagCount !== 1 ? "s" : ""} (
-          {mode === "ANY" ? "matching any" : "matching all"})
-        </>
-      )}
-    </>
-  );
-
   return (
     <SearchAndFilter
       items={allFragrances}
@@ -118,7 +99,6 @@ const FragranceReviews: React.FC = () => {
       getTagColor={getTagColor}
       searchPlaceholder="Search by name or brand..."
       renderResults={renderResults}
-      renderSummary={renderSummary}
     />
   );
 };
