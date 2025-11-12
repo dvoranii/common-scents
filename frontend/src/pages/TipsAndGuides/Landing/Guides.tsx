@@ -32,15 +32,11 @@ const Guides: React.FC = () => {
 
   const tagGroups: TagGroup[] = useMemo(() => {
     const topicsMap = new Map<string, number>();
-    const contentTypeMap = new Map<string, number>();
     const tagsMap = new Map<string, number>();
 
     guides.forEach((item) => {
       item.topics?.forEach((topic) => {
         topicsMap.set(topic, (topicsMap.get(topic) || 0) + 1);
-      });
-      item.contentType?.forEach((type) => {
-        contentTypeMap.set(type, (contentTypeMap.get(type) || 0) + 1);
       });
       item.tags?.forEach((tag) => {
         tagsMap.set(tag, (tagsMap.get(tag) || 0) + 1);
@@ -54,14 +50,6 @@ const Guides: React.FC = () => {
           name,
           count,
           color: "#3b82f6",
-        })),
-      },
-      {
-        title: "Content Type",
-        tags: Array.from(contentTypeMap.entries()).map(([name, count]) => ({
-          name,
-          count,
-          color: "#8b5cf6",
         })),
       },
       {
@@ -111,7 +99,6 @@ const Guides: React.FC = () => {
             getSearchableText={(item) => [item.title, item.description]}
             getItemTags={(item) => [
               ...(item.topics || []),
-              ...(item.contentType || []),
               ...(item.tags || []),
             ]}
             getTagColor={getTagColor}

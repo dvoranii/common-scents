@@ -88,6 +88,13 @@ export const Navigation: React.FC = () => {
     location.pathname.includes(segment)
   );
 
+  const getDropdownItemIsActive = (
+    to: string,
+    currentPath: string
+  ): boolean => {
+    return currentPath.startsWith(to);
+  };
+
   return (
     <>
       <NavWrapperOuter>
@@ -100,7 +107,11 @@ export const Navigation: React.FC = () => {
                     as={Link}
                     to={item.to}
                     $textColour={navColor}
-                    $isActive={location.pathname == item.to}
+                    $isActive={
+                      item.to === "/"
+                        ? location.pathname === "/"
+                        : location.pathname.startsWith(item.to)
+                    }
                   >
                     {item.label}
                   </NavLink>
@@ -122,7 +133,10 @@ export const Navigation: React.FC = () => {
                         <DropdownLink
                           as={Link}
                           to={item.to}
-                          $isActive={location.pathname == item.to}
+                          $isActive={getDropdownItemIsActive(
+                            item.to,
+                            location.pathname
+                          )}
                         >
                           {item.label}
                         </DropdownLink>
@@ -146,7 +160,10 @@ export const Navigation: React.FC = () => {
                         <DropdownLink
                           as={Link}
                           to={item.to}
-                          $isActive={location.pathname == item.to}
+                          $isActive={getDropdownItemIsActive(
+                            item.to,
+                            location.pathname
+                          )}
                         >
                           {item.label}
                         </DropdownLink>
@@ -182,7 +199,11 @@ export const Navigation: React.FC = () => {
                   as={Link}
                   to={item.to}
                   onClick={closeMobileNav}
-                  $isActive={location.pathname === item.to}
+                  $isActive={
+                    item.to === "/"
+                      ? location.pathname === "/"
+                      : location.pathname.startsWith(item.to)
+                  }
                 >
                   {item.label}
                 </MobileNavLink>

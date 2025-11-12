@@ -11,7 +11,6 @@ export const guides: Guide[] = [
     description:
       "Learn how to curate a versatile collection of fragrances for different occasions, moods, and seasons. Discover the essential scent profiles every wardrobe should include.",
     topics: ["Collection Building", "Buying Guide", "Curation"],
-    contentType: ["Guide", "Tips"],
     tags: ["wardrobe", "collection", "versatility", "occasions"],
   },
   {
@@ -24,7 +23,6 @@ export const guides: Guide[] = [
     description:
       "Proper storage can extend the life of your fragrances by years. Find out where and how to store your collection to maintain scent integrity and prevent degradation.",
     topics: ["Maintenance", "Care", "Preservation"],
-    contentType: ["Guide", "Tips"],
     tags: ["storage", "longevity", "preservation", "care"],
   },
   {
@@ -37,7 +35,6 @@ export const guides: Guide[] = [
     description:
       "Understand why certain fragrances work better in specific seasons and how to choose the perfect scent for summer heat, winter chill, and everything in between.",
     topics: ["Seasonal Selection", "Weather", "Choosing"],
-    contentType: ["Guide", "Tips"],
     tags: ["seasons", "weather", "selection", "matching"],
   },
   {
@@ -50,7 +47,6 @@ export const guides: Guide[] = [
     description:
       "Master the art of fragrance application with techniques that maximize longevity and projection while ensuring you never overwhelm a room with your scent.",
     topics: ["Application", "Technique", "Usage"],
-    contentType: ["Guide", "Tips"],
     tags: ["application", "technique", "projection", "longevity"],
   },
 ];

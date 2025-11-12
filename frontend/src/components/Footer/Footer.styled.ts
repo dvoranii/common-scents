@@ -34,6 +34,7 @@ export const NavList = styled.nav`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    list-style: none;
 
     li {
       font-size: clamp(16px, 2vw, 1.2rem);
