@@ -7,6 +7,7 @@ import {
   SectionTitle,
   Paragraph,
   NotesList,
+  TimeAndOccasionsList,
 } from "./ArmafClubDeNuitMan.styled";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import SummarySection from "../../../components/SummarySection/SummarySection";
@@ -122,24 +123,24 @@ const ArmafClubDeNuitManReview: React.FC = () => {
         <Paragraph>
           <strong>Perfect For:</strong>
         </Paragraph>
-        <ul>
+        <TimeAndOccasionsList>
           <li>Fall and winter evening events</li>
           <li>Clubbing and party environments</li>
           <li>Date nights in cool weather</li>
           <li>When you want maximum compliments</li>
           <li>Younger social gatherings</li>
-        </ul>
+        </TimeAndOccasionsList>
         <br />
         <Paragraph>
           <strong>Avoid Wearing:</strong>
         </Paragraph>
-        <ul>
+        <TimeAndOccasionsList>
           <li>Office settings (too loud and distracting)</li>
           <li>Hot summer days (will become cloying)</li>
           <li>Formal business meetings</li>
           <li>Close quarters with limited ventilation</li>
           <li>If you prefer subtle, sophisticated scents</li>
-        </ul>
+        </TimeAndOccasionsList>
 
         <SectionTitle>Who Should Wear It</SectionTitle>
         <Paragraph>

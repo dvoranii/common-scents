@@ -7,6 +7,7 @@ import {
   SectionTitle,
   Paragraph,
   NotesList,
+  TimeAndOccasionsList,
 } from "./CreedVikingCologne.styled";
 import { MainTitle } from "../../../styles/CommonStyles";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
@@ -135,23 +136,23 @@ const CreedVikingCologneReview: React.FC = () => {
           <Paragraph>
             <strong>Perfect For:</strong>
           </Paragraph>
-          <ul>
+          <TimeAndOccasionsList>
             <li>Spring and summer daytime wear (9/10 fit)</li>
             <li>Office and professional settings</li>
             <li>Date nights and romantic dinners</li>
             <li>Weekend outings and brunches</li>
             <li>Business meetings and formal events</li>
-          </ul>
+          </TimeAndOccasionsList>
           <br />
           <Paragraph>
             <strong>Less Ideal For:</strong>
           </Paragraph>
-          <ul>
+          <TimeAndOccasionsList>
             <li>Freezing winter days (might get lost)</li>
             <li>When you want extreme projection</li>
             <li>Club environments (too sophisticated)</li>
             <li>If you're looking for a beast-mode performer</li>
-          </ul>
+          </TimeAndOccasionsList>
 
           <SectionTitle>Who Should Wear It</SectionTitle>
           <Paragraph>

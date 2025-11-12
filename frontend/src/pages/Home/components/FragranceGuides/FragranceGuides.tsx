@@ -9,13 +9,14 @@ import {
   GuideTitle,
   GuideMeta,
   TextWrapper,
-} from "./FragranceLearningHub.styled";
+} from "./FragranceGuides.styled";
 import {
   Section,
   SectionContent,
   SectionTitle,
   SectionSubtitle,
 } from "../../../../styles/CommonStyles";
+import { Link } from "react-router-dom";
 
 export const FragranceLearningHub: React.FC = () => {
   const featuredGuides = getFeaturedGuides(4);
@@ -36,16 +37,17 @@ export const FragranceLearningHub: React.FC = () => {
             </TextWrapper>
             <GuidesList>
               {featuredGuides.map((guide) => (
-                <GuideItem key={guide.id}>
-                  <GuideTitle>{guide.title}</GuideTitle>
-                  {guide.author && <GuideMeta>{guide.author}</GuideMeta>}
-                  {guide.date && <GuideMeta>{guide.date}</GuideMeta>}
-                </GuideItem>
+                <Link to={`/guides/${guide.slug}`}>
+                  <GuideItem key={guide.id}>
+                    <GuideTitle>{guide.title}</GuideTitle>
+                    {guide.author && <GuideMeta>{guide.author}</GuideMeta>}
+                    {guide.date && <GuideMeta>{guide.date}</GuideMeta>}
+                  </GuideItem>
+                </Link>
               ))}
             </GuidesList>
           </DualSection>
 
-          {/* Right Column — Common Scents Academy */}
           <DualSection>
             <TextWrapper>
               <SectionTitle $marginBottom="0.5rem">
@@ -57,11 +59,12 @@ export const FragranceLearningHub: React.FC = () => {
             </TextWrapper>
             <GuidesList>
               {academyGuides.map((guide) => (
-                <GuideItem key={guide.id}>
-                  <GuideTitle>{guide.title}</GuideTitle>
-                  {guide.author && <GuideMeta>{guide.author}</GuideMeta>}
-                  {guide.date && <GuideMeta>{guide.date}</GuideMeta>}
-                </GuideItem>
+                <Link to={`/academy/${guide.slug}`}>
+                  <GuideItem key={guide.id}>
+                    <GuideTitle>{guide.title}</GuideTitle>
+                    {guide.date && <GuideMeta>{guide.date}</GuideMeta>}
+                  </GuideItem>
+                </Link>
               ))}
             </GuidesList>
           </DualSection>

@@ -22,6 +22,7 @@ export const NavList = styled.ul`
   display: flex;
   gap: ${(props) => props.theme.fontSizes.xxxl};
   font-size: ${(props) => props.theme.fontSizes.xl};
+  list-style: none;
 `;
 
 export const NavItem = styled.li``;
@@ -49,6 +50,7 @@ export const DropdownMenu = styled.ul`
   transform: translateY(-10px);
   transition: all 0.2s ease;
   z-index: 1000;
+  list-style: none;
 `;
 
 export const DropdownContainer = styled.div`
@@ -214,6 +216,7 @@ export const MobileNavList = styled.ul`
   flex-direction: column;
   gap: ${(props) => props.theme.spacing.xl};
   margin-top: ${(props) => props.theme.spacing.xxl};
+  list-style: none;
 `;
 
 export const MobileNavItem = styled.li`

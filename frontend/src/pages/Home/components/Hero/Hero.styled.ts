@@ -58,10 +58,7 @@ export const SecondaryButton = styled.button`
   border: 2px solid #c7c6cb;
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.base};
-  /* padding: ${(props) =>
-    `${props.theme.spacing.md} ${props.theme.spacing.xl}`}; */
   padding: 16px 32px;
-  /* border-radius: ${(props) => props.theme.spacing.sm}; */
   border-radius: 12px;
   cursor: pointer;
   overflow: hidden;

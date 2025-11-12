@@ -76,6 +76,7 @@ export interface Academy {
   author?: string;
   date: string;
   time: string;
+  category?: string;
   description: string;
   thumbnailImage?: string;
   topics?: string[];

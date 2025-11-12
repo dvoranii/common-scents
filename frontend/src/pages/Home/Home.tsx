@@ -1,7 +1,7 @@
 import { Hero } from "./components/Hero/Hero";
 import { FeaturedReviews } from "./components/FeaturedReviews/FeaturedReviews";
 import { ScentCategories } from "./components/ScentCategories/ScentCategories";
-import { FragranceLearningHub } from "./components/FragranceGuides/FragranceLearningHub";
+import { FragranceLearningHub } from "./components/FragranceGuides/FragranceGuides";
 import { ScentOccasions } from "./components/Occasions/Occasions";
 
 // import { PageContainer } from "../../styles/CommonStyles";

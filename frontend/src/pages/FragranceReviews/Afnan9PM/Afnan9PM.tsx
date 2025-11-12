@@ -7,6 +7,7 @@ import {
   SectionTitle,
   Paragraph,
   NotesList,
+  TimeAndOccasionsList,
 } from "./Afnan9PM.styled";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
@@ -127,24 +128,24 @@ const Afnan9PMReview: React.FC = () => {
         <Paragraph>
           <strong>Perfect For:</strong>
         </Paragraph>
-        <ul>
+        <TimeAndOccasionsList>
           <li>Fall/Winter date nights (10/10 fit)</li>
           <li>Evening events or parties</li>
           <li>Clubbing or bars</li>
           <li>Going out with friends in cold weather</li>
           <li>When you want maximum attention</li>
-        </ul>
+        </TimeAndOccasionsList>
         <br />
         <Paragraph>
           <strong>Don't Wear It:</strong>
         </Paragraph>
-        <ul>
+        <TimeAndOccasionsList>
           <li>To the office (unless you work alone)</li>
           <li>In hot weather (it will be suffocating)</li>
           <li>During the day (it's too heavy)</li>
           <li>To formal events (too youthful and loud)</li>
           <li>Anywhere with poor ventilation</li>
-        </ul>
+        </TimeAndOccasionsList>
 
         <SectionTitle>Who Should Wear It</SectionTitle>
         <Paragraph>

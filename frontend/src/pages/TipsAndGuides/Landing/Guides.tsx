@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from "react";
 import SearchAndFilter, {
   type TagGroup,
-} from "../../components/SearchAndFilter/SearchAndFilter";
-import { academy } from "../../data/academy";
-import type { Academy as AcademyItem } from "../../types/fragrance.types";
+} from "../../../components/SearchAndFilter/SearchAndFilter";
+import { guides } from "../../../data/guides";
+import type { Guide as GuideItem } from "../../../types/fragrance.types";
 import {
   HeroSection,
   HeroContent,
@@ -13,7 +13,7 @@ import {
   Tagline,
   Section,
   SectionContent,
-} from "../../styles/CommonStyles";
+} from "../../../styles/CommonStyles";
 import {
   ContentGrid,
   ContentCard,
@@ -24,10 +24,10 @@ import {
   DateTimeWrapper,
   SeeMoreButton,
   SeeMoreButtonWrapper,
-} from "../../styles/shared/ContentListing.styled";
-import CommonScentsLogo from "../../assets/cs-bulb.png";
+} from "../../../styles/shared/ContentListing.styled";
+import CommonScentsLogo from "../../../assets/cs-bulb.png";
 
-const Academy: React.FC = () => {
+const Guides: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(4);
 
   const tagGroups: TagGroup[] = useMemo(() => {
@@ -35,7 +35,7 @@ const Academy: React.FC = () => {
     const contentTypeMap = new Map<string, number>();
     const tagsMap = new Map<string, number>();
 
-    academy.forEach((item) => {
+    guides.forEach((item) => {
       item.topics?.forEach((topic) => {
         topicsMap.set(topic, (topicsMap.get(topic) || 0) + 1);
       });
@@ -96,7 +96,7 @@ const Academy: React.FC = () => {
           </LogoContainer>
 
           <TitleContainer>
-            <MainTitle $center>Fragrance Academy</MainTitle>
+            <MainTitle $center>Fragrance Tips & Guides</MainTitle>
             <Tagline>Practical advice for every fragrance enthusiast.</Tagline>
           </TitleContainer>
         </HeroContent>
@@ -104,10 +104,10 @@ const Academy: React.FC = () => {
 
       <Section>
         <SectionContent>
-          <SearchAndFilter<AcademyItem>
-            items={academy}
+          <SearchAndFilter<GuideItem>
+            items={guides}
             tagGroups={tagGroups}
-            searchPlaceholder="Search articles..."
+            searchPlaceholder="Search guides..."
             getSearchableText={(item) => [item.title, item.description]}
             getItemTags={(item) => [
               ...(item.topics || []),
@@ -123,7 +123,7 @@ const Academy: React.FC = () => {
                 <>
                   <ContentGrid>
                     {displayedItems.map((item) => (
-                      <ContentCard key={item.id} to={`/acs/${item.slug}`}>
+                      <ContentCard key={item.id} to={`/guides/${item.slug}`}>
                         <TextWrapper>
                           <ContentTitle>{item.title}</ContentTitle>
                           <ContentDescription>
@@ -167,4 +167,4 @@ const Academy: React.FC = () => {
   );
 };
 
-export default Academy;
+export default Guides;

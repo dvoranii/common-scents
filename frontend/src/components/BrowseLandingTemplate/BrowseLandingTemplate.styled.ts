@@ -58,6 +58,7 @@ export const CardImage = styled.img`
 
 export const CardTitle = styled.h3`
   font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
   margin-bottom: 8px;
   color: ${(props) => props.theme.colors.text};
 `;

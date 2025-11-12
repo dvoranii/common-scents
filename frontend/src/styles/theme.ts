@@ -8,6 +8,7 @@ export const theme = {
     backgroundAlt: "#f8f5f0",
     text: "#332519",
     textLight: "#6b5e54",
+    subtitle: "#b85c1b",
     border: "#e7dfd4",
     white: "#ffffff",
     black: "#111111",

@@ -69,24 +69,28 @@ export const Paragraph = styled.p`
   }
 `;
 
+export const TimeAndOccasionsList = styled.ul`
+  margin-inline-start: 40px;
+`;
+
 export const NotesList = styled.ul`
-  list-style: none;
   padding: 0;
   margin: ${(props) => props.theme.spacing.lg} 0;
+  margin-inline-start: 40px;
+  list-style: none;
 
   li {
     font-size: ${(props) => props.theme.fontSizes.base};
     line-height: 1.8;
     color: ${(props) => props.theme.colors.black};
     margin-bottom: ${(props) => props.theme.spacing.lg};
-    padding-left: ${(props) => props.theme.spacing.xl};
     position: relative;
 
     &:before {
       content: "→";
       position: absolute;
-      left: 0;
-      color: ${(props) => props.theme.colors.primary};
+      left: -20px;
+      color: ${(props) => props.theme.colors.text};
       font-weight: 600;
     }
 

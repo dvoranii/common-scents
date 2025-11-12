@@ -20,6 +20,7 @@ import {
   TagSectionHeader,
   ClearButton,
 } from "./SearchAndFilter.styled";
+import { useDebounce } from "../../hooks/useDebounce";
 
 export interface TagGroup {
   title: string;
@@ -50,6 +51,7 @@ const SearchAndFilter = <T,>({
   renderResults,
 }: SearchAndFilterConfig<T>): React.ReactElement => {
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filterMode, setFilterMode] = useState<"ANY" | "ALL">("ANY");
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -57,9 +59,9 @@ const SearchAndFilter = <T,>({
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
       const matchesSearch =
-        searchQuery === "" ||
+        debouncedSearchQuery === "" ||
         getSearchableText(item).some((text) =>
-          text.toLowerCase().includes(searchQuery.toLowerCase())
+          text.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
         );
 
       let matchesTags = true;
@@ -76,7 +78,7 @@ const SearchAndFilter = <T,>({
     });
   }, [
     items,
-    searchQuery,
+    debouncedSearchQuery,
     selectedTags,
     filterMode,
     getSearchableText,

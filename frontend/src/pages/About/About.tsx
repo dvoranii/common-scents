@@ -17,6 +17,13 @@ import {
   ContentSection2Inner,
   ContentSection3Inner,
   DifferenceLink,
+  CTASection,
+  CTAText,
+  CTATitle,
+  CTASectionInner,
+  ButtonGroup,
+  PrimaryButton,
+  SecondaryLinkButton,
 } from "./About.styled";
 
 import AboutIntroImgLandscape from "../../assets/About/about-stock-img.jpg";
@@ -33,7 +40,11 @@ import {
   HeroContent,
 } from "../../styles/CommonStyles";
 
+import { usePositionAwareButton } from "../../hooks/usePositionAwareButton";
+import { Link } from "react-router-dom";
+
 const About: React.FC = () => {
+  const linkRef = usePositionAwareButton<HTMLAnchorElement>();
   return (
     <>
       <HeroSection>
@@ -189,6 +200,26 @@ const About: React.FC = () => {
           </MissionTextWrapper>
         </ContentSection3Inner>
       </ContentSection3>
+
+      <CTASection>
+        <CTASectionInner>
+          <CTATitle>Ready to Start Your Fragrance Journey?</CTATitle>
+          <CTAText>
+            Explore our collection of in-depth reviews, practical guides, and
+            educational resources.
+          </CTAText>
+          <ButtonGroup>
+            <Link to="/fragrance-reviews">
+              <PrimaryButton>Browse Fragrance Reviews</PrimaryButton>
+            </Link>
+
+            <SecondaryLinkButton to="/guides" ref={linkRef}>
+              Read Tips & Guides
+              <span></span>
+            </SecondaryLinkButton>
+          </ButtonGroup>
+        </CTASectionInner>
+      </CTASection>
     </>
   );
 };

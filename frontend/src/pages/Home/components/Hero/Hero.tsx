@@ -32,7 +32,10 @@ export const Hero: React.FC = () => {
             <PrimaryButton>Explore Reviews</PrimaryButton>
           </Link>
 
-          <SecondaryButton ref={secondaryButtonRef}>
+          <SecondaryButton
+            ref={secondaryButtonRef}
+            onClick={() => window.open("https://www.youtube.com", "_blank")}
+          >
             Watch on YouTube
             <span></span>
           </SecondaryButton>

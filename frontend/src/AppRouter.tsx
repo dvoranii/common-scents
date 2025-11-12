@@ -4,13 +4,15 @@ import { Layout } from "./components/Layout/Layout";
 import HomePage from "./pages/Home/Home";
 import OccasionLandingPage from "./pages/Occasions/LandingPage/OccasionLandingPage";
 import OccasionDetailPage from "./pages/Occasions/DetailPage/OccasionDetailPage";
-import CategoriesLandingPage from "./pages/Categories/LandingPage/CategoriesLandingPage";
-import CategoryDetailPage from "./pages/Categories/DetailPage/CategoryDetailPage";
+import CategoriesLandingPage from "./pages/Categories/Landing/CategoriesLandingPage";
+import CategoryDetailPage from "./pages/Categories/Detail/CategoryDetailPage";
 import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
+import { guidesRoutes } from "./config/guideRoutes";
+import { academyRoutes } from "./config/academyRoute";
 import FragranceReviews from "./pages/FragranceReviews/FragranceReviews";
 import About from "./pages/About/About";
-import Guides from "./pages/TipsAndGuides/Guides";
-import Academy from "./pages/Academy/Academy";
+import Guides from "./pages/TipsAndGuides/Landing/Guides";
+import Academy from "./pages/Academy/Landing/Academy";
 
 function AppRouter() {
   return (
@@ -39,6 +41,29 @@ function AppRouter() {
               <Route
                 key={slug}
                 path={`/fragrance-reviews/${slug}`}
+                element={
+                  <Suspense fallback={<div>Loading review...</div>}>
+                    <Component />
+                  </Suspense>
+                }
+              />
+            ))}
+
+            {guidesRoutes.map(({ slug, component: Component }) => (
+              <Route
+                key={slug}
+                path={`/guides/${slug}`}
+                element={
+                  <Suspense fallback={<div>Loading review...</div>}>
+                    <Component />
+                  </Suspense>
+                }
+              />
+            ))}
+            {academyRoutes.map(({ slug, component: Component }) => (
+              <Route
+                key={slug}
+                path={`/academy/${slug}`}
                 element={
                   <Suspense fallback={<div>Loading review...</div>}>
                     <Component />

@@ -11,6 +11,7 @@ declare module "styled-components" {
       backgroundAlt: string;
       text: string;
       textLight: string;
+      subtitle?: string;
       border: string;
       white: string;
       black: string;
