@@ -30,10 +30,10 @@ export const NavList = styled.nav`
   padding: 20px;
 
   ul {
-    height: 85%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     list-style: none;
 
     li {

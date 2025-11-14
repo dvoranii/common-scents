@@ -29,7 +29,7 @@ export const accordPresets: Record<string, Omit<Accords, "width">> = {
   },
   sweet: {
     name: "Sweet",
-    background: "rgb(255, 153, 0)",
+    background: "#F1565A",
     color: "white",
   },
   lavender: {
@@ -85,6 +85,21 @@ export const accordPresets: Record<string, Omit<Accords, "width">> = {
   earthy: {
     name: "Earthy",
     background: "#A6A097;",
+    color: "white",
+  },
+  honey: {
+    name: "Honey",
+    background: "#FBBF46;",
+    color: "black",
+  },
+  tobacco: {
+    name: "Tobacco",
+    background: "#D0B183;",
+    color: "white",
+  },
+  green: {
+    name: "Green",
+    background: "#79BF81;",
     color: "white",
   },
 };

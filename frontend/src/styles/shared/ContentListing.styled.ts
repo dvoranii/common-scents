@@ -65,25 +65,3 @@ export const DateTimeText = styled.p`
   color: #333333;
   font-size: ${(props) => props.theme.fontSizes.sm};
 `;
-
-export const SeeMoreButtonWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-top: ${(props) => props.theme.spacing.xxl};
-`;
-
-export const SeeMoreButton = styled.button`
-  width: fit-content;
-  padding: 16px 32px;
-  background: #862d00;
-  color: #fff;
-  border: 2px solid black;
-  border-radius: 12px;
-  margin-bottom: ${(props) => props.theme.spacing.xxxxl};
-  cursor: pointer;
-
-  &:hover {
-    background: #a53e00;
-  }
-`;

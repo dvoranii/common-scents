@@ -13,6 +13,8 @@ import {
   Tagline,
   Section,
   SectionContent,
+  PrimaryButton,
+  ButtonGroup,
 } from "../../../styles/CommonStyles";
 import {
   ContentGrid,
@@ -22,9 +24,8 @@ import {
   ContentDescription,
   DateTimeText,
   DateTimeWrapper,
-  SeeMoreButton,
-  SeeMoreButtonWrapper,
 } from "../../../styles/shared/ContentListing.styled";
+
 import CommonScentsLogo from "../../../assets/cs-bulb.png";
 
 const Academy: React.FC = () => {
@@ -150,12 +151,12 @@ const Academy: React.FC = () => {
                   </ContentGrid>
 
                   {hasMoreItems && (
-                    <SeeMoreButtonWrapper>
-                      <SeeMoreButton onClick={handleSeeMore}>
+                    <ButtonGroup $paddingTop="2.4rem">
+                      <PrimaryButton onClick={handleSeeMore}>
                         See More ({filteredItems.length - visibleCount}{" "}
                         remaining)
-                      </SeeMoreButton>
-                    </SeeMoreButtonWrapper>
+                      </PrimaryButton>
+                    </ButtonGroup>
                   )}
                 </>
               );

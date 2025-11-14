@@ -10,6 +10,7 @@ export const NotesColumn = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: ${(props) => props.theme.spacing.xxl};
   }
 `;
 
@@ -21,8 +22,8 @@ export const NotesSectionTitle = styled.h2`
   text-align: left;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    align-self: baseline;
     font-size: ${(props) => props.theme.fontSizes.xxl};
+    text-align: center;
   }
 `;
 
@@ -37,11 +38,6 @@ export const NoteType = styled.h3`
   &:first-of-type {
     margin-top: 0;
   }
-
-  /* @media screen and (max-width: 1100px) {
-    font-size: ${(props) => props.theme.fontSizes.lg};
-    text-align: center;
-  } */
 `;
 
 export const NotesGrid = styled.div`
@@ -51,13 +47,6 @@ export const NotesGrid = styled.div`
   @media screen and (max-width: 940px) {
     flex-wrap: wrap;
   }
-  /* @media screen and (max-width: 1088px) {
-    flex-wrap: wrap;
-  }
-  @media screen and (max-width: 1100px) {
-    gap: ${(props) => props.theme.spacing.md};
-    justify-content: center;
-  } */
 `;
 
 export const NoteItem = styled.div`
@@ -70,17 +59,12 @@ export const NoteItem = styled.div`
 `;
 
 export const NoteImage = styled.img`
-  width: clamp(2rem, 4vw, 4rem);
+  width: clamp(2rem, 6vw, 4rem);
   height: auto;
   object-fit: cover;
   border-radius: 0.375rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   transition: box-shadow 0.2s ease;
-
-  /* @media screen and (max-width: 1100px) {
-    width: 3.5rem;
-    height: 3.5rem;
-  } */
 `;
 
 export const NoteName = styled.span`
@@ -90,8 +74,4 @@ export const NoteName = styled.span`
   text-align: center;
   max-width: 80px;
   line-height: 1.3;
-
-  /* @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    font-size: 0.7rem;
-  } */
 `;

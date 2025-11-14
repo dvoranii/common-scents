@@ -37,26 +37,16 @@ export const SearchBar = styled.input`
   }
 `;
 
-export const SearchBarButton = styled.button`
+export const SearchBarButton = styled.div`
   width: 40px;
   height: 40px;
   background: #f97316;
   border: none;
   border-radius: 0 4px 4px 0;
   color: white;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background: #ea580c;
-  }
-
-  &:focus {
-    outline: none;
-  }
 `;
 
 export const FilterDropdownWrapper = styled.div`

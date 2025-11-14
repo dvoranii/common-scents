@@ -6,8 +6,6 @@ import {
   MetadataItem,
   HeroSection,
   BottleImage,
-  // StatsGrid,
-  // StatCard,
   RatingContainer,
   RatingCount,
   RatingValue,

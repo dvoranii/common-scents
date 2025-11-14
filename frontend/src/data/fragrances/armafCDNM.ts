@@ -58,25 +58,25 @@ export const armafClubDeNuitMan: Fragrance = {
     ],
   },
 
-  reviewContent: {
-    overview:
-      "The often-forgotten sibling, this is Armaf's take on the immensely popular Paco Rabanne 1 Million scent profile. It delivers a warm, spicy, and sweet experience that is perfect for colder weather and evening events, offering high performance at a low price.",
-    notes: {
-      top: ["Mandarin", "Grapefruit", "Mint"],
-      heart: ["Cinnamon", "Clove", "Pepper"],
-      base: ["Amber", "Leather", "Woody Notes"],
-    },
-    notesDescription:
-      "Opens with a fleeting fresh burst of citrus and mint before quickly transitioning into its warm heart of cinnamon and spicy cloves. The dry down is a blend of creamy amber, sweet leather, and soft woods, giving it a rich and slightly boozy quality.",
-    bestTime:
-      "Ideal for fall, winter, and evening wear, particularly for date nights or going out. The sweetness and spice are too heavy for summer days or professional office settings.",
-    whoShouldWear:
-      "Perfect for the person who loves spicy, attention-grabbing scents like 1 Million. This is a loud, youthful, and confident fragrance that is meant to be noticed.",
-    performance:
-      "Strong performance. Expect 7-9 hours of longevity with solid projection for the first few hours. It's a performer, but not quite the nuclear beast that CDNIM is. 3-4 sprays should suffice.",
-    reactions:
-      "It's a crowd-pleaser, particularly among younger audiences. Expect compliments, especially in cooler weather. It's mass-appealing, similar to its inspiration.",
-    conclusion:
-      "If you love the Paco Rabanne 1 Million DNA but want a high-performing clone at a rock-bottom price, this is a fantastic option. It captures the spirit and warmth perfectly.",
-  },
+  // reviewContent: {
+  //   overview:
+  //     "The often-forgotten sibling, this is Armaf's take on the immensely popular Paco Rabanne 1 Million scent profile. It delivers a warm, spicy, and sweet experience that is perfect for colder weather and evening events, offering high performance at a low price.",
+  //   notes: {
+  //     top: ["Mandarin", "Grapefruit", "Mint"],
+  //     heart: ["Cinnamon", "Clove", "Pepper"],
+  //     base: ["Amber", "Leather", "Woody Notes"],
+  //   },
+  //   notesDescription:
+  //     "Opens with a fleeting fresh burst of citrus and mint before quickly transitioning into its warm heart of cinnamon and spicy cloves. The dry down is a blend of creamy amber, sweet leather, and soft woods, giving it a rich and slightly boozy quality.",
+  //   bestTime:
+  //     "Ideal for fall, winter, and evening wear, particularly for date nights or going out. The sweetness and spice are too heavy for summer days or professional office settings.",
+  //   whoShouldWear:
+  //     "Perfect for the person who loves spicy, attention-grabbing scents like 1 Million. This is a loud, youthful, and confident fragrance that is meant to be noticed.",
+  //   performance:
+  //     "Strong performance. Expect 7-9 hours of longevity with solid projection for the first few hours. It's a performer, but not quite the nuclear beast that CDNIM is. 3-4 sprays should suffice.",
+  //   reactions:
+  //     "It's a crowd-pleaser, particularly among younger audiences. Expect compliments, especially in cooler weather. It's mass-appealing, similar to its inspiration.",
+  //   conclusion:
+  //     "If you love the Paco Rabanne 1 Million DNA but want a high-performing clone at a rock-bottom price, this is a fantastic option. It captures the spirit and warmth perfectly.",
+  // },
 };

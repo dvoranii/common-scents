@@ -41,6 +41,7 @@ export const SectionTitle = styled.h2<{
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: ${(props) => props.theme.fontSizes.xxxl};
+    margin-bottom: 0.4rem;
   }
 `;
 
@@ -106,4 +107,56 @@ export const HeroContent = styled.div`
   max-width: 1280px;
   margin: 0 auto;
   padding-top: ${(props) => props.theme.spacing.xxxxl};
+`;
+
+export const ButtonGroup = styled.div<{ $paddingTop?: string }>`
+  display: flex;
+  gap: ${(props) => props.theme.spacing.md};
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: ${(props) =>
+    props.$paddingTop ? props.$paddingTop : props.theme.spacing.md};
+`;
+
+export const PrimaryButton = styled.button`
+  position: relative;
+  background: linear-gradient(to bottom, #efad70, #e88e44);
+  border: 2px solid #e78732;
+  color: white;
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.base};
+  padding: 16px 32px;
+  height: fit-content;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #efad70, #e88e44);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: ${(props) => props.theme.colors.black};
+    border: 2px solid #efad70;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
 `;

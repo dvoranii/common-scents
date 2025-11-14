@@ -25,4 +25,10 @@ export const fragranceReviewRoutes = [
         )
     ),
   },
+  {
+    slug: "jpg-le-male-elixir",
+    component: lazy(
+      () => import("../pages/FragranceReviews/JPGLeMaleElixir/JPGLeMaleElixir")
+    ),
+  },
 ];

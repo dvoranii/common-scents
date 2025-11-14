@@ -30,6 +30,15 @@ const Footer: React.FC = () => {
               <li>
                 <Link to="/guides">Tips & Guides</Link>
               </li>
+              <li>
+                <Link to="/academy">Academy</Link>
+              </li>
+              <li>
+                <Link to="/categories">Scent Categories</Link>
+              </li>
+              <li>
+                <Link to="/occasions">Occasions</Link>
+              </li>
             </ul>
           </NavList>
           <ImgWrapper>

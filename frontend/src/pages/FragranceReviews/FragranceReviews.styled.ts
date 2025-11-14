@@ -62,7 +62,7 @@ export const ThumbnailContent = styled.div`
   padding: ${(props) => props.theme.spacing.lg};
   background: linear-gradient(to bottom, #fff, #eee);
   border-top: 1px solid #eee;
-  min-height: 165px;
+  min-height: 170px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

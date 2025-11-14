@@ -28,6 +28,9 @@ import PepperImg from "../assets/FragranceReviews/FragranceNotes/pepper.jpg";
 import SpicyNotesImg from "../assets/FragranceReviews/FragranceNotes/spicy-notes.jpg";
 import WoodyNotesImg from "../assets/FragranceReviews/FragranceNotes/woody-notes.jpg";
 import LeatherImg from "../assets/FragranceReviews/FragranceNotes/leather.jpg";
+import TobaccoImg from "../assets/FragranceReviews/FragranceNotes/tobacco.jpg";
+import HoneyImg from "../assets/FragranceReviews/FragranceNotes/honey.jpg";
+import BenzoinImg from "../assets/FragranceReviews/FragranceNotes/benzoin.jpg";
 
 export const noteImages: Record<string, string> = {
   "Green Apple": GreenAppleImg,
@@ -60,6 +63,9 @@ export const noteImages: Record<string, string> = {
   "Spicy Notes": SpicyNotesImg,
   "Woody Notes": WoodyNotesImg,
   Leather: LeatherImg,
+  Tobacco: TobaccoImg,
+  Honey: HoneyImg,
+  Benzoin: BenzoinImg,
 };
 
 export const getNote = (name: string) => ({

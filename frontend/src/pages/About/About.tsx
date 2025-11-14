@@ -21,8 +21,6 @@ import {
   CTAText,
   CTATitle,
   CTASectionInner,
-  ButtonGroup,
-  PrimaryButton,
   SecondaryLinkButton,
 } from "./About.styled";
 
@@ -38,6 +36,8 @@ import {
   LogoContainer,
   HeroSection,
   HeroContent,
+  PrimaryButton,
+  ButtonGroup,
 } from "../../styles/CommonStyles";
 
 import { usePositionAwareButton } from "../../hooks/usePositionAwareButton";

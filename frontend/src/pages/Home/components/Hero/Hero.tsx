@@ -1,7 +1,7 @@
 import React from "react";
 import { usePositionAwareButton } from "../../../../hooks/usePositionAwareButton";
 import CommonScentsLogo from "../../../../assets/cs-bulb.png";
-import { ButtonGroup, PrimaryButton, SecondaryButton } from "./Hero.styled";
+import { SecondaryButton } from "./Hero.styled";
 import { Link } from "react-router-dom";
 import {
   MainTitle,
@@ -10,6 +10,8 @@ import {
   LogoContainer,
   HeroSection,
   HeroContent,
+  PrimaryButton,
+  ButtonGroup,
 } from "../../../../styles/CommonStyles";
 
 export const Hero: React.FC = () => {
