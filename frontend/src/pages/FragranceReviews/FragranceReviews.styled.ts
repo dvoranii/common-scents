@@ -89,7 +89,7 @@ export const FragranceGender = styled.div`
 `;
 
 export const ThumbnailNotes = styled.div`
-  font-size: ${(props) => props.theme.fontSizes.sm};
+  font-size: 12px;
   color: #6b7280;
   line-height: 1.4;
 `;

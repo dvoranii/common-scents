@@ -77,10 +77,21 @@ const FragranceReviews: React.FC = () => {
 
               {fragrance.notes && (
                 <ThumbnailNotes>
-                  {fragrance.notes.top
-                    .slice(0, 3)
-                    .map((note) => note.name)
-                    .join(" • ")}
+                  {(() => {
+                    const topNotes = fragrance.notes.top
+                      .slice(0, 3)
+                      .map((note) => note.name);
+                    const displayedNotes = [...topNotes];
+
+                    if (
+                      displayedNotes.length < 3 &&
+                      fragrance.notes.middle.length > 0
+                    ) {
+                      displayedNotes.push(fragrance.notes.middle[0].name);
+                    }
+
+                    return displayedNotes.slice(0, 3).join(" • ");
+                  })()}
                 </ThumbnailNotes>
               )}
             </ThumbnailContent>
