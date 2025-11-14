@@ -46,7 +46,7 @@ export const HeroSection = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 2vw;
-  padding-top: ${(props) => props.theme.spacing.md};
+  padding-top: ${(props) => props.theme.spacing.xl};
 
   @media screen and (max-width: 940px) {
     display: grid;

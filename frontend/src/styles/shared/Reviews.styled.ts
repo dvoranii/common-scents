@@ -88,3 +88,39 @@ export const NotesList = styled.ul`
     }
   }
 `;
+
+export const CategoryAndOccasionWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 2.4rem;
+  padding-top: ${(props) => props.theme.spacing.xxxxl};
+  padding-bottom: ${(props) => props.theme.spacing.xxxxl};
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 55%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: 1px;
+    background-color: lightgrey;
+    z-index: 1;
+    height: 60%;
+  }
+`;
+export const CategoryAndOccasionWrapperInner = styled.div`
+  padding: 20px;
+  flex: 1;
+`;
+
+export const ScentAndOccasionTitle = styled.h4`
+  font-family: "Lato", sans-serif;
+  font-size: ${(props) => props.theme.fontSizes.xxxl};
+  font-weight: bold;
+  padding-bottom: ${(props) => props.theme.spacing.xxl};
+  text-align: center;
+`;

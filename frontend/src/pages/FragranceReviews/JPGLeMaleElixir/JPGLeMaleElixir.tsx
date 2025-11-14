@@ -1,4 +1,8 @@
-import { getFragranceBySlug } from "../../../utils/fragranceUtils";
+import {
+  getFragranceBySlug,
+  getFragranceCategories,
+  getFragranceOccasions,
+} from "../../../utils/fragranceUtils";
 import { Navigate } from "react-router-dom";
 import {
   PageWrapper,
@@ -8,7 +12,11 @@ import {
   NotesList,
   TimeAndOccasionsList,
   ParagraphWrapper,
+  CategoryAndOccasionWrapper,
+  CategoryAndOccasionWrapperInner,
+  ScentAndOccasionTitle,
 } from "../../../styles/shared/Reviews.styled";
+import { AssetLinkGrid } from "../../../components/AssetLinkGrid/AssetLinkGrid";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
@@ -22,11 +30,30 @@ const JPGLeMaleElixirReview: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
+  const categoryData = getFragranceCategories(fragrance.categorySlugs);
+  const occasionData = getFragranceOccasions(fragrance.occasion!);
+
   return (
     <PageWrapper>
       <FragranceHeader fragrance={fragrance} bottleImageSize="xlarge" />
       <PerfumersDisplay perfumers={fragrance.perfumers} />
       <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
+
+      <CategoryAndOccasionWrapper>
+        <CategoryAndOccasionWrapperInner>
+          <ScentAndOccasionTitle>Scent Categories</ScentAndOccasionTitle>
+          <ParagraphWrapper>
+            <AssetLinkGrid items={categoryData} basePath="/categories" />
+          </ParagraphWrapper>
+        </CategoryAndOccasionWrapperInner>
+
+        <CategoryAndOccasionWrapperInner>
+          <ScentAndOccasionTitle>Best Occasions</ScentAndOccasionTitle>
+          <ParagraphWrapper>
+            <AssetLinkGrid items={occasionData} basePath="/occasions" />
+          </ParagraphWrapper>
+        </CategoryAndOccasionWrapperInner>
+      </CategoryAndOccasionWrapper>
 
       <IntroSection>
         <MainTitle>Let's Review</MainTitle>

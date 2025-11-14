@@ -1,4 +1,3 @@
-// src/data/fragrances/creedVikingCologne.ts
 import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";

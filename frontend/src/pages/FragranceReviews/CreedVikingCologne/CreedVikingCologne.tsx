@@ -1,4 +1,8 @@
-import { getFragranceBySlug } from "../../../utils/fragranceUtils";
+import {
+  getFragranceBySlug,
+  getFragranceCategories,
+  getFragranceOccasions,
+} from "../../../utils/fragranceUtils";
 import { Navigate } from "react-router-dom";
 import {
   PageWrapper,
@@ -8,12 +12,16 @@ import {
   Paragraph,
   NotesList,
   TimeAndOccasionsList,
+  CategoryAndOccasionWrapper,
+  CategoryAndOccasionWrapperInner,
+  ScentAndOccasionTitle,
 } from "../../../styles/shared/Reviews.styled";
 import { MainTitle, SectionTitle } from "../../../styles/CommonStyles";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
 import ScrollableSection from "../../../components/ScrollableSection/ScrollableSection";
+import { AssetLinkGrid } from "../../../components/AssetLinkGrid/AssetLinkGrid";
 
 const CreedVikingCologneReview: React.FC = () => {
   const fragrance = getFragranceBySlug("creed-viking-cologne");
@@ -21,6 +29,9 @@ const CreedVikingCologneReview: React.FC = () => {
   if (!fragrance) {
     return <Navigate to="/" replace />;
   }
+
+  const categoryData = getFragranceCategories(fragrance.categorySlugs);
+  const occasionData = getFragranceOccasions(fragrance.occasion!);
 
   return (
     <>
@@ -32,6 +43,21 @@ const CreedVikingCologneReview: React.FC = () => {
           <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
         </ScrollableSection>
 
+        <CategoryAndOccasionWrapper>
+          <CategoryAndOccasionWrapperInner>
+            <ScentAndOccasionTitle>Scent Categories</ScentAndOccasionTitle>
+            <ParagraphWrapper>
+              <AssetLinkGrid items={categoryData} basePath="/categories" />
+            </ParagraphWrapper>
+          </CategoryAndOccasionWrapperInner>
+
+          <CategoryAndOccasionWrapperInner>
+            <ScentAndOccasionTitle>Best Occasions</ScentAndOccasionTitle>
+            <ParagraphWrapper>
+              <AssetLinkGrid items={occasionData} basePath="/occasions" />
+            </ParagraphWrapper>
+          </CategoryAndOccasionWrapperInner>
+        </CategoryAndOccasionWrapper>
         <IntroSection>
           <MainTitle>Let's Review</MainTitle>
           <br />
