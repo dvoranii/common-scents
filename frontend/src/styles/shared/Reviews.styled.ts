@@ -91,7 +91,8 @@ export const NotesList = styled.ul`
 
 export const CategoryAndOccasionWrapper = styled.div`
   display: flex;
-  width: 100%;
+  width: 85%;
+  margin: 0 auto;
   justify-content: center;
   gap: 2.4rem;
   padding-top: ${(props) => props.theme.spacing.xxxxl};

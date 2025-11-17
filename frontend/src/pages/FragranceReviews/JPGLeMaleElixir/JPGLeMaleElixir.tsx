@@ -21,7 +21,6 @@ import { FragranceHeader } from "../../../components/FragranceReviews/FragranceH
 import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
 import { MainTitle, SectionTitle } from "../../../styles/CommonStyles";
-import React from "react";
 
 const JPGLeMaleElixirReview: React.FC = () => {
   const fragrance = getFragranceBySlug("jpg-le-male-elixir");

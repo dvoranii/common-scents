@@ -26,12 +26,21 @@ export const ContentCard = styled(Link)`
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: ${(props) => props.theme.spacing.lg};
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const TextWrapper = styled.div`
   flex: 1;
   border-right: 1px solid lightgrey;
   padding: 12px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    border: none;
+    padding: 0;
+  }
 `;
 
 export const ContentTitle = styled.h3`
@@ -50,6 +59,9 @@ export const ContentTitle = styled.h3`
 
 export const ContentDescription = styled.p`
   width: 80%;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 export const DateTimeWrapper = styled.div`
@@ -58,6 +70,10 @@ export const DateTimeWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 12px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding-left: 0;
+  }
 `;
 
 export const DateTimeText = styled.p`

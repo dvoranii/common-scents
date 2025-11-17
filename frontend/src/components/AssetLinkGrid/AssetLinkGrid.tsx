@@ -38,7 +38,7 @@ export const AssetLinkGrid: React.FC<AssetLinkGridProps> = ({
             <Overlay />
             {isCategory && IconComponent && (
               <AssetWrapper $color={iconColor}>
-                <IconComponent size={48} />
+                <IconComponent />
               </AssetWrapper>
             )}
             {!isCategory && thumbnail && (

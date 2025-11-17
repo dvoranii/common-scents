@@ -1,12 +1,10 @@
-// FragranceLinkList.styled.ts
-
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const AssetGridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px;
   justify-content: center;
   width: 100%;
 `;
@@ -28,6 +26,11 @@ export const AssetWrapper = styled.div<{ $color?: string }>`
   color: ${({ $color }) => $color || "#333"};
   font-size: 2rem;
   line-height: 1;
+
+  svg {
+    width: clamp(36px, 6vw, 48px);
+    height: auto;
+  }
 `;
 
 export const ImageAsset = styled.img`
@@ -61,7 +64,7 @@ export const BoxLink = styled(Link)<{ $bgColor?: string }>`
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: clamp(100px, 20vw, 150px);
+  width: clamp(100px, 20vw, 120px);
   height: auto;
   aspect-ratio: 1;
   margin: 0 10px 10px 0;

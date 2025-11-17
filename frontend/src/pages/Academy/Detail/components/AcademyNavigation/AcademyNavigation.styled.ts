@@ -8,11 +8,6 @@ export const NavigationContainer = styled.div`
   padding-top: 2rem;
   border-top: 1px solid #e5e5e5;
   gap: 1rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 2rem;
-  }
 `;
 
 export const NavSection = styled.div`
@@ -85,6 +80,6 @@ export const GuideTitle = styled.span<{ $textAlign: string }>`
   padding-top: 12px;
 
   @media (max-width: 768px) {
-    max-width: 250px;
+    font-size: 0.775rem;
   }
 `;

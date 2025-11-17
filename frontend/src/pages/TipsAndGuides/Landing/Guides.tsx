@@ -126,9 +126,7 @@ const Guides: React.FC = () => {
                               <DateTimeText>{item.time}</DateTimeText>
                             )}
                             {(item.date || item.time) && (
-                              <DateTimeText>
-                                (Eastern Standard Time)
-                              </DateTimeText>
+                              <DateTimeText>(EST)</DateTimeText>
                             )}
                           </DateTimeWrapper>
                         )}
