@@ -18,6 +18,8 @@ import {
 import RatingStars from "./RatingStars/RatingStars";
 import { NotesDisplay } from "./NoteDisplay/NoteDisplay";
 import { AccordsDisplay } from "./AccordsDisplay/AccordsDisplay";
+import { getAccordsForNote } from "../../utils/accordMappings";
+import { useState } from "react";
 
 interface Props {
   fragrance: Fragrance;
@@ -28,6 +30,33 @@ export const FragranceHeader: React.FC<Props> = ({
   fragrance,
   bottleImageSize = "medium",
 }) => {
+  const [selectedAccord, setSelectedAccord] = useState<string | null>(null);
+  const [selectedNote, setSelectedNote] = useState<string | null>(null);
+
+  const handleAccordClick = (accordName: string) => {
+    if (selectedAccord === accordName) {
+      setSelectedAccord(null);
+      setSelectedNote(null);
+    } else {
+      setSelectedAccord(accordName);
+      setSelectedNote(null);
+    }
+  };
+
+  const handleNoteClick = (noteName: string) => {
+    if (selectedNote === noteName) {
+      setSelectedNote(null);
+      setSelectedAccord(null);
+    } else {
+      setSelectedNote(noteName);
+      setSelectedAccord(null);
+    }
+  };
+
+  const highlightedAccords = selectedNote
+    ? getAccordsForNote(selectedNote)
+    : [];
+
   return (
     <>
       <HeaderWrapper>
@@ -60,7 +89,12 @@ export const FragranceHeader: React.FC<Props> = ({
           />
         </BottleWrapper>
         <AccordsAndLogoWrapper>
-          <AccordsDisplay accords={fragrance.accords} />
+          <AccordsDisplay
+            accords={fragrance.accords}
+            onAccordClick={handleAccordClick}
+            selectedAccord={selectedAccord}
+            highlightedAccords={highlightedAccords}
+          />
           {fragrance.houseLogo && (
             <HouseLogoWrapper>
               <HouseLogo src={fragrance.houseLogo} />
@@ -68,26 +102,12 @@ export const FragranceHeader: React.FC<Props> = ({
           )}
         </AccordsAndLogoWrapper>
 
-        <NotesDisplay notes={fragrance.notes} />
-
-        {/* <StatsGrid>
-          <StatCard>
-            <h4>Longevity</h4>
-            <p>{fragrance.longevity}/10</p>
-          </StatCard>
-          <StatCard>
-            <h4>Projection</h4>
-            <p>{fragrance.projection}/10</p>
-          </StatCard>
-          <StatCard>
-            <h4>Season</h4>
-            <p>{fragrance.season?.join(", ")}</p>
-          </StatCard>
-          <StatCard>
-            <h4>Type</h4>
-            <p>{fragrance.type?.join(", ")}</p>
-          </StatCard>
-        </StatsGrid> */}
+        <NotesDisplay
+          notes={fragrance.notes}
+          selectedAccord={selectedAccord}
+          selectedNote={selectedNote}
+          onNoteClick={handleNoteClick}
+        />
       </HeroSection>
     </>
   );

@@ -96,59 +96,6 @@ export const BottleImage = styled.img<{
   display: block;
   border-radius: 12px;
 `;
-export const StatsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: ${(props) => props.theme.spacing.lg};
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-    gap: ${(props) => props.theme.spacing.md};
-  }
-`;
-
-export const StatCard = styled.div`
-  background: white;
-  padding: ${(props) => props.theme.spacing.lg};
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid ${(props) => props.theme.colors.border};
-  text-align: center;
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-  }
-
-  h4 {
-    font-size: ${(props) => props.theme.fontSizes.sm};
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: ${(props) => props.theme.colors.black};
-    margin-bottom: ${(props) => props.theme.spacing.sm};
-  }
-
-  p {
-    font-size: ${(props) => props.theme.fontSizes.sm};
-    font-weight: 700;
-    color: ${(props) => props.theme.colors.text};
-    margin: 0;
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    padding: ${(props) => props.theme.spacing.md};
-
-    h4 {
-      font-size: ${(props) => props.theme.fontSizes.xs};
-    }
-
-    p {
-      font-size: ${(props) => props.theme.fontSizes.base};
-    }
-  }
-`;
 
 // RATING
 
