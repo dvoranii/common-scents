@@ -1,27 +1,21 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
+# Dependency Directories
 node_modules/
-dist
-dist-ssr
-*.local
 
-**/.env
+# Build and Distribution Directories
+dist/
 
+# Environment Variables (Security)
+# Ignore .env files in the specific frontend and backend directories
+# Assuming the structure is:
+# /
+# ├── backend/
+# │   └── .env
+# └── frontend/
+#     └── .env
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+backend/.env
+frontend/.env
+
+# Optional: Ignore all local .env files just in case
+# Uncomment the line below if you have a .env in the root or other places
+# .env

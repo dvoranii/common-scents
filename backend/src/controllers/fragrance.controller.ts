@@ -14,18 +14,17 @@ export const summarizeFragranceReviews = async (
 ): Promise<void> => {
   try {
     const { url, numberOfReviews } = req.body;
-
+    
     if (!url) {
       res.status(400).json({ error: "URL is required" });
       return;
     }
 
-    await scraperService.initialize();
+    // No need to initialize or close anymore - ScraperAPI handles it all
     const reviews = await scraperService.scrapeFragranceReviews(
       url,
       numberOfReviews || 10
     );
-    await scraperService.close();
 
     const prompt = `Here are ${
       numberOfReviews || 10
@@ -43,15 +42,15 @@ export const summarizeFragranceReviews = async (
         
         Keep the summary under 200 words and avoid any markdown formatting. Also make sure to
         understand when a fragrance is an original, and when it is a clone of another no matter 
-        how the reviews are phrased (i.e Creed Aventus is the original and club de nuit intense man by armaf is a clone)
-        `;
+        how the reviews are phrased (i.e Creed Aventus is the original and club de nuit intense man by armaf is a clone)`;
 
     const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
+    
     const response = result.response;
     const summary = response.candidates?.[0]?.content?.parts?.[0]?.text || null;
-
+    
     if (summary) {
       res.json({ reviews, summary });
     } else {
