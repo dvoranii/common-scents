@@ -19,6 +19,7 @@ jobs:
                   host: ${{ secrets.STAGING_HOST }}
                   username: ${{ secrets.STAGING_USER }}
                   key: ${{ secrets.STAGING_SSH_KEY }}
+                  passphrase: ${{ secrets.SSH_PASSPHRASE }}
                   script: |
                       # Ensure PM2 and NPM commands are found
                       export PATH=$PATH:/usr/bin:/usr/local/bin:$HOME/.nvm/versions/node/v*/bin
