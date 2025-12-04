@@ -1,4 +1,10 @@
 node_modules/
 dist/
+
+# Environment Variables (Security)
+**/.env
 backend/.env
 frontend/.env
+
+# PM2 Ecosystem Config
+backend/ecosystem.config.js
