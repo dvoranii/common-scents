@@ -24,7 +24,6 @@ jobs:
                       export PATH=$PATH:/usr/bin:/usr/local/bin:$HOME/.nvm/versions/node/v*/bin
 
                       export NODE_OPTIONS="--max-old-space-size=768"
-
                       cd /var/www/common-scents/staging
 
                       git checkout staging
