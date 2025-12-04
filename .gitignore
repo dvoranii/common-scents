@@ -1,21 +1,4 @@
-# Dependency Directories
 node_modules/
-
-# Build and Distribution Directories
 dist/
-
-# Environment Variables (Security)
-# Ignore .env files in the specific frontend and backend directories
-# Assuming the structure is:
-# /
-# ├── backend/
-# │   └── .env
-# └── frontend/
-#     └── .env
-
 backend/.env
 frontend/.env
-
-# Optional: Ignore all local .env files just in case
-# Uncomment the line below if you have a .env in the root or other places
-# .env
