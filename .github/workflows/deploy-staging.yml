@@ -1,0 +1,40 @@
+name: Deploy to Staging
+
+on:
+    push:
+        branches:
+            - staging # Changed from 'main'
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Deploy to Staging Server
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.STAGING_HOST }}
+                  username: ${{ secrets.STAGING_USER }}
+                  key: ${{ secrets.STAGING_SSH_KEY }}
+                  script: |
+                      # Ensure PM2 and NPM commands are found
+                      export PATH=$PATH:/usr/bin:/usr/local/bin:$HOME/.nvm/versions/node/v*/bin
+
+                      # Navigate to staging directory
+                      cd /var/www/common-scents/staging
+
+                      # Pull latest code from staging branch
+                      git checkout staging
+                      git pull origin staging
+
+                      # Install dependencies
+                      npm run install:all
+
+                      # Build assets
+                      npm run build:all
+
+                      # Restart PM2 process
+                      pm2 restart common-scents-staging-api
