@@ -68,7 +68,9 @@ export const Navigation: React.FC = () => {
     { to: "/fragrance-reviews", label: "Reviews" },
   ];
 
-  const navItemsAfter = [{ to: "/note-pyramid/", label: "Note Pyramid" }];
+  const navItemsAfter = [
+    { to: "/note-pyramid/", label: "Note Pyramid", isExternal: true },
+  ];
 
   const learnItems = [
     { to: "/guides", label: "Tips & Guides" },
@@ -177,14 +179,29 @@ export const Navigation: React.FC = () => {
 
               {navItemsAfter.map((item) => (
                 <NavItem key={item.to}>
-                  <NavLink
-                    as={Link}
-                    to={item.to}
-                    $textColour={navColor}
-                    $isActive={location.pathname.startsWith(item.to)}
-                  >
-                    {item.label}
-                  </NavLink>
+                  {item.isExternal ? (
+                    <NavLink
+                      as="a"
+                      href={item.to}
+                      $textColour={navColor}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = item.to;
+                      }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      {item.label}
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      as={Link}
+                      to={item.to}
+                      $textColour={navColor}
+                      $isActive={location.pathname.startsWith(item.to)}
+                    >
+                      {item.label}
+                    </NavLink>
+                  )}
                 </NavItem>
               ))}
             </NavList>
@@ -268,14 +285,29 @@ export const Navigation: React.FC = () => {
 
             {navItemsAfter.map((item) => (
               <MobileNavItem key={item.to}>
-                <MobileNavLink
-                  as={Link}
-                  to={item.to}
-                  onClick={closeMobileNav}
-                  $isActive={location.pathname.startsWith(item.to)}
-                >
-                  {item.label}
-                </MobileNavLink>
+                {item.isExternal ? (
+                  <MobileNavLink
+                    as="a"
+                    href={item.to}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      closeMobileNav();
+                      window.location.href = item.to;
+                    }}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {item.label}
+                  </MobileNavLink>
+                ) : (
+                  <MobileNavLink
+                    as={Link}
+                    to={item.to}
+                    onClick={closeMobileNav}
+                    $isActive={location.pathname.startsWith(item.to)}
+                  >
+                    {item.label}
+                  </MobileNavLink>
+                )}
               </MobileNavItem>
             ))}
           </MobileNavList>
