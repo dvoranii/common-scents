@@ -62,11 +62,13 @@ export const Navigation: React.FC = () => {
     setIsMobileNavOpen(false);
   };
 
-  const navItems = [
+  const navItemsBefore = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/fragrance-reviews", label: "Reviews" },
   ];
+
+  const navItemsAfter = [{ to: "/note-pyramid", label: "Note Pyramid" }];
 
   const learnItems = [
     { to: "/guides", label: "Tips & Guides" },
@@ -101,7 +103,7 @@ export const Navigation: React.FC = () => {
         <NavWrapperInner>
           <Nav>
             <NavList>
-              {navItems.map((item) => (
+              {navItemsBefore.map((item) => (
                 <NavItem key={item.to}>
                   <NavLink
                     as={Link}
@@ -172,6 +174,19 @@ export const Navigation: React.FC = () => {
                   </DropdownMenu>
                 </DropdownContainer>
               </NavItem>
+
+              {navItemsAfter.map((item) => (
+                <NavItem key={item.to}>
+                  <NavLink
+                    as={Link}
+                    to={item.to}
+                    $textColour={navColor}
+                    $isActive={location.pathname.startsWith(item.to)}
+                  >
+                    {item.label}
+                  </NavLink>
+                </NavItem>
+              ))}
             </NavList>
           </Nav>
         </NavWrapperInner>
@@ -193,7 +208,7 @@ export const Navigation: React.FC = () => {
           onClick={(e) => e.stopPropagation()}
         >
           <MobileNavList>
-            {navItems.map((item) => (
+            {navItemsBefore.map((item) => (
               <MobileNavItem key={item.to}>
                 <MobileNavLink
                   as={Link}
@@ -250,6 +265,19 @@ export const Navigation: React.FC = () => {
                 Occasions
               </MobileNavLink>
             </MobileNavItem>
+
+            {navItemsAfter.map((item) => (
+              <MobileNavItem key={item.to}>
+                <MobileNavLink
+                  as={Link}
+                  to={item.to}
+                  onClick={closeMobileNav}
+                  $isActive={location.pathname.startsWith(item.to)}
+                >
+                  {item.label}
+                </MobileNavLink>
+              </MobileNavItem>
+            ))}
           </MobileNavList>
         </MobileNavSidebar>
       </MobileNavOverlay>
