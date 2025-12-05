@@ -68,7 +68,7 @@ export const Navigation: React.FC = () => {
     { to: "/fragrance-reviews", label: "Reviews" },
   ];
 
-  const navItemsAfter = [{ to: "/note-pyramid", label: "Note Pyramid" }];
+  const navItemsAfter = [{ to: "/note-pyramid/", label: "Note Pyramid" }];
 
   const learnItems = [
     { to: "/guides", label: "Tips & Guides" },
