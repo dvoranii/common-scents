@@ -31,7 +31,6 @@ jobs:
                       git pull origin staging
 
                       npm run install:all
-
                       npm run build:all
 
                       cd backend
