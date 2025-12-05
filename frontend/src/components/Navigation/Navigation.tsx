@@ -69,7 +69,7 @@ export const Navigation: React.FC = () => {
   ];
 
   const navItemsAfter = [
-    { to: "/note-pyramid/", label: "Note Pyramid", isExternal: true },
+    { to: "/note-pyramid-staging/", label: "Note Pyramid", isExternal: true },
   ];
 
   const learnItems = [
