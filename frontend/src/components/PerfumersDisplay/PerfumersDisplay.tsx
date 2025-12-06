@@ -11,6 +11,7 @@ import {
   PerfumerImage,
   PerfumerName,
 } from "./PerfumersDisplay.styled";
+import { Link } from "react-router-dom";
 
 interface PerfumersDisplayProps {
   perfumers?: Perfumer[];
@@ -29,10 +30,18 @@ export const PerfumersDisplay: React.FC<PerfumersDisplayProps> = ({
         </PerfumerTitleBG>
         <PerfumersWrapper>
           {perfumers.map((perfumer, index) => (
-            <PerfumerItem key={index}>
-              <PerfumerImage src={perfumer.image} alt={perfumer.name} />
-              <PerfumerName>{perfumer.name}</PerfumerName>
-            </PerfumerItem>
+            <Link
+              key={index}
+              to={`/fragrance-reviews?tags=${encodeURIComponent(
+                perfumer.name
+              )}`}
+              style={{ textDecoration: "none" }}
+            >
+              <PerfumerItem>
+                <PerfumerImage src={perfumer.image} alt={perfumer.name} />
+                <PerfumerName>{perfumer.name}</PerfumerName>
+              </PerfumerItem>
+            </Link>
           ))}
         </PerfumersWrapper>
       </PerfumersContainerInner>

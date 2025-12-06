@@ -3,7 +3,7 @@ export interface TagData {
   name: string;
   count: number;
   color: string;
-  type: "brand" | "season" | "occasion" | "category";
+  type: "brand" | "season" | "occasion" | "category" | "perfumer";
 }
 
 export const generateTagsFromFragrances = (): TagData[] => {
@@ -22,6 +22,23 @@ export const generateTagsFromFragrances = (): TagData[] => {
       count,
       color: "#3b82f6",
       type: "brand",
+    });
+  });
+
+  // Perfumer tags
+  const perfumerCounts: Record<string, number> = {};
+  allFragrances.forEach((fragrance) => {
+    fragrance.perfumers?.forEach((perfumer) => {
+      perfumerCounts[perfumer.name] = (perfumerCounts[perfumer.name] || 0) + 1;
+    });
+  });
+
+  Object.entries(perfumerCounts).forEach(([perfumer, count]) => {
+    tags.push({
+      name: perfumer,
+      count,
+      color: "#ec4899",
+      type: "perfumer",
     });
   });
 

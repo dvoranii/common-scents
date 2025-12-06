@@ -23,6 +23,7 @@ const FragranceReviews: React.FC = () => {
   const groupedTags = useMemo(() => {
     const groups = {
       brand: availableTags.filter((tag) => tag.type === "brand"),
+      perfumer: availableTags.filter((tag) => tag.type === "perfumer"),
       season: availableTags.filter((tag) => tag.type === "season"),
       occasion: availableTags.filter((tag) => tag.type === "occasion"),
       category: availableTags.filter((tag) => tag.type === "category"),
@@ -33,6 +34,7 @@ const FragranceReviews: React.FC = () => {
   const tagGroups: TagGroup[] = useMemo(
     () => [
       { title: "Brands", tags: groupedTags.brand },
+      { title: "Perfumers", tags: groupedTags.perfumer },
       { title: "Seasons", tags: groupedTags.season },
       { title: "Occasions", tags: groupedTags.occasion },
       { title: "Categories", tags: groupedTags.category },
@@ -45,8 +47,10 @@ const FragranceReviews: React.FC = () => {
   };
 
   const getItemTags = (fragrance: (typeof allFragrances)[0]) => {
+    const perfumerNames = fragrance.perfumers?.map((p) => p.name) || [];
     return [
       fragrance.house,
+      ...perfumerNames,
       ...(fragrance.season || []),
       ...(fragrance.occasion || []),
       ...(fragrance.category || []),
