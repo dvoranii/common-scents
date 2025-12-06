@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import {
   TopControlsWrapper,
@@ -21,6 +21,7 @@ import {
   ClearButton,
 } from "./SearchAndFilter.styled";
 import { useDebounce } from "../../hooks/useDebounce";
+import { useSearchParams } from "react-router-dom";
 
 export interface TagGroup {
   title: string;
@@ -50,11 +51,55 @@ const SearchAndFilter = <T,>({
   searchPlaceholder = "Search...",
   renderResults,
 }: SearchAndFilterConfig<T>): React.ReactElement => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const searchQuery = searchParams.get("search") || "";
+  const filterMode = (searchParams.get("mode") as "ANY" | "ALL") || "ANY";
+  const selectedTags = useMemo(() => {
+    const tagsParam = searchParams.get("tags");
+    return tagsParam ? tagsParam.split(",").filter(Boolean) : [];
+  }, [searchParams]);
+
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [filterMode, setFilterMode] = useState<"ANY" | "ALL">("ANY");
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const shouldDropdownBeOpen = selectedTags.length > 0;
+  const [isFilterOpen, setIsFilterOpen] = useState(shouldDropdownBeOpen);
+
+  useEffect(() => {
+    setIsFilterOpen(shouldDropdownBeOpen);
+  }, [shouldDropdownBeOpen]);
+
+  const updateSearchParams = useCallback(
+    (updates: { search?: string; tags?: string[]; mode?: "ANY" | "ALL" }) => {
+      const newParams = new URLSearchParams(searchParams);
+
+      if (updates.search !== undefined) {
+        if (updates.search) {
+          newParams.set("search", updates.search);
+        } else {
+          newParams.delete("search");
+        }
+      }
+
+      if (updates.tags !== undefined) {
+        if (updates.tags.length > 0) {
+          newParams.set("tags", updates.tags.join(","));
+        } else {
+          newParams.delete("tags");
+        }
+      }
+
+      if (updates.mode !== undefined) {
+        if (updates.mode !== "ANY") {
+          newParams.set("mode", updates.mode);
+        } else {
+          newParams.delete("mode");
+        }
+      }
+
+      setSearchParams(newParams, { replace: true });
+    },
+    [searchParams, setSearchParams]
+  );
 
   const filteredItems = useMemo(() => {
     return items.filter((item) => {
@@ -85,13 +130,33 @@ const SearchAndFilter = <T,>({
     getItemTags,
   ]);
 
-  const toggleTag = useCallback((tagName: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tagName)
-        ? prev.filter((t) => t !== tagName)
-        : [...prev, tagName]
-    );
-  }, []);
+  const toggleTag = useCallback(
+    (tagName: string) => {
+      const newTags = selectedTags.includes(tagName)
+        ? selectedTags.filter((t) => t !== tagName)
+        : [...selectedTags, tagName];
+      updateSearchParams({ tags: newTags });
+    },
+    [selectedTags, updateSearchParams]
+  );
+
+  const handleSearchChange = useCallback(
+    (value: string) => {
+      updateSearchParams({ search: value });
+    },
+    [updateSearchParams]
+  );
+
+  const handleModeChange = useCallback(
+    (mode: "ANY" | "ALL") => {
+      updateSearchParams({ mode });
+    },
+    [updateSearchParams]
+  );
+
+  const clearAllTags = useCallback(() => {
+    updateSearchParams({ tags: [] });
+  }, [updateSearchParams]);
 
   return (
     <>
@@ -102,7 +167,7 @@ const SearchAndFilter = <T,>({
             placeholder={searchPlaceholder}
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setSearchQuery(e.target.value)
+              handleSearchChange(e.target.value)
             }
           />
           <SearchBarButton>
@@ -126,13 +191,13 @@ const SearchAndFilter = <T,>({
                 <FilterModeButtons>
                   <ModeButton
                     $isActive={filterMode === "ANY"}
-                    onClick={() => setFilterMode("ANY")}
+                    onClick={() => handleModeChange("ANY")}
                   >
                     ANY (OR)
                   </ModeButton>
                   <ModeButton
                     $isActive={filterMode === "ALL"}
-                    onClick={() => setFilterMode("ALL")}
+                    onClick={() => handleModeChange("ALL")}
                   >
                     ALL (AND)
                   </ModeButton>
@@ -142,9 +207,7 @@ const SearchAndFilter = <T,>({
               {selectedTags.length > 0 && (
                 <TagSection $hasBorder>
                   <TagSectionHeader>
-                    <ClearButton onClick={() => setSelectedTags([])}>
-                      Clear All
-                    </ClearButton>
+                    <ClearButton onClick={clearAllTags}>Clear All</ClearButton>
                   </TagSectionHeader>
                   <TagSectionTitle>Selected Tags</TagSectionTitle>
                   <TagsContainer>

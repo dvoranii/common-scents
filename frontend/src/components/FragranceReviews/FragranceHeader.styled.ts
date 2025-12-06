@@ -157,7 +157,9 @@ export const AccordsAndLogoWrapper = styled.div`
 
 export const CurrencySelect = styled.select`
   padding: 2px 4px;
-  font-size: inherit;
+  font-size: 12px;
+  color: #333;
+  letter-spacing: 1px;
   font-family: inherit;
   border: 1px solid #ccc;
   border-radius: 4px;

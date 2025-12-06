@@ -68,7 +68,7 @@ const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
     if (isReviewsLoading || isGenerating) return "Analyzing Reviews...";
     if (currentSummary && isTyping) return "Summary Typing...";
     if (currentSummary) return "Generate New Summary";
-    return "Summarize Fragrantica Reviews";
+    return "Summarize Reviews";
   };
 
   const isButtonDisabled = isReviewsLoading || isGenerating || isTyping;

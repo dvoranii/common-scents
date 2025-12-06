@@ -21,6 +21,7 @@ import { NotesDisplay } from "./NoteDisplay/NoteDisplay";
 import { AccordsDisplay } from "./AccordsDisplay/AccordsDisplay";
 import { getAccordsForNote } from "../../utils/accordMappings";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 type Currency = "USD" | "CAD" | "GBP";
 interface Props {
@@ -141,7 +142,16 @@ export const FragranceHeader: React.FC<Props> = ({
           />
           {fragrance.houseLogo && (
             <HouseLogoWrapper>
-              <HouseLogo src={fragrance.houseLogo} />
+              <Link
+                to={`/fragrance-reviews?tags=${encodeURIComponent(
+                  fragrance.house
+                )}`}
+              >
+                <HouseLogo
+                  src={fragrance.houseLogo}
+                  alt={`${fragrance.house} logo`}
+                />
+              </Link>
             </HouseLogoWrapper>
           )}
         </AccordsAndLogoWrapper>
