@@ -5,10 +5,9 @@ export const SecondaryTagline = styled.p`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.lg};
   letter-spacing: 1px;
-  margin-bottom: ${(props) => props.theme.spacing.sm};
   margin-top: ${(props) => props.theme.spacing.md};
   width: 60%;
-  margin: ${(props) => props.theme.spacing.lg} auto;
+  margin: ${(props) => props.theme.spacing.md} auto;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 100%;

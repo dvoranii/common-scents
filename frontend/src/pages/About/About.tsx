@@ -32,7 +32,6 @@ import {
   SectionTitle,
   MainTitle,
   TitleContainer,
-  Tagline,
   LogoContainer,
   HeroSection,
   HeroContent,
@@ -55,7 +54,6 @@ const About: React.FC = () => {
 
           <TitleContainer>
             <MainTitle $center>About Common Scents</MainTitle>
-            <Tagline>Making Scents Make Sense</Tagline>
             <SecondaryTagline>
               Exploring the art, science, and storytelling behind fragrances
               &mdash; one bottle at a time.

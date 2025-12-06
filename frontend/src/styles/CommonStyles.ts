@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import WhiteTextureBG from "../assets/white-texture-bg.jpg";
+import type { Theme } from "./theme";
 
 export const Section = styled.section<{ altBg?: boolean; $hasBgImg?: boolean }>`
   padding: ${(props) =>
@@ -74,12 +75,25 @@ export const TitleContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const Tagline = styled.p`
+interface TaglineProps {
+  $capitalized?: boolean;
+  $fontSize?: keyof Theme["fontSizes"];
+  $color?: string;
+  $letterSpacing?: string;
+}
+export const Tagline = styled.p<TaglineProps>`
   font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.xl};
-  letter-spacing: 1px;
+  font-size: ${(props) =>
+    props.$fontSize
+      ? props.theme.fontSizes[props.$fontSize]
+      : props.theme.fontSizes.xl};
+  letter-spacing: ${(props) =>
+    props.$letterSpacing ? props.$letterSpacing : "1px"};
   margin-bottom: ${(props) => props.theme.spacing.sm};
   margin-top: ${(props) => props.theme.spacing.sm};
+  color: ${(props) => props.$color};
+
+  ${(props) => props.$capitalized && `text-transform: uppercase;`}
 `;
 
 export const LogoContainer = styled.div`

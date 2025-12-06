@@ -14,6 +14,7 @@ import {
   BrandWrapper,
   AccordsAndLogoWrapper,
   BottleWrapper,
+  CurrencySelect,
 } from "./FragranceHeader.styled";
 import RatingStars from "./RatingStars/RatingStars";
 import { NotesDisplay } from "./NoteDisplay/NoteDisplay";
@@ -21,17 +22,21 @@ import { AccordsDisplay } from "./AccordsDisplay/AccordsDisplay";
 import { getAccordsForNote } from "../../utils/accordMappings";
 import { useState } from "react";
 
+type Currency = "USD" | "CAD" | "GBP";
 interface Props {
   fragrance: Fragrance;
   bottleImageSize?: "small" | "medium" | "large" | "xlarge";
+  currency?: Currency;
 }
 
 export const FragranceHeader: React.FC<Props> = ({
   fragrance,
   bottleImageSize = "medium",
+  currency: initialCurrency = "CAD",
 }) => {
   const [selectedAccord, setSelectedAccord] = useState<string | null>(null);
   const [selectedNote, setSelectedNote] = useState<string | null>(null);
+  const [currency, setCurrency] = useState<Currency>(initialCurrency);
 
   const handleAccordClick = (accordName: string) => {
     if (selectedAccord === accordName) {
@@ -53,9 +58,41 @@ export const FragranceHeader: React.FC<Props> = ({
     }
   };
 
+  const handleCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setCurrency(e.target.value as Currency);
+  };
+
   const highlightedAccords = selectedNote
     ? getAccordsForNote(selectedNote)
     : [];
+
+  const formatPrice = (
+    priceCAD: number | undefined,
+    targetCurrency: Currency
+  ): string => {
+    if (priceCAD === undefined) {
+      return "N/A";
+    }
+
+    let convertedPrice = priceCAD;
+    let symbol = "";
+
+    switch (targetCurrency) {
+      case "USD":
+        convertedPrice = priceCAD / 1.35;
+        symbol = "$";
+        break;
+      case "GBP":
+        convertedPrice = (priceCAD / 1.35) * 0.8;
+        symbol = "£";
+        break;
+      default:
+        convertedPrice = priceCAD;
+        symbol = "CA$";
+        break;
+    }
+    return `${symbol}${convertedPrice.toFixed(2)}`;
+  };
 
   return (
     <>
@@ -68,7 +105,14 @@ export const FragranceHeader: React.FC<Props> = ({
         <MetadataItem>
           {fragrance.releaseYear}&nbsp;&nbsp;•&nbsp;&nbsp;
           {fragrance.concentration}
-          &nbsp;&nbsp;•&nbsp;&nbsp;${fragrance.price}/100ml
+          &nbsp;&nbsp;•&nbsp;&nbsp;{formatPrice(fragrance.price, currency)}
+          {fragrance.price !== undefined ? "/100ml" : ""}
+          &nbsp;&nbsp;
+          <CurrencySelect value={currency} onChange={handleCurrencyChange}>
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="GBP">GBP</option>
+          </CurrencySelect>
         </MetadataItem>
 
         {fragrance.rating && (

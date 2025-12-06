@@ -26,7 +26,14 @@ export const Hero: React.FC = () => {
 
         <TitleContainer>
           <MainTitle $center>Common Scents</MainTitle>
-          <Tagline>Making Scents Make Sense</Tagline>
+          <Tagline
+            $capitalized
+            $fontSize="lg"
+            $color="#222"
+            $letterSpacing="1.6px"
+          >
+            Demystifying Fragrance
+          </Tagline>
         </TitleContainer>
 
         <ButtonGroup>

@@ -154,3 +154,13 @@ export const AccordsAndLogoWrapper = styled.div`
     grid-row: 2;
   }
 `;
+
+export const CurrencySelect = styled.select`
+  padding: 2px 4px;
+  font-size: inherit;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+`;
