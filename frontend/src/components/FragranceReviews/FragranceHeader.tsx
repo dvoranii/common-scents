@@ -133,6 +133,7 @@ export const FragranceHeader: React.FC<Props> = ({
             $size={bottleImageSize}
           />
         </BottleWrapper>
+
         <AccordsAndLogoWrapper>
           <AccordsDisplay
             accords={fragrance.accords}

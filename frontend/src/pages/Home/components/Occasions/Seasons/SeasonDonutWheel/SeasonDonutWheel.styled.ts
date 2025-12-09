@@ -33,19 +33,18 @@ export const DonutContainer = styled.div<DonutWheelProps>`
   @media screen and (max-width: 1024px) {
     width: 600px;
     height: 600px;
-    margin-left: -30%;
+    margin-left: -35%;
   }
 
   @media screen and (max-width: 768px) {
     width: 500px;
     height: 500px;
-    margin-left: -40%;
   }
 
   @media screen and (max-width: 580px) {
     width: 420px;
     height: 420px;
-    margin-left: -50%;
+    margin-left: -40%;
   }
 
   @media screen and (max-width: 475px) {
@@ -53,13 +52,14 @@ export const DonutContainer = styled.div<DonutWheelProps>`
   }
 
   @media screen and (max-width: 375px) {
-    margin-left: -72%;
+    margin-left: -80%;
   }
 `;
 
 export const DonutSegment = styled.div<{
   $rotation: number;
   $background: string;
+  $isActive?: boolean;
 }>`
   position: absolute;
   width: 100%;
@@ -67,10 +67,20 @@ export const DonutSegment = styled.div<{
   clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
   transform: rotate(${(props) => props.$rotation}deg);
   transform-origin: center;
+  transition: filter 0.5s ease;
 
-  &:first-of-type + div {
-    /* filter: brightness(1.2); */
-  }
+  ${(props) =>
+    props.$isActive &&
+    `
+    filter: brightness(1.2) contrast(1.05) saturate(1.15);
+    z-index: 2;
+  `}
+
+  ${(props) =>
+    !props.$isActive &&
+    `
+    filter: brightness(0.75) saturate(0.8);
+  `}
 `;
 
 export const SegmentBackground = styled.div<{

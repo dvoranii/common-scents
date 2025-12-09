@@ -107,6 +107,7 @@ export const Seasons: React.FC<SeasonsProps> = ({ onSeasonChange }) => {
       {/* <S.SeasonsSubtitle>Seasons</S.SeasonsSubtitle> */}
       <S.SeasonsContent>
         <SeasonDonutWheel
+          activeIndex={currentIndex}
           rotation={rotation}
           winterBg="url(https://images.unsplash.com/photo-1457269449834-928af64c684d?q=80&w=1974&auto=format&fit=crop)"
           springBg="url(https://images.unsplash.com/photo-1490750967868-88aa4486c946?q=80&w=1974&auto=format&fit=crop)"

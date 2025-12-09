@@ -8,6 +8,7 @@ import {
 
 interface SeasonDonutWheelProps {
   rotation: number;
+  activeIndex: number;
   winterBg?: string;
   springBg?: string;
   summerBg?: string;
@@ -16,15 +17,36 @@ interface SeasonDonutWheelProps {
 
 const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
   rotation,
+  activeIndex,
   winterBg = "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
   springBg = "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
   summerBg = "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
   autumnBg = "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
 }) => {
+  const getActiveSegment = () => {
+    switch (activeIndex % 4) {
+      case 0:
+        return "winter";
+      case 1:
+        return "autumn";
+      case 2:
+        return "summer";
+      case 3:
+        return "spring";
+      default:
+        return "winter";
+    }
+  };
+
+  const activeSegment = getActiveSegment();
   return (
     <DonutContainer $rotation={rotation}>
       {/* Winter - Top Right */}
-      <DonutSegment $rotation={0} $background={winterBg}>
+      <DonutSegment
+        $rotation={0}
+        $background={winterBg}
+        $isActive={activeSegment === "winter"}
+      >
         <SegmentBackground
           $background={winterBg}
           $segmentRotation={0}
@@ -33,7 +55,11 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
       </DonutSegment>
 
       {/* Spring - Bottom Right */}
-      <DonutSegment $rotation={90} $background={springBg}>
+      <DonutSegment
+        $rotation={90}
+        $background={springBg}
+        $isActive={activeSegment === "spring"}
+      >
         <SegmentBackground
           $background={springBg}
           $segmentRotation={0}
@@ -42,7 +68,11 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
       </DonutSegment>
 
       {/* Summer - Bottom Left */}
-      <DonutSegment $rotation={180} $background={summerBg}>
+      <DonutSegment
+        $rotation={180}
+        $background={summerBg}
+        $isActive={activeSegment === "summer"}
+      >
         <SegmentBackground
           $background={summerBg}
           $segmentRotation={0}
@@ -51,7 +81,11 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
       </DonutSegment>
 
       {/* Autumn - Top Left */}
-      <DonutSegment $rotation={270} $background={autumnBg}>
+      <DonutSegment
+        $rotation={270}
+        $background={autumnBg}
+        $isActive={activeSegment === "autumn"}
+      >
         <SegmentBackground
           $background={autumnBg}
           $segmentRotation={0}

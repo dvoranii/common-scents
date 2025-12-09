@@ -54,7 +54,7 @@ export const HeroSection = styled.div`
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    grid-template-rows: 0.5fr 0.5fr 0.5fr;
+    grid-template-rows: 0.4fr 0.5fr 0.5fr;
     grid-template-columns: 1fr;
     column-gap: 0;
     padding: ${(props) => props.theme.spacing.md};
@@ -127,6 +127,11 @@ export const HouseLogoWrapper = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: flex;
     justify-content: center;
+
+    a {
+      display: flex;
+      justify-content: center;
+    }
   }
 `;
 
