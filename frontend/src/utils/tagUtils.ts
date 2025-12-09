@@ -45,7 +45,7 @@ export const generateTagsFromFragrances = (): TagData[] => {
   // Season tags
   const seasonCounts: Record<string, number> = {};
   allFragrances.forEach((fragrance) => {
-    fragrance.season?.forEach((season) => {
+    fragrance.seasons?.forEach((season) => {
       seasonCounts[season] = (seasonCounts[season] || 0) + 1;
     });
   });
