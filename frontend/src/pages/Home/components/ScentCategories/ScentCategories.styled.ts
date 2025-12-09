@@ -83,7 +83,6 @@ export const CategoryIcon = styled.div<CategoryIconColor>`
   justify-content: center;
   margin-bottom: ${(props) => props.theme.spacing.md};
   color: ${(props) => props.$color || "darkbrown"};
-  z-index: ;
 `;
 
 export const CategoryName = styled.h3`
