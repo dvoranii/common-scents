@@ -64,7 +64,7 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const OccasionSubtitle = styled.h2<{ $color?: string }>`
+export const SeasonSubtitle = styled.h2<{ $color?: string }>`
   text-align: center;
   color: ${(props) => props.$color || props.theme.colors.text};
   font-size: ${(props) => props.theme.fontSizes.base};
@@ -146,65 +146,17 @@ export const SettingDescription = styled.p`
 
 export const SettingImage = styled.img`
   width: 100%;
+  border-radius: 8px;
 `;
 
 export const FragranceListPlaceholder = styled.section`
   margin-top: ${(props) => props.theme.spacing.xxxl};
   padding: ${(props) => props.theme.spacing.xxl};
-
   border-radius: ${(props) => props.theme.spacing.md};
   min-height: 200px;
 `;
 
-export const OccasionNavigation = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 4rem;
-  padding: 2rem 0;
-  border-top: 1px solid #e0e0e0;
-`;
-
-export const NavButtonWrapper = styled.div`
-  flex: 1;
-  display: flex;
-  padding: 0 20px;
-
-  &:first-child {
-    justify-content: flex-start;
-  }
-
-  &:last-child {
-    justify-content: flex-end;
-  }
-`;
-
-export const NavButton = styled.button<{ $position: "left" | "right" }>`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  background: #e99047;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &:hover {
-    background: #efac6f;
-    color: black;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-`;
-
-export const SeeSeasonsLink = styled(Link)`
+export const SeeEventsLink = styled(Link)`
   width: 100%;
   display: flex;
   justify-content: center;

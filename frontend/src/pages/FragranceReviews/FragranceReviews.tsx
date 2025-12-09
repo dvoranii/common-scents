@@ -51,7 +51,7 @@ const FragranceReviews: React.FC = () => {
     return [
       fragrance.house,
       ...perfumerNames,
-      ...(fragrance.season || []),
+      ...(fragrance.seasons || []),
       ...(fragrance.occasion || []),
       ...(fragrance.category || []),
     ];

@@ -13,3 +13,11 @@ export const getOccasionBySlug = (slug: string): Occasion | undefined => {
 export const getAllOccasions = (): Occasion[] => {
   return occasions;
 };
+
+export const getFragranceOccasions = (occasionSlugs?: string[]): Occasion[] => {
+  if (!occasionSlugs || occasionSlugs.length === 0) return [];
+
+  return occasionSlugs
+    .map((slug) => getOccasionBySlug(slug))
+    .filter((occasion): occasion is Occasion => occasion !== undefined);
+};

@@ -31,14 +31,15 @@ export const SectionContent = styled.div`
 export const SectionTitle = styled.h2<{
   $leftAligned?: boolean;
   $marginBottom?: string;
+  $padding?: string;
 }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
   text-align: ${(props) => (props.$leftAligned ? "left" : "center")};
   margin-bottom: ${(props) =>
     props.$marginBottom ? props.$marginBottom : props.theme.spacing.xxl};
-  color: rgb(38, 50, 70);
   font-weight: 600;
+  padding: ${(props) => (props.$padding ? props.$padding : "0")};
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: ${(props) => props.theme.fontSizes.xxxl};
@@ -46,15 +47,23 @@ export const SectionTitle = styled.h2<{
   }
 `;
 
-export const SectionSubtitle = styled.p`
+interface SectionSubtitleProps {
+  $color?: string;
+  $padding?: string;
+  $leftAligned?: boolean;
+}
+export const SectionSubtitle = styled.h3<SectionSubtitleProps>`
   font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.base};
-  color: ${(props) => props.theme.colors.textLight};
+  font-size: ${(props) => props.theme.fontSizes.xl};
+  text-align: ${(props) => (props.$leftAligned ? "left" : "center")};
+  color: ${(props) =>
+    props.$color ? props.$color : props.theme.colors.textLight};
   margin-top: -${(props) => props.theme.spacing.md};
   margin-bottom: ${(props) => props.theme.spacing.sm};
   line-height: 1.4;
-  text-align: center;
-  max-width: 600px;
+  padding: ${(props) => (props.$padding ? props.$padding : "0")};
+  font-weight: 600;
+  letter-spacing: 0.5px;
 `;
 
 export const MainTitle = styled.h1<{ $center?: boolean; $color?: string }>`

@@ -1,60 +1,34 @@
 import styled from "styled-components";
 
-export const OccasionsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: ${(props) => props.theme.spacing.lg};
-  margin-top: ${(props) => props.theme.spacing.xl};
-`;
-
-export const OccasionCard = styled.div`
-  position: relative;
-  border-radius: ${(props) => props.theme.spacing.md};
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-
-  &:hover {
-    filter: brightness(0.8);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-export const OccasionImage = styled.img`
+export const OccasionsWrapper = styled.div`
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
 `;
 
-export const OccasionOverlay = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    transparent 100%
-  );
-  padding: ${(props) => props.theme.spacing.xl};
-  color: white;
-
-  p {
-    margin: ${(props) => props.theme.spacing.xs} 0 0;
-    font-size: ${(props) => props.theme.fontSizes.sm};
-    opacity: 0.9;
-    line-height: 1.4;
-  }
+export const EventsWrapper = styled.div`
+  width: 100%;
+  padding: ${(props) => `${props.theme.spacing.xl}  ${props.theme.spacing.lg}`};
 `;
 
-export const OccasionTitle = styled.h3`
+export const OccasionsTitleWrapper = styled.div<{
+  $backgroundColor?: string;
+}>`
+  background: ${(props) => props.$backgroundColor || "transparent"};
+  border-bottom: 2px solid white;
+  padding: 1.2rem 0 1.2rem 1.2rem;
+`;
+export const OccasionsSectionTitle = styled.h2`
   font-family: ${(props) => props.theme.fonts.heading1};
-  font-size: ${(props) => props.theme.fontSizes.xl};
-  margin: 0;
-  color: white;
+  font-size: ${(props) => props.theme.fontSizes.xxxxl};
+  text-align: left;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #ffffff;
+
+  text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0cap.5;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    font-size: ${(props) => props.theme.fontSizes.xxxl};
+    margin-bottom: 0.4rem;
+  }
 `;

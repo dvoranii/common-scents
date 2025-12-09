@@ -7,8 +7,10 @@ export interface Fragrance {
   releaseYear?: number;
   concentration?: string;
   price?: number;
-  season?: string[];
+  seasons?: string[];
+  seasonSlugs?: string[];
   occasion?: string[];
+  occasionSlugs?: string[];
   category?: string[];
   notes?: FragranceNotes;
   accords?: Accords[];
@@ -104,4 +106,12 @@ export interface Accords {
   width: string;
   background: string;
   color: string;
+}
+
+export interface Season {
+  name: string;
+  slug: string;
+  image: string;
+  thumbnail: string;
+  description: string;
 }

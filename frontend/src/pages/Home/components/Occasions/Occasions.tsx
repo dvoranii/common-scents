@@ -1,45 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  OccasionsGrid,
-  OccasionCard,
-  OccasionTitle,
-  OccasionOverlay,
-  OccasionImage,
-} from "./Occasions.styled";
-import { occasions } from "../../../../data/occasions";
-import {
-  Section,
-  SectionContent,
-  SectionTitle,
-} from "../../../../styles/CommonStyles";
+import React, { useState } from "react";
+import { Seasons } from "./Seasons/Seasons";
+import { EventsActivities } from "./EventsActivities/EventsActivities";
+import * as S from "./Occasions.styled";
+import { SectionContent } from "../../../../styles/CommonStyles";
 
 export const ScentOccasions: React.FC = () => {
+  const [seasonColor, setSeasonColor] = useState("#263246");
   return (
-    <Section>
-      <SectionContent>
-        <SectionTitle $leftAligned>Scent Occasions</SectionTitle>
+    <S.OccasionsWrapper as="section">
+      <S.OccasionsTitleWrapper $backgroundColor={seasonColor}>
+        <S.OccasionsSectionTitle>Scent Occasions</S.OccasionsSectionTitle>
+      </S.OccasionsTitleWrapper>
 
-        <OccasionsGrid>
-          {occasions.map((occasion) => (
-            <OccasionCard
-              key={occasion.slug}
-              as={Link}
-              to={`/occasions/${occasion.slug}`}
-            >
-              <OccasionImage
-                src={occasion.thumbnail}
-                alt={occasion.name}
-                loading="lazy"
-              />
-              <OccasionOverlay>
-                <OccasionTitle>{occasion.name}</OccasionTitle>
-                <p>{occasion.description}</p>
-              </OccasionOverlay>
-            </OccasionCard>
-          ))}
-        </OccasionsGrid>
-      </SectionContent>
-    </Section>
+      <Seasons onSeasonChange={setSeasonColor} />
+
+      <S.EventsWrapper>
+        <SectionContent>
+          <EventsActivities />
+        </SectionContent>
+      </S.EventsWrapper>
+    </S.OccasionsWrapper>
   );
 };

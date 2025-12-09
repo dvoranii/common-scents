@@ -72,3 +72,20 @@ export const CardDescription = styled.p`
 export const CardTextWrapper = styled.div<{ $padding?: string }>`
   padding: ${(props) => (props.$padding ? props.$padding : "0px")};
 `;
+
+export const ItemsSection = styled.div`
+  margin-top: 60px;
+
+  &:first-child {
+    margin-top: 40px;
+  }
+`;
+
+export const SectionSubtitle = styled.h2`
+  font-size: 2rem;
+  font-family: "Playfair Display", serif;
+  color: ${(props) => props.theme.colors.text};
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: 600;
+`;

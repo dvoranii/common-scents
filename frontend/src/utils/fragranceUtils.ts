@@ -26,7 +26,7 @@ export const getFragranceOccasions = (occasionNames: string[]): Occasion[] => {
 };
 
 export const getFragrancesBySeason = (season: string): Fragrance[] =>
-  filterByField(fragrances, "season", season);
+  filterByField(fragrances, "seasons", season);
 
 export const getFragrancesByOccasion = (occasion: string): Fragrance[] =>
   filterByField(fragrances, "occasion", occasion);

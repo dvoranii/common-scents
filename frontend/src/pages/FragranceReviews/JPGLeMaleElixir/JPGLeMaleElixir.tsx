@@ -3,6 +3,7 @@ import {
   getFragranceCategories,
   getFragranceOccasions,
 } from "../../../utils/fragranceUtils";
+import { getFragranceSeasons } from "../../../utils/seasonsUtils";
 import { Navigate } from "react-router-dom";
 import {
   PageWrapper,
@@ -24,13 +25,14 @@ import { MainTitle, SectionTitle } from "../../../styles/CommonStyles";
 
 const JPGLeMaleElixirReview: React.FC = () => {
   const fragrance = getFragranceBySlug("jpg-le-male-elixir");
+  const occasionData = getFragranceOccasions(fragrance?.occasion || []);
+  const seasonData = getFragranceSeasons(fragrance?.seasons || []);
 
   if (!fragrance) {
     return <Navigate to="/" replace />;
   }
 
   const categoryData = getFragranceCategories(fragrance.categorySlugs);
-  const occasionData = getFragranceOccasions(fragrance.occasion!);
 
   return (
     <PageWrapper>
@@ -47,9 +49,15 @@ const JPGLeMaleElixirReview: React.FC = () => {
         </CategoryAndOccasionWrapperInner>
 
         <CategoryAndOccasionWrapperInner>
-          <ScentAndOccasionTitle>Best Occasions</ScentAndOccasionTitle>
+          <ScentAndOccasionTitle>Events & Activities</ScentAndOccasionTitle>
           <ParagraphWrapper>
             <AssetLinkGrid items={occasionData} basePath="/occasions" />
+          </ParagraphWrapper>
+        </CategoryAndOccasionWrapperInner>
+        <CategoryAndOccasionWrapperInner>
+          <ScentAndOccasionTitle>Seasons</ScentAndOccasionTitle>
+          <ParagraphWrapper>
+            <AssetLinkGrid items={seasonData} basePath="/seasons" />
           </ParagraphWrapper>
         </CategoryAndOccasionWrapperInner>
       </CategoryAndOccasionWrapper>

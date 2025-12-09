@@ -23,7 +23,7 @@ export const jpgElixir: Fragrance = {
   releaseYear: 2023,
   concentration: "EDP",
   price: 160,
-  season: ["Fall", "Winter"],
+  seasons: ["Autumn", "Winter"],
   occasion: ["Date Night", "Night Out", "Cold Weather"],
   category: ["Oriental", "Gourmande", "Fougère"],
   categorySlugs: ["oriental", "gourmande", "fougere"],

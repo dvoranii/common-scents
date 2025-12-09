@@ -8,6 +8,8 @@ import {
   CardDescription,
   CardImage,
   CardTextWrapper,
+  SectionSubtitle,
+  ItemsSection,
 } from "./BrowseLandingTemplate.styled";
 import {
   HeroSection,
@@ -22,30 +24,39 @@ import {
 import CommonScentsLogo from "../../assets/cs-bulb.png";
 import type { Category } from "../../types/fragrance.types";
 import type { Occasion } from "../../types/fragrance.types";
+import type { Season } from "../../types/fragrance.types";
+
+interface ItemGroup {
+  title?: string;
+  items: (Category | Occasion | Season)[];
+  basePath: string;
+}
 
 interface BrowseLandingTemplateProps {
   title: string;
   introText: string;
-  items: Category[] | Occasion[];
-  basePath: string;
+  itemGroups: ItemGroup[];
   tagline: string;
   cardPadding?: string;
   cardTextPadding?: string;
 }
 
-const isCategory = (item: Category | Occasion): item is Category => {
+const isCategory = (item: Category | Occasion | Season): item is Category => {
   return "icon" in item;
 };
 
-const isOccasion = (item: Category | Occasion): item is Occasion => {
-  return "image" in item;
+const isOccasion = (item: Category | Occasion | Season): item is Occasion => {
+  return "image" in item && !("icon" in item);
+};
+
+const isSeason = (item: Category | Occasion | Season): item is Season => {
+  return "image" in item && !("icon" in item);
 };
 
 const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
   title,
   introText,
-  items,
-  basePath,
+  itemGroups,
   tagline,
   cardPadding,
   cardTextPadding,
@@ -69,35 +80,41 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
         <SectionContent>
           <IntroText>{introText}</IntroText>
 
-          <CardGrid>
-            {items.map((item) => (
-              <Link
-                key={item.slug}
-                to={`${basePath}/${item.slug}`}
-                style={{ textDecoration: "none" }}
-              >
-                <Card
-                  $bgColor={isCategory(item) ? item.color : undefined}
-                  $padding={cardPadding}
-                >
-                  {isCategory(item) && (
-                    <CardIcon $color={item.iconColor}>
-                      <item.icon size={48} />
-                    </CardIcon>
-                  )}
+          {itemGroups.map((group, groupIndex) => (
+            <ItemsSection key={groupIndex}>
+              {group.title && <SectionSubtitle>{group.title}</SectionSubtitle>}
 
-                  {isOccasion(item) && (
-                    <CardImage src={item.image} alt={item.name} />
-                  )}
+              <CardGrid>
+                {group.items.map((item) => (
+                  <Link
+                    key={item.slug}
+                    to={`${group.basePath}/${item.slug}`}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Card
+                      $bgColor={isCategory(item) ? item.color : undefined}
+                      $padding={cardPadding}
+                    >
+                      {isCategory(item) && (
+                        <CardIcon $color={item.iconColor}>
+                          <item.icon size={48} />
+                        </CardIcon>
+                      )}
 
-                  <CardTextWrapper $padding={cardTextPadding}>
-                    <CardTitle>{item.name}</CardTitle>
-                    <CardDescription>{item.description}</CardDescription>
-                  </CardTextWrapper>
-                </Card>
-              </Link>
-            ))}
-          </CardGrid>
+                      {(isOccasion(item) || isSeason(item)) && (
+                        <CardImage src={item.image} alt={item.name} />
+                      )}
+
+                      <CardTextWrapper $padding={cardTextPadding}>
+                        <CardTitle>{item.name}</CardTitle>
+                        <CardDescription>{item.description}</CardDescription>
+                      </CardTextWrapper>
+                    </Card>
+                  </Link>
+                ))}
+              </CardGrid>
+            </ItemsSection>
+          ))}
         </SectionContent>
       </Section>
     </>

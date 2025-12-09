@@ -67,7 +67,6 @@ export const BoxLink = styled(Link)<{ $bgColor?: string }>`
   width: clamp(100px, 20vw, 120px);
   height: auto;
   aspect-ratio: 1;
-  margin: 0 10px 10px 0;
   border-radius: 50%;
   overflow: hidden;
   text-decoration: none;

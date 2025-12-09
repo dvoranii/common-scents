@@ -9,9 +9,6 @@ import Office from "../assets/Occasions/office-3.jpg";
 import NightOut from "../assets/Occasions/clubbing.png";
 import ActiveThumbnail from "../assets/Occasions/gym-1.jpg";
 import Active from "../assets/Occasions/gym-5.jpg";
-import ColdWeather from "../assets/Occasions/cold-weather-1.jpg";
-import SummerThumbnail from "../assets/Occasions/summer-vibe-1.jpg";
-import Summer from "../assets/Occasions/summer-vibe-hero.jpg";
 import type { Occasion } from "../types/fragrance.types";
 
 export const occasions: Occasion[] = [
@@ -56,19 +53,5 @@ export const occasions: Occasion[] = [
     image: Active,
     thumbnail: ActiveThumbnail,
     description: "Fresh energy for on-the-move days.",
-  },
-  {
-    name: "Summer Vibes",
-    slug: "summer-vibes",
-    image: Summer,
-    thumbnail: SummerThumbnail,
-    description: "Bright, breezy, and sun-soaked.",
-  },
-  {
-    name: "Cold Weather",
-    slug: "cold-weather",
-    image: ColdWeather,
-    thumbnail: ColdWeather,
-    description: "Warm, cozy, and full-bodied.",
   },
 ];

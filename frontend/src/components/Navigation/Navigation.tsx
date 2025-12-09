@@ -31,6 +31,13 @@ const OCCASION_NAV_COLORS: Record<string, string> = {
   "cold-weather": "#ffffff",
 };
 
+const SEASON_NAV_COLORS: Record<string, string> = {
+  winter: "#ffffff",
+  spring: "#1d2636",
+  summer: "#ffffff",
+  autumn: "#ffffff",
+};
+
 const getNavColor = (pathname: string): string | undefined => {
   if (pathname === "/") {
     return "#000000";
@@ -40,6 +47,12 @@ const getNavColor = (pathname: string): string | undefined => {
   if (occasionMatch) {
     const slug = occasionMatch[1];
     return OCCASION_NAV_COLORS[slug] || "#333";
+  }
+
+  const seasonMatch = pathname.match(/^\/seasons\/(.+)$/);
+  if (seasonMatch) {
+    const slug = seasonMatch[1];
+    return SEASON_NAV_COLORS[slug] || "#333";
   }
 
   return "#333";

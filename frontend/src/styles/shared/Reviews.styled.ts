@@ -91,37 +91,49 @@ export const NotesList = styled.ul`
 
 export const CategoryAndOccasionWrapper = styled.div`
   display: flex;
-  width: 85%;
+  flex-wrap: wrap;
+  width: 90%;
   margin: 0 auto;
   justify-content: center;
-  gap: 2.4rem;
   padding-top: ${(props) => props.theme.spacing.xxxxl};
   padding-bottom: ${(props) => props.theme.spacing.xxxxl};
   position: relative;
 
   &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 55%;
-    transform: translate(-50%, -50%);
-    height: 100%;
-    width: 1px;
-    background-color: lightgrey;
-    z-index: 1;
-    height: 60%;
+    display: none;
   }
 `;
+
 export const CategoryAndOccasionWrapperInner = styled.div`
-  padding: 20px;
+  padding: 12px;
   flex: 1;
+  min-width: 250px;
+  &:not(:last-child) {
+    border-right: 1px solid lightgrey;
+  }
+
+  @media screen and (max-width: 886px) {
+    &:nth-child(2) {
+      border-right: none;
+    }
+
+    &:nth-child(1) {
+      border-right: 1px solid lightgrey;
+    }
+  }
+
+  @media screen and (max-width: 636px) {
+    padding: 20px 0 0 0;
+    &:nth-child(1) {
+      border-right: none;
+    }
+  }
 `;
 
 export const ScentAndOccasionTitle = styled.h4`
   font-family: "Lato", sans-serif;
-  font-size: ${(props) => props.theme.fontSizes.xxxl};
+  font-size: ${(props) => props.theme.fontSizes.xxl};
   font-weight: bold;
-  padding-bottom: ${(props) => props.theme.spacing.xxl};
+  padding-bottom: ${(props) => props.theme.spacing.xl};
   text-align: center;
 `;

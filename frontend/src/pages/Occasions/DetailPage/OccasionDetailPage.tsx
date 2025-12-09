@@ -4,22 +4,9 @@ import {
   getOccasionBySlug,
 } from "../../../utils/occasionsUtils";
 import { occasionDetails } from "../../../data/occasionDetails";
-import {
-  PageWrapper,
-  HeroImageContainer,
-  ContentContainer,
-  OccasionSubtitle,
-  Description,
-  SettingsSection,
-  SectionTitle,
-  SettingGrid,
-  SettingCard,
-  SettingTitle,
-  SettingDescription,
-  FragranceListPlaceholder,
-  HeroImageContainerInner,
-  SettingImage,
-} from "./OccasionDetailPage.styled";
+
+import * as S from "./OccasionDetailPage.styled";
+
 import { MainTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 
@@ -49,8 +36,9 @@ const getTitleColor = (slug: string): string => {
   return OCCASION_TITLE_COLORS[slug] || "#ffffff";
 };
 
+// Fixed logic for overlayOpacity
 const overlayOpacity = (slug: string): number => {
-  return OCCASION_OVERLAY_OPACITY[slug] ?? true;
+  return OCCASION_OVERLAY_OPACITY[slug] ?? 0;
 };
 
 const OccasionDetailPage: React.FC = () => {
@@ -66,58 +54,62 @@ const OccasionDetailPage: React.FC = () => {
   const titleColor = getTitleColor(occasion.slug);
 
   return (
-    <PageWrapper>
-      <HeroImageContainer
+    // 2. Prefix all components from the local style file with S.
+    <S.PageWrapper>
+      <S.HeroImageContainer
         $bgImg={occasion.image}
         $overlayOpacity={overlayOpacity(occasion.slug)}
       >
-        <HeroImageContainerInner>
+        <S.HeroImageContainerInner>
           <MainTitle $center $color={titleColor}>
             {occasion.name}
           </MainTitle>
 
           {details?.subtitle && (
-            <OccasionSubtitle $color={titleColor}>
+            <S.OccasionSubtitle $color={titleColor}>
               {details.subtitle}
-            </OccasionSubtitle>
+            </S.OccasionSubtitle>
           )}
-        </HeroImageContainerInner>
-      </HeroImageContainer>
+        </S.HeroImageContainerInner>
+      </S.HeroImageContainer>
 
-      <ContentContainer>
-        <Description>
+      <S.ContentContainer>
+        <S.Description>
           {details?.fullDescription || occasion.description}
-        </Description>
+        </S.Description>
 
         {details?.settings && details.settings.length > 0 && (
-          <SettingsSection>
-            <SectionTitle>Perfect For</SectionTitle>
-            <SettingGrid>
+          <S.SettingsSection>
+            <S.SectionTitle>Perfect For</S.SectionTitle>
+            <S.SettingGrid>
               {details.settings.map((setting) => (
-                <SettingCard key={setting.title}>
-                  <SettingTitle>{setting.title}</SettingTitle>
-                  <SettingDescription>{setting.description}</SettingDescription>
-                  <SettingImage src={setting.image} />
-                </SettingCard>
+                <S.SettingCard key={setting.title}>
+                  <S.SettingTitle>{setting.title}</S.SettingTitle>
+                  <S.SettingDescription>
+                    {setting.description}
+                  </S.SettingDescription>
+                  <S.SettingImage src={setting.image} />
+                </S.SettingCard>
               ))}
-            </SettingGrid>
-          </SettingsSection>
+            </S.SettingGrid>
+          </S.SettingsSection>
         )}
 
-        <FragranceListPlaceholder>
-          <SectionTitle>Recommended Fragrances</SectionTitle>
+        <S.FragranceListPlaceholder>
+          <S.SectionTitle>Recommended Fragrances</S.SectionTitle>
           <p style={{ textAlign: "center", color: "#666" }}>
             Fragrance recommendations coming soon...
           </p>
-        </FragranceListPlaceholder>
+        </S.FragranceListPlaceholder>
 
         <PageNavigation
           currentSlug={occasionSlug!}
           items={occasions.map((cat) => ({ slug: cat.slug, title: cat.name }))}
           basePath="/occasions"
         />
-      </ContentContainer>
-    </PageWrapper>
+        <S.SeeSeasonsLink to="/seasons/winter">View Seasons</S.SeeSeasonsLink>
+      </S.ContentContainer>
+    </S.PageWrapper>
   );
 };
 

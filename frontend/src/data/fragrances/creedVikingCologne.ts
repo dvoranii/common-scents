@@ -27,7 +27,7 @@ export const creedVikingCologne: Fragrance = {
   releaseYear: 2021,
   concentration: "EDP",
   price: 350,
-  season: ["Spring", "Summer"],
+  seasons: ["Spring", "Summer"],
   occasion: ["Formal", "Office", "Daily Driver", "Summer Vibes"],
   category: ["Fresh", "Citrus", "Aromatic"],
   categorySlugs: ["fresh-citrus", "fougere"],

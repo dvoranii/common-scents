@@ -4,6 +4,8 @@ import { Layout } from "./components/Layout/Layout";
 import HomePage from "./pages/Home/Home";
 import OccasionLandingPage from "./pages/Occasions/LandingPage/OccasionLandingPage";
 import OccasionDetailPage from "./pages/Occasions/DetailPage/OccasionDetailPage";
+import SeasonLandingPage from "./pages/Seasons/LandingPage/SeasonLandingPage";
+import SeasonDetailPage from "./pages/Seasons/DetailPage/SeasonDetailPage";
 import CategoriesLandingPage from "./pages/Categories/Landing/CategoriesLandingPage";
 import CategoryDetailPage from "./pages/Categories/Detail/CategoryDetailPage";
 import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
@@ -27,6 +29,8 @@ function AppRouter() {
               element={<OccasionDetailPage />}
             />
 
+            <Route path="/seasons" element={<SeasonLandingPage />} />
+            <Route path="/seasons/:seasonSlug" element={<SeasonDetailPage />} />
             <Route path="/categories" element={<CategoriesLandingPage />} />
             <Route
               path="/categories/:categorySlug"
