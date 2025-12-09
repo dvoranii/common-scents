@@ -75,7 +75,7 @@ export const NavList = styled.nav`
         position: absolute;
         height: 2px;
         background-color: #b45309;
-        bottom: -5px;
+        bottom: -2px;
         left: 0;
         width: 0%;
         transition: width 0.5s ease;

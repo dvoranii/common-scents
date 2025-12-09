@@ -10,6 +10,11 @@ export const PageWrapper = styled.div`
     padding: ${(props) =>
       `${props.theme.spacing.lg} ${props.theme.spacing.xxxl}`};
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding: ${(props) =>
+      `${props.theme.spacing.lg} ${props.theme.spacing.xl}`};
+  }
 `;
 
 export const IntroSection = styled.section`
