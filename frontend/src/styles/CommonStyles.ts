@@ -54,7 +54,7 @@ interface SectionSubtitleProps {
 }
 export const SectionSubtitle = styled.h3<SectionSubtitleProps>`
   font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.xl};
+  font-size: ${(props) => props.theme.fontSizes.base};
   text-align: ${(props) => (props.$leftAligned ? "left" : "center")};
   color: ${(props) =>
     props.$color ? props.$color : props.theme.colors.textLight};

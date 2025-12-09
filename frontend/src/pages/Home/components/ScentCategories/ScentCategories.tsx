@@ -2,11 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllCategories } from "../../../../utils/categoriesUtils";
 import { CarouselSlide, Carousel } from "../../../../components/Carousel";
-import {
-  CategoryCard,
-  CategoryIcon,
-  CategoryName,
-} from "./ScentCategories.styled";
+import * as S from "./ScentCategories.styled";
 import {
   Section,
   SectionContent,
@@ -29,15 +25,15 @@ export const ScentCategories: React.FC = () => {
         <Carousel>
           {categories.map((category) => (
             <CarouselSlide key={category.slug}>
-              <CategoryCard
+              <S.CategoryCard
                 bgColor={category.color}
                 onClick={() => handleCategoryClick(category.slug)}
               >
-                <CategoryIcon $color={category.iconColor}>
+                <S.CategoryIcon $color={category.iconColor}>
                   <category.icon size={48} />
-                </CategoryIcon>
-                <CategoryName>{category.name}</CategoryName>
-              </CategoryCard>
+                </S.CategoryIcon>
+                <S.CategoryName>{category.name}</S.CategoryName>
+              </S.CategoryCard>
             </CarouselSlide>
           ))}
         </Carousel>

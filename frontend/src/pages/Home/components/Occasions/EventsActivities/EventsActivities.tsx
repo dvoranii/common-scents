@@ -2,14 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as S from "./EventsActivities.styled";
 import { occasions } from "../../../../../data/occasions";
-import { SectionSubtitle } from "../../../../../styles/CommonStyles";
 
 export const EventsActivities: React.FC = () => {
   return (
     <>
-      <SectionSubtitle $color="#263246" $leftAligned>
-        Events & Activities
-      </SectionSubtitle>
+      <S.EventsSubtitle>Events & Activities</S.EventsSubtitle>
       <S.EventsGrid>
         {occasions.map((occasion) => (
           <S.EventCard

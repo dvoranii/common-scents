@@ -33,28 +33,27 @@ export const DonutContainer = styled.div<DonutWheelProps>`
   @media screen and (max-width: 1024px) {
     width: 600px;
     height: 600px;
+    margin-left: -30%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 500px;
+    height: 500px;
     margin-left: -40%;
   }
 
-  @media screen and (max-width: 680px) {
-    width: 500px;
-    height: 500px;
+  @media screen and (max-width: 580px) {
+    width: 420px;
+    height: 420px;
     margin-left: -50%;
   }
 
-  @media screen and (max-width: 540px) {
-    width: 420px;
-    height: 420px;
-    margin-left: -55%;
-  }
-
-  @media screen and (max-width: 480px) {
-    width: 350px;
-    height: 350px;
+  @media screen and (max-width: 475px) {
+    margin-left: -65%;
   }
 
   @media screen and (max-width: 375px) {
-    margin-left: -65%;
+    margin-left: -72%;
   }
 `;
 
@@ -68,6 +67,10 @@ export const DonutSegment = styled.div<{
   clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
   transform: rotate(${(props) => props.$rotation}deg);
   transform-origin: center;
+
+  &:first-of-type + div {
+    /* filter: brightness(1.2); */
+  }
 `;
 
 export const SegmentBackground = styled.div<{

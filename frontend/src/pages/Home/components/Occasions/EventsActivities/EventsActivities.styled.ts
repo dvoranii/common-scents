@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const EventsSubtitle = styled.h3`
-  /* font-family: ${(props) => props.theme.fonts.heading1}; */
-  font-size: ${(props) => props.theme.fontSizes.xl};
+  font-family: ${(props) => props.theme.fonts.heading1};
+  font-size: ${(props) => props.theme.fontSizes.xxl};
+  color: #263246;
   margin: 0 0 ${(props) => props.theme.spacing.xl};
   font-weight: 600;
 `;
