@@ -130,25 +130,29 @@ export const NoteProfilesSection = styled.section`
 
 export const NoteProfileGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: ${(props) => props.theme.spacing.xl};
-  padding: 0 80px;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
+    padding-top: 2.4rem;
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
   }
 `;
 
 export const NoteProfileCard = styled.div`
   border-radius: ${(props) => props.theme.spacing.md};
-  padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   background: white;
+  padding: 2.4rem;
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    padding: 3.4rem;
+  }
 `;
 
 export const NoteProfileTitle = styled.h4`
