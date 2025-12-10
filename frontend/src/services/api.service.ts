@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3005";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const summarizeFragranceReviews = async (
   url: string,

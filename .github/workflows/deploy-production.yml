@@ -1,9 +1,9 @@
-name: Deploy to Staging
+name: Deploy to Production
 
 on:
     push:
         branches:
-            - staging # Changed from 'main'
+            - main
 
 jobs:
     deploy:
@@ -13,26 +13,25 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v3
 
-            - name: Deploy to Staging Server
+            - name: Deploy to Production Server
               uses: appleboy/ssh-action@master
               with:
-                  host: ${{ secrets.STAGING_HOST }}
-                  username: ${{ secrets.STAGING_USER }}
-                  key: ${{ secrets.STAGING_SSH_KEY }}
+                  host: ${{ secrets.PRODUCTION_HOST }}
+                  username: ${{ secrets.PRODUCTION_USER }}
+                  key: ${{ secrets.PRODUCTION_SSH_KEY }}
                   passphrase: ${{ secrets.SSH_PASSPHRASE }}
                   script: |
-                      su - newuser << 'EOF'
+                      su - newuser << 'EOF' 
                       export PATH=$PATH:/usr/bin:/usr/local/bin:$HOME/.nvm/versions/node/v*/bin
-
                       export NODE_OPTIONS="--max-old-space-size=4096"
-                      cd /var/www/common-scents/staging
+                      cd /var/www/common-scents/production
 
-                      git checkout staging
-                      git pull origin staging
+                      git checkout main
+                      git pull origin main
 
                       npm run install:all
                       npm run build:all
 
                       cd backend
-                      pm2 restart ecosystem.config.js --update-env
+                      pm2 restart common-scents-production-api --update-env
                       EOF
