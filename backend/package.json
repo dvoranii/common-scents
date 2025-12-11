@@ -20,6 +20,9 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "express-slow-down": "^3.0.1",
+    "helmet": "^8.1.0",
     "node-fetch": "^3.3.2",
     "puppeteer": "^24.29.1",
     "puppeteer-extra": "^3.3.6",
@@ -30,6 +33,7 @@
     "@types/cheerio": "^0.22.35",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
+    "@types/helmet": "^0.0.48",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

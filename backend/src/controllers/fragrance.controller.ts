@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 export const summarizeFragranceReviews = async (
   req: Request,
@@ -14,23 +14,33 @@ export const summarizeFragranceReviews = async (
 ): Promise<void> => {
   try {
     const { url, numberOfReviews } = req.body;
-    
+
     if (!url) {
       res.status(400).json({ error: "URL is required" });
       return;
     }
 
-    // No need to initialize or close anymore - ScraperAPI handles it all
-    const reviews = await scraperService.scrapeFragranceReviews(
-      url,
-      numberOfReviews || 10
+    const MAX_REVIEWS = 25;
+    const REVIEW_COUNT = Math.min(numberOfReviews || 10, MAX_REVIEWS);
+
+    console.log(
+      `[AI-REQUEST] ${new Date().toISOString()} ${
+        req.ip
+      } - ${REVIEW_COUNT} reviews`
     );
 
+    const reviews = await scraperService.scrapeFragranceReviews(
+      url,
+      REVIEW_COUNT
+    );
+
+    const safeReviews = reviews.slice(0, MAX_REVIEWS);
+
     const prompt = `Here are ${
-      numberOfReviews || 10
+      safeReviews.length
     } recent reviews for this fragrance:
         
-        ${reviews
+        ${safeReviews
           .map((r, i) => `Review ${i + 1} (Rating: ${r.rating}/5): ${r.text}`)
           .join("\n\n")}
         
@@ -47,17 +57,18 @@ export const summarizeFragranceReviews = async (
     const result = await model.generateContent({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
     });
-    
+
     const response = result.response;
     const summary = response.candidates?.[0]?.content?.parts?.[0]?.text || null;
-    
+
     if (summary) {
-      res.json({ reviews, summary });
+      res.json({ reviews: safeReviews, summary });
     } else {
       res.status(500).json({ error: "Failed to generate review summary" });
     }
   } catch (error) {
     console.error("Review summary error:", error);
+
     res.status(500).json({
       error: "Failed to summarize reviews",
       details: error instanceof Error ? error.message : "Unknown error",
