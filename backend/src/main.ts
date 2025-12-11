@@ -10,13 +10,11 @@ import {
   checkDailyLimit,
   dailyRequestCount,
 } from "./middlewares/security.middleware";
-import {
-  checkKillSwitch,
-  getKillSwitchStatus,
-  killSwitch,
-} from "./utils/killswitch";
+import { getKillSwitchStatus } from "./utils/killswitch";
 
 const app = express();
+
+app.set("trust proxy", ["loopback", "linklocal", "uniquelocal"]);
 
 app.use(helmet());
 
