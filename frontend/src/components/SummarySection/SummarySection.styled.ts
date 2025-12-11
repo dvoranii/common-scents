@@ -13,7 +13,6 @@ export const TitleContainer = styled.div`
   align-items: center;
   gap: 8px;
   margin: 0 0 0.25rem 0;
-  height: 20px;
 `;
 
 export const SummaryTitle = styled.h3`
@@ -21,6 +20,10 @@ export const SummaryTitle = styled.h3`
   font-size: 1.2rem;
   font-weight: 600;
   font-family: sans-serif;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    text-align: center;
+  }
 `;
 
 export const SummaryText = styled.div<{ $isTyping?: boolean }>`
