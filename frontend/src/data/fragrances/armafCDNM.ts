@@ -26,6 +26,13 @@ export const armafClubDeNuitMan: Fragrance = {
     "https://www.fragrantica.com/perfume/Armaf/Club-de-Nuit-Man-27687.html",
   youtubeUrl: "",
   longevity: 8,
+  sillage: 7.5,
+  versatility: 8,
+  longevityStages: [
+    { name: "Opening", value: "0 - 1hr" },
+    { name: "Heart", value: "1hr - 4hr" },
+    { name: "Drydown", value: "4hr - 8hr" },
+  ],
   projection: 7,
   rating: 4.0,
   ratingCount: "671",

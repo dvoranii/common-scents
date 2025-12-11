@@ -48,9 +48,10 @@ export const HeroSection = styled.div`
   gap: 2vw;
   padding-top: ${(props) => props.theme.spacing.xl};
 
-  @media screen and (max-width: 940px) {
+  @media screen and (max-width: 1080px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 4vw;
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
@@ -62,15 +63,65 @@ export const HeroSection = styled.div`
   }
 `;
 
-export const BottleWrapper = styled.div`
+export const BottleLongevityWrapper = styled.div`
   flex: 1;
+`;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+export const LongevityTable = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, auto);
+  /* border: 1px solid black; */
+  margin-top: ${(props) => props.theme.spacing.md};
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    margin-top: 2.4rem;
   }
 `;
+
+export const TableHeader = styled.div`
+  padding: ${(props) => `${props.theme.spacing.sm} ${props.theme.spacing.md}`};
+  font-weight: 600;
+  text-align: center;
+  background-color: #eee;
+  color: ${(props) => props.theme.colors.text};
+  letter-spacing: 0.25px;
+  font-size: ${(props) => props.theme.fontSizes.base};
+
+  &:nth-child(1),
+  &:nth-child(2) {
+    border-right: 1px solid white;
+  }
+
+  &:nth-child(3) {
+    border-right: none;
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+`;
+
+export const TableCell = styled.div`
+  padding: ${(props) => `${props.theme.spacing.sm} ${props.theme.spacing.md}`};
+  text-align: center;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+
+  &:nth-child(4) {
+    border-left: 1px solid lightgrey;
+  }
+
+  &:last-child {
+    border-right: 1px solid lightgrey;
+  }
+`;
+
 export const BottleImage = styled.img<{
   $size?: "small" | "medium" | "large" | "xlarge";
 }>`
@@ -81,7 +132,7 @@ export const BottleImage = styled.img<{
       case "small":
         return "150px";
       case "medium":
-        return "250px";
+        return "215px";
       case "large":
         return "350px";
       case "xlarge":
@@ -122,7 +173,7 @@ export const RatingCount = styled.span`
 
 export const HouseLogoWrapper = styled.div`
   width: 100%;
-  padding-top: ${(props) => props.theme.spacing.xl};
+  padding-top: ${(props) => props.theme.spacing.lg};
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: flex;
@@ -157,6 +208,7 @@ export const AccordsAndLogoWrapper = styled.div`
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     grid-row: 2;
+    padding-top: 1.2rem;
   }
 `;
 
@@ -170,4 +222,61 @@ export const CurrencySelect = styled.select`
   border-radius: 4px;
   background-color: white;
   cursor: pointer;
+`;
+
+export const ProjectionAndSillageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+  font-size: ${(props) => props.theme.fontSizes.base};
+`;
+
+export const ContentWrapper = styled.div`
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 30%;
+
+  p {
+    font-size: clamp(0.8rem, 1vw, 1.125rem);
+    text-align: center;
+  }
+  p > span {
+    font-weight: 900;
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    p {
+      font-size: clamp(1rem, 1vw, 1.125rem);
+    }
+  }
+
+  @media screen and (max-width: 436px) {
+    p {
+      font-size: clamp(0.8rem, 1vw, 1.125rem);
+    }
+  }
+`;
+
+export const RatingBar = styled.div`
+  width: 100%;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 6px;
+  margin-bottom: 6px;
+`;
+
+export const RatingFill = styled.div<{
+  $percentage: number;
+  $ratingFill?: string;
+}>`
+  height: 100%;
+  width: ${(props) => props.$percentage}%;
+  background-color: ${(props) =>
+    props.$ratingFill ? props.$ratingFill : "#007bff"};
+  border-radius: 4px;
+  transition: width 0.3s ease;
 `;

@@ -4,7 +4,7 @@ export const NotesColumn = styled.div`
   flex: 1;
   border-radius: 20px;
 
-  @media screen and (max-width: 940px) {
+  @media screen and (max-width: 1080px) {
     grid-column: span 2;
     width: 100%;
     display: flex;

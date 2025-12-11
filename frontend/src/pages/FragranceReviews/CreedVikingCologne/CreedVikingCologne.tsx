@@ -19,7 +19,7 @@ import {
 } from "../../../styles/shared/Reviews.styled";
 import { MainTitle, SectionTitle } from "../../../styles/CommonStyles";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
-import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
+// import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
 import ScrollableSection from "../../../components/ScrollableSection/ScrollableSection";
 import { AssetLinkGrid } from "../../../components/AssetLinkGrid/AssetLinkGrid";
@@ -39,7 +39,7 @@ const CreedVikingCologneReview: React.FC = () => {
     <>
       <PageWrapper>
         <FragranceHeader fragrance={fragrance} bottleImageSize="medium" />
-        <PerfumersDisplay perfumers={fragrance.perfumers} />
+        {/* <PerfumersDisplay perfumers={fragrance.perfumers} /> */}
 
         <ScrollableSection id="community-reviews">
           <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />

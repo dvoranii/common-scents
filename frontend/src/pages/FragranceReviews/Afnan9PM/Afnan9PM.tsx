@@ -18,7 +18,7 @@ import {
   ScentAndOccasionTitle,
 } from "../../../styles/shared/Reviews.styled";
 import { FragranceHeader } from "../../../components/FragranceReviews/FragranceHeader";
-import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
+// import { PerfumersDisplay } from "../../../components/PerfumersDisplay/PerfumersDisplay";
 import SummarySection from "../../../components/SummarySection/SummarySection";
 import { MainTitle, SectionTitle } from "../../../styles/CommonStyles";
 import { AssetLinkGrid } from "../../../components/AssetLinkGrid/AssetLinkGrid";
@@ -37,7 +37,7 @@ const Afnan9PMReview: React.FC = () => {
   return (
     <PageWrapper>
       <FragranceHeader fragrance={fragrance} />
-      <PerfumersDisplay perfumers={fragrance.perfumers} />
+      {/* <PerfumersDisplay perfumers={fragrance.perfumers} /> */}
       <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
 
       <CategoryAndOccasionWrapper>

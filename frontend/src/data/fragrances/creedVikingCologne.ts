@@ -37,7 +37,14 @@ export const creedVikingCologne: Fragrance = {
     "https://www.fragrantica.com/perfume/Creed/Viking-Cologne-67039.html",
   youtubeUrl: "",
   longevity: 6,
-  projection: 5,
+  longevityStages: [
+    { name: "Opening", value: "0 - 1.5hr" },
+    { name: "Heart", value: "1.5hr - 4hr" },
+    { name: "Drydown", value: "4hr - 6hr" },
+  ],
+  projection: 7,
+  sillage: 7,
+  versatility: 7,
   rating: 4.0,
   ratingCount: "1,102",
   shortDescription:

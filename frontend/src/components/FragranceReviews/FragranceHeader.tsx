@@ -1,27 +1,12 @@
 import type { Fragrance } from "../../types/fragrance.types";
-import {
-  HeaderWrapper,
-  BrandName,
-  FragranceName,
-  MetadataItem,
-  HeroSection,
-  BottleImage,
-  RatingContainer,
-  RatingCount,
-  RatingValue,
-  HouseLogo,
-  HouseLogoWrapper,
-  BrandWrapper,
-  AccordsAndLogoWrapper,
-  BottleWrapper,
-  CurrencySelect,
-} from "./FragranceHeader.styled";
+import * as S from "./FragranceHeader.styled";
 import RatingStars from "./RatingStars/RatingStars";
 import { NotesDisplay } from "./NoteDisplay/NoteDisplay";
 import { AccordsDisplay } from "./AccordsDisplay/AccordsDisplay";
 import { getAccordsForNote } from "../../utils/accordMappings";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { PerfumersDisplay } from "../PerfumersDisplay/PerfumersDisplay";
 
 type Currency = "USD" | "CAD" | "GBP";
 interface Props {
@@ -97,44 +82,101 @@ export const FragranceHeader: React.FC<Props> = ({
 
   return (
     <>
-      <HeaderWrapper>
-        <BrandWrapper>
-          <BrandName>{fragrance.house}</BrandName>
-          <FragranceName>{fragrance.name}</FragranceName>
-        </BrandWrapper>
+      <S.HeaderWrapper>
+        <S.BrandWrapper>
+          <S.BrandName>{fragrance.house}</S.BrandName>
+          <S.FragranceName>{fragrance.name}</S.FragranceName>
+        </S.BrandWrapper>
 
-        <MetadataItem>
+        <S.MetadataItem>
           {fragrance.releaseYear}&nbsp;&nbsp;•&nbsp;&nbsp;
           {fragrance.concentration}
           &nbsp;&nbsp;•&nbsp;&nbsp;{formatPrice(fragrance.price, currency)}
           {fragrance.price !== undefined ? "/100ml" : ""}
           &nbsp;&nbsp;
-          <CurrencySelect value={currency} onChange={handleCurrencyChange}>
+          <S.CurrencySelect value={currency} onChange={handleCurrencyChange}>
             <option value="USD">USD</option>
             <option value="CAD">CAD</option>
             <option value="GBP">GBP</option>
-          </CurrencySelect>
-        </MetadataItem>
+          </S.CurrencySelect>
+        </S.MetadataItem>
 
         {fragrance.rating && (
-          <RatingContainer>
-            <RatingValue>{fragrance.rating.toFixed(1)}</RatingValue>
+          <S.RatingContainer>
+            <S.RatingValue>{fragrance.rating.toFixed(1)}</S.RatingValue>
             <RatingStars rating={fragrance.rating} />
-            <RatingCount>({fragrance.ratingCount} ratings)</RatingCount>
-          </RatingContainer>
+            <S.RatingCount>({fragrance.ratingCount} ratings)</S.RatingCount>
+          </S.RatingContainer>
         )}
-      </HeaderWrapper>
+      </S.HeaderWrapper>
 
-      <HeroSection>
-        <BottleWrapper>
-          <BottleImage
+      <S.HeroSection>
+        <S.BottleLongevityWrapper>
+          <S.BottleImage
             src={fragrance.heroImage}
             alt={`${fragrance.name} bottle`}
             $size={bottleImageSize}
           />
-        </BottleWrapper>
+          {fragrance.longevityStages &&
+            fragrance.longevityStages.length > 0 && (
+              <>
+                <S.LongevityTable>
+                  {fragrance.longevityStages.map((stage, index) => (
+                    <S.TableHeader key={`header-${index}`}>
+                      {stage.name}
+                    </S.TableHeader>
+                  ))}
 
-        <AccordsAndLogoWrapper>
+                  {fragrance.longevityStages.map((stage, index) => (
+                    <S.TableCell key={`value-${index}`}>
+                      {stage.value}
+                    </S.TableCell>
+                  ))}
+                </S.LongevityTable>
+              </>
+            )}
+
+          <S.ProjectionAndSillageWrapper>
+            <S.ContentWrapper>
+              <p>{fragrance.projection}/10</p>
+              <S.RatingBar>
+                <S.RatingFill
+                  $ratingFill="#F1565A"
+                  $percentage={((fragrance.projection ?? 0) / 10) * 100}
+                />
+              </S.RatingBar>
+              <p>
+                <span>Projection</span>
+              </p>
+            </S.ContentWrapper>
+            <S.ContentWrapper>
+              <p>{fragrance.sillage}/10</p>
+              <S.RatingBar>
+                <S.RatingFill
+                  $percentage={((fragrance.sillage ?? 0) / 10) * 100}
+                />
+              </S.RatingBar>
+              <p>
+                <span>Sillage</span>
+              </p>
+            </S.ContentWrapper>
+            <S.ContentWrapper>
+              <p>{fragrance.versatility}/10</p>
+              <S.RatingBar>
+                <S.RatingFill
+                  $ratingFill="#96D149"
+                  $percentage={((fragrance.versatility ?? 0) / 10) * 100}
+                />
+              </S.RatingBar>
+              <p>
+                <span>Versatility</span>
+              </p>
+            </S.ContentWrapper>
+          </S.ProjectionAndSillageWrapper>
+        </S.BottleLongevityWrapper>
+
+        <S.AccordsAndLogoWrapper>
+          {/* NO */}
           <AccordsDisplay
             accords={fragrance.accords}
             onAccordClick={handleAccordClick}
@@ -142,28 +184,30 @@ export const FragranceHeader: React.FC<Props> = ({
             highlightedAccords={highlightedAccords}
           />
           {fragrance.houseLogo && (
-            <HouseLogoWrapper>
+            <S.HouseLogoWrapper>
               <Link
                 to={`/fragrance-reviews?tags=${encodeURIComponent(
                   fragrance.house
                 )}`}
               >
-                <HouseLogo
+                <S.HouseLogo
                   src={fragrance.houseLogo}
                   alt={`${fragrance.house} logo`}
                 />
               </Link>
-            </HouseLogoWrapper>
+            </S.HouseLogoWrapper>
           )}
-        </AccordsAndLogoWrapper>
 
+          <PerfumersDisplay perfumers={fragrance.perfumers} />
+        </S.AccordsAndLogoWrapper>
+        {/* NO */}
         <NotesDisplay
           notes={fragrance.notes}
           selectedAccord={selectedAccord}
           selectedNote={selectedNote}
           onNoteClick={handleNoteClick}
         />
-      </HeroSection>
+      </S.HeroSection>
     </>
   );
 };

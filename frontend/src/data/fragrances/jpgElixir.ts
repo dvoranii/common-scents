@@ -33,7 +33,14 @@ export const jpgElixir: Fragrance = {
     "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
   youtubeUrl: "",
   longevity: 8.5,
-  projection: 8,
+  longevityStages: [
+    { name: "Opening", value: "0 - 2hr" },
+    { name: "Heart", value: "2hr - 8hr" },
+    { name: "Drydown", value: "8hr - 14hr+" },
+  ],
+  projection: 8.5,
+  sillage: 8,
+  versatility: 6,
   rating: 4.53,
   ratingCount: "1,102",
   shortDescription:

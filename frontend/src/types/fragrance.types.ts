@@ -20,7 +20,10 @@ export interface Fragrance {
   fragranticaUrl: string;
   youtubeUrl?: string;
   longevity?: number;
+  longevityStages?: Array<{ name: string; value: string }>;
   projection?: number;
+  sillage?: number;
+  versatility?: number;
   rating: number;
   ratingCount: string;
   shortDescription: string;

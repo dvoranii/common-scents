@@ -29,7 +29,14 @@ export const afnan9pm: Fragrance = {
   fragranticaUrl: "https://www.fragrantica.com/perfume/Afnan/9pm-65414.html",
   youtubeUrl: "",
   longevity: 8,
-  projection: 7,
+  longevityStages: [
+    { name: "Opening", value: "0 - 2hr" },
+    { name: "Heart", value: "2hr - 6hr" },
+    { name: "Drydown", value: "6hr - 10hr" },
+  ],
+  projection: 9,
+  sillage: 8.5,
+  versatility: 6.5,
   rating: 4.4,
   ratingCount: "13,843",
   shortDescription:

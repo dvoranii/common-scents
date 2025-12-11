@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const PerfumersContainer = styled.section`
   padding: ${(props) => props.theme.spacing.xl} 0;
-  border-bottom: 1px solid ${(props) => props.theme.colors.border};
+  /* border-bottom: 1px solid ${(props) => props.theme.colors.border}; */
 `;
 
 export const PerfumersContainerInner = styled.div`
