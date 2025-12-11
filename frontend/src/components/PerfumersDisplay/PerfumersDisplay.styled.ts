@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const PerfumersContainer = styled.section`
   padding: ${(props) => props.theme.spacing.xl} 0;
-  /* border-bottom: 1px solid ${(props) => props.theme.colors.border}; */
 `;
 
 export const PerfumersContainerInner = styled.div`
@@ -42,7 +41,7 @@ export const PerfumerSectionTitle = styled.h2`
 export const PerfumersWrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: ${(props) => props.theme.spacing.xxl};
+  gap: ${(props) => props.theme.spacing.lg};
 `;
 
 export const PerfumerItem = styled.div`
@@ -54,7 +53,9 @@ export const PerfumerItem = styled.div`
 
 export const PerfumerImage = styled.img`
   width: 120px;
+  min-width: 120px;
   height: 120px;
+  min-height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: ${(props) => props.theme.spacing.md};

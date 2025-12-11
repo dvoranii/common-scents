@@ -43,10 +43,11 @@ export const NoteType = styled.h3`
 export const NotesGrid = styled.div`
   display: flex;
   margin-bottom: ${(props) => props.theme.spacing.md};
-  gap: 1.2rem;
-
+  gap: 0.4rem;
   @media screen and (max-width: 940px) {
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
   }
 `;
 

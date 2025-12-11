@@ -19,12 +19,18 @@ export const SectionTitle = styled.h2`
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     font-size: ${(props) => props.theme.fontSizes.xxl};
+    text-align: center;
   }
 `;
 
 export const AccordsGrid = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    align-items: center;
+    margin-top: 1.2rem;
+  }
 `;
 
 export const AccordItem = styled.div<{
@@ -79,4 +85,8 @@ export const AccordItem = styled.div<{
     filter: brightness(1.05);
 
   `}
+
+@media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    border-radius: 20px;
+  }
 `;
