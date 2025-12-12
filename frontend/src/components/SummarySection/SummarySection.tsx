@@ -106,25 +106,31 @@ const SummarySection: React.FC<SummarySectionProps> = ({ fragranticaUrl }) => {
               />
               10 Reviews
             </RadioLabel>
-            <RadioLabel $disabled={areRadiosDisabled}>
+            <RadioLabel
+              $disabled={true}
+              title="25+ reviews available with Premium subscription only. Coming soon."
+            >
               <RadioInput
                 type="radio"
                 name="reviewCount"
                 value="25"
                 checked={displayReviewCount === 25}
                 onChange={handleChange}
-                disabled={areRadiosDisabled}
+                disabled
               />
               25 Reviews
             </RadioLabel>
-            <RadioLabel $disabled={areRadiosDisabled}>
+            <RadioLabel
+              $disabled={true}
+              title="25+ reviews available with Premium subscription only. Coming soon."
+            >
               <RadioInput
                 type="radio"
                 name="reviewCount"
                 value="50"
                 checked={displayReviewCount === 50}
                 onChange={handleChange}
-                disabled={areRadiosDisabled}
+                disabled
               />
               50 Reviews
             </RadioLabel>

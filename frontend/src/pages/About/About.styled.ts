@@ -9,6 +9,24 @@ export const SecondaryTagline = styled.p`
   width: 60%;
   margin: ${(props) => props.theme.spacing.md} auto;
 
+  opacity: 0;
+  animation: fadeInSwipe 800ms ease 1000ms forwards;
+  position: relative;
+
+  @keyframes fadeInSwipe {
+    0% {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+    60% {
+      transform: translateX(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 100%;
   }
@@ -26,6 +44,23 @@ export const ContentSection1Inner = styled.div`
   margin: 0 auto;
   padding: ${(props) => props.theme.spacing.xxxxl} 40px 0 40px;
   column-gap: 1.2rem;
+
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: fadeIn 800ms ease 1200ms forwards;
+  position: relative;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     display: flex;

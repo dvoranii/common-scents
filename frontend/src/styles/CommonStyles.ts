@@ -2,7 +2,10 @@ import styled from "styled-components";
 import WhiteTextureBG from "../assets/white-texture-bg.jpg";
 import type { Theme } from "./theme";
 
-export const Section = styled.section<{ altBg?: boolean; $hasBgImg?: boolean }>`
+export const Section = styled.section<{
+  altBg?: boolean;
+  $hasBgImg?: boolean;
+}>`
   padding: ${(props) =>
     `${props.theme.spacing.xxxl}  ${props.theme.spacing.lg}`};
   background-color: ${(props) =>
@@ -23,9 +26,27 @@ export const Section = styled.section<{ altBg?: boolean; $hasBgImg?: boolean }>`
   `}
 `;
 
-export const SectionContent = styled.div`
+export const SectionContent = styled.div<{ $animate?: boolean }>`
   max-width: 1400px;
   margin: 0 auto;
+
+  ${(props) =>
+    props.$animate &&
+    `opacity:0;
+     transform: translateY(-8px);
+     animation: fadeInSlideDown 400ms ease 1200ms forwards;
+  `}
+
+  @keyframes fadeInSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
 `;
 
 export const SectionTitle = styled.h2<{
@@ -74,8 +95,23 @@ export const MainTitle = styled.h1<{ $center?: boolean; $color?: string }>`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   color: ${(props) => (props.$color ? props.$color : "rgb(38, 50, 70)")};
   text-align: ${(props) => (props.$center ? "center" : "left")};
+
+  opacity: 0;
+  animation: fadeInSlideDown 500ms ease 750ms forwards;
+
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: ${(props) => props.theme.fontSizes.xxxxl};
+  }
+
+  @keyframes fadeInSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
 `;
 
@@ -103,6 +139,24 @@ export const Tagline = styled.p<TaglineProps>`
   color: ${(props) => props.$color};
 
   ${(props) => props.$capitalized && `text-transform: uppercase;`}
+
+  opacity: 0;
+  animation: fadeInSwipe 800ms ease 1000ms forwards;
+  position: relative;
+
+  @keyframes fadeInSwipe {
+    0% {
+      opacity: 0;
+      transform: translateX(-15px);
+    }
+    60% {
+      transform: translateX(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `;
 
 export const LogoContainer = styled.div`
@@ -112,13 +166,40 @@ export const LogoContainer = styled.div`
   img {
     width: 25vh;
     max-width: 250px;
+    opacity: 0;
+    animation: gentleReveal 900ms ease-out 150ms forwards;
+
+    @keyframes gentleReveal {
+      0% {
+        transform: scale(0.5) translateY(10px);
+        opacity: 0;
+        filter: brightness(0.7) drop-shadow(0 0 0px rgba(255, 255, 220, 0));
+      }
+      50% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+        filter: brightness(1) drop-shadow(0 0 3px rgba(255, 255, 220, 0.15));
+      }
+      65% {
+        transform: scale(1.02) translateY(0);
+        filter: brightness(1.25) drop-shadow(0 0 12px rgba(255, 255, 220, 0.4));
+      }
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+        filter: brightness(1.05) drop-shadow(0 0 5px rgba(255, 255, 220, 0.2));
+      }
+    }
   }
 `;
 
-export const HeroSection = styled.section`
-  color: ${(props) => props.theme.colors.black};
+export const HeroSection = styled.section<{ $height?: boolean }>`
+  position: relative;
+  ${(props) => props.$height && `height: 100vh;`}
   padding: 0px 40px 20px 40px;
   text-align: center;
+  overflow: hidden;
+
   background: linear-gradient(
     to bottom,
     ${(props) => props.theme.colors.primary},
@@ -126,10 +207,25 @@ export const HeroSection = styled.section`
   );
 `;
 
-export const HeroContent = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-top: ${(props) => props.theme.spacing.xxxxl};
+export const SpotlightCanvas = styled.canvas`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+`;
+
+export const HeroContent = styled.div<{ $padding?: boolean }>`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 20px;
+  ${(props) => props.$padding && `padding-top: ${props.theme.spacing.xxxxl};`};
 `;
 
 export const ButtonGroup = styled.div<{ $paddingTop?: string }>`
@@ -141,7 +237,7 @@ export const ButtonGroup = styled.div<{ $paddingTop?: string }>`
     props.$paddingTop ? props.$paddingTop : props.theme.spacing.md};
 `;
 
-export const PrimaryButton = styled.button`
+export const PrimaryButton = styled.button<{ $animate?: boolean }>`
   position: relative;
   background: linear-gradient(to bottom, #efad70, #e88e44);
   border: 2px solid #e78732;
@@ -156,6 +252,15 @@ export const PrimaryButton = styled.button`
   z-index: 1;
   transition: all 0.3s ease;
   letter-spacing: 1px;
+
+  /* Pure fade animation */
+  ${(props) =>
+    props.$animate &&
+    `
+    opacity: 0;
+    animation: pureFadeIn 500ms ease 1500ms forwards;
+    transform: none !important; 
+  `}
 
   &::before {
     content: "";
@@ -181,5 +286,14 @@ export const PrimaryButton = styled.button`
 
   &:active {
     transform: translateY(1px);
+  }
+
+  @keyframes pureFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;

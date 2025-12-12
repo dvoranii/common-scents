@@ -14,6 +14,10 @@ export const SecondaryButton = styled.button`
   transition: all 0.4s ease-in-out;
   z-index: 1;
 
+  opacity: 0;
+  animation: pureFadeIn 500ms ease 1500ms forwards;
+  transform: none !important;
+
   span {
     position: absolute;
     display: block;
@@ -40,5 +44,14 @@ export const SecondaryButton = styled.button`
 
   &:active {
     background-color: ${(props) => props.theme.colors.backgroundAlt};
+  }
+
+  @keyframes pureFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 `;

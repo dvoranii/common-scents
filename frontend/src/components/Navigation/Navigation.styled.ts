@@ -18,14 +18,59 @@ export const NavWrapperInner = styled.div`
 
 export const Nav = styled.nav``;
 
-export const NavList = styled.ul`
+export const NavList = styled.ul<{ $isHomePage?: boolean }>`
   display: flex;
   gap: ${(props) => props.theme.fontSizes.xxxl};
   font-size: ${(props) => props.theme.fontSizes.xl};
   list-style: none;
+
+  ${(props) =>
+    props.$isHomePage &&
+    `
+    & > li > * {
+      opacity: 0;
+      animation: fadeInNavLink 400ms ease forwards;
+    }
+    & > li:nth-child(1) > * {
+      animation-delay: 1500ms;
+    }
+
+    & > li:nth-child(2) > * {
+      animation-delay: 1600ms;
+    }
+
+    & > li:nth-child(3) > * {
+      animation-delay: 1700ms;
+    }
+
+    & > li:nth-child(4) > * {
+      animation-delay: 1800ms;
+    }
+
+    & > li:nth-child(5) > * {
+      animation-delay: 1900ms;
+    }
+      
+    & > li:nth-child(6) > * {
+      animation-delay: 2000ms;
+    }
+    `}
+
+  @keyframes fadeInNavLink {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
-export const NavItem = styled.li``;
+export const NavItem = styled.li`
+  list-style: none;
+`;
 
 export const NavLink = styled.a<{ $textColour?: string; $isActive?: boolean }>`
   color: ${(props) =>

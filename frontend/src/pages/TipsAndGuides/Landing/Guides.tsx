@@ -78,7 +78,7 @@ const Guides: React.FC = () => {
   return (
     <>
       <HeroSection>
-        <HeroContent>
+        <HeroContent $padding>
           <LogoContainer>
             <img src={CommonScentsLogo} alt="Common Scents Logo" />
           </LogoContainer>
@@ -91,7 +91,7 @@ const Guides: React.FC = () => {
       </HeroSection>
 
       <Section>
-        <SectionContent>
+        <SectionContent $animate>
           <SearchAndFilter<GuideItem>
             items={guides}
             tagGroups={tagGroups}

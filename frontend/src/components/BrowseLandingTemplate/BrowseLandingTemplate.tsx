@@ -64,7 +64,7 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
   return (
     <>
       <HeroSection>
-        <HeroContent>
+        <HeroContent $padding>
           <LogoContainer>
             <img src={CommonScentsLogo} alt="Common Scents Logo" />
           </LogoContainer>
@@ -77,7 +77,7 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
       </HeroSection>
 
       <Section>
-        <SectionContent>
+        <SectionContent $animate>
           <IntroText>{introText}</IntroText>
 
           {itemGroups.map((group, groupIndex) => (

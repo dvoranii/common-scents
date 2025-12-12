@@ -63,6 +63,8 @@ export const Navigation: React.FC = () => {
   const navColor = getNavColor(location.pathname);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
+  const isHomePage = location.pathname === "/";
+
   const getXColour = () => {
     return isMobileNavOpen ? "#000000" : navColor;
   };
@@ -121,7 +123,7 @@ export const Navigation: React.FC = () => {
       <NavWrapperOuter>
         <NavWrapperInner>
           <Nav>
-            <NavList>
+            <NavList $isHomePage={isHomePage}>
               {navItemsBefore.map((item) => (
                 <NavItem key={item.to}>
                   <NavLink

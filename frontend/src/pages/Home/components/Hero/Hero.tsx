@@ -12,13 +12,17 @@ import {
   HeroContent,
   PrimaryButton,
   ButtonGroup,
+  SpotlightCanvas,
 } from "../../../../styles/CommonStyles";
+import useSpotlightAnimation from "../../../../hooks/useSpotlightAnimation";
 
 export const Hero: React.FC = () => {
   const secondaryButtonRef = usePositionAwareButton();
+  const canvasRef = useSpotlightAnimation();
 
   return (
-    <HeroSection>
+    <HeroSection $height>
+      <SpotlightCanvas ref={canvasRef} />
       <HeroContent>
         <LogoContainer>
           <img src={CommonScentsLogo} alt="Common Scents Logo" />
@@ -36,9 +40,9 @@ export const Hero: React.FC = () => {
           </Tagline>
         </TitleContainer>
 
-        <ButtonGroup>
+        <ButtonGroup $paddingTop="0">
           <Link to="/fragrance-reviews">
-            <PrimaryButton>Explore Reviews</PrimaryButton>
+            <PrimaryButton $animate>Explore Reviews</PrimaryButton>
           </Link>
 
           <SecondaryButton

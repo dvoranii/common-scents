@@ -47,7 +47,7 @@ const About: React.FC = () => {
   return (
     <>
       <HeroSection>
-        <HeroContent>
+        <HeroContent $padding>
           <LogoContainer>
             <img src={CommonScentsLogo} alt="Common Scents Logo" />
           </LogoContainer>
