@@ -8,7 +8,7 @@ import {
 } from "./Footer.styled";
 import { Link } from "react-router-dom";
 
-import Logo from "../../assets/cs-bulb.png";
+import Logo from "/assets/images/cs-bulb.png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date(Date.now()).getFullYear();

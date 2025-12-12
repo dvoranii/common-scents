@@ -3,10 +3,10 @@ import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
-import Afnan9pmThumbnail from "../../assets/FragranceThumbnails/Afnan-9pm.webp";
-import Afnan9pmBottle from "../../assets/FragranceReviews/FragranceBottles/9PM.png";
-import AfnanLogo from "../../assets/FragranceReviews/FragranceLogos/Afnan_Logo.webp";
-import GaelMonteroImg from "../../assets/FragranceReviews/Perfumers/Gael-Montero.png";
+import Afnan9pmThumbnail from "/assets/images/FragranceThumbnails/Afnan-9pm.png";
+import Afnan9pmBottle from "/assets/images/FragranceReviews/FragranceBottles/9PM.png";
+import AfnanLogo from "/assets/images/FragranceReviews/FragranceLogos/Afnan_Logo.webp";
+import GaelMonteroImg from "/assets/images/FragranceReviews/Perfumers/Gael-Montero.png";
 
 export const afnan9pm: Fragrance = {
   id: "1",

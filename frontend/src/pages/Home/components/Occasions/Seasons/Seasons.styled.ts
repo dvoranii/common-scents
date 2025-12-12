@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 interface SeasonsSectionProps {
   $backgroundColor: string;
   $backgroundImg?: string;
+  $parallaxOffset?: number;
 }
 
 const hexToRgba = (hex: string, alpha: number): string => {
@@ -18,6 +19,7 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
   width: 100%;
   position: relative;
   background-color: ${(props) => props.$backgroundColor};
+  overflow: hidden; /* Important for parallax effect */
 
   ${(props) => {
     if (!props.$backgroundImg) return "background-image: none;";
@@ -34,14 +36,16 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
           ${solidColor}       
         ),
         url(${props.$backgroundImg});
+        
     `;
   }}
 
   background-size: cover;
-  background-position: center;
+  background-position: center ${(props) => props.$parallaxOffset || 0}%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 
-  transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease, background-position 0.1s ease-out;
 `;
 
 export const SeasonsSubtitle = styled.h3`
@@ -97,7 +101,6 @@ export const WheelWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: rgba(255, 255, 255, 0.1); */
 `;
 
 interface WheelImageProps {
@@ -145,8 +148,11 @@ export const SeasonTitle = styled.h2`
   margin-bottom: 0.4rem;
   font-weight: 700;
   animation: fadeIn 0.5s ease-in;
-  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 1px !important;
+  text-transform: uppercase;
+  position: relative;
+  width: 100%;
 
   @keyframes fadeIn {
     from {
@@ -161,13 +167,23 @@ export const SeasonTitle = styled.h2`
 `;
 
 export const SeasonDescription = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.lg};
+  font-size: ${(props) => props.theme.fontSizes.xl};
+  font-family: "Lato", sans-serif;
+  font-weight: 100;
   line-height: 1.25;
   opacity: 0.95;
   animation: fadeIn 0.5s ease-in 0.1s backwards;
   width: 75%;
-  text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
   margin-bottom: 0.2rem;
+
+  &.mobile-only {
+    display: block;
+  }
+
+  &.desktop-only {
+    display: none;
+  }
 
   @keyframes fadeIn {
     from {
@@ -177,6 +193,16 @@ export const SeasonDescription = styled.p`
     to {
       opacity: 0.95;
       transform: translateY(0);
+    }
+  }
+
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    &.mobile-only {
+      display: none;
+    }
+
+    &.desktop-only {
+      display: block;
     }
   }
 
@@ -227,14 +253,14 @@ export const SeeMoreLink = styled(Link)`
   display: block;
   position: relative;
   width: fit-content;
-  margin-top: 0.8rem;
+  margin-top: 1.2rem;
   margin-bottom: 1.2rem;
 
   color: ${({ theme }) => theme.colors.primary};
   font-weight: 300;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: ${(props) => props.theme.fontSizes.sm};
+  font-size: ${(props) => props.theme.fontSizes.base};
   letter-spacing: 1px;
   text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.25);
 

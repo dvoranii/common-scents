@@ -2,11 +2,11 @@ import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
-import JPGElixirBottle from "../../assets/FragranceReviews/FragranceBottles/JPG-Elixir.png";
-import JPGElixirThumbnail from "../../assets/FragranceThumbnails/JPG-Elixir.png";
-import JPGLogo from "../../assets/FragranceReviews/FragranceLogos/JPG_Logo.png";
+import JPGElixirBottle from "/assets/images/FragranceReviews/FragranceBottles/JPG-Elixir.png";
+import JPGElixirThumbnail from "/assets/images/FragranceThumbnails/JPG-Elixir.png";
+import JPGLogo from "/assets/images/FragranceReviews/FragranceLogos/JPG_Logo.png";
 
-import QuentinBischImg from "../../assets/FragranceReviews/Perfumers/Quentin-Bisch.webp";
+import QuentinBischImg from "/assets/images/FragranceReviews/Perfumers/Quentin-Bisch.webp";
 
 export const jpgElixir: Fragrance = {
   id: "2",

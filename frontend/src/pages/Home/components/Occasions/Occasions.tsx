@@ -5,12 +5,13 @@ import * as S from "./Occasions.styled";
 import { SectionContent } from "../../../../styles/CommonStyles";
 
 export const ScentOccasions: React.FC = () => {
-  const [seasonColor, setSeasonColor] = useState("#263246");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_seasonColor, setSeasonColor] = useState("#263246");
   return (
     <S.OccasionsWrapper as="section">
-      <S.OccasionsTitleWrapper $backgroundColor={seasonColor}>
+      {/* <S.OccasionsTitleWrapper $backgroundColor={seasonColor}>
         <S.OccasionsSectionTitle>Scent Occasions</S.OccasionsSectionTitle>
-      </S.OccasionsTitleWrapper>
+      </S.OccasionsTitleWrapper> */}
 
       <Seasons onSeasonChange={setSeasonColor} />
 

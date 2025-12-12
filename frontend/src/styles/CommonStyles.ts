@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import WhiteTextureBG from "../assets/white-texture-bg.jpg";
+import WhiteTextureBG from "/assets/images/white-texture-bg.jpg";
 import type { Theme } from "./theme";
 
 export const Section = styled.section<{
@@ -53,6 +53,8 @@ export const SectionTitle = styled.h2<{
   $leftAligned?: boolean;
   $marginBottom?: string;
   $padding?: string;
+  $color?: boolean;
+  $animate?: boolean;
 }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
@@ -61,10 +63,32 @@ export const SectionTitle = styled.h2<{
     props.$marginBottom ? props.$marginBottom : props.theme.spacing.xxl};
   font-weight: 600;
   padding: ${(props) => (props.$padding ? props.$padding : "0")};
+  ${(props) => props.$color && `color: #263246;`}
+
+  ${(props) =>
+    props.$animate &&
+    `
+    opacity: 0;
+    
+    &.animate-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+  `}
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: ${(props) => props.theme.fontSizes.xxxl};
     margin-bottom: 0.4rem;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -159,7 +183,7 @@ export const Tagline = styled.p<TaglineProps>`
   }
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<{ $animateInfinity?: boolean }>`
   display: flex;
   justify-content: center;
 
@@ -168,6 +192,12 @@ export const LogoContainer = styled.div`
     max-width: 250px;
     opacity: 0;
     animation: gentleReveal 900ms ease-out 150ms forwards;
+    ${(props) =>
+      props.$animateInfinity &&
+      `
+        animation: gentleReveal 900ms ease-out 150ms forwards,
+        lightbulbFlicker 3s ease-in-out 1.05s infinite;
+      `}
 
     @keyframes gentleReveal {
       0% {
@@ -188,6 +218,17 @@ export const LogoContainer = styled.div`
         transform: scale(1) translateY(0);
         opacity: 1;
         filter: brightness(1.05) drop-shadow(0 0 5px rgba(255, 255, 220, 0.2));
+      }
+    }
+
+    @keyframes lightbulbFlicker {
+      0%,
+      100% {
+        filter: brightness(1.05) drop-shadow(0 0 5px rgba(255, 255, 220, 0.2));
+      }
+
+      50% {
+        filter: brightness(1.15) drop-shadow(0 0 8px rgba(255, 255, 220, 0.35));
       }
     }
   }

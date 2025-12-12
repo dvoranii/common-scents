@@ -1,14 +1,14 @@
-import DailyDriver from "../assets/Occasions/daily-driver.webp";
-import DateNightThumbnail from "../assets/Occasions/date-night.avif";
-import DateNight from "../assets/Occasions/date-night.jpg";
-import Formal from "../assets/Occasions/formal-4.jpeg";
-import FormalThumbnail from "../assets/Occasions/formal-2.jpg";
+import DailyDriver from "/assets/images/Occasions/daily-driver.webp";
+import DateNightThumbnail from "/assets/images/Occasions/date-night.avif";
+import DateNight from "/assets/images/Occasions/date-night.jpg";
+import Formal from "/assets/images/Occasions/formal-4.jpeg";
+import FormalThumbnail from "/assets/images/Occasions/formal-2.jpg";
 
-import Office from "../assets/Occasions/office-3.jpg";
+import Office from "/assets/images/Occasions/office-3.jpg";
 
-import NightOut from "../assets/Occasions/clubbing.png";
-import ActiveThumbnail from "../assets/Occasions/gym-1.jpg";
-import Active from "../assets/Occasions/gym-5.jpg";
+import NightOut from "/assets/images/Occasions/clubbing.png";
+import ActiveThumbnail from "/assets/images/Occasions/gym-1.jpg";
+import Active from "/assets/images/Occasions/gym-5.jpg";
 import type { Occasion } from "../types/fragrance.types";
 
 export const occasions: Occasion[] = [

@@ -41,7 +41,6 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
   const activeSegment = getActiveSegment();
   return (
     <DonutContainer $rotation={rotation}>
-      {/* Winter - Top Right */}
       <DonutSegment
         $rotation={0}
         $background={winterBg}
@@ -54,7 +53,6 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
         />
       </DonutSegment>
 
-      {/* Spring - Bottom Right */}
       <DonutSegment
         $rotation={90}
         $background={springBg}
@@ -67,7 +65,6 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
         />
       </DonutSegment>
 
-      {/* Summer - Bottom Left */}
       <DonutSegment
         $rotation={180}
         $background={summerBg}
@@ -80,7 +77,6 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
         />
       </DonutSegment>
 
-      {/* Autumn - Top Left */}
       <DonutSegment
         $rotation={270}
         $background={autumnBg}

@@ -14,7 +14,6 @@ export const DonutContainer = styled.div<DonutWheelProps>`
   transform: rotate(${(props) => props.$rotation + 45}deg);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Create the donut hole using a radial mask */
   -webkit-mask-image: radial-gradient(
     circle,
     transparent 0%,
@@ -93,14 +92,11 @@ export const SegmentBackground = styled.div<{
   background: ${(props) => props.$background};
   background-size: cover;
   background-position: center;
-
-  /* Pre-rotate backgrounds so they're always upright, not reactive to container rotation */
   transform: rotate(${(props) => -(props.$segmentRotation + 45)}deg);
   transform-origin: center;
 `;
 
 export const InnerCircle = styled.div`
-  /* No longer needed - the mask creates the hole */
   display: none;
   position: relative;
 `;

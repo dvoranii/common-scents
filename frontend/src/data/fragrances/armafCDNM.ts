@@ -3,9 +3,9 @@ import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
-import ClubDeNuitManBottle from "../../assets/FragranceReviews/FragranceBottles/armaf-cdnm.png";
-import ClubDeNuitManThumbnail from "../../assets/FragranceThumbnails/armaf-cdnm.png";
-import ArmafLogo from "../../assets/FragranceReviews/FragranceLogos/Armaf_Logo.png";
+import ClubDeNuitManBottle from "/assets/images/FragranceReviews/FragranceBottles/armaf-cdnm.png";
+import ClubDeNuitManThumbnail from "/assets/images/FragranceThumbnails/armaf-cdnm.png";
+import ArmafLogo from "/assets/images/FragranceReviews/FragranceLogos/Armaf_Logo.png";
 
 export const armafClubDeNuitMan: Fragrance = {
   id: "3",

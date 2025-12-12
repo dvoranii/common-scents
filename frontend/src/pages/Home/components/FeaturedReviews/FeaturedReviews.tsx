@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getFeaturedFragrances } from "../../../../utils/fragranceUtils";
 import {
   ReviewsGrid,
@@ -9,6 +9,8 @@ import {
   ReviewDescription,
   ReviewTextWrapper,
   ReviewLink,
+  ReviewLinkText,
+  ReviewImageLink,
   BottleImage,
 } from "./FeaturedReviews.styled";
 import {
@@ -21,21 +23,60 @@ import { SeeMoreWrapper, GradientHoverLink } from "../../Home.styled";
 
 export const FeaturedReviews: React.FC = () => {
   const featuredReviews = getFeaturedFragrances(3);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15,
+      }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <Section>
+    <Section ref={sectionRef} id="FeaturedReviewsSection">
       <SectionContent>
-        <SectionTitle>Featured Reviews</SectionTitle>
+        <SectionTitle $color $animate className={isVisible ? "animate-in" : ""}>
+          Featured Reviews
+        </SectionTitle>
 
         <ReviewsGrid>
-          {featuredReviews.map((fragrance) => (
-            <ReviewCard key={fragrance.id}>
-              <ReviewImage>
-                <BottleImage
-                  src={fragrance.thumbnailImage}
-                  alt={fragrance.name}
-                />
-              </ReviewImage>
+          {featuredReviews.map((fragrance, index) => (
+            <ReviewCard
+              key={fragrance.id}
+              className={isVisible ? `fade-in-delay-${index}` : ""}
+            >
+              <ReviewImageLink to={`/fragrance-reviews/${fragrance.slug}`}>
+                <ReviewImage>
+                  <BottleImage
+                    src={fragrance.thumbnailImage}
+                    alt={fragrance.name}
+                    loading="lazy"
+                  />
+                </ReviewImage>
+              </ReviewImageLink>
+
               <ReviewContent>
                 <ReviewTextWrapper>
                   <ReviewTitle>
@@ -46,7 +87,7 @@ export const FeaturedReviews: React.FC = () => {
                   </ReviewDescription>
                 </ReviewTextWrapper>
                 <ReviewLink to={`/fragrance-reviews/${fragrance.slug}`}>
-                  Read Review
+                  <ReviewLinkText>Read Review</ReviewLinkText>
                 </ReviewLink>
               </ReviewContent>
             </ReviewCard>

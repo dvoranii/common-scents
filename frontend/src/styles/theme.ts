@@ -29,15 +29,15 @@ export const theme = {
     body: "'Lato', sans-serif",
   },
   fontSizes: {
-    xs: "clamp(0.75rem, 0.8vw, 0.875rem)", // 12-14px
-    sm: "clamp(0.875rem, 1vw, 1rem)", // 14-16px
-    base: "clamp(1rem, 1.2vw, 1.125rem)", // 16-18px
-    lg: "clamp(1.125rem, 1.4vw, 1.375rem)", // 18-22px
-    xl: "clamp(1.25rem, 1.6vw, 1.5rem)", // 20-24px
-    xxl: "clamp(1.5rem, 2vw, 2rem)", // 24-32px
-    xxxl: "clamp(1.875rem, 2.5vw, 2.5rem)", // 30-40px
-    xxxxl: "clamp(2.25rem, 3vw, 3rem)", // 36-48px
-    xxxxxl: "clamp(3rem, 4vw, 4rem)", // 48-64px
+    xs: "clamp(0.75rem, 0.8vw, 0.875rem)",
+    sm: "clamp(0.875rem, 1vw, 1rem)",
+    base: "clamp(1rem, 1.2vw, 1.125rem)",
+    lg: "clamp(1.125rem, 1.4vw, 1.375rem)",
+    xl: "clamp(1.25rem, 1.6vw, 1.5rem)",
+    xxl: "clamp(1.5rem, 2vw, 2rem)",
+    xxxl: "clamp(1.875rem, 2.5vw, 2.5rem)",
+    xxxxl: "clamp(2.25rem, 3vw, 3rem)",
+    xxxxxl: "clamp(3.2rem, 4vw, 4rem)",
   },
   breakpoints: {
     mobile: "640px",

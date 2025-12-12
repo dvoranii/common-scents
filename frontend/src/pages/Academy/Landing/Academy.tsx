@@ -26,7 +26,7 @@ import {
   DateTimeWrapper,
 } from "../../../styles/shared/ContentListing.styled";
 
-import CommonScentsLogo from "../../../assets/cs-bulb.png";
+import CommonScentsLogo from "/assets/images/cs-bulb.png";
 
 const Academy: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(4);

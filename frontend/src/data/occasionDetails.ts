@@ -2,30 +2,30 @@
 
 import type { OccasionDetail } from "../types/data.types";
 
-import OpenOfficeImg from "../assets/Occasions/Details/open-office.avif";
-import ClientMeetingImg from "../assets/Occasions/Details/client-meeting.png";
-import VideoCallImg from "../assets/Occasions/Details/video-call.png";
-import WFHImg from "../assets/Occasions/Details/wfh.png";
-import WeekendComfortImg from "../assets/Occasions/Details/weekend-comfort.png";
-import CasualOutingImg from "../assets/Occasions/Details/casual-outing.png";
-import NightClubImg from "../assets/Occasions/Details/nightclub.png";
-import HousePartyImg from "../assets/Occasions/Details/house-party.png";
-import LateNightBarImg from "../assets/Occasions/Details/late-night-bar.png";
-import BlackTieImg from "../assets/Occasions/Details/black-tie.png";
-import WeddingGuestImg from "../assets/Occasions/Details/wedding-guest.png";
-import BusinessDinnerImg from "../assets/Occasions/Details/business-dinner.png";
-import GymSessionImg from "../assets/Occasions/Details/gym-session.png";
-import OutdoorSportsImg from "../assets/Occasions/Details/outdoor-sports.png";
-import PostWorkoutImg from "../assets/Occasions/Details/post-workout.png";
-import DateNightImg from "../assets/Occasions/Details/date-night.png";
-import DinnerDateImg from "../assets/Occasions/Details/dinner-date.png";
-import OutdoorWalkImg from "../assets/Occasions/Details/outdoor-walk.png";
-import BeachDayImg from "../assets/Occasions/Details/beach-day.png";
-import SummerPartyImg from "../assets/Occasions/Details/summer-party.png";
-import VacationImg from "../assets/Occasions/Details/vacation.png";
-import WinterNightImg from "../assets/Occasions/Details/winter-night.png";
-import HolidayGatheringImg from "../assets/Occasions/Details/holiday-gathering.png";
-import CozyIndoorsImg from "../assets/Occasions/Details/cozy-indoors.png";
+import OpenOfficeImg from "/assets/images/Occasions/Details/open-office.avif";
+import ClientMeetingImg from "/assets/images/Occasions/Details/client-meeting.png";
+import VideoCallImg from "/assets/images/Occasions/Details/video-call.png";
+import WFHImg from "/assets/images/Occasions/Details/wfh.png";
+import WeekendComfortImg from "/assets/images/Occasions/Details/weekend-comfort.png";
+import CasualOutingImg from "/assets/images/Occasions/Details/casual-outing.png";
+import NightClubImg from "/assets/images/Occasions/Details/nightclub.png";
+import HousePartyImg from "/assets/images/Occasions/Details/house-party.png";
+import LateNightBarImg from "/assets/images/Occasions/Details/late-night-bar.png";
+import BlackTieImg from "/assets/images/Occasions/Details/black-tie.png";
+import WeddingGuestImg from "/assets/images/Occasions/Details/wedding-guest.png";
+import BusinessDinnerImg from "/assets/images/Occasions/Details/business-dinner.png";
+import GymSessionImg from "/assets/images/Occasions/Details/gym-session.png";
+import OutdoorSportsImg from "/assets/images/Occasions/Details/outdoor-sports.png";
+import PostWorkoutImg from "/assets/images/Occasions/Details/post-workout.png";
+import DateNightImg from "/assets/images/Occasions/Details/date-night.png";
+import DinnerDateImg from "/assets/images/Occasions/Details/dinner-date.png";
+import OutdoorWalkImg from "/assets/images/Occasions/Details/outdoor-walk.png";
+import BeachDayImg from "/assets/images/Occasions/Details/beach-day.png";
+import SummerPartyImg from "/assets/images/Occasions/Details/summer-party.png";
+import VacationImg from "/assets/images/Occasions/Details/vacation.png";
+import WinterNightImg from "/assets/images/Occasions/Details/winter-night.png";
+import HolidayGatheringImg from "/assets/images/Occasions/Details/holiday-gathering.png";
+import CozyIndoorsImg from "/assets/images/Occasions/Details/cozy-indoors.png";
 
 export const occasionDetails: Record<string, OccasionDetail> = {
   "date-night": {

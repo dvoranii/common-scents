@@ -21,7 +21,7 @@ import {
   Section,
   SectionContent,
 } from "../../styles/CommonStyles";
-import CommonScentsLogo from "../../assets/cs-bulb.png";
+import CommonScentsLogo from "/assets/images/cs-bulb.png";
 import type { Category } from "../../types/fragrance.types";
 import type { Occasion } from "../../types/fragrance.types";
 import type { Season } from "../../types/fragrance.types";

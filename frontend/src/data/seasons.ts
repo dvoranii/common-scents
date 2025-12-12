@@ -1,7 +1,7 @@
-import WinterBg from "../assets/Occasions/Seasons/winter-lake.jpg";
-import SpringBg from "../assets/Occasions/Seasons/spring.webp";
-import SummerBg from "../assets/Occasions/Seasons/big-beach.jpg";
-import AutumnBg from "../assets/Occasions/Seasons/autumn.webp";
+import WinterBg from "/assets/images/Occasions/Seasons/winter-lake.jpg";
+import SpringBg from "/assets/images/Occasions/Seasons/spring.webp";
+import SummerBg from "/assets/images/Occasions/Seasons/big-beach.jpg";
+import AutumnBg from "/assets/images/Occasions/Seasons/autumn.webp";
 import type { Season } from "../types/fragrance.types";
 
 export const seasons: Season[] = [

@@ -2,11 +2,11 @@ import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
-import VikingCologneThumbnail from "../../assets/FragranceThumbnails/viking-cologne.webp";
-import VikingCologneBottle from "../../assets/FragranceReviews/FragranceBottles/VikingCologne.png";
-import CreedLogo from "../../assets/FragranceReviews/FragranceLogos/Creed_Logo.png";
-import ErwinCreedImg from "../../assets/FragranceReviews/Perfumers/Erwin-Creed.webp";
-import OlivierCreedImg from "../../assets/FragranceReviews/Perfumers/Olivier-Creed.jpg";
+import VikingCologneThumbnail from "/assets/images/FragranceThumbnails/viking-cologne.webp";
+import VikingCologneBottle from "/assets/images/FragranceReviews/FragranceBottles/VikingCologne.png";
+import CreedLogo from "/assets/images/FragranceReviews/FragranceLogos/Creed_Logo.png";
+import ErwinCreedImg from "/assets/images/FragranceReviews/Perfumers/Erwin-Creed.webp";
+import OlivierCreedImg from "/assets/images/FragranceReviews/Perfumers/Olivier-Creed.jpg";
 
 export const creedVikingCologne: Fragrance = {
   id: "4",

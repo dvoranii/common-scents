@@ -1,6 +1,6 @@
 import React from "react";
 import { usePositionAwareButton } from "../../../../hooks/usePositionAwareButton";
-import CommonScentsLogo from "../../../../assets/cs-bulb.png";
+import CommonScentsLogo from "/assets/images/cs-bulb.png";
 import { SecondaryButton } from "./Hero.styled";
 import { Link } from "react-router-dom";
 import {
@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
     <HeroSection $height>
       <SpotlightCanvas ref={canvasRef} />
       <HeroContent>
-        <LogoContainer>
+        <LogoContainer $animateInfinity>
           <img src={CommonScentsLogo} alt="Common Scents Logo" />
         </LogoContainer>
 
