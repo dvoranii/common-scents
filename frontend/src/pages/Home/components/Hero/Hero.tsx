@@ -29,7 +29,7 @@ export const Hero: React.FC = () => {
         </LogoContainer>
 
         <TitleContainer>
-          <MainTitle $center>Common Scents</MainTitle>
+          <MainTitle $center>Common&nbsp;Scents</MainTitle>
           <Tagline
             $capitalized
             $fontSize="lg"

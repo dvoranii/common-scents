@@ -5,9 +5,12 @@ import type { Theme } from "./theme";
 export const Section = styled.section<{
   altBg?: boolean;
   $hasBgImg?: boolean;
+  $paddingBottom?: string;
 }>`
   padding: ${(props) =>
-    `${props.theme.spacing.xxxl}  ${props.theme.spacing.lg}`};
+    `${props.theme.spacing.xxxl} ${props.theme.spacing.lg}`};
+  ${(props) =>
+    props.$paddingBottom && `padding-bottom: ${props.$paddingBottom};`};
   background-color: ${(props) =>
     props.altBg ? props.theme.colors.backgroundAlt : "#fff"};
 
@@ -77,7 +80,6 @@ export const SectionTitle = styled.h2<{
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     font-size: ${(props) => props.theme.fontSizes.xxxl};
-    margin-bottom: 0.4rem;
   }
 
   @keyframes fadeInUp {
@@ -123,7 +125,7 @@ export const MainTitle = styled.h1<{ $center?: boolean; $color?: string }>`
   opacity: 0;
   animation: fadeInSlideDown 500ms ease 750ms forwards;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     font-size: ${(props) => props.theme.fontSizes.xxxxl};
   }
 

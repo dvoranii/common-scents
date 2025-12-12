@@ -50,8 +50,8 @@ export const DonutContainer = styled.div<DonutWheelProps>`
     margin-left: -65%;
   }
 
-  @media screen and (max-width: 375px) {
-    margin-left: -80%;
+  @media screen and (max-width: 395px) {
+    margin-left: -82%;
   }
 `;
 
