@@ -197,6 +197,7 @@ export const SeasonDescription = styled.p`
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    width: 90%;
     &.mobile-only {
       display: none;
     }
