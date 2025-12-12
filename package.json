@@ -4,7 +4,7 @@
   "description": "Root package for Common Scents application.",
   "scripts": {
     "install:all": "npm install --prefix frontend && npm install --prefix backend",
-    "build:frontend": "cd frontend && cross-env NODE_OPTIONS='--max-old-space-size=4096' npm run build",
+    "build:frontend": "cd frontend && NODE_OPTIONS='--max-old-space-size=4096' npm run build",
     "build:backend": "npm run build --prefix backend",
     "build:all": "npm run build:frontend && npm run build:backend",
     "dev:backend": "npm run dev --prefix backend",
