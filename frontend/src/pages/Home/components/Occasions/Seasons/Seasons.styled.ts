@@ -119,6 +119,14 @@ export const SeasonInfo = styled.div`
   color: white;
   position: relative;
   padding-right: 20px;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 5.4rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 0;
+  }
 `;
 
 export const SeasonTitleWrapper = styled.div`

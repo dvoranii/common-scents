@@ -4,8 +4,6 @@ import { ScentCategories } from "./components/ScentCategories/ScentCategories";
 import { FragranceLearningHub } from "./components/FragranceGuides/FragranceGuides";
 import { ScentOccasions } from "./components/Occasions/Occasions";
 
-// import { PageContainer } from "../../styles/CommonStyles";
-
 const HomePage: React.FC = () => {
   return (
     <>

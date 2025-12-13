@@ -5,7 +5,7 @@ import AutumnBg from "/assets/images/Occasions/Seasons/autumn.webp";
 // import WinterBg from "../../../../../assets/Occasions/Seasons/winter-lake.jpg";
 import SpringBg from "/assets/images/Occasions/Seasons/spring.webp";
 import SeasonDonutWheel from "./SeasonDonutWheel/SeasonDonutWheel";
-
+import SeasonIndicator from "./SeasonIndicator/SeasonIndicator";
 interface SeasonData {
   name: string;
   desktopDescription: string;
@@ -136,6 +136,11 @@ export const Seasons: React.FC<SeasonsProps> = ({ onSeasonChange }) => {
       $backgroundImg={currentSeason.backgroundImg}
       $parallaxOffset={parallaxOffset}
     >
+      <SeasonIndicator
+        activeSeason={
+          currentSeason.name as "Winter" | "Autumn" | "Summer" | "Spring"
+        }
+      />
       <S.SeasonsContent>
         <SeasonDonutWheel
           activeIndex={currentIndex}

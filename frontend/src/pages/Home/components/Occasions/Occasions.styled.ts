@@ -4,9 +4,19 @@ export const OccasionsWrapper = styled.div`
   width: 100%;
 `;
 
-export const EventsWrapper = styled.div`
+export const EventsWrapper = styled.div<{
+  $brightness: number;
+  $bgColor: string;
+}>`
   width: 100%;
   padding: ${(props) => `${props.theme.spacing.xl}  ${props.theme.spacing.lg}`};
+  background-color: ${(props) => props.$bgColor};
+  transition: background-color 0.3s ease;
+
+  & > * {
+    filter: brightness(${(props) => props.$brightness});
+    transition: filter 0.3s ease;
+  }
 `;
 
 export const OccasionsTitleWrapper = styled.div<{
