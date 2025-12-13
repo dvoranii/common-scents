@@ -4,7 +4,7 @@ import {
   getOccasionBySlug,
 } from "../../../utils/occasionsUtils";
 import { occasionDetails } from "../../../data/occasionDetails";
-
+import Tilt from "react-vanilla-tilt";
 import * as S from "./OccasionDetailPage.styled";
 
 import { MainTitle } from "../../../styles/CommonStyles";
@@ -53,6 +53,17 @@ const OccasionDetailPage: React.FC = () => {
 
   const titleColor = getTitleColor(occasion.slug);
 
+  const tiltOptions = {
+    max: 10,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3,
+    scale: 1.02,
+    perspective: 2000,
+    transition: true,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+  };
+
   return (
     // 2. Prefix all components from the local style file with S.
     <S.PageWrapper>
@@ -83,13 +94,16 @@ const OccasionDetailPage: React.FC = () => {
             <S.SectionTitle>Perfect For</S.SectionTitle>
             <S.SettingGrid>
               {details.settings.map((setting) => (
-                <S.SettingCard key={setting.title}>
-                  <S.SettingTitle>{setting.title}</S.SettingTitle>
-                  <S.SettingDescription>
-                    {setting.description}
-                  </S.SettingDescription>
-                  <S.SettingImage src={setting.image} />
-                </S.SettingCard>
+                <Tilt key={setting.title} options={tiltOptions}>
+                  <S.SettingCard key={setting.title}>
+                    <S.SettingTitle>{setting.title}</S.SettingTitle>
+                    <S.SettingDescription>
+                      {setting.description}
+                    </S.SettingDescription>
+
+                    <S.SettingImage src={setting.image} />
+                  </S.SettingCard>
+                </Tilt>
               ))}
             </S.SettingGrid>
           </S.SettingsSection>

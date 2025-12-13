@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const EventsSubtitle = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading1};
-  font-size: ${(props) => props.theme.fontSizes.xxl};
+  font-size: ${(props) => props.theme.fontSizes.xxxl};
   color: #263246;
-  margin: 0 0 ${(props) => props.theme.spacing.xl};
+  margin: 0 0 ${(props) => props.theme.spacing.lg};
   font-weight: 600;
 `;
 
@@ -13,19 +13,19 @@ export const EventsGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(328px, 1fr));
   gap: ${(props) => props.theme.spacing.lg};
   grid-auto-rows: 300px;
+  border-radius: 20px;
   & > [data-tilt="true"] {
     height: 100% !important;
     width: 100% !important;
     padding: 0 !important;
-    border-radius: ${(props) => props.theme.spacing.md} !important;
+    background: transparent;
     transform-style: preserve-3d;
+    border-radius: 20px !important;
   }
 `;
 
 export const EventCard = styled.div`
   position: relative;
-  border-radius: ${(props) => props.theme.spacing.md};
-  overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
@@ -34,6 +34,7 @@ export const EventCard = styled.div`
   height: 100%;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 
   &:hover {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -46,15 +47,9 @@ export const EventCard = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: ${(props) => props.theme.spacing.md};
-    border: 2px solid transparent;
-    transition: border-color 0.4s ease;
     z-index: 1;
     pointer-events: none;
-  }
-
-  &:hover::before {
-    border-color: rgba(255, 255, 255, 0.3);
+    /* background: rgba(0, 0, 0, 0.3); */
   }
 `;
 
@@ -65,9 +60,12 @@ export const EventImage = styled.img`
   display: block;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
+  border-radius: 20px;
+  overflow: hidden;
+  filter: brightness(0.8);
 
   ${EventCard}:hover & {
-    transform: translateZ(30px) scale(1.05);
+    transform: scale(1.05);
   }
 `;
 
@@ -76,26 +74,12 @@ export const EventOverlay = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    transparent 100%
-  );
+  background: transparent;
   padding: ${(props) => props.theme.spacing.xl};
   color: white;
   transform-style: preserve-3d;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  ${EventCard}:hover & {
-    transform: translateZ(50px);
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0.8) 50%,
-      transparent 100%
-    );
-  }
+  z-index: 2;
 
   p {
     margin: ${(props) => props.theme.spacing.xs} 0 0;
@@ -108,6 +92,7 @@ export const EventOverlay = styled.div`
     ${EventCard}:hover & {
       opacity: 1;
       transform: translateY(0);
+      transform: translateZ(50px);
     }
   }
 `;
@@ -122,6 +107,6 @@ export const EventTitle = styled.h3`
 
   ${EventCard}:hover & {
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
-    transform: translateY(-2px);
+    transform: translateY(-2px) translateZ(50px);
   }
 `;

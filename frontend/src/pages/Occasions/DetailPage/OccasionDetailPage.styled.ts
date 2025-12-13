@@ -103,30 +103,65 @@ export const SettingGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${(props) => props.theme.spacing.xl};
-  padding: 0 60px;
+  padding: 0 30px;
+  grid-template-columns: repeat(3, 1fr);
+  transition: all 200ms ease;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 540px) {
+    grid-template-columns: 1fr;
   }
 
-  @media screen and (max-width: 450px) {
-    padding: 0 20px;
+  /* Target tilt wrapper */
+  & > [data-tilt="true"] {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: ${(props) => props.theme.spacing.md} !important;
+    transform-style: preserve-3d;
+    overflow: visible !important;
+  }
+
+  &:has([data-tilt]:hover) [data-tilt]:not(:hover) img {
+    filter: grayscale(1) contrast(0.7) brightness(0.8);
   }
 `;
 
 export const SettingCard = styled.div`
   border-radius: ${(props) => props.theme.spacing.md};
-  padding: ${(props) => props.theme.spacing.md};
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: ${(props) => props.theme.spacing.xl};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  transform-style: preserve-3d;
+  background: white;
+  overflow: visible;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Glowing border effect */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: ${(props) => props.theme.spacing.md};
+    border: 2px solid transparent;
+    transition: border-color 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    border-color: rgba(233, 144, 71, 0.4);
   }
 `;
 
@@ -135,6 +170,14 @@ export const SettingTitle = styled.h4`
   font-size: ${(props) => props.theme.fontSizes.xl};
   color: ${(props) => props.theme.colors.text};
   margin-bottom: ${(props) => props.theme.spacing.sm};
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+
+  ${SettingCard}:hover & {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateZ(20px) translateY(-2px);
+  }
 `;
 
 export const SettingDescription = styled.p`
@@ -142,16 +185,31 @@ export const SettingDescription = styled.p`
   font-size: ${(props) => props.theme.fontSizes.base};
   line-height: 1.6;
   margin-bottom: ${(props) => props.theme.spacing.md};
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+
+  ${SettingCard}:hover & {
+    transform: translateZ(30px);
+    color: ${(props) => props.theme.colors.text};
+  }
 `;
 
 export const SettingImage = styled.img`
   width: 100%;
+  transition: all 200ms ease;
+  transform-style: preserve-3d;
+  overflow: visible;
+
+  ${SettingCard}:hover & {
+    transform: translateZ(30px) scale(1.05);
+    filter: contrast(1.1) brightness(1.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 export const FragranceListPlaceholder = styled.section`
   margin-top: ${(props) => props.theme.spacing.xxxl};
   padding: ${(props) => props.theme.spacing.xxl};
-
   border-radius: ${(props) => props.theme.spacing.md};
   min-height: 200px;
 `;
