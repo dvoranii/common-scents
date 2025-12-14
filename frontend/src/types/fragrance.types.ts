@@ -101,6 +101,7 @@ export interface Occasion {
   slug: string;
   image: string;
   thumbnail?: string;
+  video?: string;
   description: string;
 }
 

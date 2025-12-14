@@ -4,11 +4,12 @@ import {
   getOccasionBySlug,
 } from "../../../utils/occasionsUtils";
 import { occasionDetails } from "../../../data/occasionDetails";
-import Tilt from "react-vanilla-tilt";
 import * as S from "./OccasionDetailPage.styled";
 
 import { MainTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
+
+import { SettingCardWithSlideshow } from "./SettingCardWithSlideshow/SettingCardWithSlideshow";
 
 const OCCASION_TITLE_COLORS: Record<string, string> = {
   "date-night": "#ffffff",
@@ -36,7 +37,6 @@ const getTitleColor = (slug: string): string => {
   return OCCASION_TITLE_COLORS[slug] || "#ffffff";
 };
 
-// Fixed logic for overlayOpacity
 const overlayOpacity = (slug: string): number => {
   return OCCASION_OVERLAY_OPACITY[slug] ?? 0;
 };
@@ -65,7 +65,6 @@ const OccasionDetailPage: React.FC = () => {
   };
 
   return (
-    // 2. Prefix all components from the local style file with S.
     <S.PageWrapper>
       <S.HeroImageContainer
         $bgImg={occasion.image}
@@ -94,16 +93,11 @@ const OccasionDetailPage: React.FC = () => {
             <S.SectionTitle>Perfect For</S.SectionTitle>
             <S.SettingGrid>
               {details.settings.map((setting) => (
-                <Tilt key={setting.title} options={tiltOptions}>
-                  <S.SettingCard key={setting.title}>
-                    <S.SettingTitle>{setting.title}</S.SettingTitle>
-                    <S.SettingDescription>
-                      {setting.description}
-                    </S.SettingDescription>
-
-                    <S.SettingImage src={setting.image} />
-                  </S.SettingCard>
-                </Tilt>
+                <SettingCardWithSlideshow
+                  key={setting.title}
+                  setting={setting}
+                  tiltOptions={tiltOptions}
+                />
               ))}
             </S.SettingGrid>
           </S.SettingsSection>

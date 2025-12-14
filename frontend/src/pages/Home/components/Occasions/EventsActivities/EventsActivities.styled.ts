@@ -80,6 +80,7 @@ export const EventOverlay = styled.div`
   transform-style: preserve-3d;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 2;
+  pointer-events: none;
 
   p {
     margin: ${(props) => props.theme.spacing.xs} 0 0;
@@ -93,6 +94,15 @@ export const EventOverlay = styled.div`
       opacity: 1;
       transform: translateY(0);
       transform: translateZ(50px);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    bottom: 25px;
+    left: 15px;
+
+    p {
+      margin-top: 0;
     }
   }
 `;

@@ -145,7 +145,6 @@ export const SettingCard = styled.div`
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
-  /* Glowing border effect */
   &::before {
     content: "";
     position: absolute;
@@ -176,7 +175,7 @@ export const SettingTitle = styled.h4`
 
   ${SettingCard}:hover & {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    transform: translateZ(20px) translateY(-2px);
+    transform: translateZ(30px) translateY(-2px);
   }
 `;
 

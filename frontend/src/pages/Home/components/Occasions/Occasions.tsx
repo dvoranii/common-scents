@@ -21,7 +21,7 @@ export const ScentOccasions: React.FC = () => {
 
       const scrollProgress = Math.max(
         0,
-        Math.min(1, 1 - rect.top / windowHeight)
+        Math.min(1, (1 - rect.top / windowHeight) * 2)
       );
 
       setBrightness(scrollProgress);

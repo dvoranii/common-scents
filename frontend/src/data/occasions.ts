@@ -1,8 +1,12 @@
 import DailyDriver from "/assets/images/Occasions/daily-driver.webp";
 import DateNightThumbnail from "/assets/images/Occasions/date-night.avif";
+import DateNightVideo from "/assets/images/Occasions/Details/Candles-Flickering.mp4";
+
 import DateNight from "/assets/images/Occasions/date-night.jpg";
+
 import Formal from "/assets/images/Occasions/formal-4.jpeg";
 import FormalThumbnail from "/assets/images/Occasions/formal-2.jpg";
+import FormalVideo from "/assets/images/Occasions/Details/suit-video.mp4";
 
 import Office from "/assets/images/Occasions/office-3.jpg";
 
@@ -24,6 +28,7 @@ export const occasions: Occasion[] = [
     slug: "date-night",
     image: DateNight,
     thumbnail: DateNightThumbnail,
+    video: DateNightVideo,
     description: "Romantic, seductive, unforgettable.",
   },
   {
@@ -37,6 +42,7 @@ export const occasions: Occasion[] = [
     name: "Formal",
     slug: "formal",
     image: Formal,
+    video: FormalVideo,
     thumbnail: FormalThumbnail,
     description: "Refined elegance for special events.",
   },

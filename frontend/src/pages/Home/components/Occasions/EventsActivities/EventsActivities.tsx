@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Tilt from "react-vanilla-tilt";
 import * as S from "./EventsActivities.styled";
 import { occasions } from "../../../../../data/occasions";
+import { VideoHover } from "../../../../../components/VideoHover/VideoHover";
 
 export const EventsActivities: React.FC = () => {
   const tiltOptions = {
@@ -27,11 +28,19 @@ export const EventsActivities: React.FC = () => {
               as={Link}
               to={`/occasions/${occasion.slug}`}
             >
-              <S.EventImage
-                src={occasion.thumbnail}
-                alt={occasion.name}
-                loading="lazy"
-              />
+              {occasion.video ? (
+                <VideoHover
+                  videoSrc={occasion.video}
+                  thumbnailSrc={occasion.thumbnail}
+                  alt={occasion.name}
+                />
+              ) : (
+                <S.EventImage
+                  src={occasion.thumbnail}
+                  alt={occasion.name}
+                  loading="lazy"
+                />
+              )}
               <S.EventOverlay>
                 <S.EventTitle>{occasion.name}</S.EventTitle>
                 <p>{occasion.description}</p>

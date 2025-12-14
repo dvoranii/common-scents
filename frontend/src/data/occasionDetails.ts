@@ -2,24 +2,78 @@
 
 import type { OccasionDetail } from "../types/data.types";
 
-import OpenOfficeImg from "/assets/images/Occasions/Details/open-office.avif";
-import ClientMeetingImg from "/assets/images/Occasions/Details/client-meeting.png";
-import VideoCallImg from "/assets/images/Occasions/Details/video-call.png";
-import WFHImg from "/assets/images/Occasions/Details/wfh.png";
-import WeekendComfortImg from "/assets/images/Occasions/Details/weekend-comfort.png";
-import CasualOutingImg from "/assets/images/Occasions/Details/casual-outing.png";
-import NightClubImg from "/assets/images/Occasions/Details/nightclub.png";
-import HousePartyImg from "/assets/images/Occasions/Details/house-party.png";
-import LateNightBarImg from "/assets/images/Occasions/Details/late-night-bar.png";
-import BlackTieImg from "/assets/images/Occasions/Details/black-tie.png";
-import WeddingGuestImg from "/assets/images/Occasions/Details/wedding-guest.png";
-import BusinessDinnerImg from "/assets/images/Occasions/Details/business-dinner.png";
-import GymSessionImg from "/assets/images/Occasions/Details/gym-session.png";
-import OutdoorSportsImg from "/assets/images/Occasions/Details/outdoor-sports.png";
-import PostWorkoutImg from "/assets/images/Occasions/Details/post-workout.png";
-import DateNightImg from "/assets/images/Occasions/Details/date-night.png";
-import DinnerDateImg from "/assets/images/Occasions/Details/dinner-date.png";
-import OutdoorWalkImg from "/assets/images/Occasions/Details/outdoor-walk.png";
+import OpenOffice1 from "/assets/images/Occasions/Details/office-1.png";
+import OpenOffice2 from "/assets/images/Occasions/Details/office-2.png";
+import OpenOffice3 from "/assets/images/Occasions/Details/office-3.png";
+
+import ClientMeeting1 from "/assets/images/Occasions/Details/client-meeting.png";
+import ClientMeeting2 from "/assets/images/Occasions/Details/client-meeting-2.png";
+import ClientMeeting3 from "/assets/images/Occasions/Details/client-meeting-3.png";
+
+import VideoCall1 from "/assets/images/Occasions/Details/video-call.png";
+import VideoCall2 from "/assets/images/Occasions/Details/video-call-2.png";
+import VideoCall3 from "/assets/images/Occasions/Details/video-call-3.png";
+
+import WFH1 from "/assets/images/Occasions/Details/wfh.png";
+import WFH2 from "/assets/images/Occasions/Details/wfh-2.png";
+import WFH3 from "/assets/images/Occasions/Details/wfh-3.png";
+
+import WeekendComfort1 from "/assets/images/Occasions/Details/weekend-comfort.png";
+import WeekendComfort2 from "/assets/images/Occasions/Details/weekend-comfort-2.png";
+import WeekendComfort3 from "/assets/images/Occasions/Details/weekend-comfort-3.png";
+
+import CasualOuting1 from "/assets/images/Occasions/Details/casual-outing.png";
+import CasualOuting2 from "/assets/images/Occasions/Details/casual-outing-2.png";
+import CasualOuting3 from "/assets/images/Occasions/Details/casual-outing-3.png";
+
+import NightClub1 from "/assets/images/Occasions/Details/nightclub.png";
+import NightClub2 from "/assets/images/Occasions/Details/nightclub-2.png";
+import NightClub3 from "/assets/images/Occasions/Details/nightclub-3.png";
+
+import HouseParty1 from "/assets/images/Occasions/Details/house-party.png";
+import HouseParty2 from "/assets/images/Occasions/Details/house-party-2.png";
+import HouseParty3 from "/assets/images/Occasions/Details/house-party-3.png";
+
+import LateNightBar1 from "/assets/images/Occasions/Details/late-night-bar.png";
+import LateNightBar2 from "/assets/images/Occasions/Details/late-night-bar-2.png";
+import LateNightBar3 from "/assets/images/Occasions/Details/late-night-bar-3.png";
+
+import BlackTie1 from "/assets/images/Occasions/Details/black-tie.png";
+import BlackTie2 from "/assets/images/Occasions/Details/black-tie-2.png";
+import BlackTie3 from "/assets/images/Occasions/Details/black-tie-3.png";
+
+import WeddingGuest1 from "/assets/images/Occasions/Details/wedding-guest.png";
+import WeddingGuest2 from "/assets/images/Occasions/Details/wedding-guest-2.png";
+import WeddingGuest3 from "/assets/images/Occasions/Details/wedding-guest-3.png";
+
+import BusinessDinner1 from "/assets/images/Occasions/Details/business-dinner.png";
+import BusinessDinner2 from "/assets/images/Occasions/Details/business-dinner-2.png";
+import BusinessDinner3 from "/assets/images/Occasions/Details/business-dinner-3.png";
+
+import GymSession1 from "/assets/images/Occasions/Details/gym-session.png";
+import GymSession2 from "/assets/images/Occasions/Details/gym-session-2.png";
+import GymSession3 from "/assets/images/Occasions/Details/gym-session-3.png";
+
+import OutdoorSports1 from "/assets/images/Occasions/Details/outdoor-sports.png";
+import OutdoorSports2 from "/assets/images/Occasions/Details/outdoor-sports-2.png";
+import OutdoorSports3 from "/assets/images/Occasions/Details/outdoor-sports-3.png";
+
+import PostWorkout1 from "/assets/images/Occasions/Details/post-workout.png";
+import PostWorkout2 from "/assets/images/Occasions/Details/post-workout-2.png";
+import PostWorkout3 from "/assets/images/Occasions/Details/post-workout-3.png";
+
+import DateNight1 from "/assets/images/Occasions/Details/date-night.png";
+import DateNight2 from "/assets/images/Occasions/Details/date-night-2.png";
+import DateNight3 from "/assets/images/Occasions/Details/date-night-3.png";
+
+import DinnerDate1 from "/assets/images/Occasions/Details/dinner-date.png";
+import DinnerDate2 from "/assets/images/Occasions/Details/dinner-date-2.png";
+import DinnerDate3 from "/assets/images/Occasions/Details/dinner-date-3.png";
+
+import OutdoorWalk1 from "/assets/images/Occasions/Details/outdoor-walk.png";
+import OutdoorWalk2 from "/assets/images/Occasions/Details/outdoor-walk-2.png";
+import OutdoorWalk3 from "/assets/images/Occasions/Details/outdoor-walk-3.png";
+
 import BeachDayImg from "/assets/images/Occasions/Details/beach-day.png";
 import SummerPartyImg from "/assets/images/Occasions/Details/summer-party.png";
 import VacationImg from "/assets/images/Occasions/Details/vacation.png";
@@ -37,19 +91,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Casual Bar",
         description:
           "Playful and energetic — perfect for first dates or casual meetups.",
-        image: DateNightImg,
+        images: [DateNight1, DateNight2, DateNight3],
       },
       {
         title: "Dinner Date",
         description:
           "Smooth and seductive scents that complement an intimate setting.",
-        image: DinnerDateImg,
+        images: [DinnerDate1, DinnerDate2, DinnerDate3],
       },
       {
         title: "Outdoor Walk",
         description:
           "Fresh and inviting, leaving a pleasant trail without being heavy.",
-        image: OutdoorWalkImg,
+        images: [OutdoorWalk1, OutdoorWalk2, OutdoorWalk3],
       },
     ],
   },
@@ -62,19 +116,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Work From Home",
         description:
           "Light and uplifting scents that boost your mood throughout the day.",
-        image: WFHImg,
+        images: [WFH1, WFH2, WFH3],
       },
       {
         title: "Casual Outings",
         description:
           "Universally appealing fragrances for shopping, brunch, or errands.",
-        image: CasualOutingImg,
+        images: [CasualOuting1, CasualOuting2, CasualOuting3],
       },
       {
         title: "Weekend Comfort",
         description:
           "Relaxed, easy-going scents for low-key weekend activities.",
-        image: WeekendComfortImg,
+        images: [WeekendComfort1, WeekendComfort2, WeekendComfort3],
       },
     ],
   },
@@ -87,19 +141,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Nightclub",
         description:
           "Powerful, sweet fragrances that cut through crowds and loud music.",
-        image: NightClubImg,
+        images: [NightClub1, NightClub2, NightClub3],
       },
       {
         title: "House Party",
         description:
           "Bold scents that make an impression in close social settings.",
-        image: HousePartyImg,
+        images: [HouseParty1, HouseParty2, HouseParty3],
       },
       {
         title: "Late Night Bar",
         description:
           "Seductive, mysterious fragrances for intimate nighttime venues.",
-        image: LateNightBarImg,
+        images: [LateNightBar1, LateNightBar2, LateNightBar3],
       },
     ],
   },
@@ -112,19 +166,19 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Black Tie Events",
         description:
           "Luxurious, complex scents that match the elegance of formal attire.",
-        image: BlackTieImg,
+        images: [BlackTie1, BlackTie2, BlackTie3],
       },
       {
         title: "Wedding Guest",
         description:
           "Memorable yet appropriate fragrances that photograph well.",
-        image: WeddingGuestImg,
+        images: [WeddingGuest1, WeddingGuest2, WeddingGuest3],
       },
       {
         title: "Business Dinner",
         description:
           "Sophisticated scents that command respect in professional settings.",
-        image: BusinessDinnerImg,
+        images: [BusinessDinner1, BusinessDinner2, BusinessDinner3],
       },
     ],
   },
@@ -137,17 +191,17 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Open Office",
         description:
           "Light, inoffensive fragrances perfect for shared workspaces.",
-        image: OpenOfficeImg,
+        images: [OpenOffice1, OpenOffice2, OpenOffice3],
       },
       {
         title: "Client Meetings",
         description: "Polished, professional scents that inspire confidence.",
-        image: ClientMeetingImg,
+        images: [ClientMeeting1, ClientMeeting2, ClientMeeting3],
       },
       {
         title: "Video Calls",
         description: "Subtle scents for your own comfort during remote work.",
-        image: VideoCallImg,
+        images: [VideoCall1, VideoCall2, VideoCall3],
       },
     ],
   },
@@ -160,17 +214,17 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Gym Session",
         description:
           "Ultra-light, fresh scents that won't become cloying when you sweat.",
-        image: GymSessionImg,
+        images: [GymSession1, GymSession2, GymSession3],
       },
       {
         title: "Outdoor Sports",
         description: "Energizing fragrances for hiking, biking, or running.",
-        image: OutdoorSportsImg,
+        images: [OutdoorSports1, OutdoorSports2, OutdoorSports3],
       },
       {
         title: "Post-Workout",
         description: "Clean, refreshing scents to apply after showering.",
-        image: PostWorkoutImg,
+        images: [PostWorkout1, PostWorkout2, PostWorkout3],
       },
     ],
   },
@@ -183,18 +237,18 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Beach Day",
         description:
           "Aquatic, fresh scents that complement sun and sea breeze.",
-        image: BeachDayImg,
+        images: [BeachDayImg],
       },
       {
         title: "Summer Party",
         description: "Vibrant, tropical fragrances for outdoor gatherings.",
-        image: SummerPartyImg,
+        images: [SummerPartyImg],
       },
       {
         title: "Vacation Mode",
         description:
           "Carefree, easy-wearing scents for traveling and relaxation.",
-        image: VacationImg,
+        images: [VacationImg],
       },
     ],
   },
@@ -207,18 +261,18 @@ export const occasionDetails: Record<string, OccasionDetail> = {
         title: "Winter Nights",
         description:
           "Rich, heavy fragrances that project beautifully in cold air.",
-        image: WinterNightImg,
+        images: [WinterNightImg],
       },
       {
         title: "Holiday Gatherings",
         description: "Warm, inviting scents perfect for festive occasions.",
-        image: HolidayGatheringImg,
+        images: [HolidayGatheringImg],
       },
       {
         title: "Cozy Indoors",
         description:
           "Comforting fragrances for staying warm during cold months.",
-        image: CozyIndoorsImg,
+        images: [CozyIndoorsImg],
       },
     ],
   },
