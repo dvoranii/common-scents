@@ -23,6 +23,10 @@ export const ThumbnailImage = styled.img<VisibilityProps>`
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transform: ${({ $visible }) => ($visible ? "scale(1)" : "scale(1.02)")};
+
+  @media screen and (max-width: 1085px) {
+    transform: scale(1.15);
+  }
 `;
 
 export const HoverVideo = styled.video<VisibilityProps>`
@@ -35,4 +39,8 @@ export const HoverVideo = styled.video<VisibilityProps>`
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: ${({ $visible }) => ($visible ? 1 : 0)};
   transform: ${({ $visible }) => ($visible ? "scale(1)" : "scale(1.02)")};
+
+  @media screen and (max-width: 1085px) {
+    transform: scale(1.15);
+  }
 `;

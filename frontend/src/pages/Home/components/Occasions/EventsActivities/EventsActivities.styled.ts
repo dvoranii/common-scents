@@ -49,7 +49,6 @@ export const EventCard = styled.div`
     bottom: 0;
     z-index: 1;
     pointer-events: none;
-    /* background: rgba(0, 0, 0, 0.3); */
   }
 `;
 
