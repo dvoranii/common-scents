@@ -10,36 +10,14 @@ import { MainTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 
 import { SettingCardWithSlideshow } from "./SettingCardWithSlideshow/SettingCardWithSlideshow";
-
-const OCCASION_TITLE_COLORS: Record<string, string> = {
-  "date-night": "#ffffff",
-  "daily-driver": "#ffffff",
-  "night-out": "#ffffff",
-  formal: "#ffffff",
-  office: "#1d2636",
-  "active-gym": "#ffffff",
-  "summer-vibes": "#ffffff",
-  "cold-weather": "#ffffff",
-};
-
-const OCCASION_OVERLAY_OPACITY: Record<string, number> = {
-  "date-night": 0.35,
-  "daily-driver": 0.4,
-  "night-out": 0,
-  formal: 0.5,
-  office: 0,
-  "active-gym": 0.3,
-  "summer-vibes": 0.25,
-  "cold-weather": 0.5,
-};
-
-const getTitleColor = (slug: string): string => {
-  return OCCASION_TITLE_COLORS[slug] || "#ffffff";
-};
-
-const overlayOpacity = (slug: string): number => {
-  return OCCASION_OVERLAY_OPACITY[slug] ?? 0;
-};
+import {
+  getTitleColor,
+  getTitleWidth,
+  getSubtitleColor,
+  overlayOpacity,
+  subtitleBGColour,
+  titleBGColour,
+} from "../../../utils/occasionThemeUtils";
 
 const OccasionDetailPage: React.FC = () => {
   const { occasionSlug } = useParams<{ occasionSlug: string }>();
@@ -50,8 +28,6 @@ const OccasionDetailPage: React.FC = () => {
   if (!occasion) {
     return <Navigate to="/" replace />;
   }
-
-  const titleColor = getTitleColor(occasion.slug);
 
   const tiltOptions = {
     max: 10,
@@ -71,12 +47,20 @@ const OccasionDetailPage: React.FC = () => {
         $overlayOpacity={overlayOpacity(occasion.slug)}
       >
         <S.HeroImageContainerInner>
-          <MainTitle $center $color={titleColor}>
+          <MainTitle
+            $center
+            $color={getTitleColor(occasion.slug)}
+            $bgColor={titleBGColour(occasion.slug)}
+            $width={getTitleWidth(occasion.slug)}
+          >
             {occasion.name}
           </MainTitle>
 
           {details?.subtitle && (
-            <S.OccasionSubtitle $color={titleColor}>
+            <S.OccasionSubtitle
+              $color={getSubtitleColor(occasion.slug)}
+              $bgColor={subtitleBGColour(occasion.slug)}
+            >
               {details.subtitle}
             </S.OccasionSubtitle>
           )}

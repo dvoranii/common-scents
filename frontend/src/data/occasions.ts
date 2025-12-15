@@ -1,30 +1,37 @@
 import DailyDriver from "/assets/images/Occasions/daily-driver.webp";
+import DailyDriverVid from "/assets/videos/daily-driver-vid.mp4";
+
 import DateNightThumbnail from "/assets/images/Occasions/date-night.avif";
-import DateNightVideo from "/assets/images/Occasions/Details/Candles-Flickering.mp4";
+import DateNightVideo from "/assets/videos/Candles-Flickering.mp4";
 
 import DateNight from "/assets/images/Occasions/date-night.jpg";
 
 import Formal from "/assets/images/Occasions/formal-4.jpeg";
 import FormalThumbnail from "/assets/images/Occasions/formal-2.jpg";
-import FormalVideo from "/assets/images/Occasions/Details/suit-video.mp4";
+import FormalVideo from "/assets/videos/suit-video.mp4";
 
 import Office from "/assets/images/Occasions/office-3.jpg";
+import OfficeVid from "/assets/videos/typing-video.mp4";
 
 import NightOut from "/assets/images/Occasions/clubbing.png";
+import NightOutVideo from "/assets/videos/nightclub-live-video.mp4";
+
 import ActiveThumbnail from "/assets/images/Occasions/gym-1.jpg";
 import Active from "/assets/images/Occasions/gym-5.jpg";
+import ActiveVid from "/assets/videos/gym-video.mp4";
 import type { Occasion } from "../types/fragrance.types";
 
 export const occasions: Occasion[] = [
   {
-    name: "Daily Driver",
+    name: "Daily Driver",
     slug: "daily-driver",
     image: DailyDriver,
+    video: DailyDriverVid,
     thumbnail: DailyDriver,
     description: "Easy, versatile scents for any day.",
   },
   {
-    name: "Date Night",
+    name: "Date Night",
     slug: "date-night",
     image: DateNight,
     thumbnail: DateNightThumbnail,
@@ -32,9 +39,10 @@ export const occasions: Occasion[] = [
     description: "Romantic, seductive, unforgettable.",
   },
   {
-    name: "Night Out",
+    name: "Night Out",
     slug: "night-out",
     image: NightOut,
+    video: NightOutVideo,
     thumbnail: NightOut,
     description: "Bold scents that own the room.",
   },
@@ -50,13 +58,15 @@ export const occasions: Occasion[] = [
     name: "Office",
     slug: "office",
     image: Office,
+    video: OfficeVid,
     thumbnail: Office,
     description: "Clean, professional, and subtle.",
   },
   {
-    name: "Active / Gym",
+    name: "Active / Gym",
     slug: "active-gym",
     image: Active,
+    video: ActiveVid,
     thumbnail: ActiveThumbnail,
     description: "Fresh energy for on-the-move days.",
   },

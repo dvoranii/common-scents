@@ -113,7 +113,12 @@ export const SectionSubtitle = styled.h3<SectionSubtitleProps>`
   letter-spacing: 0.5px;
 `;
 
-export const MainTitle = styled.h1<{ $center?: boolean; $color?: string }>`
+export const MainTitle = styled.h1<{
+  $center?: boolean;
+  $color?: string;
+  $bgColor?: string;
+  $width?: string;
+}>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxxl};
   font-weight: 500;
@@ -121,12 +126,16 @@ export const MainTitle = styled.h1<{ $center?: boolean; $color?: string }>`
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   color: ${(props) => (props.$color ? props.$color : "rgb(38, 50, 70)")};
   text-align: ${(props) => (props.$center ? "center" : "left")};
-
+  ${(props) => props.$bgColor && `background: ${props.$bgColor};`};
+  ${(props) => props.$width && `width: ${props.$width};`};
+  padding: 10px 20px;
   opacity: 0;
   animation: fadeInSlideDown 500ms ease 750ms forwards;
+  margin: 0 auto;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     font-size: ${(props) => props.theme.fontSizes.xxxxl};
+    width: 90%;
   }
 
   @keyframes fadeInSlideDown {
@@ -296,7 +305,6 @@ export const PrimaryButton = styled.button<{ $animate?: boolean }>`
   transition: all 0.3s ease;
   letter-spacing: 1px;
 
-  /* Pure fade animation */
   ${(props) =>
     props.$animate &&
     `

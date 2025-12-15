@@ -4,28 +4,17 @@ import { seasonDetails } from "../../../data/seasonDetail";
 import * as S from "./SeasonDetailPage.styled";
 import { MainTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
+import Tilt from "react-vanilla-tilt";
 
-const SEASON_TITLE_COLORS: Record<string, string> = {
-  winter: "#ffffff",
-  spring: "#ffffff",
-  summer: "#ffffff",
-  autumn: "#ffffff",
-};
-
-const SEASON_OVERLAY_OPACITY: Record<string, number> = {
-  winter: 0.3,
-  spring: 0.2,
-  summer: 0.25,
-  autumn: 0.4,
-};
-
-const getTitleColor = (slug: string): string => {
-  return SEASON_TITLE_COLORS[slug] || "#ffffff";
-};
-
-const overlayOpacity = (slug: string): number => {
-  return SEASON_OVERLAY_OPACITY[slug] ?? 0.3;
-};
+import {
+  getTitleColor,
+  getTitleWidth,
+  getSubtitleWidth,
+  getSubtitleColor,
+  subtitleBGColour,
+  titleBGColour,
+  overlayOpacity,
+} from "../../../utils/seasonThemeUtils";
 
 const SeasonDetailPage: React.FC = () => {
   const { seasonSlug } = useParams<{ seasonSlug: string }>();
@@ -37,7 +26,16 @@ const SeasonDetailPage: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
-  const titleColor = getTitleColor(season.slug);
+  const tiltOptions = {
+    max: 10,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3,
+    scale: 1.02,
+    perspective: 2000,
+    transition: true,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+  };
 
   return (
     <S.PageWrapper>
@@ -46,12 +44,21 @@ const SeasonDetailPage: React.FC = () => {
         $overlayOpacity={overlayOpacity(season.slug)}
       >
         <S.HeroImageContainerInner>
-          <MainTitle $center $color={titleColor}>
+          <MainTitle
+            $center
+            $color={getTitleColor(season.slug)}
+            $bgColor={titleBGColour(season.slug)}
+            $width={getTitleWidth(season.slug)}
+          >
             {season.name}
           </MainTitle>
 
           {details?.subtitle && (
-            <S.SeasonSubtitle $color={titleColor}>
+            <S.SeasonSubtitle
+              $color={getSubtitleColor(season.slug)}
+              $bgColor={subtitleBGColour(season.slug)}
+              $width={getSubtitleWidth(season.slug)}
+            >
               {details.subtitle}
             </S.SeasonSubtitle>
           )}
@@ -68,13 +75,15 @@ const SeasonDetailPage: React.FC = () => {
             <S.SectionTitle>Perfect For</S.SectionTitle>
             <S.SettingGrid>
               {details.settings.map((setting) => (
-                <S.SettingCard key={setting.title}>
-                  <S.SettingTitle>{setting.title}</S.SettingTitle>
-                  <S.SettingDescription>
-                    {setting.description}
-                  </S.SettingDescription>
-                  <S.SettingImage src={setting.image} />
-                </S.SettingCard>
+                <Tilt options={tiltOptions}>
+                  <S.SettingCard key={setting.title}>
+                    <S.SettingTitle>{setting.title}</S.SettingTitle>
+                    <S.SettingDescription>
+                      {setting.description}
+                    </S.SettingDescription>
+                    <S.SettingImage src={setting.image} />
+                  </S.SettingCard>
+                </Tilt>
               ))}
             </S.SettingGrid>
           </S.SettingsSection>

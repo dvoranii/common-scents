@@ -1,3 +1,16 @@
+import HarvestSeasonImg from "/assets/images/Occasions/Seasons/harvest-season.webp";
+import FallFashionImg from "/assets/images/Occasions/Seasons/fall-fashion.jpg";
+import CoolEveningImg from "/assets/images/Occasions/Seasons/cool-evening.jpg";
+import BeachDaysImg from "/assets/images/Occasions/Seasons/beach-days.jpg";
+import TropicalVacationImg from "/assets/images/Occasions/Seasons/tropical-vacation.png";
+import SummerOfficeImg from "/assets/images/Occasions/Seasons/summer-office.png";
+import OutdoorActivitiesImg from "/assets/images/Occasions/Seasons/outdoor-activities.png";
+import DaytimeEventsImg from "/assets/images/Occasions/Seasons/daytime-events.png";
+import FreshStartsImg from "/assets/images/Occasions/Seasons/fresh-starts.jpg";
+import HolidayGatheringsImg from "/assets/images/Occasions/Seasons/holiday-gatherings.png";
+import CozyEveningImg from "/assets/images/Occasions/Seasons/cozy-evening.png";
+import ColdWeatherCommuteImg from "/assets/images/Occasions/Seasons/cold-weather-commute.png";
+
 interface SeasonSetting {
   title: string;
   description: string;
@@ -17,24 +30,21 @@ export const seasonDetails: Record<string, SeasonDetail> = {
       "Winter calls for rich, enveloping fragrances that provide comfort against the cold. Think warm spices, deep woods, sweet vanilla, and cozy amber notes that wrap you like a favorite sweater. These scents have the depth and longevity to cut through winter air and leave a lasting impression.",
     settings: [
       {
-        title: "Holiday Gatherings",
+        title: "Holiday Gatherings",
         description:
           "Rich, festive scents perfect for celebrations and family time.",
-        image:
-          "https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800",
+        image: HolidayGatheringsImg,
       },
       {
-        title: "Cozy Evenings",
+        title: "Cozy Evenings",
         description: "Warm, comforting fragrances for intimate indoor moments.",
-        image:
-          "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800",
+        image: CozyEveningImg,
       },
       {
-        title: "Cold Weather Commute",
+        title: "Cold Weather",
         description:
           "Long-lasting scents that stand up to harsh winter conditions.",
-        image:
-          "https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=800",
+        image: ColdWeatherCommuteImg,
       },
     ],
   },
@@ -44,25 +54,22 @@ export const seasonDetails: Record<string, SeasonDetail> = {
       "Spring fragrances capture the essence of renewal and rebirth. Light florals, green notes, and fresh citrus embody the season's optimism. These scents are perfect for transitioning from heavy winter fragrances to something more uplifting and energetic.",
     settings: [
       {
-        title: "Outdoor Activities",
+        title: "Outdoor Activities",
         description:
           "Fresh, natural scents that complement time spent in nature.",
-        image:
-          "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800",
+        image: OutdoorActivitiesImg,
       },
       {
-        title: "Daytime Events",
+        title: "Daytime Events",
         description:
           "Light, cheerful fragrances perfect for garden parties and brunches.",
-        image:
-          "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800",
+        image: DaytimeEventsImg,
       },
       {
-        title: "Fresh Starts",
+        title: "Fresh Starts",
         description:
           "Energizing scents for new beginnings and spring cleaning.",
-        image:
-          "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800",
+        image: FreshStartsImg,
       },
     ],
   },
@@ -72,23 +79,20 @@ export const seasonDetails: Record<string, SeasonDetail> = {
       "Summer demands light, refreshing fragrances that won't overwhelm in the heat. Aquatic notes, citrus bursts, and tropical fruits create an invigorating aura. These scents are designed to be bright and airy, perfect for hot weather and outdoor adventures.",
     settings: [
       {
-        title: "Beach Days",
+        title: "Beach Days",
         description:
           "Aquatic and citrus scents that evoke ocean breezes and sunshine.",
-        image:
-          "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+        image: BeachDaysImg,
       },
       {
-        title: "Tropical Vacations",
+        title: "Tropical Vacations",
         description: "Exotic, fruity fragrances for paradise destinations.",
-        image:
-          "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+        image: TropicalVacationImg,
       },
       {
-        title: "Hot Weather Work",
+        title: "Hot Weather Work",
         description: "Light, professional scents that stay fresh all day.",
-        image:
-          "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        image: SummerOfficeImg,
       },
     ],
   },
@@ -98,24 +102,21 @@ export const seasonDetails: Record<string, SeasonDetail> = {
       "Autumn fragrances bridge summer's lightness and winter's warmth. Spicy notes like cinnamon and cardamom blend with woody accords and hints of sweetness. These transitional scents perfectly capture falling leaves, crisp air, and cozy sweater weather.",
     settings: [
       {
-        title: "Fall Fashion",
+        title: "Fall Fashion",
         description:
           "Sophisticated scents that complement layered autumn outfits.",
-        image:
-          "https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?w=800",
+        image: FallFashionImg,
       },
       {
-        title: "Harvest Season",
+        title: "Harvest Season",
         description: "Rich, earthy fragrances inspired by autumn's bounty.",
-        image:
-          "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800",
+        image: HarvestSeasonImg,
       },
       {
-        title: "Cooler Evenings",
+        title: "Cooler Evenings",
         description:
           "Warm, inviting scents for bonfires and twilight gatherings.",
-        image:
-          "https://images.unsplash.com/photo-1476900164809-ff19b8ae5968?w=800",
+        image: CoolEveningImg,
       },
     ],
   },

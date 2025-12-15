@@ -31,7 +31,6 @@ export const SettingCardWithSlideshow: React.FC<
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Get images array, fallback to single image if needed
   const images = setting.images || (setting.image ? [setting.image] : []);
 
   useEffect(() => {
@@ -39,19 +38,19 @@ export const SettingCardWithSlideshow: React.FC<
 
     const interval = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
-    }, 1500); // Change image every 1.5 seconds
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [isHovered, images.length]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setCurrentImageIndex(0); // Reset to first image on hover
+    setCurrentImageIndex(0);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-    setCurrentImageIndex(0); // Reset when hover ends
+    setCurrentImageIndex(0);
   };
 
   return (

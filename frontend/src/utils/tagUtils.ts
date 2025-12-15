@@ -10,7 +10,6 @@ export const generateTagsFromFragrances = (): TagData[] => {
   const allFragrances = getAllFragrances();
   const tags: TagData[] = [];
 
-  // Brand/House tags
   const brandCounts: Record<string, number> = {};
   allFragrances.forEach((fragrance) => {
     brandCounts[fragrance.house] = (brandCounts[fragrance.house] || 0) + 1;
@@ -25,7 +24,6 @@ export const generateTagsFromFragrances = (): TagData[] => {
     });
   });
 
-  // Perfumer tags
   const perfumerCounts: Record<string, number> = {};
   allFragrances.forEach((fragrance) => {
     fragrance.perfumers?.forEach((perfumer) => {
@@ -42,7 +40,6 @@ export const generateTagsFromFragrances = (): TagData[] => {
     });
   });
 
-  // Season tags
   const seasonCounts: Record<string, number> = {};
   allFragrances.forEach((fragrance) => {
     fragrance.seasons?.forEach((season) => {
@@ -59,7 +56,6 @@ export const generateTagsFromFragrances = (): TagData[] => {
     });
   });
 
-  // Occasion tags
   const occasionCounts: Record<string, number> = {};
   allFragrances.forEach((fragrance) => {
     fragrance.occasion?.forEach((occasion) => {
@@ -76,7 +72,6 @@ export const generateTagsFromFragrances = (): TagData[] => {
     });
   });
 
-  // Category/Type tags
   const categoryCounts: Record<string, number> = {};
   allFragrances.forEach((fragrance) => {
     fragrance.category?.forEach((category) => {
@@ -93,5 +88,5 @@ export const generateTagsFromFragrances = (): TagData[] => {
     });
   });
 
-  return tags.sort((a, b) => b.count - a.count); // Sort by count descending
+  return tags.sort((a, b) => b.count - a.count);
 };

@@ -14,7 +14,8 @@ export const HeroImageContainer = styled.div<{
   background-image: url(${(props) => props.$bgImg});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center -200px;
+  background-attachment: fixed;
   position: relative;
   z-index: 1;
 
@@ -36,6 +37,7 @@ export const HeroImageContainer = styled.div<{
 
   @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
     height: 400px;
+    padding: 0 20px;
   }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
@@ -64,7 +66,10 @@ export const ContentContainer = styled.div`
   margin: 0 auto;
 `;
 
-export const OccasionSubtitle = styled.h2<{ $color?: string }>`
+export const OccasionSubtitle = styled.h2<{
+  $color?: string;
+  $bgColor?: string;
+}>`
   text-align: center;
   color: ${(props) => props.$color || props.theme.colors.text};
   font-size: ${(props) => props.theme.fontSizes.base};
@@ -73,7 +78,27 @@ export const OccasionSubtitle = styled.h2<{ $color?: string }>`
   margin-bottom: ${(props) => props.theme.spacing.xl};
   letter-spacing: 2px;
   text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
-  padding-top: 8px;
+  background-color: ${(props) => (props.$bgColor ? props.$bgColor : "none")};
+  width: fit-content;
+  margin: 0 auto;
+  padding: 8px 24px;
+  opacity: 0;
+  animation: fadeInSlideDown 500ms ease 950ms forwards;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding: 6px 12px;
+  }
+
+  @keyframes fadeInSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
 `;
 
 export const Description = styled.p`
@@ -81,7 +106,6 @@ export const Description = styled.p`
   color: ${(props) => props.theme.colors.text};
   line-height: 1.8;
   text-align: center;
-  max-width: 800px;
   margin: 0 auto ${(props) => props.theme.spacing.xxl};
   padding: ${(props) => props.theme.spacing.xxl} 20px 0 20px;
 `;
@@ -115,7 +139,6 @@ export const SettingGrid = styled.div`
     grid-template-columns: 1fr;
   }
 
-  /* Target tilt wrapper */
   & > [data-tilt="true"] {
     height: 100% !important;
     width: 100% !important;
