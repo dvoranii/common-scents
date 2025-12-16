@@ -34,7 +34,11 @@ export const CategoryHeader = styled.div<CategoryHeaderProps>`
 
     opacity: 0.06;
 
-    background-image: ${(props) => props.$iconPattern};
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.65)
+      ),
+      ${(props) => props.$iconPattern};
     background-size: 80px 80px;
     background-repeat: repeat;
     background-position: center;
