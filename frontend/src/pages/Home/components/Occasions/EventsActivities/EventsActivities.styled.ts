@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const EventsWrapperInner = styled.div`
-  padding: ${(props) => `${props.theme.spacing.xl}  ${props.theme.spacing.lg}`};
+  padding: ${(props) =>
+    `${props.theme.spacing.xxxxl}  ${props.theme.spacing.lg}`};
 `;
 
 export const EventsSubtitle = styled.h3`

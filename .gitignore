@@ -6,5 +6,7 @@ dist/
 backend/.env
 frontend/.env
 
+frontend/scripts
+
 # PM2 Ecosystem Config
 backend/ecosystem.config.js
