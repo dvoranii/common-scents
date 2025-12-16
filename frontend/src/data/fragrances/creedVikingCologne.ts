@@ -28,7 +28,7 @@ export const creedVikingCologne: Fragrance = {
   concentration: "EDP",
   price: 350,
   seasons: ["Spring", "Summer"],
-  occasion: ["Formal", "Office", "Daily Driver", "Summer Vibes"],
+  occasion: ["Formal", "Office", "Daily Driver"],
   category: ["Fresh", "Citrus", "Aromatic"],
   categorySlugs: ["fresh-citrus", "fougere"],
   thumbnailImage: VikingCologneThumbnail,

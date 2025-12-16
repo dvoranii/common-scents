@@ -74,7 +74,7 @@ export const SectionTitle = styled.h2<{
     opacity: 0;
     
     &.animate-in {
-      animation: fadeInUp 0.6s ease-out forwards;
+      animation: sectionTitleFadeIn 0.6s ease-out forwards;
     }
   `}
 
@@ -82,14 +82,12 @@ export const SectionTitle = styled.h2<{
     font-size: ${(props) => props.theme.fontSizes.xxxl};
   }
 
-  @keyframes fadeInUp {
+  @keyframes sectionTitleFadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
     }
   }
 `;
@@ -117,7 +115,6 @@ export const MainTitle = styled.h1<{
   $center?: boolean;
   $color?: string;
   $bgColor?: string;
-  $width?: string;
 }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxxl};
@@ -127,7 +124,6 @@ export const MainTitle = styled.h1<{
   color: ${(props) => (props.$color ? props.$color : "rgb(38, 50, 70)")};
   text-align: ${(props) => (props.$center ? "center" : "left")};
   ${(props) => props.$bgColor && `background: ${props.$bgColor};`};
-  ${(props) => props.$width && `width: ${props.$width};`};
   padding: 10px 20px;
   opacity: 0;
   animation: fadeInSlideDown 500ms ease 750ms forwards;
@@ -135,7 +131,6 @@ export const MainTitle = styled.h1<{
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     font-size: ${(props) => props.theme.fontSizes.xxxxl};
-    width: 90%;
   }
 
   @keyframes fadeInSlideDown {

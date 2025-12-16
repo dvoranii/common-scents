@@ -88,7 +88,6 @@ export const BottleImage = styled.img`
   transition: all 200ms ease;
 
   ${ReviewImageLink}:hover & {
-    /* transform: scale(1.08); */
     filter: brightness(1.05);
   }
 `;

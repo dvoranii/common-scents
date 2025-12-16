@@ -20,7 +20,7 @@ export const ScentCategories: React.FC = () => {
   return (
     <Section altBg $hasBgImg $paddingBottom="8vw">
       <SectionContent>
-        <SectionTitle>Scent Categories</SectionTitle>
+        <SectionTitle $color>Scent Categories</SectionTitle>
 
         <Carousel>
           {categories.map((category) => (

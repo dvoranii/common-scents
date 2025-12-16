@@ -6,14 +6,6 @@ export const OCCASION_TITLE_COLORS: Record<string, string> = {
   office: "#1d2636",
   "active-gym": "#ffffff",
 };
-export const OCCASION_TITLE_WIDTH: Record<string, string> = {
-  "date-night": "50%",
-  "daily-driver": "45%",
-  "night-out": "45%",
-  formal: "35%",
-  office: "37%",
-  "active-gym": "60%",
-};
 
 export const OCCASION_SUBTITLE_COLORS: Record<string, string> = {
   "date-night": "#1d2636",
@@ -55,10 +47,6 @@ export const getTitleColor = (slug: string): string => {
   return OCCASION_TITLE_COLORS[slug] || "#ffffff";
 };
 
-export const getTitleWidth = (slug: string): string => {
-  return OCCASION_TITLE_WIDTH[slug] || "80%";
-};
-
 export const getSubtitleColor = (slug: string): string => {
   return OCCASION_SUBTITLE_COLORS[slug] || "#ffffff";
 };
@@ -77,7 +65,6 @@ export const subtitleBGColour = (slug: string): string => {
 
 export const getOccasionTheme = (slug: string) => ({
   titleColor: getTitleColor(slug),
-  titleWidth: getTitleWidth(slug),
   subtitleColor: getSubtitleColor(slug),
   subtitleBgColor: subtitleBGColour(slug),
   overlayOpacity: overlayOpacity(slug),

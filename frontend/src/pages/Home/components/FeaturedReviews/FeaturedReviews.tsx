@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from "react";
 import { getFeaturedFragrances } from "../../../../utils/fragranceUtils";
 import {
   ReviewsGrid,
@@ -18,41 +17,16 @@ import {
   SectionContent,
   SectionTitle,
 } from "../../../../styles/CommonStyles";
-
 import { SeeMoreWrapper, GradientHoverLink } from "../../Home.styled";
+import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 export const FeaturedReviews: React.FC = () => {
   const featuredReviews = getFeaturedFragrances(3);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.15,
-      }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  const [sectionRef, isVisible] = useIntersectionObserver({
+    threshold: 0.15,
+    rootMargin: "0px",
+    freezeOnceVisible: true,
+  });
 
   return (
     <Section ref={sectionRef} id="FeaturedReviewsSection">

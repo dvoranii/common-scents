@@ -8,8 +8,8 @@ export const IndicatorContainer = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   z-index: 10;
 
   @media screen and (max-width: 1024px) {
@@ -34,8 +34,8 @@ export const CrossDivider = styled.img`
 
 export const SeasonIcon = styled.img<IconProps>`
   position: absolute;
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   opacity: ${(props) => (props.$isActive ? 1 : 0.3)};
   filter: ${(props) => (props.$isActive ? "none" : "grayscale(100%)")};

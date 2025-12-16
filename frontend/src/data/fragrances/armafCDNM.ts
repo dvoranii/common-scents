@@ -17,7 +17,7 @@ export const armafClubDeNuitMan: Fragrance = {
   concentration: "EDT",
   price: 30,
   seasons: ["Autumn", "Winter"],
-  occasion: ["Date Night", "Night Out", "Daily Driver", "Evening"],
+  occasion: ["Date Night", "Night Out", "Daily Driver", "Evening"],
   category: ["Spicy", "Oriental", "Sweet"],
   categorySlugs: ["spicy", "oriental"],
   thumbnailImage: ClubDeNuitManThumbnail,

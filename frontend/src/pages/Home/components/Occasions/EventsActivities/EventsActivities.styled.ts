@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const EventsWrapperInner = styled.div`
+  padding: ${(props) => `${props.theme.spacing.xl}  ${props.theme.spacing.lg}`};
+`;
+
 export const EventsSubtitle = styled.h3`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxl};
@@ -14,10 +18,12 @@ export const EventsGrid = styled.div`
   gap: ${(props) => props.theme.spacing.lg};
   grid-auto-rows: 300px;
   border-radius: 20px;
+
   & > [data-tilt="true"] {
     height: 100% !important;
     width: 100% !important;
     padding: 0 !important;
+    margin: 0 !important;
     background: transparent;
     transform-style: preserve-3d;
     border-radius: 20px !important;
@@ -85,14 +91,14 @@ export const EventOverlay = styled.div`
     margin: ${(props) => props.theme.spacing.xs} 0 0;
     font-size: ${(props) => props.theme.fontSizes.sm};
     opacity: 0.9;
-    line-height: 1.4;
+    line-height: 1;
     transition: all 0.3s ease;
     transform: translateY(10px);
 
     ${EventCard}:hover & {
       opacity: 1;
-      transform: translateY(0);
-      transform: translateZ(50px);
+      transform: translateY(12px) translateZ(50px) scale(1.15) translateX(20px);
+      text-shadow: -1px 1px 2px rgba(0, 0, 0, 1);
     }
   }
 
@@ -113,9 +119,10 @@ export const EventTitle = styled.h3`
   color: white;
   transition: all 0.3s ease;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1;
 
   ${EventCard}:hover & {
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
-    transform: translateY(-2px) translateZ(50px);
+    text-shadow: -2px 2px 4px rgba(0, 0, 0, 1);
+    transform: translateY(-2px) translateZ(50px) scale(1.15) translateX(20px);
   }
 `;

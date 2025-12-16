@@ -6,8 +6,6 @@ import * as S from "./Occasions.styled";
 import { SectionContent } from "../../../../styles/CommonStyles";
 
 export const ScentOccasions: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_seasonColor, setSeasonColor] = useState("#263246");
   const [brightness, setBrightness] = useState(0);
   const [bgColor, setBgColor] = useState("#000000");
 
@@ -38,7 +36,7 @@ export const ScentOccasions: React.FC = () => {
 
   return (
     <S.OccasionsWrapper as="section">
-      <Seasons onSeasonChange={setSeasonColor} />
+      <Seasons />
       <Element name="events-section" id="events-section">
         <S.EventsWrapper $brightness={brightness} $bgColor={bgColor}>
           <SectionContent>

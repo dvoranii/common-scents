@@ -20,7 +20,7 @@ export const afnan9pm: Fragrance = {
   price: 35,
   seasons: ["Autumn", "Winter"],
   seasonSlugs: ["Autumn", "Winter"],
-  occasion: ["Date Night", "Night Out"],
+  occasion: ["Date Night", "Night Out"],
   occasionSlugs: ["date-night", "night-out"],
   category: ["Oriental", "Gourmande"],
   categorySlugs: ["oriental", "gourmande"],

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import WhiteTextureBG from "/assets/images/white-bg-3.png";
 
 export const OccasionsWrapper = styled.div`
   width: 100%;
@@ -9,11 +10,34 @@ export const EventsWrapper = styled.div<{
   $bgColor: string;
 }>`
   width: 100%;
-  padding: ${(props) => `${props.theme.spacing.xl}  ${props.theme.spacing.lg}`};
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.95),
+        rgba(255, 255, 255, 0.65)
+      ),
+      url(${WhiteTextureBG});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: ${(props) => props.$brightness};
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
   background-color: ${(props) => props.$bgColor};
   transition: background-color 0.3s ease;
 
   & > * {
+    position: relative;
+    z-index: 1;
     filter: brightness(${(props) => props.$brightness});
     transition: filter 0.3s ease;
   }

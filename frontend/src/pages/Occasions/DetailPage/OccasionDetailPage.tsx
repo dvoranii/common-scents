@@ -12,7 +12,6 @@ import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 import { SettingCardWithSlideshow } from "./SettingCardWithSlideshow/SettingCardWithSlideshow";
 import {
   getTitleColor,
-  getTitleWidth,
   getSubtitleColor,
   overlayOpacity,
   subtitleBGColour,
@@ -51,7 +50,6 @@ const OccasionDetailPage: React.FC = () => {
             $center
             $color={getTitleColor(occasion.slug)}
             $bgColor={titleBGColour(occasion.slug)}
-            $width={getTitleWidth(occasion.slug)}
           >
             {occasion.name}
           </MainTitle>

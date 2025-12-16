@@ -27,6 +27,7 @@ import {
   CategoryImg,
   DescriptionWrapper,
   ExampleImage,
+  CategoryBodyWrapper,
   CharactersticsAndBestForSection,
 } from "./CategoryDetailPage.styled";
 import { SectionTitle } from "../../../styles/CommonStyles";
@@ -54,82 +55,86 @@ const CategoryDetailPage: React.FC = () => {
         )}
       </CategoryHeader>
 
-      <ImgAndDescriptionWrapper>
-        <ImgWrapper>
-          <CategoryImg src={details?.image} />
-        </ImgWrapper>
-        <DescriptionWrapper>
-          <Description>
-            {details?.fullDescription || category.description}
-          </Description>
-        </DescriptionWrapper>
-      </ImgAndDescriptionWrapper>
+      <CategoryBodyWrapper>
+        <ImgAndDescriptionWrapper>
+          <ImgWrapper>
+            <CategoryImg src={details?.image} />
+          </ImgWrapper>
+          <DescriptionWrapper>
+            <Description>
+              {details?.fullDescription || category.description}
+            </Description>
+          </DescriptionWrapper>
+        </ImgAndDescriptionWrapper>
 
-      {details?.noteProfiles && details.noteProfiles.length > 0 && (
-        <NoteProfilesSection>
-          <SectionTitle $leftAligned>Signature Notes</SectionTitle>
-          <NoteProfileGrid>
-            {details.noteProfiles.map((profile) => (
-              <NoteProfileCard key={profile.title}>
-                <NoteProfileTitle>{profile.title}</NoteProfileTitle>
-                <NoteProfileDescription>
-                  {profile.description}
-                </NoteProfileDescription>
-                <ExampleNotes>
-                  {profile.examples.map((example, index) => (
-                    <ExampleImage
-                      key={index}
-                      src={example.image}
-                      alt={example.alt}
-                      title={example.title}
-                    />
-                  ))}
-                </ExampleNotes>
-              </NoteProfileCard>
-            ))}
-          </NoteProfileGrid>
-        </NoteProfilesSection>
-      )}
-
-      <CharactersticsAndBestForSection>
-        {details?.characteristics && details.characteristics.length > 0 && (
-          <CharacteristicsSection>
-            <SectionTitle>Key Characteristics</SectionTitle>
-            <CharacteristicsGrid>
-              {details.characteristics.map((characteristic) => (
-                <CharacteristicChip
-                  key={characteristic.text}
-                  $bgColour={characteristic.color}
-                >
-                  {characteristic.text}
-                </CharacteristicChip>
+        {details?.noteProfiles && details.noteProfiles.length > 0 && (
+          <NoteProfilesSection>
+            <SectionTitle $leftAligned $color>
+              Signature Notes
+            </SectionTitle>
+            <NoteProfileGrid>
+              {details.noteProfiles.map((profile) => (
+                <NoteProfileCard key={profile.title}>
+                  <NoteProfileTitle>{profile.title}</NoteProfileTitle>
+                  <NoteProfileDescription>
+                    {profile.description}
+                  </NoteProfileDescription>
+                  <ExampleNotes>
+                    {profile.examples.map((example, index) => (
+                      <ExampleImage
+                        key={index}
+                        src={example.image}
+                        alt={example.alt}
+                        title={example.title}
+                      />
+                    ))}
+                  </ExampleNotes>
+                </NoteProfileCard>
               ))}
-            </CharacteristicsGrid>
-          </CharacteristicsSection>
+            </NoteProfileGrid>
+          </NoteProfilesSection>
         )}
 
-        {details?.bestFor && details.bestFor.length > 0 && (
-          <BestForSection>
-            <SectionTitle>Perfect For</SectionTitle>
-            <CharacteristicsGrid>
-              {details.bestFor.map((useCase) => (
-                <CharacteristicChip
-                  key={useCase.text}
-                  $bgColour={useCase.color}
-                >
-                  {useCase.text}
-                </CharacteristicChip>
-              ))}
-            </CharacteristicsGrid>
-          </BestForSection>
-        )}
-      </CharactersticsAndBestForSection>
+        <CharactersticsAndBestForSection>
+          {details?.characteristics && details.characteristics.length > 0 && (
+            <CharacteristicsSection>
+              <SectionTitle $color>Key Characteristics</SectionTitle>
+              <CharacteristicsGrid>
+                {details.characteristics.map((characteristic) => (
+                  <CharacteristicChip
+                    key={characteristic.text}
+                    $bgColour={characteristic.color}
+                  >
+                    {characteristic.text}
+                  </CharacteristicChip>
+                ))}
+              </CharacteristicsGrid>
+            </CharacteristicsSection>
+          )}
 
-      <PageNavigation
-        currentSlug={categorySlug!}
-        items={categories.map((cat) => ({ slug: cat.slug, title: cat.name }))}
-        basePath="/categories"
-      />
+          {details?.bestFor && details.bestFor.length > 0 && (
+            <BestForSection>
+              <SectionTitle $color>Perfect For</SectionTitle>
+              <CharacteristicsGrid>
+                {details.bestFor.map((useCase) => (
+                  <CharacteristicChip
+                    key={useCase.text}
+                    $bgColour={useCase.color}
+                  >
+                    {useCase.text}
+                  </CharacteristicChip>
+                ))}
+              </CharacteristicsGrid>
+            </BestForSection>
+          )}
+        </CharactersticsAndBestForSection>
+
+        <PageNavigation
+          currentSlug={categorySlug!}
+          items={categories.map((cat) => ({ slug: cat.slug, title: cat.name }))}
+          basePath="/categories"
+        />
+      </CategoryBodyWrapper>
     </PageWrapper>
   );
 };

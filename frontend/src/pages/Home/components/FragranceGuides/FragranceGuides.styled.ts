@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const GuidesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: ${(props) => props.theme.spacing.xxl};
-  position: relative; /* Needed for the pseudo-element */
-
+  position: relative;
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: 1fr 1fr;
 
@@ -31,6 +31,37 @@ export const TextWrapper = styled.div`
   background: #eee;
   margin-bottom: ${(props) => props.theme.spacing.sm};
   padding-top: ${(props) => props.theme.spacing.sm};
+`;
+
+export const GuideLink = styled(Link)`
+  opacity: 0;
+
+  &.fade-in-delay-0 {
+    animation: fadeInDown 0.6s ease-out 0.2s forwards;
+  }
+
+  &.fade-in-delay-1 {
+    animation: fadeInDown 0.6s ease-out 0.4s forwards;
+  }
+
+  &.fade-in-delay-2 {
+    animation: fadeInDown 0.6s ease-out 0.6s forwards;
+  }
+
+  &.fade-in-delay-3 {
+    animation: fadeInDown 0.6s ease-out 0.8s forwards;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 `;
 
 export const GuidesList = styled.div`

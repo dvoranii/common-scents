@@ -8,8 +8,7 @@ import Tilt from "react-vanilla-tilt";
 
 import {
   getTitleColor,
-  getTitleWidth,
-  getSubtitleWidth,
+  // getSubtitleWidth,
   getSubtitleColor,
   subtitleBGColour,
   titleBGColour,
@@ -48,16 +47,14 @@ const SeasonDetailPage: React.FC = () => {
             $center
             $color={getTitleColor(season.slug)}
             $bgColor={titleBGColour(season.slug)}
-            $width={getTitleWidth(season.slug)}
           >
-            {season.name}
+            <S.Uppercase>{season.name}</S.Uppercase>
           </MainTitle>
 
           {details?.subtitle && (
             <S.SeasonSubtitle
               $color={getSubtitleColor(season.slug)}
               $bgColor={subtitleBGColour(season.slug)}
-              $width={getSubtitleWidth(season.slug)}
             >
               {details.subtitle}
             </S.SeasonSubtitle>

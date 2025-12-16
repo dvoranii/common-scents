@@ -81,17 +81,17 @@ export const SeasonSubtitle = styled.h2<{
   margin-bottom: ${(props) => props.theme.spacing.xl};
   letter-spacing: 2px;
   text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
-  padding: 8px 8px;
+  padding: 8px 16px;
   background: ${(props) => (props.$bgColor ? props.$bgColor : "none")};
-  width: ${(props) => (props.$width ? props.$width : "50%")};
+  width: fit-content;
   margin: 0 auto;
   opacity: 0;
   animation: fadeInSlideDown 500ms ease 950ms forwards;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  /* @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     width: fit-content;
     padding: 8px 8px;
-  }
+  } */
 
   @keyframes fadeInSlideDown {
     from {
@@ -105,6 +105,9 @@ export const SeasonSubtitle = styled.h2<{
   }
 `;
 
+export const Uppercase = styled.span`
+  text-transform: uppercase;
+`;
 export const Description = styled.p`
   font-size: ${(props) => props.theme.fontSizes.lg};
   color: ${(props) => props.theme.colors.text};
@@ -247,6 +250,9 @@ export const SeeEventsLink = styled(Link)`
   position: relative;
   width: fit-content;
   transition: all 200ms ease;
+  color: rgb(38, 50, 70);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 
   &::after {
     content: "";

@@ -25,7 +25,7 @@ interface SeasonDetail {
 
 export const seasonDetails: Record<string, SeasonDetail> = {
   winter: {
-    subtitle: "Embrace the warmth of winter fragrances",
+    subtitle: "Embrace the Warmth of Winter Fragrances",
     fullDescription:
       "Winter calls for rich, enveloping fragrances that provide comfort against the cold. Think warm spices, deep woods, sweet vanilla, and cozy amber notes that wrap you like a favorite sweater. These scents have the depth and longevity to cut through winter air and leave a lasting impression.",
     settings: [
@@ -49,7 +49,7 @@ export const seasonDetails: Record<string, SeasonDetail> = {
     ],
   },
   spring: {
-    subtitle: "Awaken your senses with spring freshness",
+    subtitle: "Awaken Your Senses with Spring Freshness",
     fullDescription:
       "Spring fragrances capture the essence of renewal and rebirth. Light florals, green notes, and fresh citrus embody the season's optimism. These scents are perfect for transitioning from heavy winter fragrances to something more uplifting and energetic.",
     settings: [
@@ -74,7 +74,7 @@ export const seasonDetails: Record<string, SeasonDetail> = {
     ],
   },
   summer: {
-    subtitle: "Stay fresh and vibrant in the heat",
+    subtitle: "Stay Fresh and Vibrant in the Heat",
     fullDescription:
       "Summer demands light, refreshing fragrances that won't overwhelm in the heat. Aquatic notes, citrus bursts, and tropical fruits create an invigorating aura. These scents are designed to be bright and airy, perfect for hot weather and outdoor adventures.",
     settings: [
@@ -97,7 +97,7 @@ export const seasonDetails: Record<string, SeasonDetail> = {
     ],
   },
   autumn: {
-    subtitle: "Embrace the transition with warm, spicy notes",
+    subtitle: "Embrace the Transition with Warm, Spicy Notes",
     fullDescription:
       "Autumn fragrances bridge summer's lightness and winter's warmth. Spicy notes like cinnamon and cardamom blend with woody accords and hints of sweetness. These transitional scents perfectly capture falling leaves, crisp air, and cozy sweater weather.",
     settings: [

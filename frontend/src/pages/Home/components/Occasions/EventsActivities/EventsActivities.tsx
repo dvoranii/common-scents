@@ -18,7 +18,7 @@ export const EventsActivities: React.FC = () => {
   };
 
   return (
-    <>
+    <S.EventsWrapperInner>
       <S.EventsSubtitle>Events & Activities</S.EventsSubtitle>
       <S.EventsGrid>
         {occasions.map((occasion) => (
@@ -49,6 +49,6 @@ export const EventsActivities: React.FC = () => {
           </Tilt>
         ))}
       </S.EventsGrid>
-    </>
+    </S.EventsWrapperInner>
   );
 };

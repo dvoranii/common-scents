@@ -1,4 +1,3 @@
-import React from "react";
 import { getFeaturedGuides } from "../../../../utils/guideUtils";
 import { getFeaturedAcademy } from "../../../../utils/academyUtils";
 import {
@@ -6,6 +5,7 @@ import {
   DualSection,
   GuidesList,
   GuideItem,
+  GuideLink,
   GuideTitle,
   GuideMeta,
   TextWrapper,
@@ -16,19 +16,28 @@ import {
   SectionTitle,
   SectionSubtitle,
 } from "../../../../styles/CommonStyles";
-import { Link } from "react-router-dom";
+import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 export const FragranceLearningHub: React.FC = () => {
   const featuredGuides = getFeaturedGuides(4);
   const academyGuides = getFeaturedAcademy(4);
+  const [sectionRef, isVisible] = useIntersectionObserver({
+    threshold: 0.15,
+    rootMargin: "0px",
+    freezeOnceVisible: true,
+  });
 
   return (
-    <Section>
+    <Section ref={sectionRef} id="FragranceGuidesSection">
       <SectionContent>
         <GuidesWrapper>
           <DualSection>
             <TextWrapper>
-              <SectionTitle $marginBottom="0.5rem">
+              <SectionTitle
+                $marginBottom="0.5rem"
+                $animate
+                className={isVisible ? "animate-in" : ""}
+              >
                 Fragrance Tips & Guides
               </SectionTitle>
               <SectionSubtitle>
@@ -36,21 +45,29 @@ export const FragranceLearningHub: React.FC = () => {
               </SectionSubtitle>
             </TextWrapper>
             <GuidesList>
-              {featuredGuides.map((guide) => (
-                <Link to={`/guides/${guide.slug}`}>
+              {featuredGuides.map((guide, index) => (
+                <GuideLink
+                  to={`/guides/${guide.slug}`}
+                  key={guide.id}
+                  className={isVisible ? `fade-in-delay-${index}` : ""}
+                >
                   <GuideItem key={guide.id}>
                     <GuideTitle>{guide.title}</GuideTitle>
                     {guide.author && <GuideMeta>{guide.author}</GuideMeta>}
                     {guide.date && <GuideMeta>{guide.date}</GuideMeta>}
                   </GuideItem>
-                </Link>
+                </GuideLink>
               ))}
             </GuidesList>
           </DualSection>
 
           <DualSection>
             <TextWrapper>
-              <SectionTitle $marginBottom="0.5rem">
+              <SectionTitle
+                $marginBottom="0.5rem"
+                $animate
+                className={isVisible ? "animate-in" : ""}
+              >
                 Common Scents Academy
               </SectionTitle>
               <SectionSubtitle>
@@ -58,13 +75,17 @@ export const FragranceLearningHub: React.FC = () => {
               </SectionSubtitle>
             </TextWrapper>
             <GuidesList>
-              {academyGuides.map((guide) => (
-                <Link to={`/academy/${guide.slug}`}>
+              {academyGuides.map((guide, index) => (
+                <GuideLink
+                  to={`/academy/${guide.slug}`}
+                  key={guide.id}
+                  className={isVisible ? `fade-in-delay-${index}` : ""}
+                >
                   <GuideItem key={guide.id}>
                     <GuideTitle>{guide.title}</GuideTitle>
                     {guide.date && <GuideMeta>{guide.date}</GuideMeta>}
                   </GuideItem>
-                </Link>
+                </GuideLink>
               ))}
             </GuidesList>
           </DualSection>

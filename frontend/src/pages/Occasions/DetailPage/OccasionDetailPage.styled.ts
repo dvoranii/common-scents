@@ -292,6 +292,9 @@ export const SeeSeasonsLink = styled(Link)`
   position: relative;
   width: fit-content;
   transition: all 200ms ease;
+  color: rgb(38, 50, 70);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 
   &::after {
     content: "";

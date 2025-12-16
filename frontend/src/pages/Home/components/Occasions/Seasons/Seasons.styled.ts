@@ -19,23 +19,24 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
   width: 100%;
   position: relative;
   background-color: ${(props) => props.$backgroundColor};
-  overflow: hidden; /* Important for parallax effect */
+  overflow: hidden;
 
   ${(props) => {
     if (!props.$backgroundImg) return "background-image: none;";
 
     const solidColor = hexToRgba(props.$backgroundColor, 0.95);
-    const transparentColor = hexToRgba(props.$backgroundColor, 0.1);
+    const transparentColor = hexToRgba(props.$backgroundColor, 0);
 
     return `
       background-image: 
         linear-gradient(
           to bottom, 
-          ${transparentColor},
-          ${solidColor} 50%,   
+          ${transparentColor} 20%,
+          ${solidColor} 80%,   
           ${solidColor}       
         ),
         url(${props.$backgroundImg});
+        
         
     `;
   }}
@@ -46,6 +47,18 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
   background-attachment: fixed;
 
   transition: background-color 0.5s ease, background-position 0.1s ease-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    z-index: 0;
+    pointer-events: none;
+  }
 `;
 
 export const SeasonsSubtitle = styled.h3`

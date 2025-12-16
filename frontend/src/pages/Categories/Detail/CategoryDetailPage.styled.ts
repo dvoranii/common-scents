@@ -1,10 +1,9 @@
 import styled from "styled-components";
+import WhiteBG from "/assets/images/white-texture-bg-2.jpg";
 
-// Your original components
 export const PageWrapper = styled.div`
   min-height: 100vh;
   background-color: ${(props) => props.theme.colors.background};
-  padding-bottom: ${(props) => props.theme.spacing.xxl};
 `;
 
 interface CategoryHeaderProps {
@@ -21,11 +20,22 @@ export const CategoryHeader = styled.div<CategoryHeaderProps>`
   align-items: center;
   justify-content: center;
   min-height: 300px;
-  margin-bottom: ${(props) => props.theme.spacing.xxxl};
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     min-height: 400px;
   }
+`;
+
+export const CategoryBodyWrapper = styled.div`
+  padding: ${(props) => props.theme.spacing.xxxl} 40px;
+  padding-bottom: ${(props) => props.theme.spacing.xxl};
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(${WhiteBG});
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 interface CategoryIconProps {
@@ -74,7 +84,6 @@ export const FragranceListPlaceholder = styled.section`
   margin-right: auto;
 `;
 
-// NEW COMPONENTS I ADDED
 export const CategorySubtitle = styled.h2`
   text-align: center;
   color: ${(props) => props.theme.colors.textLight};
@@ -85,7 +94,6 @@ export const CategorySubtitle = styled.h2`
 `;
 
 export const ImgAndDescriptionWrapper = styled.div`
-  padding: 0 40px;
   display: flex;
   gap: 2.4rem;
   max-width: 1600px;
@@ -123,7 +131,6 @@ export const Description = styled.p`
 
 export const NoteProfilesSection = styled.section`
   max-width: 1600px;
-  padding: 0 40px;
   margin: 0 auto;
   padding-top: ${(props) => props.theme.spacing.xxl};
 `;
@@ -157,8 +164,8 @@ export const NoteProfileCard = styled.div`
 
 export const NoteProfileTitle = styled.h4`
   font-family: ${(props) => props.theme.fonts.heading1};
-  font-size: ${(props) => props.theme.fontSizes.lg};
-  color: ${(props) => props.theme.colors.text};
+  font-size: ${(props) => props.theme.fontSizes.xxl};
+  color: #444444;
   margin-bottom: ${(props) => props.theme.spacing.sm};
   text-align: center;
 `;
@@ -168,12 +175,13 @@ export const NoteProfileDescription = styled.p`
   font-size: ${(props) => props.theme.fontSizes.base};
   line-height: 1.6;
   margin-bottom: ${(props) => props.theme.spacing.md};
+  text-align: center;
 `;
 
 export const ExampleNotes = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.2rem;
+  gap: 0.4rem;
   justify-content: center;
   align-items: center;
   margin-top: ${(props) => props.theme.spacing.md};
@@ -188,17 +196,20 @@ export const ExampleImage = styled.img`
   height: 50px;
   object-fit: cover;
   background: #eee;
+  border-radius: 8px;
   transition: transform 0.2s ease;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) translateZ(8px);
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
   }
 `;
 
 export const CharactersticsAndBestForSection = styled.section`
   display: flex;
   justify-content: center;
-  margin: 60px auto;
+  margin: 0 auto;
   max-width: 1200px;
   width: 90%;
 
@@ -228,12 +239,54 @@ export const CharacteristicsGrid = styled.div`
   margin: 0 auto;
 `;
 
+const adjustColor = (color: string, percent: number) => {
+  const hex = color.replace("#", "");
+  const num = parseInt(hex, 16);
+  const r = Math.min(255, Math.max(0, ((num >> 16) & 0xff) + percent));
+  const g = Math.min(255, Math.max(0, ((num >> 8) & 0xff) + percent));
+  const b = Math.min(255, Math.max(0, (num & 0xff) + percent));
+  return `#${((r << 16) | (g << 8) | b).toString(16).padStart(6, "0")}`;
+};
+
 export const CharacteristicChip = styled.span<{ $bgColour?: string }>`
-  background: ${(props) => (props.$bgColour ? props.$bgColour : "#332421")};
+  position: relative;
+  display: inline-block;
+  background: ${(props) => {
+    const baseColor = props.$bgColour || "#332421";
+    const lightColor = adjustColor(baseColor, 30);
+    const darkColor = adjustColor(baseColor, -30);
+    return `linear-gradient(180deg, ${lightColor} 0%, ${baseColor} 50%, ${darkColor} 100%)`;
+  }};
   color: white;
   padding: ${(props) => props.theme.spacing.sm};
-  ${(props) => props.theme.spacing.lg};
   border-radius: 20px;
   font-size: ${(props) => props.theme.fontSizes.sm};
   font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    border-radius: 20px 20px 0 0;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3), 0 6px 12px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+  }
 `;
