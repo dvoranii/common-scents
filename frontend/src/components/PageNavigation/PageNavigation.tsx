@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as S from "./PageNavigation.styled";
+import { useKeyboardNavigation } from "../../hooks/useKeyboardNavigation";
 
 interface NavigationItem {
   slug: string;
@@ -14,6 +15,7 @@ interface PageNavigationProps {
   basePath: string;
   center?: boolean;
   stackMobile?: boolean;
+  enableKeyboardNav?: boolean;
 }
 
 const PageNavigation: React.FC<PageNavigationProps> = ({
@@ -22,6 +24,7 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
   basePath,
   center = false,
   stackMobile = true,
+  enableKeyboardNav = true,
 }) => {
   const navigate = useNavigate();
 
@@ -29,6 +32,12 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
   const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null;
   const nextItem =
     currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
+
+  useKeyboardNavigation({
+    prevPath: prevItem ? `${basePath}/${prevItem.slug}` : null,
+    nextPath: nextItem ? `${basePath}/${nextItem.slug}` : null,
+    enabled: enableKeyboardNav,
+  });
 
   const renderNavSection = (
     item: NavigationItem | null,

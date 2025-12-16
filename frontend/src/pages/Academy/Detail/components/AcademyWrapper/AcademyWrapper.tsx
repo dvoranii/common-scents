@@ -1,9 +1,8 @@
 import React from "react";
 import { academy } from "../../../../../data/academy";
 import AcademyTemplate from "../AcademyTemplate/AcademyTemplate";
-// Import the new consolidated component
 import PageNavigation from "../../../../../components/PageNavigation/PageNavigation";
-
+import KeyboardNavTooltip from "../../../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
 interface AcademyWrapperProps {
   slug: string;
   children: React.ReactNode;
@@ -28,13 +27,13 @@ const AcademyWrapper: React.FC<AcademyWrapperProps> = ({
       time={academyItem.time}
       category={academyItem.category!}
     >
+      {showNavigation && <KeyboardNavTooltip section={"academy"} />}
       {children}
-
       {showNavigation && (
         <PageNavigation
           currentSlug={slug}
-          items={academy} // Pass the academy data array
-          basePath="/academy" // Set the correct route prefix
+          items={academy}
+          basePath="/academy"
         />
       )}
     </AcademyTemplate>

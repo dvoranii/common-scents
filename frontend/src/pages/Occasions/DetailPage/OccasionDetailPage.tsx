@@ -18,6 +18,8 @@ import {
   titleBGColour,
 } from "../../../utils/occasionThemeUtils";
 
+import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
+
 const OccasionDetailPage: React.FC = () => {
   const { occasionSlug } = useParams<{ occasionSlug: string }>();
   const occasion = occasionSlug ? getOccasionBySlug(occasionSlug) : undefined;
@@ -41,6 +43,7 @@ const OccasionDetailPage: React.FC = () => {
 
   return (
     <S.PageWrapper>
+      <KeyboardNavTooltip section="occasions" />
       <S.HeroImageContainer
         $bgImg={occasion.image}
         $overlayOpacity={overlayOpacity(occasion.slug)}

@@ -2,7 +2,7 @@ import React from "react";
 import { guides } from "../../../../../data/guides";
 import TipsTemplate from "../TipsTemplate/TipsTemplate";
 import PageNavigation from "../../../../../components/PageNavigation/PageNavigation";
-
+import KeyboardNavTooltip from "../../../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
 interface GuideWrapperProps {
   slug: string;
   children: React.ReactNode;
@@ -27,6 +27,7 @@ const GuideWrapper: React.FC<GuideWrapperProps> = ({
       time={guide.time}
       category={guide.category!}
     >
+      {showNavigation && <KeyboardNavTooltip section={"guides"} />}
       {children}
 
       {showNavigation && (

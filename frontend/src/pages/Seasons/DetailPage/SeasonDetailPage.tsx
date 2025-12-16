@@ -5,15 +5,15 @@ import * as S from "./SeasonDetailPage.styled";
 import { MainTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 import Tilt from "react-vanilla-tilt";
-
 import {
   getTitleColor,
-  // getSubtitleWidth,
   getSubtitleColor,
   subtitleBGColour,
   titleBGColour,
   overlayOpacity,
 } from "../../../utils/seasonThemeUtils";
+
+import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
 
 const SeasonDetailPage: React.FC = () => {
   const { seasonSlug } = useParams<{ seasonSlug: string }>();
@@ -38,6 +38,7 @@ const SeasonDetailPage: React.FC = () => {
 
   return (
     <S.PageWrapper>
+      <KeyboardNavTooltip section="seasons" />
       <S.HeroImageContainer
         $bgImg={season.image}
         $overlayOpacity={overlayOpacity(season.slug)}

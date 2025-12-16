@@ -5,13 +5,12 @@ import {
   getCategoryBySlug,
 } from "../../../utils/categoriesUtils";
 import { categoriesDetail } from "../../../data/categoriesDetails";
-
 import * as S from "./CategoryDetailPage.styled";
 import { SectionTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
-
 import { renderToStaticMarkup } from "react-dom/server";
 import type { LucideIcon } from "lucide-react";
+import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
 
 const getIconDataUri = (
   IconComponent: LucideIcon | undefined,
@@ -40,6 +39,7 @@ const CategoryDetailPage: React.FC = () => {
 
   return (
     <S.PageWrapper>
+      <KeyboardNavTooltip section="scent-categories" />
       <S.CategoryHeader $bgColor={category.color} $iconPattern={iconPattern}>
         <S.CategoryIcon $color={category.iconColor}>
           <category.icon size={96} />
