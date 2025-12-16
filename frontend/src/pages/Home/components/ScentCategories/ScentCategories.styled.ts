@@ -173,13 +173,28 @@ export const CategoryIcon = styled.div<CategoryIconColor>`
   display: flex;
   justify-content: center;
   margin-bottom: ${(props) => props.theme.spacing.md};
-  color: ${(props) => props.$color || "darkbrown"};
+  color: white;
+  background-color: color-mix(
+    in srgb,
+    ${(props) => props.$color},
+    transparent 10%
+  );
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 8px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.2));
+
+  & > svg {
+    padding: 4px;
+  }
 `;
 
 export const CategoryName = styled.h3`
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.base};
-  font-weight: 600;
+  font-weight: 400;
   color: ${(props) => props.theme.colors.text};
   transition: all 0.3s ease;
+  margin-top: 8px;
 `;

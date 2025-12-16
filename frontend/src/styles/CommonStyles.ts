@@ -96,6 +96,7 @@ interface SectionSubtitleProps {
   $color?: string;
   $padding?: string;
   $leftAligned?: boolean;
+  $fontWeight?: number;
 }
 export const SectionSubtitle = styled.h3<SectionSubtitleProps>`
   font-family: ${(props) => props.theme.fonts.body};
@@ -107,7 +108,7 @@ export const SectionSubtitle = styled.h3<SectionSubtitleProps>`
   margin-bottom: ${(props) => props.theme.spacing.sm};
   line-height: 1.4;
   padding: ${(props) => (props.$padding ? props.$padding : "0")};
-  font-weight: 600;
+  font-weight: ${(props) => (props.$fontWeight ? props.$fontWeight : 600)};
   letter-spacing: 0.5px;
 `;
 

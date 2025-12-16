@@ -40,7 +40,7 @@ export const FragranceLearningHub: React.FC = () => {
               >
                 Fragrance Tips & Guides
               </SectionTitle>
-              <SectionSubtitle>
+              <SectionSubtitle $fontWeight={100}>
                 Practical advice for every fragrance enthusiast.
               </SectionSubtitle>
             </TextWrapper>
@@ -70,7 +70,7 @@ export const FragranceLearningHub: React.FC = () => {
               >
                 Common Scents Academy
               </SectionTitle>
-              <SectionSubtitle>
+              <SectionSubtitle $fontWeight={100}>
                 Learn the art, science, and history of perfumery.
               </SectionSubtitle>
             </TextWrapper>
