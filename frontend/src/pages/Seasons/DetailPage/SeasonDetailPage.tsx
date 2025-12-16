@@ -94,6 +94,8 @@ const SeasonDetailPage: React.FC = () => {
         </S.FragranceListPlaceholder>
 
         <PageNavigation
+          center
+          stackMobile={false}
           currentSlug={seasonSlug!}
           items={seasons.map((s) => ({ slug: s.slug, title: s.name }))}
           basePath="/seasons"

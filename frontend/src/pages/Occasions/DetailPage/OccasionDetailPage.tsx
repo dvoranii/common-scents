@@ -93,6 +93,8 @@ const OccasionDetailPage: React.FC = () => {
         </S.FragranceListPlaceholder>
 
         <PageNavigation
+          center
+          stackMobile={false}
           currentSlug={occasionSlug!}
           items={occasions.map((cat) => ({ slug: cat.slug, title: cat.name }))}
           basePath="/occasions"

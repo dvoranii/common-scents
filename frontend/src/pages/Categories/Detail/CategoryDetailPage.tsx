@@ -5,33 +5,26 @@ import {
   getCategoryBySlug,
 } from "../../../utils/categoriesUtils";
 import { categoriesDetail } from "../../../data/categoriesDetails";
-import {
-  PageWrapper,
-  CategoryHeader,
-  CategoryIcon,
-  CategoryName,
-  CategorySubtitle,
-  Description,
-  NoteProfilesSection,
-  NoteProfileGrid,
-  NoteProfileCard,
-  NoteProfileTitle,
-  NoteProfileDescription,
-  ExampleNotes,
-  CharacteristicsSection,
-  CharacteristicsGrid,
-  CharacteristicChip,
-  BestForSection,
-  ImgAndDescriptionWrapper,
-  ImgWrapper,
-  CategoryImg,
-  DescriptionWrapper,
-  ExampleImage,
-  CategoryBodyWrapper,
-  CharactersticsAndBestForSection,
-} from "./CategoryDetailPage.styled";
+
+import * as S from "./CategoryDetailPage.styled";
 import { SectionTitle } from "../../../styles/CommonStyles";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
+
+import { renderToStaticMarkup } from "react-dom/server";
+import type { LucideIcon } from "lucide-react";
+
+const getIconDataUri = (
+  IconComponent: LucideIcon | undefined,
+  color: string
+): string => {
+  if (!IconComponent) return "";
+
+  const svgString = renderToStaticMarkup(
+    <IconComponent color={color} size={24} strokeWidth={1.5} />
+  );
+
+  return `url("data:image/svg+xml;utf8,${encodeURIComponent(svgString)}")`;
+};
 
 const CategoryDetailPage: React.FC = () => {
   const { categorySlug } = useParams<{ categorySlug: string }>();
@@ -39,103 +32,107 @@ const CategoryDetailPage: React.FC = () => {
   const details = categorySlug ? categoriesDetail[categorySlug] : undefined;
   const categories = getAllCategories();
 
+  const iconPattern = getIconDataUri(category?.icon, category?.iconColor || "");
+
   if (!category) {
     return <Navigate to="/" replace />;
   }
 
   return (
-    <PageWrapper>
-      <CategoryHeader $bgColor={category.color}>
-        <CategoryIcon $color={category.iconColor}>
-          <category.icon size={64} />
-        </CategoryIcon>
-        <CategoryName>{category.name}</CategoryName>
+    <S.PageWrapper>
+      <S.CategoryHeader $bgColor={category.color} $iconPattern={iconPattern}>
+        <S.CategoryIcon $color={category.iconColor}>
+          <category.icon size={96} />
+        </S.CategoryIcon>
+        <S.CategoryName>{category.name}</S.CategoryName>
         {details?.subtitle && (
-          <CategorySubtitle>{details.subtitle}</CategorySubtitle>
+          <S.CategorySubtitle>{details.subtitle}</S.CategorySubtitle>
         )}
-      </CategoryHeader>
+      </S.CategoryHeader>
 
-      <CategoryBodyWrapper>
-        <ImgAndDescriptionWrapper>
-          <ImgWrapper>
-            <CategoryImg src={details?.image} />
-          </ImgWrapper>
-          <DescriptionWrapper>
-            <Description>
+      <S.CategoryBodyWrapper>
+        <S.ImgAndDescriptionWrapper>
+          <S.ImgWrapper>
+            <S.CategoryImg src={details?.image} />
+          </S.ImgWrapper>
+          <S.DescriptionWrapper>
+            <S.Description>
               {details?.fullDescription || category.description}
-            </Description>
-          </DescriptionWrapper>
-        </ImgAndDescriptionWrapper>
+            </S.Description>
+          </S.DescriptionWrapper>
+        </S.ImgAndDescriptionWrapper>
 
         {details?.noteProfiles && details.noteProfiles.length > 0 && (
-          <NoteProfilesSection>
+          <S.NoteProfilesSection>
             <SectionTitle $leftAligned $color>
               Signature Notes
             </SectionTitle>
-            <NoteProfileGrid>
+            <S.NoteProfileGrid>
               {details.noteProfiles.map((profile) => (
-                <NoteProfileCard key={profile.title}>
-                  <NoteProfileTitle>{profile.title}</NoteProfileTitle>
-                  <NoteProfileDescription>
+                <S.NoteProfileCard key={profile.title}>
+                  <S.NoteProfileTitle>{profile.title}</S.NoteProfileTitle>
+                  <S.NoteProfileDescription>
                     {profile.description}
-                  </NoteProfileDescription>
-                  <ExampleNotes>
+                  </S.NoteProfileDescription>
+                  <S.ExampleNotes>
                     {profile.examples.map((example, index) => (
-                      <ExampleImage
+                      <S.ExampleImage
                         key={index}
                         src={example.image}
                         alt={example.alt}
                         title={example.title}
                       />
                     ))}
-                  </ExampleNotes>
-                </NoteProfileCard>
+                  </S.ExampleNotes>
+                </S.NoteProfileCard>
               ))}
-            </NoteProfileGrid>
-          </NoteProfilesSection>
+            </S.NoteProfileGrid>
+          </S.NoteProfilesSection>
         )}
 
-        <CharactersticsAndBestForSection>
+        <S.CharactersticsAndBestForSection>
           {details?.characteristics && details.characteristics.length > 0 && (
-            <CharacteristicsSection>
+            <S.CharacteristicsSection>
               <SectionTitle $color>Key Characteristics</SectionTitle>
-              <CharacteristicsGrid>
+              <S.CharacteristicsGrid>
                 {details.characteristics.map((characteristic) => (
-                  <CharacteristicChip
+                  <S.CharacteristicChip
                     key={characteristic.text}
                     $bgColour={characteristic.color}
                   >
                     {characteristic.text}
-                  </CharacteristicChip>
+                  </S.CharacteristicChip>
                 ))}
-              </CharacteristicsGrid>
-            </CharacteristicsSection>
+              </S.CharacteristicsGrid>
+            </S.CharacteristicsSection>
           )}
 
           {details?.bestFor && details.bestFor.length > 0 && (
-            <BestForSection>
+            <S.BestForSection>
               <SectionTitle $color>Perfect For</SectionTitle>
-              <CharacteristicsGrid>
+              <S.CharacteristicsGrid>
                 {details.bestFor.map((useCase) => (
-                  <CharacteristicChip
+                  <S.CharacteristicChip
                     key={useCase.text}
                     $bgColour={useCase.color}
                   >
                     {useCase.text}
-                  </CharacteristicChip>
+                  </S.CharacteristicChip>
                 ))}
-              </CharacteristicsGrid>
-            </BestForSection>
+              </S.CharacteristicsGrid>
+            </S.BestForSection>
           )}
-        </CharactersticsAndBestForSection>
+        </S.CharactersticsAndBestForSection>
 
         <PageNavigation
+          center
+          stackMobile={false}
           currentSlug={categorySlug!}
           items={categories.map((cat) => ({ slug: cat.slug, title: cat.name }))}
           basePath="/categories"
         />
-      </CategoryBodyWrapper>
-    </PageWrapper>
+      </S.CategoryBodyWrapper>
+    </S.PageWrapper>
   );
 };
 

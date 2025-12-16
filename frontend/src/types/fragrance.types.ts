@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface Fragrance {
   id: string;
   slug: string;
@@ -89,7 +91,7 @@ export interface Academy {
 }
 export interface Category {
   name: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   iconColor?: string;
   color: string;
   slug: string;

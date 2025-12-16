@@ -287,7 +287,7 @@ export const ButtonGroup = styled.div<{ $paddingTop?: string }>`
 export const PrimaryButton = styled.button<{ $animate?: boolean }>`
   position: relative;
   background: linear-gradient(to bottom, #efad70, #e88e44);
-  border: 2px solid #e78732;
+  border: 2px solid transparent;
   color: white;
   font-family: ${(props) => props.theme.fonts.body};
   font-size: ${(props) => props.theme.fontSizes.base};
@@ -322,7 +322,7 @@ export const PrimaryButton = styled.button<{ $animate?: boolean }>`
   }
 
   &:hover {
-    color: ${(props) => props.theme.colors.black};
+    color: rgb(38, 50, 70);
     border: 2px solid #efad70;
 
     &::before {

@@ -1,7 +1,8 @@
 import React from "react";
 import { academy } from "../../../../../data/academy";
 import AcademyTemplate from "../AcademyTemplate/AcademyTemplate";
-import AcademyNavigation from "../AcademyNavigation/AcademyNavigation";
+// Import the new consolidated component
+import PageNavigation from "../../../../../components/PageNavigation/PageNavigation";
 
 interface AcademyWrapperProps {
   slug: string;
@@ -30,7 +31,11 @@ const AcademyWrapper: React.FC<AcademyWrapperProps> = ({
       {children}
 
       {showNavigation && (
-        <AcademyNavigation currentSlug={slug} basePath="/academy" />
+        <PageNavigation
+          currentSlug={slug}
+          items={academy} // Pass the academy data array
+          basePath="/academy" // Set the correct route prefix
+        />
       )}
     </AcademyTemplate>
   );

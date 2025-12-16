@@ -4,17 +4,7 @@ import { getAllFragrances } from "../../utils/fragranceUtils";
 import SearchAndFilter, {
   type TagGroup,
 } from "../../components/SearchAndFilter/SearchAndFilter";
-import {
-  PageWrapper,
-  FragranceGrid,
-  FragranceHouse,
-  ThumbnailNotes,
-  ThumbnailContent,
-  FragranceName,
-  ThumbnailCard,
-  ThumbnailImage,
-  NameAndHouseWrapper,
-} from "./FragranceReviews.styled";
+import * as S from "./FragranceReviews.styled";
 
 const FragranceReviews: React.FC = () => {
   const allFragrances = useMemo(() => getAllFragrances(), []);
@@ -62,25 +52,25 @@ const FragranceReviews: React.FC = () => {
   };
 
   const renderResults = (filteredFragrances: typeof allFragrances) => (
-    <PageWrapper>
-      <FragranceGrid>
+    <S.PageWrapper>
+      <S.FragranceGrid>
         {filteredFragrances.map((fragrance) => (
-          <ThumbnailCard
+          <S.ThumbnailCard
             key={fragrance.id}
             to={`/fragrance-reviews/${fragrance.slug}`}
           >
-            <ThumbnailImage
+            <S.ThumbnailImage
               src={fragrance.thumbnailImage}
               alt={fragrance.name}
             />
-            <ThumbnailContent>
-              <NameAndHouseWrapper>
-                <FragranceHouse>{fragrance.house}</FragranceHouse>
-                <FragranceName>{fragrance.name}</FragranceName>
-              </NameAndHouseWrapper>
+            <S.ThumbnailContent>
+              <S.NameAndHouseWrapper>
+                <S.FragranceHouse>{fragrance.house}</S.FragranceHouse>
+                <S.FragranceName>{fragrance.name}</S.FragranceName>
+              </S.NameAndHouseWrapper>
 
               {fragrance.notes && (
-                <ThumbnailNotes>
+                <S.ThumbnailNotes>
                   {(() => {
                     const topNotes = fragrance.notes.top
                       .slice(0, 3)
@@ -96,13 +86,13 @@ const FragranceReviews: React.FC = () => {
 
                     return displayedNotes.slice(0, 3).join(" • ");
                   })()}
-                </ThumbnailNotes>
+                </S.ThumbnailNotes>
               )}
-            </ThumbnailContent>
-          </ThumbnailCard>
+            </S.ThumbnailContent>
+          </S.ThumbnailCard>
         ))}
-      </FragranceGrid>
-    </PageWrapper>
+      </S.FragranceGrid>
+    </S.PageWrapper>
   );
 
   return (

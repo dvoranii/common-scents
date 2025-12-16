@@ -1,11 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  NavigationContainer,
-  NavButtonWrapper,
-  NavButton,
-} from "./PageNavigation.styled";
+import * as S from "./PageNavigation.styled";
 
 interface NavigationItem {
   slug: string;
@@ -16,52 +12,58 @@ interface PageNavigationProps {
   currentSlug: string;
   items: NavigationItem[];
   basePath: string;
+  center?: boolean;
+  stackMobile?: boolean;
 }
 
 const PageNavigation: React.FC<PageNavigationProps> = ({
   currentSlug,
   items,
   basePath,
+  center = false,
+  stackMobile = true,
 }) => {
   const navigate = useNavigate();
 
   const currentIndex = items.findIndex((item) => item.slug === currentSlug);
+  const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null;
   const nextItem =
     currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
-  const prevItem = currentIndex > 0 ? items[currentIndex - 1] : null;
 
-  const handleNext = () => {
-    if (nextItem) {
-      navigate(`${basePath}/${nextItem.slug}`);
-    }
-  };
+  const renderNavSection = (
+    item: NavigationItem | null,
+    type: "left" | "right"
+  ) => {
+    if (!item) return <S.NavSection />;
 
-  const handlePrev = () => {
-    if (prevItem) {
-      navigate(`${basePath}/${prevItem.slug}`);
-    }
+    return (
+      <S.NavSection $type={type}>
+        <S.NavButtonWrapper
+          $center={center}
+          $alignItems={type === "left" ? "flex-start" : "flex-end"}
+        >
+          <S.NavButton
+            onClick={() => navigate(`${basePath}/${item.slug}`)}
+            $position={type}
+          >
+            {type === "left" ? (
+              <ChevronLeft size={18} />
+            ) : (
+              <ChevronRight size={18} />
+            )}
+            <S.NavTitle>{type === "left" ? "Previous" : "Next"}</S.NavTitle>
+          </S.NavButton>
+          <S.GuideTitle $textAlign={type}>{item.title}</S.GuideTitle>
+        </S.NavButtonWrapper>
+      </S.NavSection>
+    );
   };
 
   return (
-    <NavigationContainer>
-      <NavButtonWrapper>
-        {prevItem && (
-          <NavButton onClick={handlePrev} $position="left">
-            <ChevronLeft size={20} />
-            {prevItem.title}
-          </NavButton>
-        )}
-      </NavButtonWrapper>
-
-      <NavButtonWrapper>
-        {nextItem && (
-          <NavButton onClick={handleNext} $position="right">
-            {nextItem.title}
-            <ChevronRight size={20} />
-          </NavButton>
-        )}
-      </NavButtonWrapper>
-    </NavigationContainer>
+    <S.NavigationContainer $stackMobile={stackMobile}>
+      {renderNavSection(prevItem, "left")}
+      {renderNavSection(nextItem, "right")}
+    </S.NavigationContainer>
   );
 };
 

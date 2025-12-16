@@ -8,21 +8,66 @@ export const PageWrapper = styled.div`
 
 interface CategoryHeaderProps {
   $bgColor: string;
+  $iconPattern: string;
 }
 
 export const CategoryHeader = styled.div<CategoryHeaderProps>`
+  position: relative;
   background: ${(props) => props.$bgColor};
+  overflow: hidden;
+
   padding: ${(props) => props.theme.spacing.xxxl};
-  ${(props) => props.theme.spacing.xl};
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 300px;
+  min-height: 400px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    opacity: 0.06;
+
+    background-image: ${(props) => props.$iconPattern};
+    background-size: 80px 80px;
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(0, 0, 0, 0.1)
+    );
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  }
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
-    min-height: 400px;
+    min-height: 500px;
   }
 `;
 
@@ -45,8 +90,8 @@ interface CategoryIconProps {
 export const CategoryIcon = styled.div<CategoryIconProps>`
   display: flex;
   justify-content: center;
-  margin-bottom: ${(props) => props.theme.spacing.lg};
   color: ${(props) => props.$color || "darkbrown"};
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.8));
 `;
 
 export const CategoryName = styled.h1`
@@ -86,10 +131,10 @@ export const FragranceListPlaceholder = styled.section`
 
 export const CategorySubtitle = styled.h2`
   text-align: center;
-  color: ${(props) => props.theme.colors.textLight};
-  font-size: ${(props) => props.theme.fontSizes.xl};
+  color: #333;
+  font-size: ${(props) => props.theme.fontSizes.xxl};
   font-weight: 400;
-  margin-top: ${(props) => props.theme.spacing.md};
+  margin-top: ${(props) => props.theme.spacing.sm};
   margin-bottom: 0;
 `;
 

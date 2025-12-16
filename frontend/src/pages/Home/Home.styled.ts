@@ -4,13 +4,14 @@ export const SeeMoreWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: ${(props) => props.theme.spacing.lg};
+  padding-top: ${(props) => props.theme.spacing.xxxl};
 `;
 
 export const GradientHoverLink = styled.a`
   text-align: center;
   margin: 0 auto;
-  font-size: ${(props) => props.theme.fontSizes.lg};
+  font-size: ${(props) => props.theme.fontSizes.base};
+  text-transform: uppercase;
   position: relative;
   text-decoration: none;
   display: inline-block;

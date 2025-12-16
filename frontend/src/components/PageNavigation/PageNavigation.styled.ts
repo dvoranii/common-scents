@@ -1,68 +1,107 @@
 import styled from "styled-components";
 
-export const NavigationContainer = styled.div`
+export const NavigationContainer = styled.div<{
+  $stackMobile?: boolean;
+  $center?: boolean;
+}>`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: ${(props) => (props.$center ? "center" : "space-between")};
+  align-items: flex-start;
   margin-top: 4rem;
-  padding: 2rem 0;
-  border-top: 1px solid #e0e0e0;
+  padding: 2rem 2rem 0 2rem;
+  border-top: 1px solid #e5e5e5;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    /* Only stack if $stackMobile is true (defaulting to true for safety) */
+    ${(props) =>
+      props.$stackMobile !== false &&
+      `
+      flex-direction: column;
+      align-items: stretch;
+      gap: 2rem;
+    `}
+
+    /* If we ARE NOT stacking, we might want to reduce padding/gap 
+       so buttons don't feel squashed on tiny screens */
+    ${(props) =>
+      props.$stackMobile === false &&
+      `
+      padding: 2rem 1rem 0 1rem;
+      gap: 0.5rem;
+    `}
+  }
 `;
 
-export const NavButtonWrapper = styled.div`
+export const NavSection = styled.div<{ $type?: "left" | "right" }>`
   flex: 1;
   display: flex;
-  padding: 0 20px;
+  flex-direction: column;
+  align-items: ${(props) =>
+    props.$type === "right" ? "flex-end" : "flex-start"};
 
-  &:first-child {
-    justify-content: flex-start;
+  @media (max-width: 768px) {
+    align-items: center;
   }
+`;
 
-  &:last-child {
-    justify-content: flex-end;
+export const NavButtonWrapper = styled.div<{
+  $alignItems: string;
+  $center?: boolean;
+}>`
+  display: flex;
+  flex-direction: column;
+  align-items: ${(props) => (props.$center ? "center" : props.$alignItems)};
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    align-items: center;
   }
 `;
 
 export const NavButton = styled.button<{ $position: "left" | "right" }>`
-  position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  background: linear-gradient(to bottom, #efad70, #e88e44);
-  border: 2px solid #e78732;
-  color: white;
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.sm};
-  padding: 0.75rem;
-  border-radius: 12px;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  color: #333;
+  transition: all 0.2s ease;
   cursor: pointer;
-  overflow: hidden;
-  z-index: 1;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
+  min-width: 110px;
+  justify-content: center;
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, #efad70, #e88e44);
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-    z-index: -1;
-  }
+  flex-direction: ${(props) =>
+    props.$position === "right" ? "row-reverse" : "row"};
 
   &:hover {
-    color: ${(props) => props.theme.colors.black};
-    border: 2px solid #efad70;
-
-    &::before {
-      opacity: 1;
-    }
+    background: #e9ecef;
+    border-color: #007bff;
+    transform: translateY(-1px);
   }
+`;
 
-  &:active {
-    transform: translateY(1px);
+export const NavTitle = styled.span`
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+`;
+
+export const GuideTitle = styled.span<{ $textAlign: "left" | "right" }>`
+  font-size: 0.9rem;
+  color: #333;
+  text-align: ${(props) => props.$textAlign};
+  max-width: 220px;
+  line-height: 1.4;
+  font-weight: 500;
+  padding-top: 8px;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    font-size: 0.85rem;
   }
 `;

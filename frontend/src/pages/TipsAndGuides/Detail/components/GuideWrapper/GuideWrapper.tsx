@@ -1,7 +1,7 @@
 import React from "react";
 import { guides } from "../../../../../data/guides";
 import TipsTemplate from "../TipsTemplate/TipsTemplate";
-import TipsNavigation from "../TipsNavigation/TipsNavigation";
+import PageNavigation from "../../../../../components/PageNavigation/PageNavigation";
 
 interface GuideWrapperProps {
   slug: string;
@@ -30,7 +30,7 @@ const GuideWrapper: React.FC<GuideWrapperProps> = ({
       {children}
 
       {showNavigation && (
-        <TipsNavigation currentSlug={slug} basePath="/guides" />
+        <PageNavigation currentSlug={slug} items={guides} basePath="/guides" />
       )}
     </TipsTemplate>
   );
