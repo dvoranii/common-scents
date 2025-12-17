@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const fadeInUp = keyframes`
   from {
@@ -142,4 +143,84 @@ export const ReviewLinkText = styled.span`
   &:hover {
     color: #b45309;
   }
+`;
+
+const slideAndFade = keyframes`
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(15px);
+    opacity: 0;
+  }
+`;
+
+export const AnimatedButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 3.6rem;
+`;
+
+export const AnimatedButton = styled(Link)`
+  position: relative;
+  overflow: hidden;
+  width: 8rem;
+  height: 2%.4;
+  padding: 0.5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+`;
+
+export const BgLayer = styled.span<{
+  $duration: number;
+  $hoverDuration: number;
+  $bgColor: string;
+}>`
+  position: absolute;
+  width: 11rem;
+  height: 8rem;
+  top: -2rem;
+  left: -0.5rem;
+  background-color: ${(props) => props.$bgColor};
+  transform: rotate(12deg) scaleX(0);
+  transform-origin: left;
+  transition: transform ${(props) => props.$duration}ms;
+
+  ${AnimatedButton}:hover & {
+    transform: rotate(12deg) scaleX(1);
+    transition-duration: ${(props) => props.$hoverDuration}ms;
+  }
+`;
+
+export const HoverText = styled.span`
+  position: absolute;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 100ms;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  ${AnimatedButton}:hover & {
+    opacity: 1;
+    transition-duration: 1000ms;
+  }
+`;
+
+export const AnimatedArrow = styled(ArrowRight)`
+  width: 16px;
+  height: 16px;
+  animation: ${slideAndFade} 1.5s ease-in-out infinite;
 `;

@@ -188,7 +188,7 @@ export const SeasonTitle = styled.h2`
 `;
 
 export const SeasonDescription = styled.p`
-  font-size: ${(props) => props.theme.fontSizes.xl};
+  font-size: ${(props) => props.theme.fontSizes.lg};
   font-family: "Lato", sans-serif;
   font-weight: 100;
   line-height: 1.25;

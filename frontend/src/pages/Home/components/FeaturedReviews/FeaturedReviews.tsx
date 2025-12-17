@@ -1,23 +1,11 @@
 import { getFeaturedFragrances } from "../../../../utils/fragranceUtils";
-import {
-  ReviewsGrid,
-  ReviewCard,
-  ReviewImage,
-  ReviewContent,
-  ReviewTitle,
-  ReviewDescription,
-  ReviewTextWrapper,
-  ReviewLink,
-  ReviewLinkText,
-  ReviewImageLink,
-  BottleImage,
-} from "./FeaturedReviews.styled";
+import * as S from "./FeaturedReviews.styled";
 import {
   Section,
   SectionContent,
   SectionTitle,
 } from "../../../../styles/CommonStyles";
-import { SeeMoreWrapper, GradientHoverLink } from "../../Home.styled";
+// import { SeeMoreWrapper, GradientHoverLink } from "../../Home.styled";
 import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 export const FeaturedReviews: React.FC = () => {
@@ -35,44 +23,59 @@ export const FeaturedReviews: React.FC = () => {
           Featured Reviews
         </SectionTitle>
 
-        <ReviewsGrid>
+        <S.ReviewsGrid>
           {featuredReviews.map((fragrance, index) => (
-            <ReviewCard
+            <S.ReviewCard
               key={fragrance.id}
               className={isVisible ? `fade-in-delay-${index}` : ""}
             >
-              <ReviewImageLink to={`/fragrance-reviews/${fragrance.slug}`}>
-                <ReviewImage>
-                  <BottleImage
+              <S.ReviewImageLink to={`/fragrance-reviews/${fragrance.slug}`}>
+                <S.ReviewImage>
+                  <S.BottleImage
                     src={fragrance.thumbnailImage}
                     alt={fragrance.name}
                     loading="lazy"
                   />
-                </ReviewImage>
-              </ReviewImageLink>
+                </S.ReviewImage>
+              </S.ReviewImageLink>
 
-              <ReviewContent>
-                <ReviewTextWrapper>
-                  <ReviewTitle>
+              <S.ReviewContent>
+                <S.ReviewTextWrapper>
+                  <S.ReviewTitle>
                     {fragrance.name} - {fragrance.house}
-                  </ReviewTitle>
-                  <ReviewDescription>
+                  </S.ReviewTitle>
+                  <S.ReviewDescription>
                     {fragrance.shortDescription}
-                  </ReviewDescription>
-                </ReviewTextWrapper>
-                <ReviewLink to={`/fragrance-reviews/${fragrance.slug}`}>
-                  <ReviewLinkText>Read Review</ReviewLinkText>
-                </ReviewLink>
-              </ReviewContent>
-            </ReviewCard>
+                  </S.ReviewDescription>
+                </S.ReviewTextWrapper>
+                <S.ReviewLink to={`/fragrance-reviews/${fragrance.slug}`}>
+                  <S.ReviewLinkText>Read Review</S.ReviewLinkText>
+                </S.ReviewLink>
+              </S.ReviewContent>
+            </S.ReviewCard>
           ))}
-        </ReviewsGrid>
+        </S.ReviewsGrid>
 
-        <SeeMoreWrapper>
-          <GradientHoverLink href="/fragrance-reviews">
-            See More Reviews
-          </GradientHoverLink>
-        </SeeMoreWrapper>
+        <S.AnimatedButtonWrapper>
+          <S.AnimatedButton to="/fragrance-reviews">
+            All Reviews
+            <S.BgLayer $duration={1000} $hoverDuration={500} $bgColor="white" />
+            <S.BgLayer
+              $duration={700}
+              $hoverDuration={700}
+              $bgColor="#5fd165"
+            />
+            <S.BgLayer
+              $duration={500}
+              $hoverDuration={1000}
+              $bgColor="#459749"
+            />
+            <S.HoverText>
+              Read More
+              <S.AnimatedArrow />
+            </S.HoverText>
+          </S.AnimatedButton>
+        </S.AnimatedButtonWrapper>
       </SectionContent>
     </Section>
   );

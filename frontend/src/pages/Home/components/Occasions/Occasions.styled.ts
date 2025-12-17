@@ -27,6 +27,7 @@ export const EventsWrapper = styled.div<{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     opacity: ${(props) => props.$brightness};
     transition: opacity 0.3s ease;
     z-index: 0;
