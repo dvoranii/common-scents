@@ -22,14 +22,18 @@ import Guides from "./pages/TipsAndGuides/Landing/Guides";
 import Academy from "./pages/Academy/Landing/Academy";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
-import { logPageView } from "./utils/analyitics";
+import { logPageView } from "./utils/analytics";
 
 function AnalyticsTracker() {
   const location = useLocation();
+  const IS_PRODUCTION = import.meta.env.PROD;
+  const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
   useEffect(() => {
-    logPageView();
-  }, [location]);
+    if (IS_PRODUCTION && MEASUREMENT_ID) {
+      logPageView();
+    }
+  }, [location, IS_PRODUCTION, MEASUREMENT_ID]);
 
   return null;
 }

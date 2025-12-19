@@ -14,7 +14,6 @@ export const initGA = () => {
 
 export const logPageView = () => {
   if (IS_PRODUCTION) {
-    console.log("production");
     ReactGA.send({
       hitType: "pageview",
       page: window.location.pathname + window.location.search,
@@ -30,7 +29,6 @@ export const logEvent = (category: string, action: string, label?: string) => {
       label,
     });
   } else {
-    // Log to console in development for debugging
     console.log("GA Event (dev):", { category, action, label });
   }
 };
