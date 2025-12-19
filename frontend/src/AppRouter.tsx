@@ -1,5 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { Suspense, useEffect } from "react";
 import { Layout } from "./components/Layout/Layout";
 import HomePage from "./pages/Home/Home";
 import OccasionLandingPage from "./pages/Occasions/LandingPage/OccasionLandingPage";
@@ -17,10 +22,23 @@ import Guides from "./pages/TipsAndGuides/Landing/Guides";
 import Academy from "./pages/Academy/Landing/Academy";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
+import { logPageView } from "./utils/analyitics";
+
+function AnalyticsTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView();
+  }, [location]);
+
+  return null;
+}
+
 function AppRouter() {
   return (
     <>
       <Router>
+        <AnalyticsTracker />
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />

@@ -78,7 +78,6 @@ app.post("/admin/killswitch/activate", (req, res) => {
 });
 
 app.post("/admin/killswitch/deactivate", (req, res) => {
-  // Same authentication check
   if (process.env.NODE_ENV === "production") {
     const authHeader = req.headers["authorization"];
     const adminToken = process.env.ADMIN_TOKEN;
@@ -96,7 +95,6 @@ app.post("/admin/killswitch/deactivate", (req, res) => {
     }
   }
 
-  // Dynamically import to avoid circular dependencies
   const { deactivateKillSwitch } = require("./utils/killswitch");
   deactivateKillSwitch();
 

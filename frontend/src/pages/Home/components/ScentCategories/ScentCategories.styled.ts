@@ -71,10 +71,10 @@ export const ScentCategoriesContainer = styled.div`
 `;
 
 export const CategoryCard = styled.div<{
-  bgColor: string;
+  $bgColor: string;
   $iconPattern: string;
 }>`
-  background: ${(props) => props.bgColor};
+  background: ${(props) => props.$bgColor};
   padding: ${(props) => props.theme.spacing.xl};
   border-radius: ${(props) => props.theme.spacing.sm};
   text-align: center;

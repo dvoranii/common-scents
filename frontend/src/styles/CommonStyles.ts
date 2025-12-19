@@ -3,7 +3,7 @@ import WhiteTextureBG from "/assets/images/white-texture-bg.jpg";
 import type { Theme } from "./theme";
 
 export const Section = styled.section<{
-  altBg?: boolean;
+  $altBg?: boolean;
   $hasBgImg?: boolean;
   $paddingBottom?: string;
 }>`
@@ -12,7 +12,7 @@ export const Section = styled.section<{
   ${(props) =>
     props.$paddingBottom && `padding-bottom: ${props.$paddingBottom};`};
   background-color: ${(props) =>
-    props.altBg ? props.theme.colors.backgroundAlt : "#fff"};
+    props.$altBg ? props.theme.colors.backgroundAlt : "#fff"};
 
   ${(props) =>
     props.$hasBgImg &&

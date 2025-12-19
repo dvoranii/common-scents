@@ -34,7 +34,7 @@ export const ScentCategories: React.FC = () => {
   };
 
   return (
-    <Section altBg $hasBgImg $paddingBottom="8vw">
+    <Section $altBg $hasBgImg $paddingBottom="8vw">
       <SectionContent>
         <SectionTitle $color>Scent Categories</SectionTitle>
 
@@ -49,7 +49,7 @@ export const ScentCategories: React.FC = () => {
                 <CarouselSlide key={category.slug}>
                   <S.CategoryCard
                     $iconPattern={iconPattern}
-                    bgColor={category.color}
+                    $bgColor={category.color}
                     onClick={() => handleCategoryClick(category.slug)}
                   >
                     <S.CategoryIcon $color={category.iconColor}>
