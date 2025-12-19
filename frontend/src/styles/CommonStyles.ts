@@ -116,6 +116,7 @@ export const MainTitle = styled.h1<{
   $center?: boolean;
   $color?: string;
   $bgColor?: string;
+  $padding?: string;
 }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxxl};
@@ -125,7 +126,7 @@ export const MainTitle = styled.h1<{
   color: ${(props) => (props.$color ? props.$color : "rgb(38, 50, 70)")};
   text-align: ${(props) => (props.$center ? "center" : "left")};
   ${(props) => props.$bgColor && `background: ${props.$bgColor};`};
-  padding: 10px 20px;
+  padding: ${(props) => (props.$padding ? props.$padding : "10px 20px")};
   opacity: 0;
   animation: fadeInSlideDown 500ms ease 750ms forwards;
   margin: 0 auto;

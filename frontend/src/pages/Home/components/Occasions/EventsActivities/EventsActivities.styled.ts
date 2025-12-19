@@ -41,7 +41,7 @@ export const EventCard = styled.div`
   height: 100%;
   transform-style: preserve-3d;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+  border-radius: 16px;
 
   &:hover {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);

@@ -5,7 +5,7 @@ export const OccasionsWrapper = styled.div`
   width: 100%;
 `;
 
-export const EventsWrapper = styled.div<{
+export const EventsWrapper = styled.section<{
   $brightness: number;
   $bgColor: string;
 }>`

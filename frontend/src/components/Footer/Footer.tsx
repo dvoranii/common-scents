@@ -1,55 +1,48 @@
-import {
-  Container,
-  ContainerInner,
-  NavList,
-  ImgWrapper,
-  LogoImg,
-  Trademark,
-} from "./Footer.styled";
-import { Link } from "react-router-dom";
-
+import * as S from "./Footer.styled";
 import Logo from "/assets/images/cs-bulb.png";
+import { useLocation } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const currentYear = new Date(Date.now()).getFullYear();
+  const { pathname } = useLocation();
+
+  const checkActive = (to: string) => {
+    if (to === "/") return pathname === "/";
+    return pathname.startsWith(to);
+  };
+
+  const navLinks = [
+    { to: "/", label: "Home" },
+    { to: "/about", label: "About" },
+    { to: "/fragrance-reviews", label: "Reviews" },
+    { to: "/guides", label: "Tips & Guides" },
+    { to: "/academy", label: "Academy" },
+    { to: "/categories", label: "Scent Categories" },
+    { to: "/occasions", label: "Occasions" },
+  ];
+
   return (
-    <>
-      <Container>
-        <ContainerInner>
-          <NavList>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/fragrance-reviews">Reviews</Link>
-              </li>
-              <li>
-                <Link to="/guides">Tips & Guides</Link>
-              </li>
-              <li>
-                <Link to="/academy">Academy</Link>
-              </li>
-              <li>
-                <Link to="/categories">Scent Categories</Link>
-              </li>
-              <li>
-                <Link to="/occasions">Occasions</Link>
-              </li>
-            </ul>
-          </NavList>
-          <ImgWrapper>
-            <LogoImg src={Logo} />
-          </ImgWrapper>
-        </ContainerInner>
-        <Trademark>
-          © {currentYear} Common Scents™. All rights reserved.
-        </Trademark>
-      </Container>
-    </>
+    <S.Container>
+      <S.ContainerInner>
+        <S.NavListWrapper>
+          <S.NavList>
+            {navLinks.map((link) => (
+              <S.NavListItem key={link.to}>
+                <S.NavLink to={link.to} $isActive={checkActive(link.to)}>
+                  {link.label}
+                </S.NavLink>
+              </S.NavListItem>
+            ))}
+          </S.NavList>
+        </S.NavListWrapper>
+        <S.ImgWrapper>
+          <S.LogoImg src={Logo} alt="Common Scents Logo" />
+        </S.ImgWrapper>
+      </S.ContainerInner>
+      <S.Trademark>
+        © {currentYear} Common Scents™. All rights reserved.
+      </S.Trademark>
+    </S.Container>
   );
 };
 

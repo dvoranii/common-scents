@@ -15,6 +15,7 @@ import FragranceReviews from "./pages/FragranceReviews/FragranceReviews";
 import About from "./pages/About/About";
 import Guides from "./pages/TipsAndGuides/Landing/Guides";
 import Academy from "./pages/Academy/Landing/Academy";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function AppRouter() {
   return (
@@ -46,7 +47,7 @@ function AppRouter() {
                 key={slug}
                 path={`/fragrance-reviews/${slug}`}
                 element={
-                  <Suspense fallback={<div>Loading review...</div>}>
+                  <Suspense fallback={<LoadingSpinner />}>
                     <Component />
                   </Suspense>
                 }
@@ -58,7 +59,7 @@ function AppRouter() {
                 key={slug}
                 path={`/guides/${slug}`}
                 element={
-                  <Suspense fallback={<div>Loading review...</div>}>
+                  <Suspense fallback={<LoadingSpinner />}>
                     <Component />
                   </Suspense>
                 }
@@ -69,7 +70,7 @@ function AppRouter() {
                 key={slug}
                 path={`/academy/${slug}`}
                 element={
-                  <Suspense fallback={<div>Loading review...</div>}>
+                  <Suspense fallback={<LoadingSpinner />}>
                     <Component />
                   </Suspense>
                 }

@@ -1,12 +1,36 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
   min-height: 250px;
-  background: linear-gradient(to top, #efad70, #e88e44);
-  border-top: 4px solid #e78732;
+  background: linear-gradient(to top, rgba(38, 50, 70, 0.8), rgb(38, 50, 70));
+  border-top: 4px solid whitesmoke;
   position: relative;
-  padding-bottom: 50px; /* Space for trademark */
+  padding-bottom: 50px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(0, 0, 0, 0.1)
+    );
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+  }
 `;
 
 export const Trademark = styled.p`
@@ -18,6 +42,10 @@ export const Trademark = styled.p`
   bottom: 12px;
   transform: translateX(-50%);
   text-align: center;
+  color: whitesmoke;
+  letter-spacing: 0.5px;
+  font-weight: 200;
+  font-size: ${(props) => props.theme.fontSizes.sm};
 `;
 
 export const ContainerInner = styled.div`
@@ -45,44 +73,60 @@ export const ImgWrapper = styled.div`
 `;
 
 export const LogoImg = styled.img`
-  max-width: 85px;
+  max-width: 65px;
 `;
 
-export const NavList = styled.nav`
+export const NavListWrapper = styled.nav`
   height: 100%;
   display: flex;
   align-items: center;
   padding: 20px;
+`;
 
-  ul {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    list-style: none;
+export const NavList = styled.ul`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none;
+  gap: 0.4rem;
+`;
 
-    li {
-      font-size: clamp(16px, 2vw, 1.2rem);
-      font-weight: bold;
-      color: #fff;
-      text-shadow: -1px 1px 2px black;
-      transition: all 300ms ease;
-      position: relative;
-      width: fit-content;
-      cursor: pointer;
-      &::after {
-        content: "";
-        position: absolute;
-        height: 2px;
-        background-color: #b45309;
-        bottom: -2px;
-        left: 0;
-        width: 0%;
-        transition: width 0.5s ease;
-      }
-      &:hover::after {
-        width: 100%;
-      }
-    }
+export const NavListItem = styled.li`
+  transition: all 300ms ease;
+  width: fit-content;
+  cursor: pointer;
+`;
+export const NavLink = styled(Link)<{ $isActive?: boolean }>`
+  font-size: ${(props) => props.theme.fontSizes.base};
+  font-weight: ${(props) => (props.$isActive ? "600" : "200")};
+  color: whitesmoke;
+  text-shadow: -1px 1px 2px black;
+  transition: all 200ms ease;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    color: white;
+    filter: brightness(1.15);
   }
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: rgb(233, 147, 76);
+    bottom: 0px;
+    left: 0;
+    width: ${(props) => (props.$isActive ? "100%" : "0%")};
+    transition: width 0.5s ease;
+  }
+
+  ${(props) =>
+    !props.$isActive &&
+    `
+    &:hover::after {
+      width: 100%;
+    }
+  `}
 `;

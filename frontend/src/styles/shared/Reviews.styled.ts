@@ -1,10 +1,16 @@
 import styled from "styled-components";
+import WhiteTextureBG from "/assets/images/white-texture-bg-2.jpg";
 
 export const PageWrapper = styled.div`
-  max-width: 1600px;
-  margin: 0 auto;
   padding: ${(props) => props.theme.spacing.xl};
   ${(props) => props.theme.spacing.lg};
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.85),
+      rgba(255, 255, 255, 0.65)
+    ),
+    url(${WhiteTextureBG});
+  background-size: cover;
+  background-repeat: no-repeat;
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     padding: ${(props) =>
@@ -15,6 +21,11 @@ export const PageWrapper = styled.div`
     padding: ${(props) =>
       `${props.theme.spacing.lg} ${props.theme.spacing.xl}`};
   }
+`;
+
+export const PageWrapperInner = styled.div`
+  max-width: 1600px;
+  margin: 0 auto;
 `;
 
 export const IntroSection = styled.section`
@@ -141,4 +152,5 @@ export const ScentAndOccasionTitle = styled.h4`
   font-weight: bold;
   padding-bottom: ${(props) => props.theme.spacing.xl};
   text-align: center;
+  color: #222222;
 `;

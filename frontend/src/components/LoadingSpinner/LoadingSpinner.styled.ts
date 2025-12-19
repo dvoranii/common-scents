@@ -7,9 +7,12 @@ const spin = keyframes`
 
 export const Spinner = styled.div`
   border: 3px solid #f3f3f3;
-  border-top: 3px solid #2196f3;
+  border-top: 3px solid rgb(44, 62, 80);
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 90px;
+  height: 90px;
   animation: ${spin} 1s linear infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 `;

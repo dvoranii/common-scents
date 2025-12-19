@@ -21,6 +21,36 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
   background-color: ${(props) => props.$backgroundColor};
   overflow: hidden;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 40%,
+      transparent
+    );
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5),
+      0 1px 3px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
   ${(props) => {
     if (!props.$backgroundImg) return "background-image: none;";
 
@@ -36,8 +66,6 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
           ${solidColor}       
         ),
         url(${props.$backgroundImg});
-        
-        
     `;
   }}
 
@@ -78,6 +106,25 @@ export const SeasonsContent = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: ${(props) => props.theme.spacing.xxl};
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 40%,
+      transparent
+    );
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, 0.5),
+      0 -1px 3px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
 
   @media screen and (max-width: 1024px) {
     height: 450px;
