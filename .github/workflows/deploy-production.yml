@@ -23,7 +23,7 @@ jobs:
                   script: |
                       su - newuser << 'EOF' 
                       export PATH=$PATH:/usr/bin:/usr/local/bin:$HOME/.nvm/versions/node/v*/bin
-                      export NODE_OPTIONS="--max-old-space-size=4096"
+                      export NODE_OPTIONS="--max-old-space-size=8192"
                       cd /var/www/common-scents/production
 
                       git checkout main
