@@ -88,11 +88,6 @@ export const SeasonSubtitle = styled.h2<{
   opacity: 0;
   animation: fadeInSlideDown 500ms ease 950ms forwards;
 
-  /* @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    width: fit-content;
-    padding: 8px 8px;
-  } */
-
   @keyframes fadeInSlideDown {
     from {
       opacity: 0;

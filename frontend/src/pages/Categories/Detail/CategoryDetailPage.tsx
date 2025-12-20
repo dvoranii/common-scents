@@ -7,10 +7,22 @@ import {
 import { categoriesDetail } from "../../../data/categoriesDetails";
 import * as S from "./CategoryDetailPage.styled";
 import { SectionTitle } from "../../../styles/CommonStyles";
+import Tilt from "react-vanilla-tilt";
 import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { LucideIcon } from "lucide-react";
 import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
+
+interface TiltOptions {
+  max?: number;
+  speed?: number;
+  glare?: boolean;
+  "max-glare"?: number;
+  scale?: number;
+  perspective?: number;
+  transition?: boolean;
+  easing?: string;
+}
 
 const getIconDataUri = (
   IconComponent: LucideIcon | undefined,
@@ -35,6 +47,17 @@ const CategoryDetailPage: React.FC = () => {
     category?.icon,
     category?.iconBg || "#000000"
   );
+
+  const tiltOptions: TiltOptions = {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3,
+    scale: 1.02,
+    perspective: 1000,
+    transition: true,
+    easing: "cubic-bezier(.03,.98,.52,.99)",
+  };
 
   if (!category) {
     return <Navigate to="/" replace />;
@@ -72,22 +95,24 @@ const CategoryDetailPage: React.FC = () => {
             </SectionTitle>
             <S.NoteProfileGrid>
               {details.noteProfiles.map((profile) => (
-                <S.NoteProfileCard key={profile.title}>
-                  <S.NoteProfileTitle>{profile.title}</S.NoteProfileTitle>
-                  <S.NoteProfileDescription>
-                    {profile.description}
-                  </S.NoteProfileDescription>
-                  <S.ExampleNotes>
-                    {profile.examples.map((example, index) => (
-                      <S.ExampleImage
-                        key={index}
-                        src={example.image}
-                        alt={example.alt}
-                        title={example.title}
-                      />
-                    ))}
-                  </S.ExampleNotes>
-                </S.NoteProfileCard>
+                <Tilt key={profile.title} options={tiltOptions}>
+                  <S.NoteProfileCard key={profile.title}>
+                    <S.NoteProfileTitle>{profile.title}</S.NoteProfileTitle>
+                    <S.NoteProfileDescription>
+                      {profile.description}
+                    </S.NoteProfileDescription>
+                    <S.ExampleNotes>
+                      {profile.examples.map((example, index) => (
+                        <S.ExampleImage
+                          key={index}
+                          src={example.image}
+                          alt={example.alt}
+                          title={example.title}
+                        />
+                      ))}
+                    </S.ExampleNotes>
+                  </S.NoteProfileCard>
+                </Tilt>
               ))}
             </S.NoteProfileGrid>
           </S.NoteProfilesSection>

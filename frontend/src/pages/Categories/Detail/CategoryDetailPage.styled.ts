@@ -204,12 +204,30 @@ export const NoteProfilesSection = styled.section`
   max-width: 1600px;
   margin: 0 auto;
   padding-top: ${(props) => props.theme.spacing.xxl};
+
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+    padding-top: 12.4rem;
+  }
 `;
 
 export const NoteProfileGrid = styled.div`
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(3, 1fr);
   gap: ${(props) => props.theme.spacing.xl};
+  max-width: 1200px;
+  margin: 0 auto;
+  transition: all 200ms ease;
+
+  & > [data-tilt="true"] {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: ${(props) => props.theme.spacing.sm} !important;
+    transform-style: preserve-3d;
+    overflow: visible !important;
+  }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
@@ -222,14 +240,43 @@ export const NoteProfileGrid = styled.div`
 `;
 
 export const NoteProfileCard = styled.div`
-  border-radius: ${(props) => props.theme.spacing.md};
+  border-radius: ${(props) => props.theme.spacing.sm};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  background: white;
   padding: 2.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  background: white;
+  overflow: visible;
 
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
-    padding: 3.4rem;
+  &:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: ${(props) => props.theme.spacing.sm};
+    border: 2px solid transparent;
+    transition: border-color 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    border-color: rgba(233, 144, 71, 0.4);
+  }
+
+  @media screen and (max-width: 900px) {
+    padding: 2.4rem 1.2rem;
   }
 `;
 
@@ -239,6 +286,13 @@ export const NoteProfileTitle = styled.h4`
   color: #444444;
   margin-bottom: ${(props) => props.theme.spacing.sm};
   text-align: center;
+
+  transition: all 200ms ease;
+
+  ${NoteProfileCard}:hover & {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateZ(30px) translateY(-2px);
+  }
 `;
 
 export const NoteProfileDescription = styled.p`
@@ -247,16 +301,25 @@ export const NoteProfileDescription = styled.p`
   line-height: 1.6;
   margin-bottom: ${(props) => props.theme.spacing.md};
   text-align: center;
+  transition: all 200ms ease;
+  ${NoteProfileCard}:hover & {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateZ(30px) translateY(-2px);
+  }
 `;
 
 export const ExampleNotes = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.8rem;
   justify-content: center;
   align-items: center;
   margin-top: ${(props) => props.theme.spacing.md};
-
+  transition: all 200ms ease;
+  ${NoteProfileCard}:hover & {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateZ(30px) translateY(-2px);
+  }
   @media screen and (max-width: 900px) {
     flex-wrap: wrap;
   }
@@ -273,7 +336,7 @@ export const ExampleImage = styled.img`
 
   &:hover {
     transform: scale(1.1) translateZ(8px);
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 6px rgba(233, 144, 71, 0.54);
   }
 `;
 
