@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from "express";
 export let dailyRequestCount = 0;
 let lastReset = Date.now();
 
-const DAILY_GLOBAL_LIMIT = 500;
+const DAILY_GLOBAL_LIMIT = 5000;
 const DAILY_RESET_MS = 24 * 60 * 60 * 1000;
 
 const checkDailyLimit = (_req: Request, res: Response, next: NextFunction) => {

@@ -31,7 +31,10 @@ const CategoryDetailPage: React.FC = () => {
   const details = categorySlug ? categoriesDetail[categorySlug] : undefined;
   const categories = getAllCategories();
 
-  const iconPattern = getIconDataUri(category?.icon, category?.iconColor || "");
+  const iconPattern = getIconDataUri(
+    category?.icon,
+    category?.iconBg || "#000000"
+  );
 
   if (!category) {
     return <Navigate to="/" replace />;
@@ -41,7 +44,7 @@ const CategoryDetailPage: React.FC = () => {
     <S.PageWrapper>
       <KeyboardNavTooltip section="scent-categories" />
       <S.CategoryHeader $bgColor={category.color} $iconPattern={iconPattern}>
-        <S.CategoryIcon $color={category.iconColor}>
+        <S.CategoryIcon $bgColor={category.iconBg} $color={category.iconColor}>
           <category.icon size={96} />
         </S.CategoryIcon>
         <S.CategoryName>{category.name}</S.CategoryName>
@@ -93,7 +96,7 @@ const CategoryDetailPage: React.FC = () => {
         <S.CharactersticsAndBestForSection>
           {details?.characteristics && details.characteristics.length > 0 && (
             <S.CharacteristicsSection>
-              <SectionTitle $color>Key Characteristics</SectionTitle>
+              <S.SectionTitle>Key&nbsp;Characteristics</S.SectionTitle>
               <S.CharacteristicsGrid>
                 {details.characteristics.map((characteristic) => (
                   <S.CharacteristicChip
@@ -109,7 +112,7 @@ const CategoryDetailPage: React.FC = () => {
 
           {details?.bestFor && details.bestFor.length > 0 && (
             <S.BestForSection>
-              <SectionTitle $color>Perfect For</SectionTitle>
+              <S.SectionTitle>Perfect&nbsp;For</S.SectionTitle>
               <S.CharacteristicsGrid>
                 {details.bestFor.map((useCase) => (
                   <S.CharacteristicChip

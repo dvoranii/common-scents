@@ -130,3 +130,40 @@ export const NavLink = styled(Link)<{ $isActive?: boolean }>`
     }
   `}
 `;
+
+export const TermsAndPrivacyWrapperOuter = styled.div`
+  width: 100%;
+`;
+
+export const TermsLink = styled(Link)`
+  &:hover {
+    text-shadow: -2px 2px 8px rgba(255, 255, 255, 1);
+  }
+`;
+export const PrivacyLink = styled(Link)`
+  &:hover {
+    text-shadow: -2px 2px 8px rgba(234, 150, 79, 1);
+  }
+`;
+
+export const TermsAndPrivacyWrapperInner = styled.div`
+  display: flex;
+  justify-content: center;
+
+  ${TermsLink}, ${PrivacyLink} {
+    color: whitesmoke;
+    font-weight: 200;
+    font-size: ${(props) => props.theme.fontSizes.base};
+    letter-spacing: 0.25px;
+    text-decoration: underline;
+    transition: all 200ms ease;
+
+    &:hover {
+      filter: brightness(1.15);
+    }
+  }
+`;
+
+export const Delimeter = styled.span`
+  color: whitesmoke;
+`;

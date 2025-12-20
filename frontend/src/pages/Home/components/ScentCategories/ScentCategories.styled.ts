@@ -71,7 +71,7 @@ export const ScentCategoriesContainer = styled.div`
 `;
 
 export const CategoryCard = styled.div<{
-  $bgColor: string;
+  $bgColor?: string;
   $iconPattern: string;
 }>`
   background: ${(props) => props.$bgColor};
@@ -83,7 +83,6 @@ export const CategoryCard = styled.div<{
   position: relative;
   overflow: hidden;
   z-index: 1;
-
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   margin: 5px;
 
@@ -101,17 +100,19 @@ export const CategoryCard = styled.div<{
     right: 0;
     bottom: 0;
 
-    opacity: 0.06;
+    opacity: 0.15;
 
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.25)
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.6) 100%,
+        rgba(255, 255, 255, 0)
       ),
       ${(props) => props.$iconPattern};
-
-    background-size: auto, 32px 32px;
-    background-repeat: repeat;
-    background-position: center;
+    background-size: 100% 100%, 32px 32px;
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-attachment: scroll, scroll;
 
     pointer-events: none;
     z-index: 0;
@@ -177,13 +178,15 @@ export const CategoryIcon = styled.div<CategoryIconColor>`
   background-color: color-mix(
     in srgb,
     ${(props) => props.$color},
-    transparent 10%
+    rgba(0, 0, 0, 1) 15%
   );
   width: fit-content;
   margin: 0 auto;
   border-radius: 50%;
   padding: 8px;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.2));
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.4);
 
   & > svg {
     padding: 4px;
@@ -192,9 +195,10 @@ export const CategoryIcon = styled.div<CategoryIconColor>`
 
 export const CategoryName = styled.h3`
   font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.base};
-  font-weight: 400;
-  color: ${(props) => props.theme.colors.text};
+  font-size: ${(props) => props.theme.fontSizes.lg};
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  color: white;
   transition: all 0.3s ease;
   margin-top: 8px;
 `;

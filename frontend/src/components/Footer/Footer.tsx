@@ -39,6 +39,14 @@ const Footer: React.FC = () => {
           <S.LogoImg src={Logo} alt="Common Scents Logo" />
         </S.ImgWrapper>
       </S.ContainerInner>
+
+      <S.TermsAndPrivacyWrapperOuter>
+        <S.TermsAndPrivacyWrapperInner>
+          <S.TermsLink to="/terms-of-service">Terms of Service</S.TermsLink>
+          &nbsp;<S.Delimeter>|</S.Delimeter>&nbsp;
+          <S.PrivacyLink to="/privacy-policy">Privacy Policy</S.PrivacyLink>
+        </S.TermsAndPrivacyWrapperInner>
+      </S.TermsAndPrivacyWrapperOuter>
       <S.Trademark>
         © {currentYear} Common Scents™. All rights reserved.
       </S.Trademark>

@@ -13,6 +13,7 @@ import SeasonLandingPage from "./pages/Seasons/LandingPage/SeasonLandingPage";
 import SeasonDetailPage from "./pages/Seasons/DetailPage/SeasonDetailPage";
 import CategoriesLandingPage from "./pages/Categories/Landing/CategoriesLandingPage";
 import CategoryDetailPage from "./pages/Categories/Detail/CategoryDetailPage";
+import NotFound from "./pages/NotFound/NotFound";
 import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
 import { guidesRoutes } from "./config/guideRoutes";
 import { academyRoutes } from "./config/academyRoute";
@@ -21,8 +22,10 @@ import About from "./pages/About/About";
 import Guides from "./pages/TipsAndGuides/Landing/Guides";
 import Academy from "./pages/Academy/Landing/Academy";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
-
 import { logPageView } from "./utils/analytics";
+
+import TermsOfService from "./pages/TermsOfService/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 
 function AnalyticsTracker() {
   const location = useLocation();
@@ -64,6 +67,10 @@ function AppRouter() {
             <Route path="/guides" element={<Guides />} />
             <Route path="/academy" element={<Academy />} />
 
+            {/* <Route path="/privacy-policy" element={<PrivacyPolicy />} /> */}
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
             {fragranceReviewRoutes.map(({ slug, component: Component }) => (
               <Route
                 key={slug}
@@ -98,6 +105,9 @@ function AppRouter() {
                 }
               />
             ))}
+
+            {/* Not Found */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
       </Router>

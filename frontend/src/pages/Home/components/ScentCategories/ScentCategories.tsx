@@ -49,10 +49,10 @@ export const ScentCategories: React.FC = () => {
                 <CarouselSlide key={category.slug}>
                   <S.CategoryCard
                     $iconPattern={iconPattern}
-                    $bgColor={category.color}
+                    $bgColor={category.iconBg}
                     onClick={() => handleCategoryClick(category.slug)}
                   >
-                    <S.CategoryIcon $color={category.iconColor}>
+                    <S.CategoryIcon $color={category.iconBg}>
                       <category.icon size={48} />
                     </S.CategoryIcon>
                     <S.CategoryName>{category.name}</S.CategoryName>

@@ -92,6 +92,7 @@ export interface Academy {
 export interface Category {
   name: string;
   icon: LucideIcon;
+  iconBg?: string;
   iconColor?: string;
   color: string;
   slug: string;

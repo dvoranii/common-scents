@@ -12,19 +12,65 @@ import {
 } from "./middlewares/security.middleware";
 import { getKillSwitchStatus } from "./utils/killswitch";
 
+const requiredEnvVars = ["FRONTEND_URL", "ADMIN_TOKEN", "NODE_ENV"];
+
+for (const envVar of requiredEnvVars) {
+  if (!process.env[envVar]) {
+    console.error(`❌ Missing required environment variable: ${envVar}`);
+    process.exit(1);
+  }
+}
+
+console.log("✓ All required environment variables are set");
+
 const app = express();
 
 app.set("trust proxy", ["loopback", "linklocal", "uniquelocal"]);
 
-app.use(helmet());
+app.use((_req, res, next) => {
+  res.removeHeader("X-Powered-By");
+  next();
+});
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://www.googletagmanager.com",
+          "https://www.google-analytics.com",
+          // "https://cdnjs.cloudflare.com", // If you're using any CDN scripts
+        ],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        imgSrc: ["'self'", "data:", "https:"],
+        connectSrc: [
+          "'self'",
+          "https://www.google-analytics.com",
+          "https://api.scraperapi.com",
+          process.env.FRONTEND_URL || "",
+        ].filter(Boolean),
+        fontSrc: ["'self'", "data:"],
+        objectSrc: ["'none'"],
+        upgradeInsecureRequests: [],
+      },
+    },
+    crossOriginEmbedderPolicy: false,
+  })
+);
 
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL,
-      "http://localhost:5173",
-      "http://localhost:4173",
-    ].filter(Boolean) as string[],
+    origin:
+      process.env.NODE_ENV === "production"
+        ? ([process.env.FRONTEND_URL].filter(Boolean) as string[])
+        : ([
+            process.env.FRONTEND_URL,
+            "http://localhost:5173",
+            "http://localhost:4173",
+          ].filter(Boolean) as string[]),
     credentials: true,
   })
 );

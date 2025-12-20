@@ -32,17 +32,19 @@ export const CategoryHeader = styled.div<CategoryHeaderProps>`
     right: 0;
     bottom: 0;
 
-    opacity: 0.06;
+    opacity: 0.15;
 
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.1),
-        rgba(255, 255, 255, 0.65)
+    background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.6) 100%,
+        rgba(255, 255, 255, 0)
       ),
       ${(props) => props.$iconPattern};
-    background-size: 80px 80px;
-    background-repeat: repeat;
-    background-position: center;
-    background-attachment: fixed;
+    background-size: 100% 100%, 80px 80px;
+    background-repeat: no-repeat, repeat;
+    background-position: center, center;
+    background-attachment: scroll, fixed;
 
     pointer-events: none;
   }
@@ -89,20 +91,35 @@ export const CategoryBodyWrapper = styled.div`
 
 interface CategoryIconProps {
   $color?: string;
+  $bgColor?: string;
 }
 
 export const CategoryIcon = styled.div<CategoryIconProps>`
   display: flex;
   justify-content: center;
-  color: ${(props) => props.$color || "darkbrown"};
+  color: white;
   filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.8));
+  background: ${(props) =>
+    props.$bgColor
+      ? `linear-gradient(
+        ${props.$bgColor}, 
+        color-mix(in srgb, ${props.$bgColor}, white 20%)
+      )`
+      : "#000"};
+  padding: 20px;
+  border-radius: 50%;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  & > svg {
+    padding: 8px;
+  }
 `;
 
 export const CategoryName = styled.h1`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxxl};
   color: ${(props) => props.theme.colors.text};
-  margin: 0;
+  margin-top: 1.2rem;
 `;
 
 export const CategoryDescription = styled.p`
@@ -116,11 +133,16 @@ export const CategoryDescription = styled.p`
 `;
 
 export const SectionTitle = styled.h3`
-  font-family: ${(props) => props.theme.fonts.heading2};
-  font-size: ${(props) => props.theme.fontSizes.xxxl};
+  font-family: ${(props) => props.theme.fonts.heading1};
+  font-size: clamp(1.775rem, 5vw, 2.4rem);
   text-align: center;
-  color: ${(props) => props.theme.colors.text};
+  color: rgb(38, 50, 70);
+  opacity: 0.95;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.25);
   margin-bottom: ${(props) => props.theme.spacing.xl};
+  width: fit-content;
+  display: flex;
+  justify-self: center;
 `;
 
 export const FragranceListPlaceholder = styled.section`
@@ -262,21 +284,57 @@ export const CharactersticsAndBestForSection = styled.section`
   max-width: 1200px;
   width: 90%;
 
-  @media screen and (max-width: 600px) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 2.4rem;
   }
 `;
+
 export const CharacteristicsSection = styled.div`
   margin: ${(props) => props.theme.spacing.xxxl} 0;
   flex: 1;
-  border-right: 1px solid grey;
   padding: 0 20px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      lightgrey 20%,
+      lightgrey 80%,
+      transparent
+    );
+
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    border-right: none;
+    padding: 0;
+
+    &::after {
+      display: none;
+    }
+  }
 `;
 
 export const BestForSection = styled.div`
   margin: ${(props) => props.theme.spacing.xxxl} 0;
   flex: 1;
-  padding: 0.75rem;
+  padding: 0 20px;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    padding: 0;
+    margin-top: 0;
+  }
 `;
 
 export const CharacteristicsGrid = styled.div`
@@ -307,10 +365,11 @@ export const CharacteristicChip = styled.span<{ $bgColour?: string }>`
     return `linear-gradient(180deg, ${lightColor} 0%, ${baseColor} 50%, ${darkColor} 100%)`;
   }};
   color: white;
-  padding: ${(props) => props.theme.spacing.sm};
+  padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: ${(props) => props.theme.fontSizes.sm};
-  font-weight: 500;
+  font-weight: 200;
+  letter-spacing: 0.5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
