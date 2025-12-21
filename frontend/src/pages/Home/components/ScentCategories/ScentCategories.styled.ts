@@ -74,7 +74,10 @@ export const CategoryCard = styled.div<{
   $bgColor?: string;
   $iconPattern: string;
 }>`
-  background: ${(props) => props.$bgColor};
+  background: ${(props) =>
+    props.$bgColor
+      ? `linear-gradient(135deg, color-mix(in srgb, ${props.$bgColor}, transparent 20%), color-mix(in srgb, ${props.$bgColor}, transparent 10%))`
+      : "#f5f5f5"};
   padding: ${(props) => props.theme.spacing.xl};
   border-radius: ${(props) => props.theme.spacing.sm};
   text-align: center;
