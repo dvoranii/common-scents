@@ -21,6 +21,7 @@ export const summarizeFragranceReviews = async (
     }
 
     const MAX_REVIEWS = 25;
+
     const REVIEW_COUNT = Math.min(numberOfReviews || 10, MAX_REVIEWS);
 
     console.log(
