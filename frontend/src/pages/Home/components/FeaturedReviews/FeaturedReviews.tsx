@@ -5,7 +5,6 @@ import {
   SectionContent,
   SectionTitle,
 } from "../../../../styles/CommonStyles";
-// import { SeeMoreWrapper, GradientHoverLink } from "../../Home.styled";
 import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 export const FeaturedReviews: React.FC = () => {

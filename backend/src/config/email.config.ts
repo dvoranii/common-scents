@@ -1,0 +1,4 @@
+export const EMAIL_CONFIG = {
+  WELCOME_EMAIL_DELAY_MS: 30000,
+  NEWSLETTER_LIST_ID: 3,
+} as const;

@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import { json } from "body-parser";
 import fragranceRouter from "./routes/fragrance.routes";
+import newsletterRouter from "./routes/newsletter.routes";
 import {
   apiRateLimiter,
   speedLimiter,
@@ -12,7 +13,14 @@ import {
 } from "./middlewares/security.middleware";
 import { getKillSwitchStatus } from "./utils/killswitch";
 
-const requiredEnvVars = ["FRONTEND_URL", "ADMIN_TOKEN", "NODE_ENV"];
+const requiredEnvVars = [
+  "FRONTEND_URL",
+  "ADMIN_TOKEN",
+  "NODE_ENV",
+  "BREVO_API_KEY",
+  "SENDER_EMAIL",
+  "SENDER_NAME",
+];
 
 for (const envVar of requiredEnvVars) {
   if (!process.env[envVar]) {
@@ -42,7 +50,6 @@ app.use(
           "'unsafe-inline'",
           "https://www.googletagmanager.com",
           "https://www.google-analytics.com",
-          // "https://cdnjs.cloudflare.com", // If you're using any CDN scripts
         ],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", "data:", "https:"],
@@ -86,6 +93,7 @@ app.use(
   apiRateLimiter
 );
 
+app.use("/api", newsletterRouter);
 app.use("/api", fragranceRouter);
 
 app.get("/health", (_req, res) => {

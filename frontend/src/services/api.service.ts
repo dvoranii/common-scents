@@ -28,3 +28,29 @@ export const summarizeFragranceReviews = async (
     throw new Error(message);
   }
 };
+
+export const subscribeToNewsletter = async (email: string) => {
+  try {
+    const response = await fetch(`${BASE_URL}/api/newsletter/subscribe`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || "Failed to subscribe to newsletter");
+    }
+
+    return await response.json();
+  } catch (error) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Network error when trying to subscribe.";
+    throw new Error(message);
+  }
+};

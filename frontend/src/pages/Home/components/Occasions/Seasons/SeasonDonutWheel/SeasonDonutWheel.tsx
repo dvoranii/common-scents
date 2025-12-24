@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  DonutContainer,
-  DonutSegment,
-  SegmentBackground,
-  InnerCircle,
-} from "./SeasonDonutWheel.styled";
+import * as S from "./SeasonDonutWheel.styled";
 
 interface SeasonDonutWheelProps {
   rotation: number;
@@ -53,57 +48,57 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
     ? `url(${autumnImg})`
     : "linear-gradient(135deg, #fa709a 0%, #fee140 100%)";
   return (
-    <DonutContainer $rotation={rotation}>
-      <DonutSegment
+    <S.DonutContainer $rotation={rotation}>
+      <S.DonutSegment
         $rotation={0}
         $background={winterBackground}
         $isActive={activeSegment === "winter"}
       >
-        <SegmentBackground
+        <S.SegmentBackground
           $background={winterBackground}
           $segmentRotation={0}
           $containerRotation={rotation}
         />
-      </DonutSegment>
+      </S.DonutSegment>
 
-      <DonutSegment
+      <S.DonutSegment
         $rotation={90}
         $background={springBackground}
         $isActive={activeSegment === "spring"}
       >
-        <SegmentBackground
+        <S.SegmentBackground
           $background={springBackground}
           $segmentRotation={0}
           $containerRotation={rotation}
         />
-      </DonutSegment>
+      </S.DonutSegment>
 
-      <DonutSegment
+      <S.DonutSegment
         $rotation={180}
         $background={summerBackground}
         $isActive={activeSegment === "summer"}
       >
-        <SegmentBackground
+        <S.SegmentBackground
           $background={summerBackground}
           $segmentRotation={0}
           $containerRotation={rotation}
         />
-      </DonutSegment>
+      </S.DonutSegment>
 
-      <DonutSegment
+      <S.DonutSegment
         $rotation={270}
         $background={autumnBackground}
         $isActive={activeSegment === "autumn"}
       >
-        <SegmentBackground
+        <S.SegmentBackground
           $background={autumnBackground}
           $segmentRotation={0}
           $containerRotation={rotation}
         />
-      </DonutSegment>
+      </S.DonutSegment>
 
-      <InnerCircle />
-    </DonutContainer>
+      <S.InnerCircle />
+    </S.DonutContainer>
   );
 };
 
