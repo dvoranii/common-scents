@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const NotePyramidsExplained: React.FC = () => {
   return (
-    <AcademyWrapper slug="note-pyramids-explained">
+    <AcademyWrapper
+      slug="note-pyramids-explained"
+      seoTitle="Fragrance Note Pyramids Explained: Top, Middle & Base Notes Guide"
+      seoDescription="Learn how fragrance note pyramids work. Understand top notes, middle notes, and base notes. Discover how perfumers create scent journeys that evolve over hours."
+    >
       <S.Intro>
         Like a musical composition or architectural structure, every fragrance
         is built with intention and artistry. The note pyramid—comprising top,
@@ -90,16 +94,16 @@ const NotePyramidsExplained: React.FC = () => {
         <S.Paragraph>
           When testing fragrances, always allow time for full development:
         </S.Paragraph>
-        <S.List>
-          <S.ListItem>
+        <S.List role="list" aria-label="Fragrance testing timeline">
+          <S.ListItem role="listitem">
             <S.Highlight>First 15 minutes:</S.Highlight> Evaluate top notes and
             initial impression
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>1-2 hours:</S.Highlight> Experience the heart notes and
             true character
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>4+ hours:</S.Highlight> Judge the base notes and
             overall longevity
           </S.ListItem>

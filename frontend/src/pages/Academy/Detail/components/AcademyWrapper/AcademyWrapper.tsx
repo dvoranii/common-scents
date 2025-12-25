@@ -3,16 +3,21 @@ import { academy } from "../../../../../data/academy";
 import AcademyTemplate from "../AcademyTemplate/AcademyTemplate";
 import PageNavigation from "../../../../../components/PageNavigation/PageNavigation";
 import KeyboardNavTooltip from "../../../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
+
 interface AcademyWrapperProps {
   slug: string;
   children: React.ReactNode;
   showNavigation?: boolean;
+  seoTitle?: string;
+  seoDescription?: string;
 }
 
 const AcademyWrapper: React.FC<AcademyWrapperProps> = ({
   slug,
   children,
   showNavigation = true,
+  seoTitle,
+  seoDescription,
 }) => {
   const academyItem = academy.find((a) => a.slug === slug);
 
@@ -26,6 +31,9 @@ const AcademyWrapper: React.FC<AcademyWrapperProps> = ({
       date={academyItem.date}
       time={academyItem.time}
       category={academyItem.category!}
+      seoTitle={seoTitle}
+      seoDescription={seoDescription}
+      canonical={`https://commonscentshq.com/academy/${slug}`}
     >
       {showNavigation && <KeyboardNavTooltip section={"academy"} />}
       {children}

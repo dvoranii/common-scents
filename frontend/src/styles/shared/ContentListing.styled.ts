@@ -8,7 +8,10 @@ export const ContentGrid = styled.div`
   margin: 0 auto;
 `;
 
-export const ContentCard = styled(Link)`
+export const ContentCard = styled(Link)<{
+  role?: string;
+  "aria-label"?: string;
+}>`
   padding: ${(props) => props.theme.spacing.lg};
   border-bottom: 1px solid ${(props) => props.theme.colors.border || "#e0e0e0"};
   transition: all 0.3s ease;
@@ -76,7 +79,10 @@ export const DateTimeWrapper = styled.div`
   }
 `;
 
-export const DateTimeText = styled.p`
+export const DateTimeText = styled.span<{
+  as?: React.ElementType;
+  dateTime?: string;
+}>`
   font-style: italic;
   color: #333333;
   font-size: ${(props) => props.theme.fontSizes.sm};

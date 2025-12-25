@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const EvolutionOfModernPerfumery: React.FC = () => {
   return (
-    <AcademyWrapper slug="evolution-of-modern-perfumery">
+    <AcademyWrapper
+      slug="evolution-of-modern-perfumery"
+      seoTitle="Evolution of Modern Perfumery: From Animalics to Clean Scents | Common Scents Academy"
+      seoDescription="Trace the 200-year evolution of perfumery from animal-derived ingredients to modern synthetic molecules. Learn how ethical concerns and technology transformed fragrance creation."
+    >
       <S.Intro>
         The journey of perfumery from ancient animal-derived ingredients to
         today's clean, synthetic molecules reflects not just technological

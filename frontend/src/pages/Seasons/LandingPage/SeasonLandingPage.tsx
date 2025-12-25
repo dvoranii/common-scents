@@ -18,6 +18,9 @@ const SeasonLandingPage: React.FC = () => {
       tagline="Discover the perfect fragrance for every season"
       cardPadding="0px"
       cardTextPadding="0px 20px 40px 20px"
+      seoTitle="Seasonal Fragrance Guide | Best Scents for Every Season | Common Scents HQ"
+      seoDescription="Complete seasonal fragrance guide. Discover warm winter scents, fresh summer colognes, and transitional perfumes for spring and fall. Match your scent to the season."
+      canonical="https://commonscentshq.com/seasons"
     />
   );
 };

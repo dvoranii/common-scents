@@ -67,7 +67,6 @@ function AppRouter() {
             <Route path="/guides" element={<Guides />} />
             <Route path="/academy" element={<Academy />} />
 
-            {/* <Route path="/privacy-policy" element={<PrivacyPolicy />} /> */}
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
@@ -106,7 +105,6 @@ function AppRouter() {
               />
             ))}
 
-            {/* Not Found */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

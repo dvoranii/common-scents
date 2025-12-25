@@ -1,7 +1,9 @@
 import React, { useMemo, useState } from "react";
-import SearchAndFilter, {
-  type TagGroup,
-} from "../../../components/SearchAndFilter/SearchAndFilter";
+import SearchAndFilter from "../../../components/SearchAndFilter/SearchAndFilter";
+import {
+  generateGuideTagGroups,
+  getTagColorFromGroups,
+} from "../../../utils/tagUtils";
 import { guides } from "../../../data/guides";
 import type { Guide as GuideItem } from "../../../types/fragrance.types";
 import {
@@ -26,49 +28,39 @@ import {
   DateTimeWrapper,
 } from "../../../styles/shared/ContentListing.styled";
 import CommonScentsLogo from "/assets/images/cs-bulb.png";
+import { SEO } from "../../../components/SEO/SEO";
 
 const Guides: React.FC = () => {
   const [visibleCount, setVisibleCount] = useState(4);
 
-  const tagGroups: TagGroup[] = useMemo(() => {
-    const topicsMap = new Map<string, number>();
-    const tagsMap = new Map<string, number>();
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Common Scents Guides",
+    description:
+      "Practical fragrance guides and tips for enthusiasts. Learn how to choose, wear, and care for fragrances.",
+    url: "https://commonscentshq.com/guides",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: guides.slice(0, 10).map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "HowTo",
+          name: item.title,
+          description: item.description,
+          url: `https://commonscentshq.com/guides/${item.slug}`,
+        },
+      })),
+    },
+  };
 
-    guides.forEach((item) => {
-      item.topics?.forEach((topic) => {
-        topicsMap.set(topic, (topicsMap.get(topic) || 0) + 1);
-      });
-      item.tags?.forEach((tag) => {
-        tagsMap.set(tag, (tagsMap.get(tag) || 0) + 1);
-      });
-    });
-
-    return [
-      {
-        title: "Topics",
-        tags: Array.from(topicsMap.entries()).map(([name, count]) => ({
-          name,
-          count,
-          color: "#3b82f6",
-        })),
-      },
-      {
-        title: "Tags",
-        tags: Array.from(tagsMap.entries()).map(([name, count]) => ({
-          name,
-          count,
-          color: "#10b981",
-        })),
-      },
-    ];
+  const tagGroups = useMemo(() => {
+    return generateGuideTagGroups(guides);
   }, []);
 
   const getTagColor = (tagName: string): string => {
-    for (const group of tagGroups) {
-      const tag = group.tags.find((t) => t.name === tagName);
-      if (tag) return tag.color;
-    }
-    return "#6b7280";
+    return getTagColorFromGroups(tagName, tagGroups);
   };
 
   const handleSeeMore = () => {
@@ -77,6 +69,14 @@ const Guides: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title="Common Scents Guides | Practical Fragrance Tips & How-To's"
+        description="Step-by-step fragrance guides and practical tips. Learn how to choose, apply, layer, and store fragrances like an expert."
+        canonical="https://commonscentshq.com/guides"
+        image="https://commonscentshq.com/og-guides.jpg"
+        structuredData={structuredData}
+      />
+
       <HeroSection>
         <HeroContent $padding>
           <LogoContainer>

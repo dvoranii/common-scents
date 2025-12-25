@@ -1,6 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 
 export interface Fragrance {
+  description: string;
   id: string;
   slug: string;
   name: string;

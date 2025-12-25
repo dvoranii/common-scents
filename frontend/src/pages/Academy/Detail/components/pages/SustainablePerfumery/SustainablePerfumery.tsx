@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const SustainablePerfumery: React.FC = () => {
   return (
-    <AcademyWrapper slug="sustainable-perfumery">
+    <AcademyWrapper
+      slug="sustainable-perfumery"
+      seoTitle="Sustainable Perfumery Guide: Ethical Sourcing & Green Fragrance Practices"
+      seoDescription="Complete guide to sustainable and ethical perfumery. Learn about green chemistry, fair trade ingredients, and eco-friendly fragrance brands making a difference."
+    >
       <S.Intro>
         As consumers become increasingly conscious of their environmental
         impact, the fragrance industry is undergoing a quiet revolution.

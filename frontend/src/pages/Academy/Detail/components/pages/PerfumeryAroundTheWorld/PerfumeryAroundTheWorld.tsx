@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const PerfumeryAroundTheWorld: React.FC = () => {
   return (
-    <AcademyWrapper slug="perfumery-around-the-world">
+    <AcademyWrapper
+      slug="perfumery-around-the-world"
+      seoTitle="Global Perfumery Traditions: French, Middle Eastern & Italian Fragrance Styles"
+      seoDescription="Explore global perfume traditions from French elegance to Middle Eastern opulence and Italian passion. Discover how culture shapes fragrance creation worldwide."
+    >
       <S.Intro>
         Fragrance is a universal language, but each culture speaks it with its
         own distinct accent. From the elegant sophistication of French perfumery
@@ -32,22 +36,21 @@ const PerfumeryAroundTheWorld: React.FC = () => {
         <S.Paragraph>
           Key characteristics of French perfumery include:
         </S.Paragraph>
-        <S.List>
-          <S.ListItem>
+        <S.List role="list" aria-label="Characteristics of French perfumery">
+          <S.ListItem role="listitem">
             Emphasis on classic fragrance families (chypre, fougère, oriental)
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             Sophisticated use of natural ingredients from Grasse region
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             Focus on elegance and timeless appeal over trendiness
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             Masterful blending that creates seamless transitions between notes
           </S.ListItem>
         </S.List>
       </S.Section>
-
       <S.Section>
         <S.SectionTitle>
           Middle Eastern Opulence: Richness and Tradition

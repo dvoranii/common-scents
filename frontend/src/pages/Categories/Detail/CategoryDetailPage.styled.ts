@@ -132,7 +132,7 @@ export const CategoryDescription = styled.p`
   padding: 0 ${(props) => props.theme.spacing.lg};
 `;
 
-export const SectionTitle = styled.h3`
+export const SectionTitle = styled.h3<{ as?: React.ElementType }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: clamp(1.775rem, 5vw, 2.4rem);
   text-align: center;
@@ -169,22 +169,37 @@ export const ImgAndDescriptionWrapper = styled.div`
   gap: 2.4rem;
   max-width: 1600px;
   margin: 0 auto;
+  /* align-items: flex-start; */
 
   @media screen and (max-width: 900px) {
     flex-direction: column;
+    gap: 1rem; // Even tighter gap
   }
 `;
+
 export const ImgWrapper = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    flex: none;
+    margin-bottom: 0;
+  }
 `;
+
 export const CategoryImg = styled.img`
   object-fit: contain;
   aspect-ratio: 6/4;
+  background-color: transparent;
+  width: 100%;
+  max-width: 600px;
 
   @media screen and (max-width: 900px) {
-    min-width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    max-height: 350px;
   }
 `;
 
@@ -192,7 +207,13 @@ export const DescriptionWrapper = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    flex: none;
+  }
 `;
+
 export const Description = styled.p`
   font-size: ${(props) => props.theme.fontSizes.lg};
   color: ${(props) => props.theme.colors.text};
@@ -280,12 +301,13 @@ export const NoteProfileCard = styled.div`
   }
 `;
 
-export const NoteProfileTitle = styled.h4`
+export const NoteProfileTitle = styled.h4<{ as?: React.ElementType }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxl};
   color: #444444;
   margin-bottom: ${(props) => props.theme.spacing.sm};
   text-align: center;
+  min-height: 2.5em;
 
   transition: all 200ms ease;
 
@@ -333,6 +355,9 @@ export const ExampleImage = styled.img`
   border-radius: 8px;
   transition: transform 0.2s ease;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+
+  // Add aspect-ratio for CLS
+  aspect-ratio: 1/1;
 
   &:hover {
     transform: scale(1.1) translateZ(8px);

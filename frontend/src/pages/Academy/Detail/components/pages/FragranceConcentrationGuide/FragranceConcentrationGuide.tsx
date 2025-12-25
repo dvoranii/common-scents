@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const FragranceConcentrationGuide: React.FC = () => {
   return (
-    <AcademyWrapper slug="fragrance-concentration-guide">
+    <AcademyWrapper
+      slug="fragrance-concentration-guide"
+      seoTitle="Fragrance Concentration Guide: EDT vs EDP vs Parfum | Common Scents"
+      seoDescription="Complete guide to fragrance concentrations. Understand the differences between Eau de Toilette, Eau de Parfum, and Parfum. Learn which concentration lasts longest and when to wear each."
+    >
       <S.Intro>
         Understanding fragrance concentrations is essential for choosing the
         right scent for any occasion. From light, refreshing Eau de Toilette to
@@ -89,24 +93,27 @@ const FragranceConcentrationGuide: React.FC = () => {
           When selecting a concentration, consider your lifestyle, climate, and
           personal preferences:
         </S.Paragraph>
-        <S.List>
-          <S.ListItem>
+        <S.List
+          role="list"
+          aria-label="Tips for choosing fragrance concentration"
+        >
+          <S.ListItem role="listitem">
             <S.Highlight>For office or casual wear:</S.Highlight> EDT offers
             subtle presence
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>For all-day events:</S.Highlight> EDP provides reliable
             longevity
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>For special occasions:</S.Highlight> Parfum delivers
             luxury and intensity
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>For hot climates:</S.Highlight> Lighter concentrations
             prevent overwhelming scent
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>For sensitive skin:</S.Highlight> Higher concentrations
             may require careful application
           </S.ListItem>

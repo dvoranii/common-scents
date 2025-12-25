@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const OlfactoryFatigue: React.FC = () => {
   return (
-    <AcademyWrapper slug="olfactory-fatigue">
+    <AcademyWrapper
+      slug="olfactory-fatigue"
+      seoTitle="Olfactory Fatigue Explained: Why You Stop Smelling Your Fragrance"
+      seoDescription="Learn about olfactory fatigue (nose blindness) and why you stop smelling your perfume. Discover science-backed strategies to prevent nose blindness and enjoy your scents longer."
+    >
       <S.Intro>
         Have you ever noticed your favorite fragrance seems to disappear shortly
         after application, while others can still smell it on you hours later?
@@ -67,28 +71,31 @@ const OlfactoryFatigue: React.FC = () => {
           While you can't completely prevent olfactory fatigue, these strategies
           can help you maintain awareness of your fragrance throughout the day:
         </S.Paragraph>
-        <S.List>
-          <S.ListItem>
+        <S.List
+          role="list"
+          aria-label="Strategies to prevent olfactory fatigue"
+        >
+          <S.ListItem role="listitem">
             <S.Highlight>Rotate your fragrances:</S.Highlight> Avoid wearing the
             same scent consecutive days
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Apply to clothing:</S.Highlight> Spray on fabric where
             scent evolves differently
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Use pulse points strategically:</S.Highlight> Avoid
             spraying directly under your nose
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Take scent breaks:</S.Highlight> Go outside or to a
             different environment periodically
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Smell coffee beans:</S.Highlight> A traditional
             perfumer's trick to reset your nose
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Hydrate your skin:</S.Highlight> Well-moisturized skin
             helps fragrance evolve properly
           </S.ListItem>

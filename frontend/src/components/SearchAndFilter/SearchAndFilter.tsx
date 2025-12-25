@@ -22,15 +22,7 @@ import {
 } from "./SearchAndFilter.styled";
 import { useDebounce } from "../../hooks/useDebounce";
 import { useSearchParams } from "react-router-dom";
-
-export interface TagGroup {
-  title: string;
-  tags: Array<{
-    name: string;
-    count: number;
-    color: string;
-  }>;
-}
+import type { TagGroup } from "../../types/data.types";
 
 export interface SearchAndFilterConfig<T> {
   items: T[];

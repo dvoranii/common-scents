@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const Header = styled.header`
   text-align: center;
   margin-bottom: 60px;
@@ -18,11 +19,14 @@ export const IntroText = styled.p`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const CardGrid = styled.div`
+export const CardGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 40px;
+  list-style: none;
+  padding: 0;
+  place-items: center;
 `;
 
 export const Card = styled.div<{ $bgColor?: string; $padding?: string }>`
@@ -34,7 +38,12 @@ export const Card = styled.div<{ $bgColor?: string; $padding?: string }>`
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  min-height: 270px;
+  height: 80%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &:hover {
     transform: translateY(-5px);
@@ -54,26 +63,30 @@ export const CardImage = styled.img`
   height: 200px;
   object-fit: cover;
   margin-bottom: 20px;
+  background-color: #f5f5f5;
+  aspect-ratio: 3/2;
 `;
 
-export const CardTitle = styled.h3`
+export const CardTitle = styled.h3<{ as?: React.ElementType }>`
   font-size: 1.5rem;
   font-family: "Playfair Display", serif;
   margin-bottom: 8px;
   color: ${(props) => props.theme.colors.text};
+  min-height: 2.5em;
 `;
 
 export const CardDescription = styled.p`
   font-size: 1rem;
   line-height: 1.6;
   color: ${(props) => props.theme.colors.text};
+  text-wrap: pretty;
 `;
 
 export const CardTextWrapper = styled.div<{ $padding?: string }>`
   padding: ${(props) => (props.$padding ? props.$padding : "0px")};
 `;
 
-export const ItemsSection = styled.div`
+export const ItemsSection = styled.section`
   margin-top: 60px;
 
   &:first-child {
@@ -81,7 +94,7 @@ export const ItemsSection = styled.div`
   }
 `;
 
-export const SectionSubtitle = styled.h2`
+export const SectionSubtitle = styled.h2<{ as?: React.ElementType }>`
   font-size: 2rem;
   font-family: "Playfair Display", serif;
   color: ${(props) => props.theme.colors.text};

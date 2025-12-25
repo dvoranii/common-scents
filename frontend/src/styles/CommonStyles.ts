@@ -58,6 +58,7 @@ export const SectionTitle = styled.h2<{
   $padding?: string;
   $color?: boolean;
   $animate?: boolean;
+  as?: React.ElementType;
 }>`
   font-family: ${(props) => props.theme.fonts.heading1};
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
@@ -200,6 +201,7 @@ export const LogoContainer = styled.div<{ $animateInfinity?: boolean }>`
     max-width: 250px;
     opacity: 0;
     animation: gentleReveal 900ms ease-out 150ms forwards;
+    height: auto;
     ${(props) =>
       props.$animateInfinity &&
       `
@@ -239,6 +241,9 @@ export const LogoContainer = styled.div<{ $animateInfinity?: boolean }>`
         filter: brightness(1.15) drop-shadow(0 0 8px rgba(255, 255, 220, 0.35));
       }
     }
+
+    aspect-ratio: 153/205;
+    background-color: transparent;
   }
 `;
 

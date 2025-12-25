@@ -7,11 +7,14 @@ export const PageWrapper = styled.div`
   padding: ${(props) => props.theme.spacing.xl};
 `;
 
-export const FragranceGrid = styled.div`
+export const FragranceGrid = styled.ul`
+  // Changed from div to ul
   display: grid;
   grid-template-columns: repeat(4, minmax(280px, 1fr));
   gap: ${(props) => props.theme.spacing.lg};
   margin-top: ${(props) => props.theme.spacing.xl};
+  list-style: none;
+  padding: 0;
 
   & > * {
     max-width: 320px;
@@ -35,7 +38,10 @@ export const FragranceGrid = styled.div`
   }
 `;
 
-export const ThumbnailCard = styled(Link)`
+export const ThumbnailCard = styled(Link)<{
+  role?: string;
+  "aria-label"?: string;
+}>`
   width: 100%;
   display: block;
   background: white;
@@ -45,6 +51,7 @@ export const ThumbnailCard = styled(Link)`
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
 
   &:hover {
     transform: translateY(-2px);
@@ -56,8 +63,12 @@ export const ThumbnailImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: contain;
+  background-color: transparent;
+  aspect-ratio: 16/10;
 `;
+
 export const NameAndHouseWrapper = styled.div``;
+
 export const ThumbnailContent = styled.div`
   padding: ${(props) => props.theme.spacing.lg};
   background: linear-gradient(to bottom, #fff, #eee);
@@ -75,11 +86,12 @@ export const FragranceHouse = styled.div`
   margin-bottom: 4px;
 `;
 
-export const FragranceName = styled.h3`
+export const FragranceName = styled.h3<{ as?: React.ElementType }>`
   font-size: ${(props) => props.theme.fontSizes.lg};
   font-weight: 600;
   color: #1f2937;
   margin: 0 0 8px 0;
+  min-height: 2.8em;
 `;
 
 export const FragranceGender = styled.div`

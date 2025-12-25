@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const WhatMakesAFragrance: React.FC = () => {
   return (
-    <AcademyWrapper slug="what-makes-a-fragrance">
+    <AcademyWrapper
+      slug="what-makes-a-fragrance"
+      seoTitle="What Makes a Fragrance: Natural vs Synthetic Ingredients Explained"
+      seoDescription="Learn what goes into perfume creation. Understand natural ingredients vs synthetic molecules and how perfumers combine them to create memorable scents."
+    >
       <S.Intro>
         Every fragrance tells a story through chemistry—a carefully orchestrated
         symphony of natural essences and synthetic molecules that dance together

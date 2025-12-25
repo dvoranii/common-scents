@@ -26,6 +26,9 @@ const OccasionLandingPage: React.FC = () => {
       tagline="Know the best time and occasion to wear specific fragrances"
       cardPadding="0px"
       cardTextPadding="0px 20px 40px 20px"
+      seoTitle="Fragrance Occasions Guide | Best Scents for Events & Seasons | Common Scents"
+      seoDescription="Complete guide to choosing fragrances for occasions and seasons. Find perfect scents for work, dates, seasons, and special events with expert recommendations."
+      canonical="https://commonscentshq.com/occasions"
     />
   );
 };

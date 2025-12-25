@@ -38,3 +38,22 @@ export interface BestForItem {
   text: string;
   color: string;
 }
+
+export interface Tag {
+  name: string;
+  type:
+    | "brand"
+    | "perfumer"
+    | "season"
+    | "occasion"
+    | "category"
+    | "academy"
+    | "guide";
+  color: string;
+  count?: number;
+}
+
+export interface TagGroup {
+  title: string;
+  tags: Tag[];
+}

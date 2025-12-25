@@ -4,7 +4,11 @@ import * as S from "../../../components/AcademyTemplate/AcademyTemplate.styled";
 
 const HistoryOfCreed: React.FC = () => {
   return (
-    <AcademyWrapper slug="history-of-creed">
+    <AcademyWrapper
+      slug="history-of-creed"
+      seoTitle="History of Creed Perfume House | 260 Years of Fragrance Excellence"
+      seoDescription="Explore the 260-year history of Creed perfume house, from royal beginnings to modern luxury fragrances. Learn about generational craftsmanship and iconic scents."
+    >
       <S.Intro>
         For over 260 years, the House of Creed has stood as a testament to
         craftsmanship, luxury, and olfactory artistry. What began as a bespoke
@@ -39,22 +43,21 @@ const HistoryOfCreed: React.FC = () => {
           unique vision while maintaining the house's core values of quality and
           craftsmanship.
         </S.Paragraph>
-        <S.List>
-          <S.ListItem>
+        <S.List role="list" aria-label="Creed family generations">
+          <S.ListItem role="listitem">
             <S.Highlight>James Henry Creed (1760-1824)</S.Highlight> -
             Established the house and its royal clientele
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Henry Creed (1824-1854)</S.Highlight> - Expanded into
             European royal courts
           </S.ListItem>
-          <S.ListItem>
+          <S.ListItem role="listitem">
             <S.Highlight>Olivier Creed (Current)</S.Highlight> - Sixth
             generation master perfumer
           </S.ListItem>
         </S.List>
       </S.Section>
-
       <S.Section>
         <S.SectionTitle>Modern Legacy</S.SectionTitle>
         <S.Paragraph>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import {
   getAllCategories,
@@ -12,6 +12,7 @@ import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { LucideIcon } from "lucide-react";
 import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
+import { SEO } from "../../../components/SEO/SEO"; // Add SEO import
 
 interface TiltOptions {
   max?: number;
@@ -43,6 +44,24 @@ const CategoryDetailPage: React.FC = () => {
   const details = categorySlug ? categoriesDetail[categorySlug] : undefined;
   const categories = getAllCategories();
 
+  const structuredData = useMemo(() => {
+    if (!category || !details) return undefined;
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "ItemPage",
+      name: `${category.name} Fragrances - Common Scents HQ`,
+      description: details.fullDescription || category.description,
+      url: `https://commonscentshq.com/categories/${categorySlug}`,
+      mainEntity: {
+        "@type": "DefinedTerm",
+        name: category.name,
+        description: details.fullDescription || category.description,
+        inDefinedTermSet: "Fragrance Categories",
+      },
+    };
+  }, [category, details, categorySlug]);
+
   const iconPattern = getIconDataUri(
     category?.icon,
     category?.iconBg || "#000000"
@@ -63,104 +82,162 @@ const CategoryDetailPage: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
+  const seoTitle = `${category.name} Fragrances | Notes, Characteristics & Recommendations`;
+  const seoDescription =
+    details?.fullDescription ||
+    `${
+      category.name
+    } fragrances explained. Learn about signature notes, characteristics, and find the perfect ${category.name.toLowerCase()} scent for any occasion.`;
+
   return (
-    <S.PageWrapper>
-      <KeyboardNavTooltip section="scent-categories" />
-      <S.CategoryHeader $bgColor={category.color} $iconPattern={iconPattern}>
-        <S.CategoryIcon $bgColor={category.iconBg} $color={category.iconColor}>
-          <category.icon size={96} />
-        </S.CategoryIcon>
-        <S.CategoryName>{category.name}</S.CategoryName>
-        {details?.subtitle && (
-          <S.CategorySubtitle>{details.subtitle}</S.CategorySubtitle>
-        )}
-      </S.CategoryHeader>
+    <>
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonical={`https://commonscentshq.com/categories/${categorySlug}`}
+        image={details?.image}
+        structuredData={structuredData}
+      />
 
-      <S.CategoryBodyWrapper>
-        <S.ImgAndDescriptionWrapper>
-          <S.ImgWrapper>
-            <S.CategoryImg src={details?.image} />
-          </S.ImgWrapper>
-          <S.DescriptionWrapper>
-            <S.Description>
-              {details?.fullDescription || category.description}
-            </S.Description>
-          </S.DescriptionWrapper>
-        </S.ImgAndDescriptionWrapper>
+      <main>
+        <KeyboardNavTooltip section="scent-categories" />
+        <S.CategoryHeader
+          $bgColor={category.color}
+          $iconPattern={iconPattern}
+          role="banner"
+          aria-labelledby="category-title"
+        >
+          <S.CategoryIcon
+            $bgColor={category.iconBg}
+            $color={category.iconColor}
+            aria-hidden="true"
+          >
+            <category.icon size={96} />
+          </S.CategoryIcon>
+          <S.CategoryName id="category-title">{category.name}</S.CategoryName>
+          {details?.subtitle && (
+            <S.CategorySubtitle>{details.subtitle}</S.CategorySubtitle>
+          )}
+        </S.CategoryHeader>
 
-        {details?.noteProfiles && details.noteProfiles.length > 0 && (
-          <S.NoteProfilesSection>
-            <SectionTitle $leftAligned $color>
-              Signature Notes
-            </SectionTitle>
-            <S.NoteProfileGrid>
-              {details.noteProfiles.map((profile) => (
-                <Tilt key={profile.title} options={tiltOptions}>
-                  <S.NoteProfileCard key={profile.title}>
-                    <S.NoteProfileTitle>{profile.title}</S.NoteProfileTitle>
-                    <S.NoteProfileDescription>
-                      {profile.description}
-                    </S.NoteProfileDescription>
-                    <S.ExampleNotes>
-                      {profile.examples.map((example, index) => (
-                        <S.ExampleImage
-                          key={index}
-                          src={example.image}
-                          alt={example.alt}
-                          title={example.title}
-                        />
-                      ))}
-                    </S.ExampleNotes>
-                  </S.NoteProfileCard>
-                </Tilt>
-              ))}
-            </S.NoteProfileGrid>
-          </S.NoteProfilesSection>
-        )}
+        <S.CategoryBodyWrapper>
+          <S.ImgAndDescriptionWrapper>
+            <S.ImgWrapper>
+              <S.CategoryImg
+                src={details?.image}
+                alt={`${category.name} fragrance category visual representation`}
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+              />
+            </S.ImgWrapper>
+            <S.DescriptionWrapper>
+              <S.Description>
+                {details?.fullDescription || category.description}
+              </S.Description>
+            </S.DescriptionWrapper>
+          </S.ImgAndDescriptionWrapper>
 
-        <S.CharactersticsAndBestForSection>
-          {details?.characteristics && details.characteristics.length > 0 && (
-            <S.CharacteristicsSection>
-              <S.SectionTitle>Key&nbsp;Characteristics</S.SectionTitle>
-              <S.CharacteristicsGrid>
-                {details.characteristics.map((characteristic) => (
-                  <S.CharacteristicChip
-                    key={characteristic.text}
-                    $bgColour={characteristic.color}
+          {details?.noteProfiles && details.noteProfiles.length > 0 && (
+            <S.NoteProfilesSection aria-labelledby="signature-notes">
+              <SectionTitle $leftAligned $color as="h2" id="signature-notes">
+                Signature Notes
+              </SectionTitle>
+              <S.NoteProfileGrid
+                role="list"
+                aria-label={`${category.name} signature note profiles`}
+              >
+                {details.noteProfiles.map((profile) => (
+                  <Tilt
+                    key={profile.title}
+                    options={tiltOptions}
+                    aria-label={`${profile.title} note profile`}
                   >
-                    {characteristic.text}
-                  </S.CharacteristicChip>
+                    <S.NoteProfileCard role="listitem">
+                      <S.NoteProfileTitle as="h3">
+                        {profile.title}
+                      </S.NoteProfileTitle>
+                      <S.NoteProfileDescription>
+                        {profile.description}
+                      </S.NoteProfileDescription>
+                      <S.ExampleNotes aria-label="Example fragrances">
+                        {profile.examples.map((example, index) => (
+                          <S.ExampleImage
+                            key={index}
+                            src={example.image}
+                            alt={example.alt}
+                            title={example.title}
+                            width="50"
+                            height="50"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ))}
+                      </S.ExampleNotes>
+                    </S.NoteProfileCard>
+                  </Tilt>
                 ))}
-              </S.CharacteristicsGrid>
-            </S.CharacteristicsSection>
+              </S.NoteProfileGrid>
+            </S.NoteProfilesSection>
           )}
 
-          {details?.bestFor && details.bestFor.length > 0 && (
-            <S.BestForSection>
-              <S.SectionTitle>Perfect&nbsp;For</S.SectionTitle>
-              <S.CharacteristicsGrid>
-                {details.bestFor.map((useCase) => (
-                  <S.CharacteristicChip
-                    key={useCase.text}
-                    $bgColour={useCase.color}
-                  >
-                    {useCase.text}
-                  </S.CharacteristicChip>
-                ))}
-              </S.CharacteristicsGrid>
-            </S.BestForSection>
-          )}
-        </S.CharactersticsAndBestForSection>
+          <S.CharactersticsAndBestForSection>
+            {details?.characteristics && details.characteristics.length > 0 && (
+              <S.CharacteristicsSection aria-labelledby="key-characteristics">
+                <S.SectionTitle as="h2" id="key-characteristics">
+                  Key&nbsp;Characteristics
+                </S.SectionTitle>
+                <S.CharacteristicsGrid
+                  role="list"
+                  aria-label="Key characteristics"
+                >
+                  {details.characteristics.map((characteristic) => (
+                    <S.CharacteristicChip
+                      key={characteristic.text}
+                      $bgColour={characteristic.color}
+                      role="listitem"
+                    >
+                      {characteristic.text}
+                    </S.CharacteristicChip>
+                  ))}
+                </S.CharacteristicsGrid>
+              </S.CharacteristicsSection>
+            )}
 
-        <PageNavigation
-          center
-          stackMobile={false}
-          currentSlug={categorySlug!}
-          items={categories.map((cat) => ({ slug: cat.slug, title: cat.name }))}
-          basePath="/categories"
-        />
-      </S.CategoryBodyWrapper>
-    </S.PageWrapper>
+            {details?.bestFor && details.bestFor.length > 0 && (
+              <S.BestForSection aria-labelledby="perfect-for">
+                <S.SectionTitle as="h2" id="perfect-for">
+                  Perfect&nbsp;For
+                </S.SectionTitle>
+                <S.CharacteristicsGrid role="list" aria-label="Best use cases">
+                  {details.bestFor.map((useCase) => (
+                    <S.CharacteristicChip
+                      key={useCase.text}
+                      $bgColour={useCase.color}
+                      role="listitem"
+                    >
+                      {useCase.text}
+                    </S.CharacteristicChip>
+                  ))}
+                </S.CharacteristicsGrid>
+              </S.BestForSection>
+            )}
+          </S.CharactersticsAndBestForSection>
+
+          <PageNavigation
+            center
+            stackMobile={false}
+            currentSlug={categorySlug!}
+            items={categories.map((cat) => ({
+              slug: cat.slug,
+              title: cat.name,
+            }))}
+            basePath="/categories"
+          />
+        </S.CategoryBodyWrapper>
+      </main>
+    </>
   );
 };
 
