@@ -27,7 +27,7 @@ import {
 
 import AboutIntroImgLandscape from "/assets/images/About/about-stock-img.jpg";
 import AboutIntroImgPortrait from "/assets/images/About/about-stock-img.png";
-import CommonScentsLogo from "/assets/images/cs-bulb.png";
+import CommonScentsLogo from "/assets/images/cs-bulb.webp";
 
 import {
   SectionTitle,

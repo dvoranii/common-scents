@@ -27,7 +27,7 @@ import {
   DateTimeText,
   DateTimeWrapper,
 } from "../../../styles/shared/ContentListing.styled";
-import CommonScentsLogo from "/assets/images/cs-bulb.png";
+import CommonScentsLogo from "/assets/images/cs-bulb.webp";
 import { SEO } from "../../../components/SEO/SEO";
 
 const Guides: React.FC = () => {

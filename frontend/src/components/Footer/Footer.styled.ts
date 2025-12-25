@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const Container = styled.div`
+export const Container = styled.footer`
   width: 100%;
   min-height: 250px;
   background: linear-gradient(to top, rgba(38, 50, 70, 0.8), rgb(38, 50, 70));
   border-top: 4px solid whitesmoke;
   position: relative;
   padding-bottom: 50px;
+
+  contain: content;
 
   &::after {
     content: "";
@@ -25,12 +27,6 @@ export const Container = styled.div`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
       inset 0 1px 1px rgba(255, 255, 255, 0.5);
   }
-
-  & > * {
-    position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
-  }
 `;
 
 export const Trademark = styled.p`
@@ -46,6 +42,7 @@ export const Trademark = styled.p`
   letter-spacing: 0.5px;
   font-weight: 200;
   font-size: ${(props) => props.theme.fontSizes.sm};
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 export const ContainerInner = styled.div`
@@ -74,6 +71,8 @@ export const ImgWrapper = styled.div`
 
 export const LogoImg = styled.img`
   max-width: 65px;
+  height: auto;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 `;
 
 export const NavListWrapper = styled.nav`
@@ -93,16 +92,17 @@ export const NavList = styled.ul`
 `;
 
 export const NavListItem = styled.li`
-  transition: all 300ms ease;
+  transition: transform 300ms ease;
   width: fit-content;
   cursor: pointer;
 `;
+
 export const NavLink = styled(Link)<{ $isActive?: boolean }>`
   font-size: ${(props) => props.theme.fontSizes.base};
   font-weight: ${(props) => (props.$isActive ? "600" : "200")};
   color: whitesmoke;
   text-shadow: -1px 1px 2px black;
-  transition: all 200ms ease;
+  transition: color 200ms ease, filter 200ms ease;
   text-decoration: none;
   position: relative;
 
@@ -119,7 +119,7 @@ export const NavLink = styled(Link)<{ $isActive?: boolean }>`
     bottom: 0px;
     left: 0;
     width: ${(props) => (props.$isActive ? "100%" : "0%")};
-    transition: width 0.5s ease;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   ${(props) =>
@@ -156,7 +156,7 @@ export const TermsAndPrivacyWrapperInner = styled.div`
     font-size: ${(props) => props.theme.fontSizes.base};
     letter-spacing: 0.25px;
     text-decoration: underline;
-    transition: all 200ms ease;
+    transition: filter 200ms ease;
 
     &:hover {
       filter: brightness(1.15);

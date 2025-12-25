@@ -1,6 +1,6 @@
 import React from "react";
 import { usePositionAwareButton } from "../../../../hooks/usePositionAwareButton";
-import CommonScentsLogo from "/assets/images/cs-bulb.png";
+import CommonScentsLogo from "/assets/images/cs-bulb.webp";
 import { SecondaryButton } from "./Hero.styled";
 import { Link } from "react-router-dom";
 import {

@@ -1,32 +1,33 @@
-import * as S from "./Footer.styled";
-import Logo from "/assets/images/cs-bulb.png";
+import React, { memo } from "react";
 import { useLocation } from "react-router-dom";
+import * as S from "./Footer.styled";
+import Logo from "/assets/images/cs-bulb-footer.webp";
+
+const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/fragrance-reviews", label: "Reviews" },
+  { to: "/guides", label: "Tips & Guides" },
+  { to: "/academy", label: "Academy" },
+  { to: "/categories", label: "Scent Categories" },
+  { to: "/occasions", label: "Occasions" },
+];
 
 const Footer: React.FC = () => {
-  const currentYear = new Date(Date.now()).getFullYear();
   const { pathname } = useLocation();
+  const currentYear = new Date().getFullYear();
 
   const checkActive = (to: string) => {
     if (to === "/") return pathname === "/";
     return pathname.startsWith(to);
   };
 
-  const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/fragrance-reviews", label: "Reviews" },
-    { to: "/guides", label: "Tips & Guides" },
-    { to: "/academy", label: "Academy" },
-    { to: "/categories", label: "Scent Categories" },
-    { to: "/occasions", label: "Occasions" },
-  ];
-
   return (
     <S.Container>
       <S.ContainerInner>
         <S.NavListWrapper>
           <S.NavList>
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <S.NavListItem key={link.to}>
                 <S.NavLink to={link.to} $isActive={checkActive(link.to)}>
                   {link.label}
@@ -35,8 +36,15 @@ const Footer: React.FC = () => {
             ))}
           </S.NavList>
         </S.NavListWrapper>
+
         <S.ImgWrapper>
-          <S.LogoImg src={Logo} alt="Common Scents Logo" />
+          <S.LogoImg
+            src={Logo}
+            alt="Common Scents Logo"
+            width="65"
+            height="87"
+            loading="lazy"
+          />
         </S.ImgWrapper>
       </S.ContainerInner>
 
@@ -47,6 +55,7 @@ const Footer: React.FC = () => {
           <S.PrivacyLink to="/privacy-policy">Privacy Policy</S.PrivacyLink>
         </S.TermsAndPrivacyWrapperInner>
       </S.TermsAndPrivacyWrapperOuter>
+
       <S.Trademark>
         © {currentYear} Common Scents™. All rights reserved.
       </S.Trademark>
@@ -54,4 +63,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);
