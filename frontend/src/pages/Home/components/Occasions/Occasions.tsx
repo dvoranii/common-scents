@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Element } from "react-scroll";
 import { Seasons } from "./Seasons/Seasons";
 import { EventsActivities } from "./EventsActivities/EventsActivities";
@@ -6,39 +6,49 @@ import * as S from "./Occasions.styled";
 import { SectionContent } from "../../../../styles/CommonStyles";
 
 export const ScentOccasions: React.FC = () => {
-  const [brightness, setBrightness] = useState(0);
-  const [bgColor, setBgColor] = useState("#000000");
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    let requestFile: number;
+
     const handleScroll = () => {
-      const element = document.getElementById("events-section");
-      if (!element) return;
+      requestFile = requestAnimationFrame(() => {
+        const element = sectionRef.current;
+        if (!element) return;
 
-      const rect = element.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+        const rect = element.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-      const scrollProgress = Math.max(
-        0,
-        Math.min(1, (1 - rect.top / windowHeight) * 2)
-      );
+        const scrollProgress = Math.max(
+          0,
+          Math.min(1, (1 - rect.top / windowHeight) * 2.5)
+        );
 
-      setBrightness(scrollProgress);
+        element.style.setProperty("--opacity-level", scrollProgress.toString());
 
-      const colorValue = Math.round(scrollProgress * 255);
-      setBgColor(`rgb(${colorValue}, ${colorValue}, ${colorValue})`);
+        const colorVal = Math.floor(scrollProgress * 255);
+        element.style.setProperty(
+          "--bg-rgb",
+          `${colorVal}, ${colorVal}, ${colorVal}`
+        );
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(requestFile);
+    };
   }, []);
 
   return (
-    <S.OccasionsWrapper as="section">
+    <S.OccasionsWrapper as="section" aria-label="Occasions and Events">
       <Seasons />
+
       <Element name="events-section" id="events-section">
-        <S.EventsWrapper $brightness={brightness} $bgColor={bgColor}>
+        <S.EventsWrapper ref={sectionRef}>
           <SectionContent>
             <EventsActivities />
           </SectionContent>

@@ -92,16 +92,17 @@ const About: React.FC = () => {
       />
 
       <article>
-        <HeroSection role="banner">
+        <HeroSection role="banner" as="section">
           <HeroContent $padding>
             <LogoContainer>
               <img
                 src={CommonScentsLogo}
-                alt="Common Scents HQ Logo - Fragrance review website"
+                alt="Common Scents - Fragrance Demystified"
                 width="153"
                 height="205"
                 loading="lazy"
                 decoding="async"
+                fetchPriority="high"
               />
             </LogoContainer>
 
@@ -281,7 +282,7 @@ const About: React.FC = () => {
 
         <CTASection role="complementary" aria-labelledby="cta-title">
           <CTASectionInner>
-            <CTATitle as="h2" id="cta-title">
+            <CTATitle id="cta-title">
               Ready to Start Your Fragrance Journey?
             </CTATitle>
             <CTAText>

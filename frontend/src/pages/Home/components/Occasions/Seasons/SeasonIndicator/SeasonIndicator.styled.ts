@@ -12,6 +12,8 @@ export const IndicatorContainer = styled.div`
   height: 120px;
   z-index: 10;
 
+  pointer-events: none;
+
   @media screen and (max-width: 1024px) {
     width: 60px;
     height: 60px;
@@ -37,9 +39,11 @@ export const SeasonIcon = styled.img<IconProps>`
   width: 50px;
   height: 50px;
   object-fit: contain;
+
   opacity: ${(props) => (props.$isActive ? 1 : 0.3)};
   filter: ${(props) => (props.$isActive ? "none" : "grayscale(100%)")};
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  will-change: opacity, filter;
 
   @media screen and (max-width: 1024px) {
     width: 25px;

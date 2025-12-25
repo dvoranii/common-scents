@@ -52,24 +52,27 @@ const StorageTips: React.FC = () => {
         </S.Paragraph>
         <S.List>
           <S.ListItem>
-            Always store bottles upright to prevent leakage and minimize air
-            exposure
+            <S.Highlight>Upright storage:</S.Highlight> Always store bottles
+            upright to prevent leakage and minimize air exposure
           </S.ListItem>
           <S.ListItem>
-            Keep caps and atomizers clean to maintain proper sealing and prevent
-            contamination
+            <S.Highlight>Cap maintenance:</S.Highlight> Keep caps and atomizers
+            clean to maintain proper sealing and prevent contamination
           </S.ListItem>
           <S.ListItem>
-            Avoid shaking bottles vigorously as this can introduce excess oxygen
-            and accelerate oxidation
+            <S.Highlight>Avoid shaking:</S.Highlight> Avoid shaking bottles
+            vigorously as this can introduce excess oxygen and accelerate
+            oxidation
           </S.ListItem>
           <S.ListItem>
-            Wipe down bottles with a soft, dry cloth to remove fingerprints and
-            dust that can trap moisture
+            <S.Highlight>Surface cleaning:</S.Highlight> Wipe down bottles with
+            a soft, dry cloth to remove fingerprints and dust that can trap
+            moisture
           </S.ListItem>
           <S.ListItem>
-            Consider using original boxes for additional protection against
-            light and temperature fluctuations
+            <S.Highlight>Original packaging:</S.Highlight> Consider using
+            original boxes for additional protection against light and
+            temperature fluctuations
           </S.ListItem>
         </S.List>
         <S.Paragraph>

@@ -17,15 +17,23 @@ import {
 import useSpotlightAnimation from "../../../../hooks/useSpotlightAnimation";
 
 export const Hero: React.FC = () => {
-  const secondaryButtonRef = usePositionAwareButton();
+  const secondaryButtonRef = usePositionAwareButton<HTMLAnchorElement>();
   const canvasRef = useSpotlightAnimation();
 
   return (
-    <HeroSection $height>
+    <HeroSection $height aria-label="Introduction">
       <SpotlightCanvas ref={canvasRef} />
       <HeroContent>
         <LogoContainer $animateInfinity>
-          <img src={CommonScentsLogo} alt="Common Scents Logo" />
+          <img
+            src={CommonScentsLogo}
+            alt="Common Scents - Fragrance Demystified"
+            width="153"
+            height="205"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
         </LogoContainer>
 
         <TitleContainer>
@@ -41,13 +49,21 @@ export const Hero: React.FC = () => {
         </TitleContainer>
 
         <ButtonGroup $paddingTop="0">
-          <Link to="/fragrance-reviews">
-            <PrimaryButton $animate>Explore Reviews</PrimaryButton>
-          </Link>
+          <PrimaryButton
+            as={Link}
+            to="/fragrance-reviews"
+            $animate
+            aria-label="Browse our fragrance reviews"
+          >
+            Explore Reviews
+          </PrimaryButton>
 
           <SecondaryButton
             ref={secondaryButtonRef}
-            onClick={() => window.open("https://www.youtube.com", "_blank")}
+            as="a"
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Watch on YouTube
             <span></span>

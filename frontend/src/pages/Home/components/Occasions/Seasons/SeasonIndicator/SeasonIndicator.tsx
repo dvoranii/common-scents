@@ -11,31 +11,39 @@ interface SeasonIndicatorProps {
 
 const SeasonIndicator: React.FC<SeasonIndicatorProps> = ({ activeSeason }) => {
   return (
-    <S.IndicatorContainer>
-      <S.CrossDivider src={CrossIcon} alt="divider" />
+    <S.IndicatorContainer aria-hidden="true">
+      <S.CrossDivider src={CrossIcon} alt="" width="120" height="120" />
 
       <S.WinterIcon
         src={WinterIcon}
         alt="Winter"
         $isActive={activeSeason === "Winter"}
+        width="50"
+        height="50"
       />
 
       <S.AutumnIcon
         src={AutumnIcon}
         alt="Autumn"
         $isActive={activeSeason === "Autumn"}
+        width="50"
+        height="50"
       />
 
       <S.SummerIcon
         src={SummerIcon}
         alt="Summer"
         $isActive={activeSeason === "Summer"}
+        width="50"
+        height="50"
       />
 
       <S.SpringIcon
         src={SpringIcon}
         alt="Spring"
         $isActive={activeSeason === "Spring"}
+        width="50"
+        height="50"
       />
     </S.IndicatorContainer>
   );

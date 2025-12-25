@@ -7,7 +7,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.main`
-  // Changed from div to main
   max-width: 800px;
   margin: 0 auto;
   background-color: #ffffff;
@@ -63,13 +62,10 @@ export const Meta = styled.div`
   gap: 12px;
   font-size: 14px;
   color: #6c757d;
-
-  /* Ensure meta doesn't cause layout shift */
   min-height: 20px;
 `;
 
 export const Date = styled.time`
-  // Changed from span to time
   font-weight: 500;
 `;
 
@@ -100,7 +96,6 @@ export const SectionTitle = styled.h2`
   margin: 0 0 20px 0;
   padding-top: 8px;
 
-  /* CLS prevention */
   min-height: 1.3em;
 
   @media (max-width: 768px) {
@@ -111,8 +106,6 @@ export const SectionTitle = styled.h2`
 export const Paragraph = styled.p`
   margin: 0 0 20px 0;
   color: #4a4a4a;
-
-  /* Prevent text reflow */
   text-wrap: pretty;
 
   &:last-child {
@@ -146,7 +139,5 @@ export const Intro = styled.div`
   padding-bottom: 32px;
   border-bottom: 1px solid #f0ede8;
   line-height: 1.7;
-
-  /* CLS prevention */
   min-height: 1.7em;
 `;

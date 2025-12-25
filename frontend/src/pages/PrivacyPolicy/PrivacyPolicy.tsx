@@ -5,9 +5,12 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <S.Container>
       <S.Title>Privacy Policy</S.Title>
+      <S.LastUpdated as="div">
+        Last Updated: <time dateTime="2024-12-20">December 20, 2024</time>
+      </S.LastUpdated>
 
-      <S.Section>
-        <S.SectionTitle>1. Introduction</S.SectionTitle>
+      <S.Section id="introduction" aria-labelledby="h-introduction">
+        <S.SectionTitle id="h-introduction">1. Introduction</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Welcome to Common Scents HQ ("we," "our," or "us"). We respect your
@@ -24,8 +27,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>2. Information We Collect</S.SectionTitle>
+      <S.Section id="information-collection" aria-labelledby="h-collection">
+        <S.SectionTitle id="h-collection">
+          2. Information We Collect
+        </S.SectionTitle>
         <S.Subsection>
           <S.SubsectionTitle>2.1 Information You Provide</S.SubsectionTitle>
           <S.Paragraph>
@@ -77,6 +82,7 @@ const PrivacyPolicy: React.FC = () => {
                 href="https://tools.google.com/dlpage/gaoptout"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Google Analytics Opt-out Browser Add-on (opens in new tab)"
               >
                 Google Analytics Opt-out Browser Add-on
               </S.Link>
@@ -92,8 +98,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>3. How We Use Your Information</S.SectionTitle>
+      <S.Section id="usage" aria-labelledby="h-usage">
+        <S.SectionTitle id="h-usage">
+          3. How We Use Your Information
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>We use the information we collect to:</S.Paragraph>
           <S.List>
@@ -121,8 +129,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>4. Cookies and Tracking Technologies</S.SectionTitle>
+      <S.Section id="cookies" aria-labelledby="h-cookies">
+        <S.SectionTitle id="h-cookies">
+          4. Cookies and Tracking Technologies
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We use cookies and similar tracking technologies to track activity
@@ -149,8 +159,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>5. How We Share Your Information</S.SectionTitle>
+      <S.Section id="sharing" aria-labelledby="h-sharing">
+        <S.SectionTitle id="h-sharing">
+          5. How We Share Your Information
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We do not sell, trade, or rent your personal information to third
@@ -176,8 +188,8 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>6. Data Security</S.SectionTitle>
+      <S.Section id="data-security" aria-labelledby="h-security">
+        <S.SectionTitle id="h-security">6. Data Security</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We implement appropriate technical and organizational security
@@ -201,8 +213,8 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>7. Your Privacy Rights</S.SectionTitle>
+      <S.Section id="privacy-rights" aria-labelledby="h-rights">
+        <S.SectionTitle id="h-rights">7. Your Privacy Rights</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Depending on your location, you may have the following rights:
@@ -236,8 +248,8 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>8. Third-Party Links</S.SectionTitle>
+      <S.Section id="third-party" aria-labelledby="h-third-party">
+        <S.SectionTitle id="h-third-party">8. Third-Party Links</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Our Site may contain links to third-party websites, including
@@ -249,8 +261,8 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>9. Children's Privacy</S.SectionTitle>
+      <S.Section id="children" aria-labelledby="h-children">
+        <S.SectionTitle id="h-children">9. Children's Privacy</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Our Site is not intended for children under the age of 13. We do not
@@ -262,8 +274,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>10. International Data Transfers</S.SectionTitle>
+      <S.Section id="international" aria-labelledby="h-international">
+        <S.SectionTitle id="h-international">
+          10. International Data Transfers
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Your information may be transferred to and maintained on servers
@@ -275,8 +289,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>11. Changes to This Privacy Policy</S.SectionTitle>
+      <S.Section id="changes" aria-labelledby="h-changes">
+        <S.SectionTitle id="h-changes">
+          11. Changes to This Privacy Policy
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We may update our Privacy Policy from time to time. We will notify
@@ -292,8 +308,8 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>12. Contact Us</S.SectionTitle>
+      <S.Section id="contact" aria-labelledby="h-contact">
+        <S.SectionTitle id="h-contact">12. Contact Us</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             If you have any questions about this Privacy Policy or our data
@@ -307,15 +323,21 @@ const PrivacyPolicy: React.FC = () => {
           </S.Paragraph>
           <S.Paragraph>
             <S.Strong>Website:</S.Strong>{" "}
-            <S.Link href="https://commonscentshq.com">
+            <S.Link
+              href="https://commonscentshq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               https://commonscentshq.com
             </S.Link>
           </S.Paragraph>
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>13. California Privacy Rights (CCPA)</S.SectionTitle>
+      <S.Section id="ccpa" aria-labelledby="h-ccpa">
+        <S.SectionTitle id="h-ccpa">
+          13. California Privacy Rights (CCPA)
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             If you are a California resident, you have specific rights under the
@@ -340,8 +362,10 @@ const PrivacyPolicy: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>14. European Privacy Rights (GDPR)</S.SectionTitle>
+      <S.Section id="gdpr" aria-labelledby="h-gdpr">
+        <S.SectionTitle id="h-gdpr">
+          14. European Privacy Rights (GDPR)
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             If you are located in the European Economic Area (EEA), you have
@@ -367,8 +391,6 @@ const PrivacyPolicy: React.FC = () => {
           </S.Paragraph>
         </S.Subsection>
       </S.Section>
-
-      <S.LastUpdated>Last Updated: December 20, 2024</S.LastUpdated>
     </S.Container>
   );
 };

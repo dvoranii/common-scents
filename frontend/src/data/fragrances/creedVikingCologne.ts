@@ -84,26 +84,4 @@ export const creedVikingCologne: Fragrance = {
       getNote("Olibanum"),
     ],
   },
-
-  // reviewContent: {
-  //   overview:
-  //     "The most overhated Creed fragrance. Viking Cologne gets a bad rap in the fragrance community, but it's actually a solid fresh scent. Is it worth $325? That's debatable. But is it bad? Absolutely not. The fragrance snobs will tell you it's garbage, but they're wrong.",
-  //   notes: {
-  //     top: ["Lemon", "Mint", "Pink Pepper"],
-  //     heart: ["Lavender", "Geranium"],
-  //     base: ["Sandalwood", "Vetiver", "Patchouli"],
-  //   },
-  //   notesDescription:
-  //     "Opens with a bright citrus and mint combination that's refreshing without being sharp or synthetic. The lavender in the heart adds sophistication and depth, while the woody base of sandalwood and vetiver keeps it grounded and masculine. It's fresh without being boring.",
-  //   bestTime:
-  //     "Perfect for spring and summer, especially in office or casual settings. Light enough for hot weather, sophisticated enough for professional environments. This is what you wear when you want to smell clean and expensive without trying too hard.",
-  //   whoShouldWear:
-  //     "Anyone who wants a clean, sophisticated fresh scent without being generic. If you're tired of Sauvage clones but still want something fresh and versatile, this is worth trying. Pairs well with crisp button-downs and summer suits.",
-  //   performance:
-  //     "Decent for a cologne concentration. 5-6 hours with moderate projection. Not a beast mode performer, but that's intentional - it's meant to be refined and close-to-skin. You'll need to reapply after lunch if you want it lasting all day.",
-  //   reactions:
-  //     "Less polarizing than Viking EDP. People appreciate the freshness without it being overwhelming. Not a compliment getter, but a solid everyday scent that won't offend anyone. Your coworkers will think you smell clean.",
-  //   conclusion:
-  //     "Overpriced? Yes. Bad? No. There are better value options (looking at you, Prada L'Homme), but if you love Creed and want something fresh for summer, this is solid. Just don't blind buy at full retail - get a decant first.",
-  // },
 };

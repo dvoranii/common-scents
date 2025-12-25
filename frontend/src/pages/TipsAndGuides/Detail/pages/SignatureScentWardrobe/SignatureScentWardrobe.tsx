@@ -52,23 +52,25 @@ const SignatureScentWardrobe: React.FC = () => {
         </S.Paragraph>
         <S.List>
           <S.ListItem>
-            Always test fragrances on your skin and wear them for at least 4-6
-            hours before deciding
+            <S.Highlight>Skin testing:</S.Highlight> Always test fragrances on
+            your skin and wear them for at least 4-6 hours before deciding
           </S.ListItem>
           <S.ListItem>
-            Visit fragrance counters in the morning when your nose is freshest
+            <S.Highlight>Morning visits:</S.Highlight> Visit fragrance counters
+            in the morning when your nose is freshest
           </S.ListItem>
           <S.ListItem>
-            Limit yourself to testing 3-4 scents per visit to avoid overwhelming
-            your senses
+            <S.Highlight>Limit testing:</S.Highlight> Limit yourself to testing
+            3-4 scents per visit to avoid overwhelming your senses
           </S.ListItem>
           <S.ListItem>
-            Take advantage of sample programs—most brands offer discovery sets
-            or free samples
+            <S.Highlight>Use samples:</S.Highlight> Take advantage of sample
+            programs—most brands offer discovery sets or free samples
           </S.ListItem>
           <S.ListItem>
-            Consider buying smaller bottles (30ml or 50ml) of new-to-you
-            fragrances rather than committing to large 100ml bottles
+            <S.Highlight>Size strategy:</S.Highlight> Consider buying smaller
+            bottles (30ml or 50ml) of new-to-you fragrances rather than
+            committing to large 100ml bottles
           </S.ListItem>
         </S.List>
         <S.Paragraph>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
+import { MobileNav, type NavItemType } from "./MobileNav/MobileNav";
 import {
   Nav,
   NavWrapperInner,
@@ -8,17 +9,9 @@ import {
   NavItem,
   NavLink,
   BurgerButton,
-  MobileNavOverlay,
-  MobileNavSidebar,
-  MobileNavList,
-  MobileNavItem,
-  MobileNavLink,
   AnimatedBurgerIcon,
-  DropdownContainer,
-  DropdownLink,
-  DropdownMenu,
-  DropdownMenuItem,
 } from "./Navigation.styled";
+import { NavDropdown } from "./NavDropdown/NavDropdown";
 
 const OCCASION_NAV_COLORS: Record<string, string> = {
   "date-night": "#ffffff",
@@ -39,20 +32,16 @@ const SEASON_NAV_COLORS: Record<string, string> = {
 };
 
 const getNavColor = (pathname: string): string | undefined => {
-  if (pathname === "/") {
-    return "#000000";
-  }
+  if (pathname === "/") return "#000000";
 
   const occasionMatch = pathname.match(/^\/occasions\/(.+)$/);
   if (occasionMatch) {
-    const slug = occasionMatch[1];
-    return OCCASION_NAV_COLORS[slug] || "#333";
+    return OCCASION_NAV_COLORS[occasionMatch[1]] || "#333";
   }
 
   const seasonMatch = pathname.match(/^\/seasons\/(.+)$/);
   if (seasonMatch) {
-    const slug = seasonMatch[1];
-    return SEASON_NAV_COLORS[slug] || "#333";
+    return SEASON_NAV_COLORS[seasonMatch[1]] || "#333";
   }
 
   return "#333";
@@ -62,28 +51,19 @@ export const Navigation: React.FC = () => {
   const location = useLocation();
   const navColor = getNavColor(location.pathname);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
   const isHomePage = location.pathname === "/";
 
-  const getXColour = () => {
-    return isMobileNavOpen ? "#000000" : navColor;
-  };
+  const getXColour = () => (isMobileNavOpen ? "#000000" : navColor);
+  const toggleMobileNav = () => setIsMobileNavOpen(!isMobileNavOpen);
+  const closeMobileNav = () => setIsMobileNavOpen(false);
 
-  const toggleMobileNav = () => {
-    setIsMobileNavOpen(!isMobileNavOpen);
-  };
-
-  const closeMobileNav = () => {
-    setIsMobileNavOpen(false);
-  };
-
-  const navItemsBefore = [
+  const navItemsBefore: NavItemType[] = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/fragrance-reviews", label: "Reviews" },
   ];
 
-  const navItemsAfter = [
+  const navItemsAfter: NavItemType[] = [
     {
       to: import.meta.env.VITE_NOTE_PYRAMID_PATH || "/note-pyramid-staging/",
       label: "Note Pyramid",
@@ -101,22 +81,13 @@ export const Navigation: React.FC = () => {
     { to: "/occasions", label: "Occasions" },
   ];
 
-  const LEARN_PATH_SEGMENTS = ["guides", "academy"];
-  const EXPLORE_PATH_SEGMENTS = ["categories", "occasions"];
-
-  const isLearnActive = LEARN_PATH_SEGMENTS.some((segment) =>
-    location.pathname.includes(segment)
-  );
-  const isExploreActive = EXPLORE_PATH_SEGMENTS.some((segment) =>
+  const isLearnActive = ["guides", "academy"].some((segment) =>
     location.pathname.includes(segment)
   );
 
-  const getDropdownItemIsActive = (
-    to: string,
-    currentPath: string
-  ): boolean => {
-    return currentPath.startsWith(to);
-  };
+  const isExploreActive = ["categories", "occasions"].some((segment) =>
+    location.pathname.includes(segment)
+  );
 
   return (
     <>
@@ -142,58 +113,23 @@ export const Navigation: React.FC = () => {
               ))}
 
               <NavItem>
-                <DropdownContainer>
-                  <NavLink
-                    as="span"
-                    $textColour={navColor}
-                    $isActive={isLearnActive}
-                  >
-                    Learn▾
-                  </NavLink>
-                  <DropdownMenu>
-                    {learnItems.map((item) => (
-                      <DropdownMenuItem key={item.to}>
-                        <DropdownLink
-                          as={Link}
-                          to={item.to}
-                          $isActive={getDropdownItemIsActive(
-                            item.to,
-                            location.pathname
-                          )}
-                        >
-                          {item.label}
-                        </DropdownLink>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenu>
-                </DropdownContainer>
+                <NavDropdown
+                  label="Learn"
+                  items={learnItems}
+                  navColor={navColor}
+                  isTriggerActive={isLearnActive}
+                  currentPath={location.pathname}
+                />
               </NavItem>
+
               <NavItem>
-                <DropdownContainer>
-                  <NavLink
-                    as="span"
-                    $textColour={navColor}
-                    $isActive={isExploreActive}
-                  >
-                    Explore▾
-                  </NavLink>
-                  <DropdownMenu>
-                    {exploreItems.map((item) => (
-                      <DropdownMenuItem key={item.to}>
-                        <DropdownLink
-                          as={Link}
-                          to={item.to}
-                          $isActive={getDropdownItemIsActive(
-                            item.to,
-                            location.pathname
-                          )}
-                        >
-                          {item.label}
-                        </DropdownLink>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenu>
-                </DropdownContainer>
+                <NavDropdown
+                  label="Explore"
+                  items={exploreItems}
+                  navColor={navColor}
+                  isTriggerActive={isExploreActive}
+                  currentPath={location.pathname}
+                />
               </NavItem>
 
               {navItemsAfter.map((item) => (
@@ -238,100 +174,14 @@ export const Navigation: React.FC = () => {
           <div />
         </AnimatedBurgerIcon>
       </BurgerButton>
-      <MobileNavOverlay $isOpen={isMobileNavOpen} onClick={closeMobileNav}>
-        <MobileNavSidebar
-          $isOpen={isMobileNavOpen}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <MobileNavList>
-            {navItemsBefore.map((item) => (
-              <MobileNavItem key={item.to}>
-                <MobileNavLink
-                  as={Link}
-                  to={item.to}
-                  onClick={closeMobileNav}
-                  $isActive={
-                    item.to === "/"
-                      ? location.pathname === "/"
-                      : location.pathname.startsWith(item.to)
-                  }
-                >
-                  {item.label}
-                </MobileNavLink>
-              </MobileNavItem>
-            ))}
 
-            <MobileNavItem>
-              <MobileNavLink
-                as={Link}
-                to="/guides"
-                onClick={closeMobileNav}
-                $isActive={location.pathname === "/guides"}
-              >
-                Tips & Guides
-              </MobileNavLink>
-            </MobileNavItem>
-            <MobileNavItem>
-              <MobileNavLink
-                as={Link}
-                to="/academy"
-                onClick={closeMobileNav}
-                $isActive={location.pathname === "/academy"}
-              >
-                Academy
-              </MobileNavLink>
-            </MobileNavItem>
-            <MobileNavItem>
-              <MobileNavLink
-                as={Link}
-                to="/categories"
-                onClick={closeMobileNav}
-                $isActive={location.pathname === "/categories"}
-              >
-                Scent Categories
-              </MobileNavLink>
-            </MobileNavItem>
-            <MobileNavItem>
-              <MobileNavLink
-                as={Link}
-                to="/occasions"
-                onClick={closeMobileNav}
-                $isActive={location.pathname === "/occasions"}
-              >
-                Occasions
-              </MobileNavLink>
-            </MobileNavItem>
-
-            {navItemsAfter.map((item) => (
-              <MobileNavItem key={item.to}>
-                {item.isExternal ? (
-                  <MobileNavLink
-                    as="a"
-                    href={item.to}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      closeMobileNav();
-                      window.location.href = item.to;
-                    }}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {item.label}
-                  </MobileNavLink>
-                ) : (
-                  <MobileNavLink
-                    as={Link}
-                    to={item.to}
-                    onClick={closeMobileNav}
-                    $isActive={location.pathname.startsWith(item.to)}
-                  >
-                    {item.label}
-                  </MobileNavLink>
-                )}
-              </MobileNavItem>
-            ))}
-          </MobileNavList>
-        </MobileNavSidebar>
-      </MobileNavOverlay>
+      <MobileNav
+        isOpen={isMobileNavOpen}
+        onClose={closeMobileNav}
+        currentPath={location.pathname}
+        navItemsBefore={navItemsBefore}
+        navItemsAfter={navItemsAfter}
+      />
     </>
   );
 };

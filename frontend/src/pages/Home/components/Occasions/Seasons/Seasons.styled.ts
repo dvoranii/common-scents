@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 interface SeasonsSectionProps {
   $backgroundColor: string;
   $backgroundImg?: string;
-  $parallaxOffset?: number;
 }
 
 const hexToRgba = (hex: string, alpha: number): string => {
@@ -20,14 +19,40 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
   position: relative;
   background-color: ${(props) => props.$backgroundColor};
   overflow: hidden;
+  isolation: isolate;
+
+  --parallax-y: 0%;
+
+  ${(props) => {
+    if (!props.$backgroundImg) return "background-image: none;";
+
+    const solidColor = hexToRgba(props.$backgroundColor, 0.95);
+    const transparentColor = hexToRgba(props.$backgroundColor, 0);
+
+    return `
+      background-image: 
+        linear-gradient(
+          to bottom, 
+          ${transparentColor} 20%,
+          ${solidColor} 80%,   
+          ${solidColor}       
+        ),
+        url(${props.$backgroundImg});
+    `;
+  }}
+
+  background-size: cover;
+  background-position: center var(--parallax-y);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  transition: background-color 0.5s ease;
+  will-change: background-color;
 
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     backdrop-filter: blur(4px);
     z-index: 0;
     pointer-events: none;
@@ -50,43 +75,6 @@ export const SeasonsSection = styled.section<SeasonsSectionProps>`
       0 1px 3px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-
-  ${(props) => {
-    if (!props.$backgroundImg) return "background-image: none;";
-
-    const solidColor = hexToRgba(props.$backgroundColor, 0.95);
-    const transparentColor = hexToRgba(props.$backgroundColor, 0);
-
-    return `
-      background-image: 
-        linear-gradient(
-          to bottom, 
-          ${transparentColor} 20%,
-          ${solidColor} 80%,   
-          ${solidColor}       
-        ),
-        url(${props.$backgroundImg});
-    `;
-  }}
-
-  background-size: cover;
-  background-position: center ${(props) => props.$parallaxOffset || 0}%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  transition: background-color 0.5s ease, background-position 0.1s ease-out;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    backdrop-filter: blur(4px);
-    z-index: 0;
-    pointer-events: none;
-  }
 `;
 
 export const SeasonsSubtitle = styled.h3`
@@ -107,6 +95,7 @@ export const SeasonsContent = styled.div`
   justify-content: space-between;
   gap: ${(props) => props.theme.spacing.xxl};
   position: relative;
+  z-index: 1;
 
   &::after {
     content: "";
@@ -179,6 +168,7 @@ export const SeasonInfo = styled.div`
   color: white;
   position: relative;
   padding-right: 20px;
+  z-index: 2;
 
   @media screen and (max-width: 1200px) {
     margin-top: 5.4rem;
@@ -215,12 +205,15 @@ export const SeasonTitle = styled.h2`
   font-size: ${(props) => props.theme.fontSizes.xxxxl};
   margin-bottom: 0.4rem;
   font-weight: 700;
-  animation: fadeIn 0.5s ease-in;
+
   text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 1px !important;
+  letter-spacing: 1px;
   text-transform: uppercase;
   position: relative;
   width: 100%;
+
+  animation: fadeIn 0.5s ease-in;
+  will-change: transform, opacity;
 
   @keyframes fadeIn {
     from {
@@ -306,7 +299,7 @@ export const NavButton = styled.button`
   &:hover:not(:disabled) {
     background: rgba(255, 255, 255, 0.3);
     border-color: rgba(255, 255, 255, 0.5);
-    transform: scale(1.025);
+    transform: scale(1.05);
   }
 
   &:active:not(:disabled) {

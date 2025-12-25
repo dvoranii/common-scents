@@ -79,7 +79,7 @@ const Academy: React.FC = () => {
       />
 
       <main>
-        <HeroSection role="banner">
+        <HeroSection role="banner" as="section">
           <HeroContent $padding>
             <LogoContainer>
               <img

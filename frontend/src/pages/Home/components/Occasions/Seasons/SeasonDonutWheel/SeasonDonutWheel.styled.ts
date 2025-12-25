@@ -11,8 +11,10 @@ export const DonutContainer = styled.div<DonutWheelProps>`
   position: relative;
   border-radius: 50%;
   overflow: hidden;
+
   transform: rotate(${(props) => props.$rotation + 45}deg);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 
   -webkit-mask-image: radial-gradient(
     circle,
@@ -57,46 +59,39 @@ export const DonutContainer = styled.div<DonutWheelProps>`
 
 export const DonutSegment = styled.div<{
   $rotation: number;
-  $background: string;
   $isActive?: boolean;
 }>`
   position: absolute;
   width: 100%;
   height: 100%;
+
   clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
+
   transform: rotate(${(props) => props.$rotation}deg);
   transform-origin: center;
   transition: filter 0.5s ease;
 
   ${(props) =>
-    props.$isActive &&
-    `
-    filter: brightness(1.2) contrast(1.05) saturate(1.15);
-    z-index: 2;
-  `}
-
-  ${(props) =>
-    !props.$isActive &&
-    `
-    filter: brightness(0.75) saturate(0.8);
-  `}
+    props.$isActive
+      ? `
+        filter: brightness(1.2) contrast(1.05) saturate(1.15);
+        z-index: 2;
+      `
+      : `
+        filter: brightness(0.75) saturate(0.8);
+      `}
 `;
 
 export const SegmentBackground = styled.div<{
   $background: string;
   $segmentRotation: number;
-  $containerRotation: number;
 }>`
   width: 100%;
   height: 100%;
   background: ${(props) => props.$background};
   background-size: cover;
   background-position: center;
+
   transform: rotate(${(props) => -(props.$segmentRotation + 45)}deg);
   transform-origin: center;
-`;
-
-export const InnerCircle = styled.div`
-  display: none;
-  position: relative;
 `;

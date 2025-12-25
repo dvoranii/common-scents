@@ -68,34 +68,41 @@ export const Seasons: React.FC<SeasonsProps> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rotation, setRotation] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
+  // const [parallaxOffset, setParallaxOffset] = useState(0);
 
+  const sectionRef = useRef<HTMLElement>(null);
   const currentSeason = SEASONS[currentIndex];
 
   useEffect(() => {
+    let rafId: number;
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
+      rafId = requestAnimationFrame(() => {
+        if (!sectionRef.current) return;
 
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollPosition = window.scrollY;
-      const elementTop = rect.top + scrollPosition;
-      const elementHeight = rect.height;
-      const windowHeight = window.innerHeight;
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-      const scrollProgress =
-        (scrollPosition + windowHeight - elementTop) /
-        (windowHeight + elementHeight);
+        if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-      if (scrollProgress >= 0 && scrollProgress <= 1) {
-        setParallaxOffset(scrollProgress * 100 * 0.4);
-      }
+        const scrollProgress =
+          (window.scrollY + windowHeight - (rect.top + window.scrollY)) /
+          (windowHeight + rect.height);
+
+        if (scrollProgress >= 0 && scrollProgress <= 1) {
+          const offset = scrollProgress * 40;
+          sectionRef.current.style.setProperty("--parallax-y", `${offset}%`);
+        }
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const handleNext = () => {
@@ -119,7 +126,7 @@ export const Seasons: React.FC<SeasonsProps> = () => {
       ref={sectionRef}
       $backgroundColor={currentSeason.backgroundColor}
       $backgroundImg={currentSeason.backgroundImg}
-      $parallaxOffset={parallaxOffset}
+      aria-label="Seasonal Fragrance Collections"
     >
       <SeasonIndicator activeSeason={currentSeason.name} />
       <S.SeasonsContent>
@@ -132,7 +139,7 @@ export const Seasons: React.FC<SeasonsProps> = () => {
           autumnImg={AutumnBg}
         />
 
-        <S.SeasonInfo>
+        <S.SeasonInfo aria-live="polite">
           <S.SeasonTitleWrapper>
             <S.SeasonTitle key={currentSeason.name}>
               {currentSeason.name}
@@ -155,6 +162,7 @@ export const Seasons: React.FC<SeasonsProps> = () => {
           <S.SeeMoreLink
             key={`${currentSeason.slug}-link`}
             to={`/seasons/${currentSeason.slug}`}
+            aria-label={`Learn more about ${currentSeason.name} fragrances`}
           >
             See More
           </S.SeeMoreLink>

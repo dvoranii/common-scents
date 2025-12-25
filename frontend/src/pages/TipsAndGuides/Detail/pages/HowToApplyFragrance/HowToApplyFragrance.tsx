@@ -35,9 +35,9 @@ const HowToApplyFragrance: React.FC = () => {
           skin and spray in a gentle, sweeping motion. Avoid the common mistake
           of spraying directly onto clothing, as fabrics can alter the scent and
           make removal difficult. The goal is to create a
-          <S.Highlight>subtle scent trail</S.Highlight> that reveals itself
-          gradually rather than announcing your presence before you enter a
-          room.
+          <S.Highlight>&nbsp;subtle scent trail</S.Highlight> that reveals
+          itself gradually rather than announcing your presence before you enter
+          a room.
         </S.Paragraph>
       </S.Section>
 
@@ -61,24 +61,20 @@ const HowToApplyFragrance: React.FC = () => {
         </S.Paragraph>
         <S.List>
           <S.ListItem>
-            The "Spray and Walk" method: Spray once in front of you and walk
-            through the mist for even, subtle coverage
+            <S.Highlight>Hair application:</S.Highlight> Lightly spray hairbrush
+            bristles rather than directly onto hair to avoid drying
           </S.ListItem>
           <S.ListItem>
-            Hair application: Lightly spray hairbrush bristles rather than
-            directly onto hair to avoid drying
+            <S.Highlight>Clothing technique:</S.Highlight> If applying to
+            clothes, do so from a distance and only on natural fibers
           </S.ListItem>
           <S.ListItem>
-            Clothing technique: If applying to clothes, do so from a distance
-            and only on natural fibers
+            <S.Highlight>Pulse point timing:</S.Highlight> Apply to wrists last
+            and avoid rubbing them together—this crushes the fragrance molecules
           </S.ListItem>
           <S.ListItem>
-            Pulse point timing: Apply to wrists last and avoid rubbing them
-            together—this crushes the fragrance molecules
-          </S.ListItem>
-          <S.ListItem>
-            Reapplication strategy: Carry a travel atomizer for touch-ups rather
-            than over-applying in the morning
+            <S.Highlight>Reapplication strategy:</S.Highlight> Carry a travel
+            atomizer for touch-ups rather than over-applying in the morning
           </S.ListItem>
         </S.List>
         <S.Paragraph>

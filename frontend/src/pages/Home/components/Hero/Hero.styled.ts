@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const SecondaryButton = styled.button`
+export const SecondaryButton = styled.button<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>
+>`
   position: relative;
   background-color: transparent;
   color: ${(props) => props.theme.colors.black};

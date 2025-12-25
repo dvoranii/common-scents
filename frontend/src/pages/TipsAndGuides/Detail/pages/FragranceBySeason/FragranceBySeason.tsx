@@ -30,8 +30,8 @@ const FragranceBySeason: React.FC = () => {
         <S.Paragraph>
           Summer calls for the lightest fragrances in your collection. High heat
           and humidity amplify scent projection, so opt for aquatic notes, light
-          citrus, and clean musk compositions. These{" "}
-          <S.Highlight>refreshing choices</S.Highlight> provide a cooling
+          citrus, and clean musk compositions. These
+          <S.Highlight>&nbsp;refreshing choices</S.Highlight> provide a cooling
           sensation without becoming cloying in humid conditions.
         </S.Paragraph>
       </S.Section>
@@ -59,16 +59,20 @@ const FragranceBySeason: React.FC = () => {
         <S.Paragraph>Consider these weather-appropriate choices:</S.Paragraph>
         <S.List>
           <S.ListItem>
-            Hot & Humid: Citrus, aquatic, light floral, green tea, clean musk
+            <S.Highlight>Hot & Humid:</S.Highlight> Citrus, aquatic, light
+            floral, green tea, clean musk
           </S.ListItem>
           <S.ListItem>
-            Cold & Dry: Oriental, gourmand, woody, amber, vanilla, spice
+            <S.Highlight>Cold & Dry:</S.Highlight> Oriental, gourmand, woody,
+            amber, vanilla, spice
           </S.ListItem>
           <S.ListItem>
-            Mild & Transitional: Floral, fougère, chypre, light woody
+            <S.Highlight>Mild & Transitional:</S.Highlight> Floral, fougère,
+            chypre, light woody
           </S.ListItem>
           <S.ListItem>
-            Rainy Days: Earthy, petrichor, vetiver, oakmoss, leather
+            <S.Highlight>Rainy Days:</S.Highlight> Earthy, petrichor, vetiver,
+            oakmoss, leather
           </S.ListItem>
         </S.List>
       </S.Section>

@@ -13,22 +13,23 @@ export const EventsSubtitle = styled.h3`
   font-weight: 600;
 `;
 
-export const EventsGrid = styled.div`
+export const EventsGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(328px, 1fr));
   gap: ${(props) => props.theme.spacing.lg};
   grid-auto-rows: 300px;
   border-radius: 20px;
+  isolation: isolate;
 
-  & > [data-tilt="true"] {
-    height: 100% !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    background: transparent;
-    transform-style: preserve-3d;
-    border-radius: 20px !important;
-  }
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+export const GridItem = styled.li`
+  display: block;
+  height: 100%;
+  width: 100%;
 `;
 
 export const EventCard = styled.div`

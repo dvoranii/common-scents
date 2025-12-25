@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { Navigate } from "react-router-dom";
 import { guides } from "../../../../../data/guides";
 import TipsTemplate from "../TipsTemplate/TipsTemplate";
 import PageNavigation from "../../../../../components/PageNavigation/PageNavigation";
 import KeyboardNavTooltip from "../../../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
+
 interface GuideWrapperProps {
   slug: string;
   children: React.ReactNode;
@@ -14,10 +16,10 @@ const GuideWrapper: React.FC<GuideWrapperProps> = ({
   children,
   showNavigation = true,
 }) => {
-  const guide = guides.find((g) => g.slug === slug);
+  const guide = useMemo(() => guides.find((g) => g.slug === slug), [slug]);
 
   if (!guide) {
-    return <div>Guide not found</div>;
+    return <Navigate to="/guides" replace />;
   }
 
   return (
@@ -27,7 +29,8 @@ const GuideWrapper: React.FC<GuideWrapperProps> = ({
       time={guide.time}
       category={guide.category!}
     >
-      {showNavigation && <KeyboardNavTooltip section={"guides"} />}
+      {showNavigation && <KeyboardNavTooltip section="guides" />}
+
       {children}
 
       {showNavigation && (

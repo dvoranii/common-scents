@@ -23,9 +23,11 @@ const TipsTemplate: React.FC<TipsTemplateProps> = ({
           <S.Category>{category}</S.Category>
           <S.Title>{title}</S.Title>
           <S.Meta>
-            <S.Date>{date}</S.Date>
-            <S.Separator>•</S.Separator>
-            <S.Time>{time} (Eastern Standard Time)</S.Time>
+            <S.Date as="time" dateTime={date}>
+              {date}
+            </S.Date>
+            <S.Separator aria-hidden="true">•</S.Separator>
+            <S.Time as="time">{time} (EST)</S.Time>
           </S.Meta>
         </S.Header>
 

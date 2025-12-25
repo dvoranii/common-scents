@@ -1,27 +1,21 @@
 import type { Category, Occasion } from "../../types/fragrance.types";
-import {
-  AssetGridContainer,
-  BoxLink,
-  AssetWrapper,
-  ImageAsset,
-  NameText,
-  Overlay,
-} from "./AssetLinkGrid.styled";
+import * as S from "./AssetLinkGrid.styled";
 
 interface AssetLinkGridProps {
   items: Category[] | Occasion[];
   basePath: string;
+  "aria-label"?: string;
 }
 
 export const AssetLinkGrid: React.FC<AssetLinkGridProps> = ({
   items,
   basePath,
+  "aria-label": ariaLabel,
 }) => {
   return (
-    <AssetGridContainer>
+    <S.AssetGridContainer aria-label={ariaLabel}>
       {items.map((item) => {
         const isCategory = "icon" in item;
-
         const name = item.name;
         const slug = item.slug;
 
@@ -30,24 +24,39 @@ export const AssetLinkGrid: React.FC<AssetLinkGridProps> = ({
         const thumbnail = !isCategory
           ? (item as Occasion).thumbnail
           : undefined;
-
         const IconComponent = isCategory ? (item as Category).icon : null;
 
         return (
-          <BoxLink key={slug} to={`${basePath}/${slug}`} $bgColor={bgColor}>
-            <Overlay />
-            {isCategory && IconComponent && (
-              <AssetWrapper $color={iconColor}>
-                <IconComponent />
-              </AssetWrapper>
-            )}
-            {!isCategory && thumbnail && (
-              <ImageAsset src={thumbnail} alt={name} />
-            )}
-            <NameText>{name}</NameText>
-          </BoxLink>
+          <S.AssetItem key={slug}>
+            <S.BoxLink
+              to={`${basePath}/${slug}`}
+              $bgColor={bgColor}
+              aria-label={name}
+            >
+              <S.Overlay aria-hidden="true" />
+
+              {isCategory && IconComponent && (
+                <S.AssetWrapper $color={iconColor} aria-hidden="true">
+                  <IconComponent />
+                </S.AssetWrapper>
+              )}
+
+              {!isCategory && thumbnail && (
+                <S.ImageAsset
+                  src={thumbnail}
+                  alt=""
+                  width="120"
+                  height="120"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+
+              <S.NameText>{name}</S.NameText>
+            </S.BoxLink>
+          </S.AssetItem>
         );
       })}
-    </AssetGridContainer>
+    </S.AssetGridContainer>
   );
 };

@@ -121,7 +121,6 @@ export const CarouselWrapper = styled.div`
     }
   }
 
-  /* Page dots */
   .flickity-page-dots {
     position: static;
     display: flex;

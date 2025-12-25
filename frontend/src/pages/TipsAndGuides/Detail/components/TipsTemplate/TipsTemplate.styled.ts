@@ -4,9 +4,13 @@ export const Container = styled.div`
   min-height: 100vh;
   background-color: #faf9f7;
   padding: 80px 20px;
+
+  @media (max-width: 768px) {
+    padding: 40px 15px;
+  }
 `;
 
-export const Content = styled.div`
+export const Content = styled.article`
   max-width: 800px;
   margin: 0 auto;
   background-color: #ffffff;
@@ -72,7 +76,7 @@ export const Separator = styled.span`
 
 export const Time = styled.span``;
 
-export const Article = styled.article`
+export const Article = styled.div`
   color: #333;
   font-size: 17px;
   line-height: 1.8;
@@ -90,7 +94,7 @@ export const SectionTitle = styled.h2`
   font-size: 28px;
   font-weight: 600;
   color: #2c3e50;
-  margin: 0 0 20px 0;
+  margin: 0 0 8px 0;
   padding-top: 8px;
 
   @media (max-width: 768px) {
@@ -123,7 +127,7 @@ export const ListItem = styled.li`
 
 export const Highlight = styled.span`
   font-weight: 600;
-  color: #e07a3f;
+  color: #e07a3f; /* The orange again */
 `;
 
 export const Intro = styled.div`

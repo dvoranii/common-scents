@@ -18,86 +18,48 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
   summerImg = "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
   autumnImg = "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
 }) => {
-  const getActiveSegment = () => {
-    switch (activeIndex % 4) {
-      case 0:
-        return "winter";
-      case 1:
-        return "autumn";
-      case 2:
-        return "summer";
-      case 3:
-        return "spring";
-      default:
-        return "winter";
-    }
+  const seasonOrder = ["winter", "autumn", "summer", "spring"];
+  const activeSegment = seasonOrder[((activeIndex % 4) + 4) % 4];
+
+  const getBg = (img?: string, fallback?: string) =>
+    img && !img.includes("gradient") ? `url(${img})` : img || fallback;
+
+  const backgrounds = {
+    winter: getBg(winterImg),
+    spring: getBg(springImg),
+    summer: getBg(summerImg),
+    autumn: getBg(autumnImg),
   };
 
-  const activeSegment = getActiveSegment();
-
-  const winterBackground = winterImg
-    ? `url(${winterImg})`
-    : "linear-gradient(135deg, #667eea 0%, #764ba2 100%)";
-  const springBackground = springImg
-    ? `url(${springImg})`
-    : "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)";
-  const summerBackground = summerImg
-    ? `url(${summerImg})`
-    : "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)";
-  const autumnBackground = autumnImg
-    ? `url(${autumnImg})`
-    : "linear-gradient(135deg, #fa709a 0%, #fee140 100%)";
   return (
-    <S.DonutContainer $rotation={rotation}>
-      <S.DonutSegment
-        $rotation={0}
-        $background={winterBackground}
-        $isActive={activeSegment === "winter"}
-      >
+    <S.DonutContainer $rotation={rotation} aria-hidden="true">
+      <S.DonutSegment $rotation={0} $isActive={activeSegment === "winter"}>
         <S.SegmentBackground
-          $background={winterBackground}
+          $background={backgrounds.winter!}
           $segmentRotation={0}
-          $containerRotation={rotation}
         />
       </S.DonutSegment>
 
-      <S.DonutSegment
-        $rotation={90}
-        $background={springBackground}
-        $isActive={activeSegment === "spring"}
-      >
+      <S.DonutSegment $rotation={90} $isActive={activeSegment === "spring"}>
         <S.SegmentBackground
-          $background={springBackground}
+          $background={backgrounds.spring!}
           $segmentRotation={0}
-          $containerRotation={rotation}
         />
       </S.DonutSegment>
 
-      <S.DonutSegment
-        $rotation={180}
-        $background={summerBackground}
-        $isActive={activeSegment === "summer"}
-      >
+      <S.DonutSegment $rotation={180} $isActive={activeSegment === "summer"}>
         <S.SegmentBackground
-          $background={summerBackground}
+          $background={backgrounds.summer!}
           $segmentRotation={0}
-          $containerRotation={rotation}
         />
       </S.DonutSegment>
 
-      <S.DonutSegment
-        $rotation={270}
-        $background={autumnBackground}
-        $isActive={activeSegment === "autumn"}
-      >
+      <S.DonutSegment $rotation={270} $isActive={activeSegment === "autumn"}>
         <S.SegmentBackground
-          $background={autumnBackground}
+          $background={backgrounds.autumn!}
           $segmentRotation={0}
-          $containerRotation={rotation}
         />
       </S.DonutSegment>
-
-      <S.InnerCircle />
     </S.DonutContainer>
   );
 };

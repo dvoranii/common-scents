@@ -25,7 +25,7 @@ import CommonScentsLogo from "/assets/images/cs-bulb.png";
 import type { Category } from "../../types/fragrance.types";
 import type { Occasion } from "../../types/fragrance.types";
 import type { Season } from "../../types/fragrance.types";
-import { SEO } from "../../components/SEO/SEO"; // Add SEO import
+import { SEO } from "../../components/SEO/SEO";
 
 interface ItemGroup {
   title?: string;

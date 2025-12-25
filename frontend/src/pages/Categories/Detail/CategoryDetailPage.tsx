@@ -130,6 +130,7 @@ const CategoryDetailPage: React.FC = () => {
                 height="600"
                 loading="lazy"
                 decoding="async"
+                fetchPriority="high"
               />
             </S.ImgWrapper>
             <S.DescriptionWrapper>
@@ -141,7 +142,7 @@ const CategoryDetailPage: React.FC = () => {
 
           {details?.noteProfiles && details.noteProfiles.length > 0 && (
             <S.NoteProfilesSection aria-labelledby="signature-notes">
-              <SectionTitle $leftAligned $color as="h2" id="signature-notes">
+              <SectionTitle $leftAligned $color id="signature-notes">
                 Signature Notes
               </SectionTitle>
               <S.NoteProfileGrid
@@ -155,9 +156,7 @@ const CategoryDetailPage: React.FC = () => {
                     aria-label={`${profile.title} note profile`}
                   >
                     <S.NoteProfileCard role="listitem">
-                      <S.NoteProfileTitle as="h3">
-                        {profile.title}
-                      </S.NoteProfileTitle>
+                      <S.NoteProfileTitle>{profile.title}</S.NoteProfileTitle>
                       <S.NoteProfileDescription>
                         {profile.description}
                       </S.NoteProfileDescription>
@@ -172,6 +171,7 @@ const CategoryDetailPage: React.FC = () => {
                             height="50"
                             loading="lazy"
                             decoding="async"
+                            fetchPriority="high"
                           />
                         ))}
                       </S.ExampleNotes>
@@ -185,7 +185,7 @@ const CategoryDetailPage: React.FC = () => {
           <S.CharactersticsAndBestForSection>
             {details?.characteristics && details.characteristics.length > 0 && (
               <S.CharacteristicsSection aria-labelledby="key-characteristics">
-                <S.SectionTitle as="h2" id="key-characteristics">
+                <S.SectionTitle id="key-characteristics">
                   Key&nbsp;Characteristics
                 </S.SectionTitle>
                 <S.CharacteristicsGrid
@@ -207,7 +207,7 @@ const CategoryDetailPage: React.FC = () => {
 
             {details?.bestFor && details.bestFor.length > 0 && (
               <S.BestForSection aria-labelledby="perfect-for">
-                <S.SectionTitle as="h2" id="perfect-for">
+                <S.SectionTitle id="perfect-for">
                   Perfect&nbsp;For
                 </S.SectionTitle>
                 <S.CharacteristicsGrid role="list" aria-label="Best use cases">

@@ -74,7 +74,7 @@ const FragranceReviews: React.FC = () => {
               <S.ThumbnailContent>
                 <S.NameAndHouseWrapper>
                   <S.FragranceHouse>{fragrance.house}</S.FragranceHouse>
-                  <S.FragranceName as="h3">{fragrance.name}</S.FragranceName>
+                  <S.FragranceName>{fragrance.name}</S.FragranceName>
                 </S.NameAndHouseWrapper>
 
                 {fragrance.notes && (

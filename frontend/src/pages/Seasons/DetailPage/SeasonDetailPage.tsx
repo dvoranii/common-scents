@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { getAllSeasons, getSeasonBySlug } from "../../../utils/seasonsUtils";
 import { seasonDetails } from "../../../data/seasonDetail";
@@ -12,8 +13,18 @@ import {
   titleBGColour,
   overlayOpacity,
 } from "../../../utils/seasonThemeUtils";
-
 import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
+
+const TILT_OPTIONS = {
+  max: 10,
+  speed: 400,
+  glare: true,
+  "max-glare": 0.3,
+  scale: 1.02,
+  perspective: 2000,
+  transition: true,
+  easing: "cubic-bezier(.03,.98,.52,.99)",
+};
 
 const SeasonDetailPage: React.FC = () => {
   const { seasonSlug } = useParams<{ seasonSlug: string }>();
@@ -25,25 +36,20 @@ const SeasonDetailPage: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
-  const tiltOptions = {
-    max: 10,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.3,
-    scale: 1.02,
-    perspective: 2000,
-    transition: true,
-    easing: "cubic-bezier(.03,.98,.52,.99)",
-  };
-
   return (
     <S.PageWrapper>
       <KeyboardNavTooltip section="seasons" />
-      <S.HeroImageContainer
-        $bgImg={season.image}
-        $overlayOpacity={overlayOpacity(season.slug)}
-      >
-        <S.HeroImageContainerInner>
+
+      <S.HeroHeader>
+        <S.HeroBgImage
+          src={season.image}
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+        />
+        <S.HeroOverlay $opacity={overlayOpacity(season.slug)} />
+
+        <S.HeroContent>
           <MainTitle
             $center
             $color={getTitleColor(season.slug)}
@@ -60,8 +66,8 @@ const SeasonDetailPage: React.FC = () => {
               {details.subtitle}
             </S.SeasonSubtitle>
           )}
-        </S.HeroImageContainerInner>
-      </S.HeroImageContainer>
+        </S.HeroContent>
+      </S.HeroHeader>
 
       <S.ContentContainer>
         <S.Description>
@@ -69,19 +75,37 @@ const SeasonDetailPage: React.FC = () => {
         </S.Description>
 
         {details?.settings && details.settings.length > 0 && (
-          <S.SettingsSection>
+          <S.SettingsSection aria-label="Perfect Settings">
             <S.SectionTitle>Perfect For</S.SectionTitle>
+
             <S.SettingGrid>
               {details.settings.map((setting) => (
-                <Tilt options={tiltOptions}>
-                  <S.SettingCard key={setting.title}>
-                    <S.SettingTitle>{setting.title}</S.SettingTitle>
-                    <S.SettingDescription>
-                      {setting.description}
-                    </S.SettingDescription>
-                    <S.SettingImage src={setting.image} />
-                  </S.SettingCard>
-                </Tilt>
+                <S.GridItem key={setting.title}>
+                  <Tilt
+                    options={TILT_OPTIONS}
+                    style={{
+                      height: "100%",
+                      width: "100%",
+                      borderRadius: "16px",
+                      background: "white",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    <S.SettingCard>
+                      <S.SettingTitle>{setting.title}</S.SettingTitle>
+                      <S.SettingDescription>
+                        {setting.description}
+                      </S.SettingDescription>
+                      <S.SettingImage
+                        src={setting.image}
+                        alt=""
+                        loading="lazy"
+                        width="300"
+                        height="200"
+                      />
+                    </S.SettingCard>
+                  </Tilt>
+                </S.GridItem>
               ))}
             </S.SettingGrid>
           </S.SettingsSection>
@@ -101,6 +125,7 @@ const SeasonDetailPage: React.FC = () => {
           items={seasons.map((s) => ({ slug: s.slug, title: s.name }))}
           basePath="/seasons"
         />
+
         <S.SeeEventsLink to="/occasions/daily-driver">
           See Events & Activities
         </S.SeeEventsLink>

@@ -1,12 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as S from "./TermsOfService.styled";
 
 const TermsOfService: React.FC = () => {
   return (
     <S.Container>
       <S.Title>Terms of Service</S.Title>
-      <S.Section>
-        <S.SectionTitle>1. Agreement to Terms</S.SectionTitle>
+
+      <S.LastUpdated as="div">
+        Last Updated: <time dateTime="2024-12-20">December 20, 2024</time>
+      </S.LastUpdated>
+
+      <S.Section id="agreement" aria-labelledby="h-agreement">
+        <S.SectionTitle id="h-agreement">1. Agreement to Terms</S.SectionTitle>
         <S.Paragraph>
           Welcome to Common Scents HQ. These Terms of Service ("Terms")
           constitute a legally binding agreement between you and Common Scents
@@ -21,8 +27,10 @@ const TermsOfService: React.FC = () => {
         </S.Paragraph>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>2. Intellectual Property Rights</S.SectionTitle>
+      <S.Section id="intellectual-property" aria-labelledby="h-ip">
+        <S.SectionTitle id="h-ip">
+          2. Intellectual Property Rights
+        </S.SectionTitle>
 
         <S.Subsection>
           <S.SubsectionTitle>2.1 Our Content</S.SubsectionTitle>
@@ -50,8 +58,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>3. Use of the Site</S.SectionTitle>
+      <S.Section id="use-of-site" aria-labelledby="h-use">
+        <S.SectionTitle id="h-use">3. Use of the Site</S.SectionTitle>
 
         <S.Subsection>
           <S.SubsectionTitle>3.1 License to Use</S.SubsectionTitle>
@@ -109,8 +117,10 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>4. Fragrance Reviews and Content</S.SectionTitle>
+      <S.Section id="content" aria-labelledby="h-content">
+        <S.SectionTitle id="h-content">
+          4. Fragrance Reviews and Content
+        </S.SectionTitle>
 
         <S.Subsection>
           <S.SubsectionTitle>4.1 Information Purpose Only</S.SubsectionTitle>
@@ -138,8 +148,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>
+      <S.Section id="affiliates" aria-labelledby="h-affiliates">
+        <S.SectionTitle id="h-affiliates">
           5. Affiliate Relationships and Disclaimers
         </S.SectionTitle>
 
@@ -163,8 +173,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>6. API Usage and Rate Limits</S.SectionTitle>
+      <S.Section id="api-usage" aria-labelledby="h-api">
+        <S.SectionTitle id="h-api">6. API Usage and Rate Limits</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Our Site provides access to fragrance review functionality through
@@ -195,8 +205,10 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>7. User Accounts and Data</S.SectionTitle>
+      <S.Section id="accounts" aria-labelledby="h-accounts">
+        <S.SectionTitle id="h-accounts">
+          7. User Accounts and Data
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Currently, our Site does not require user registration or account
@@ -206,20 +218,27 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>8. Privacy and Data Collection</S.SectionTitle>
+      <S.Section id="privacy" aria-labelledby="h-privacy">
+        <S.SectionTitle id="h-privacy">
+          8. Privacy and Data Collection
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Your use of the Site is also governed by our Privacy Policy, which
             describes how we collect, use, and protect your information. Please
-            review our <S.Link href="/privacy-policy">Privacy Policy</S.Link> to
-            understand our practices.
+            review our{" "}
+            <S.Link as={Link} to="/privacy-policy">
+              Privacy Policy
+            </S.Link>{" "}
+            to understand our practices.
           </S.Paragraph>
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>9. Disclaimer of Warranties</S.SectionTitle>
+      <S.Section id="warranties" aria-labelledby="h-warranties">
+        <S.SectionTitle id="h-warranties">
+          9. Disclaimer of Warranties
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             THE SITE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT
@@ -248,8 +267,10 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>10. Limitation of Liability</S.SectionTitle>
+      <S.Section id="liability" aria-labelledby="h-liability">
+        <S.SectionTitle id="h-liability">
+          10. Limitation of Liability
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL COMMON
@@ -279,8 +300,10 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>11. Indemnification</S.SectionTitle>
+      <S.Section id="indemnification" aria-labelledby="h-indemnification">
+        <S.SectionTitle id="h-indemnification">
+          11. Indemnification
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             You agree to defend, indemnify, and hold harmless Common Scents HQ
@@ -302,8 +325,10 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>12. Modifications to the Site</S.SectionTitle>
+      <S.Section id="modifications" aria-labelledby="h-modifications">
+        <S.SectionTitle id="h-modifications">
+          12. Modifications to the Site
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We reserve the right to modify, suspend, or discontinue the Site (or
@@ -314,8 +339,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>13. Changes to Terms</S.SectionTitle>
+      <S.Section id="changes" aria-labelledby="h-changes">
+        <S.SectionTitle id="h-changes">13. Changes to Terms</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We reserve the right to modify these Terms at any time. If we make
@@ -330,8 +355,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>14. Termination</S.SectionTitle>
+      <S.Section id="termination" aria-labelledby="h-termination">
+        <S.SectionTitle id="h-termination">14. Termination</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             We may terminate or suspend your access to the Site immediately,
@@ -348,8 +373,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>
+      <S.Section id="disputes" aria-labelledby="h-disputes">
+        <S.SectionTitle id="h-disputes">
           15. Governing Law and Dispute Resolution
         </S.SectionTitle>
 
@@ -372,8 +397,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>16. Severability</S.SectionTitle>
+      <S.Section id="severability" aria-labelledby="h-severability">
+        <S.SectionTitle id="h-severability">16. Severability</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             If any provision of these Terms is held to be unenforceable or
@@ -385,8 +410,8 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>17. Waiver</S.SectionTitle>
+      <S.Section id="waiver" aria-labelledby="h-waiver">
+        <S.SectionTitle id="h-waiver">17. Waiver</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             Our failure to enforce any right or provision of these Terms will
@@ -397,8 +422,10 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>18. Entire Agreement</S.SectionTitle>
+      <S.Section id="entire-agreement" aria-labelledby="h-entire-agreement">
+        <S.SectionTitle id="h-entire-agreement">
+          18. Entire Agreement
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             These Terms, together with our Privacy Policy and any other legal
@@ -410,29 +437,35 @@ const TermsOfService: React.FC = () => {
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>19. Contact Information</S.SectionTitle>
+      <S.Section id="contact" aria-labelledby="h-contact">
+        <S.SectionTitle id="h-contact">19. Contact Information</S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             If you have any questions about these Terms, please contact us:
           </S.Paragraph>
           <S.Paragraph>
-            <S.Strong>Email:</S.Strong>
+            <S.Strong>Email:</S.Strong>{" "}
             <S.Link href="mailto:legal@commonscentshq.com">
               legal@commonscentshq.com
             </S.Link>
           </S.Paragraph>
           <S.Paragraph>
             <S.Strong>Website:</S.Strong>{" "}
-            <S.Link href="https://commonscentshq.com">
+            <S.Link
+              href="https://commonscentshq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               https://commonscentshq.com
             </S.Link>
           </S.Paragraph>
         </S.Subsection>
       </S.Section>
 
-      <S.Section>
-        <S.SectionTitle>20. Acknowledgment</S.SectionTitle>
+      <S.Section id="acknowledgment" aria-labelledby="h-acknowledgment">
+        <S.SectionTitle id="h-acknowledgment">
+          20. Acknowledgment
+        </S.SectionTitle>
         <S.Subsection>
           <S.Paragraph>
             BY USING THE SITE, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF
@@ -440,8 +473,6 @@ const TermsOfService: React.FC = () => {
           </S.Paragraph>
         </S.Subsection>
       </S.Section>
-
-      <S.LastUpdated>Last Updated: December 20, 2024</S.LastUpdated>
     </S.Container>
   );
 };

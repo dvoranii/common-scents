@@ -169,11 +169,10 @@ export const ImgAndDescriptionWrapper = styled.div`
   gap: 2.4rem;
   max-width: 1600px;
   margin: 0 auto;
-  /* align-items: flex-start; */
 
   @media screen and (max-width: 900px) {
     flex-direction: column;
-    gap: 1rem; // Even tighter gap
+    gap: 1rem;
   }
 `;
 
@@ -194,7 +193,6 @@ export const CategoryImg = styled.img`
   aspect-ratio: 6/4;
   background-color: transparent;
   width: 100%;
-  max-width: 600px;
 
   @media screen and (max-width: 900px) {
     max-width: 100%;
@@ -356,7 +354,6 @@ export const ExampleImage = styled.img`
   transition: transform 0.2s ease;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
 
-  // Add aspect-ratio for CLS
   aspect-ratio: 1/1;
 
   &:hover {

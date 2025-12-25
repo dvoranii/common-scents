@@ -82,58 +82,6 @@ export const NavLink = styled.a<{ $textColour?: string; $isActive?: boolean }>`
   text-transform: uppercase;
 `;
 
-export const DropdownMenu = styled.ul`
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 0px 0px 4px 4px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.2s ease;
-  z-index: 1000;
-  list-style: none;
-`;
-
-export const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:hover ${DropdownMenu} {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-`;
-
-export const DropdownMenuItem = styled.li`
-  list-style: none;
-  border-bottom: 1px solid #eee;
-`;
-
-export const DropdownLink = styled.a<{ $isActive?: boolean }>`
-  display: block;
-  padding: ${(props) => `${props.theme.spacing.sm} ${props.theme.spacing.md}`};
-  color: ${(props) =>
-    props.$isActive ? "#e78732" : `${props.theme.colors.text}`};
-  text-decoration: none;
-  font-size: ${(props) => props.theme.fontSizes.base};
-  font-weight: ${(props) => (props.$isActive ? "600" : "400")};
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: ${(props) => (props.$isActive ? "#fff" : "#eee")};
-    cursor: ${(props) => (props.$isActive ? "default" : "pointer")};
-  }
-`;
-
 export const AnimatedBurgerIcon = styled.div<{
   $isOpen: boolean;
   $xColour?: string;
@@ -217,69 +165,5 @@ export const BurgerButton = styled.button<{
 
   @media (max-width: 768px) {
     display: block;
-  }
-`;
-
-export const MobileNavOverlay = styled.div<{ $isOpen: boolean }>`
-  display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-    opacity: ${(props) => (props.$isOpen ? 1 : 0)};
-    visibility: ${(props) => (props.$isOpen ? "visible" : "hidden")};
-    transition: all 0.3s ease;
-  }
-`;
-
-export const MobileNavSidebar = styled.div<{ $isOpen: boolean }>`
-  display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: ${(props) => (props.$isOpen ? "0" : "-50%")};
-    width: 50%;
-    height: 100%;
-    background-color: ${(props) => props.theme.colors.background};
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    transition: right 0.3s ease;
-    padding: ${(props) => props.theme.spacing.xxl};
-  }
-`;
-
-export const MobileNavList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.theme.spacing.xl};
-  margin-top: ${(props) => props.theme.spacing.xxl};
-  list-style: none;
-`;
-
-export const MobileNavItem = styled.li`
-  list-style: none;
-`;
-
-export const MobileNavLink = styled.a<{ $isActive?: boolean }>`
-  color: ${(props) =>
-    props.$isActive ? props.theme.colors.text : props.theme.colors.text};
-  font-size: ${(props) => props.theme.fontSizes.xl};
-  font-weight: ${(props) => (props.$isActive ? "600" : "400")};
-  text-decoration: none;
-  display: block;
-  padding: ${(props) => props.theme.spacing.sm} 0;
-  border-bottom: 1px solid ${(props) => props.theme.colors.border};
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: grey;
   }
 `;

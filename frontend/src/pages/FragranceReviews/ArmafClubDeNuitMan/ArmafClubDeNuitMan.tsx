@@ -82,7 +82,7 @@ const ArmafClubDeNuitManReview: React.FC = () => {
 
             <CategoryAndOccasionWrapper aria-labelledby="fragrance-categories">
               <CategoryAndOccasionWrapperInner>
-                <ScentAndOccasionTitle as="h2" id="fragrance-categories">
+                <ScentAndOccasionTitle id="fragrance-categories">
                   Scent Categories
                 </ScentAndOccasionTitle>
                 <ParagraphWrapper>
@@ -95,7 +95,7 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               </CategoryAndOccasionWrapperInner>
 
               <CategoryAndOccasionWrapperInner>
-                <ScentAndOccasionTitle as="h2">
+                <ScentAndOccasionTitle>
                   Events & Activities
                 </ScentAndOccasionTitle>
                 <ParagraphWrapper>
@@ -108,7 +108,7 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               </CategoryAndOccasionWrapperInner>
 
               <CategoryAndOccasionWrapperInner>
-                <ScentAndOccasionTitle as="h2">Seasons</ScentAndOccasionTitle>
+                <ScentAndOccasionTitle>Seasons</ScentAndOccasionTitle>
                 <ParagraphWrapper>
                   <AssetLinkGrid
                     items={seasonData}
@@ -147,7 +147,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="fragrance-overview"
               >
                 Fragrance Overview
@@ -173,7 +172,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="note-breakdown"
               >
                 Note Breakdown - My Experience
@@ -210,7 +208,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="performance-metrics"
               >
                 Performance Metrics
@@ -247,7 +244,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="best-time-occasions"
               >
                 Best Time & Occasions
@@ -287,7 +283,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="who-should-wear"
               >
                 Who Should Wear It
@@ -311,7 +306,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="reactions-subjectivity"
               >
                 Reactions & Subjectivity
@@ -336,7 +330,6 @@ const ArmafClubDeNuitManReview: React.FC = () => {
               <SectionTitle
                 $leftAligned
                 $marginBottom="1.2rem"
-                as="h2"
                 id="final-verdict"
               >
                 Final Verdict
