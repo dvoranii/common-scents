@@ -305,8 +305,6 @@ export const NoteProfileTitle = styled.h4<{ as?: React.ElementType }>`
   color: #444444;
   margin-bottom: ${(props) => props.theme.spacing.sm};
   text-align: center;
-  min-height: 2.5em;
-
   transition: all 200ms ease;
 
   ${NoteProfileCard}:hover & {

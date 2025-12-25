@@ -12,7 +12,7 @@ import PageNavigation from "../../../components/PageNavigation/PageNavigation";
 import { renderToStaticMarkup } from "react-dom/server";
 import type { LucideIcon } from "lucide-react";
 import KeyboardNavTooltip from "../../../components/KeyboardNavTooltip/KeyboardNavTooltip";
-import { SEO } from "../../../components/SEO/SEO"; // Add SEO import
+import { SEO } from "../../../components/SEO/SEO";
 
 interface TiltOptions {
   max?: number;
