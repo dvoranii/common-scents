@@ -68,16 +68,25 @@ app.use(
   })
 );
 
+const getAllowedOrigins = () => {
+  const productionOrigin = process.env.FRONTEND_URL;
+  const isProduction = process.env.NODE_ENV === "production";
+
+  if (isProduction) {
+    return [productionOrigin].filter(Boolean) as string[];
+  }
+
+  return [
+    productionOrigin,
+    "http://localhost:5173",
+    "http://localhost:4173",
+    "http://localhost:3000",
+  ].filter(Boolean) as string[];
+};
+
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? ([process.env.FRONTEND_URL].filter(Boolean) as string[])
-        : ([
-            process.env.FRONTEND_URL,
-            "http://localhost:5173",
-            "http://localhost:4173",
-          ].filter(Boolean) as string[]),
+    origin: getAllowedOrigins(),
     credentials: true,
   })
 );
