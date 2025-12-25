@@ -3,7 +3,7 @@ import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
 import JPGElixirBottle from "/assets/images/FragranceReviews/FragranceBottles/JPG-Elixir.png";
-import JPGElixirThumbnail from "/assets/images/FragranceThumbnails/JPG-Elixir.png";
+import JPGElixirThumbnail from "/assets/images/FragranceThumbnails/JPG-Elixir.webp";
 import JPGLogo from "/assets/images/FragranceReviews/FragranceLogos/JPG_Logo.png";
 
 import QuentinBischImg from "/assets/images/FragranceReviews/Perfumers/Quentin-Bisch.webp";

@@ -4,7 +4,7 @@ import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
 import ClubDeNuitManBottle from "/assets/images/FragranceReviews/FragranceBottles/armaf-cdnm.png";
-import ClubDeNuitManThumbnail from "/assets/images/FragranceThumbnails/armaf-cdnm.png";
+import ClubDeNuitManThumbnail from "/assets/images/FragranceThumbnails/armaf-cdnm.webp";
 import ArmafLogo from "/assets/images/FragranceReviews/FragranceLogos/Armaf_Logo.png";
 
 export const armafClubDeNuitMan: Fragrance = {

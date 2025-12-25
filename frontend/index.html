@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
 
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/cs-bulb.png"
+      fetchpriority="high"
+    />
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
     <link rel="manifest" href="/site.webmanifest" />
 
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#000000" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>
-      Common Scents HQ - Fragrance Reviews, Guides & Recommendations
-    </title>
     <meta
       name="title"
       content="Common Scents HQ - Fragrance Reviews, Guides & Recommendations"
@@ -31,7 +32,6 @@
       content="fragrance reviews, perfume guides, cologne recommendations, scent wardrobe, fragrance by season, perfume by occasion"
     />
     <meta name="author" content="Common Scents HQ" />
-
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://commonscentshq.com/" />
     <meta
@@ -47,16 +47,61 @@
       content="https://commonscentshq.com/og-image.jpg"
     />
 
-    <!-- Canonical URL -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://commonscentshq.com/" />
+    <meta
+      name="twitter:title"
+      content="Common Scents HQ - Fragrance Reviews & Guides"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover the perfect fragrance for every occasion and season. Expert reviews and personalized recommendations."
+    />
+    <meta
+      name="twitter:image"
+      content="https://commonscentshq.com/og-image.jpg"
+    />
+
     <link rel="canonical" href="https://commonscentshq.com/" />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700;900&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <title>
+      Common Scents HQ - Fragrance Reviews, Guides & Recommendations
+    </title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Common Scents HQ",
+        "url": "https://commonscentshq.com/",
+        "description": "Expert fragrance reviews, guides, and recommendations.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Common Scents HQ",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://commonscentshq.com/assets/images/cs-bulb.png"
+          }
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

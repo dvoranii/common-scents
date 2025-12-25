@@ -1,6 +1,7 @@
-import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./MobileNav.styled";
+import { useScrollLock } from "../../../hooks/useScrollLock";
 
 export interface NavItemType {
   to: string;
@@ -23,6 +24,18 @@ export const MobileNav: React.FC<MobileMenuProps> = ({
   navItemsBefore,
   navItemsAfter,
 }) => {
+  const { lockScroll, unlockScroll } = useScrollLock();
+
+  useEffect(() => {
+    if (isOpen) {
+      lockScroll();
+    } else {
+      unlockScroll();
+    }
+
+    return () => unlockScroll();
+  }, [isOpen, lockScroll, unlockScroll]);
+
   return (
     <S.MobileNavOverlay $isOpen={isOpen} onClick={onClose}>
       <S.MobileNavSidebar $isOpen={isOpen} onClick={(e) => e.stopPropagation()}>

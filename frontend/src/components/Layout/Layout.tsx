@@ -1,4 +1,3 @@
-// components/Layout/Layout.tsx
 import type { ReactNode } from "react";
 import { Navigation } from "../Navigation/Navigation";
 import Footer from "../Footer/Footer";

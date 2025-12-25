@@ -77,7 +77,7 @@ const Afnan9PMReview: React.FC = () => {
       <main>
         <PageWrapper>
           <PageWrapperInner>
-            <FragranceHeader fragrance={fragrance} bottleImageSize="xlarge" />
+            <FragranceHeader fragrance={fragrance} bottleImageSize="medium" />
             <SummarySection fragranticaUrl={fragrance.fragranticaUrl} />
 
             <CategoryAndOccasionWrapper aria-labelledby="fragrance-categories">

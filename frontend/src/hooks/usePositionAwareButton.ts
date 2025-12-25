@@ -5,40 +5,42 @@ export const usePositionAwareButton = <
 >() => {
   const elementRef = useRef<T>(null);
 
+  const requestRef = useRef<number | null>(null);
+
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
 
-    const handleMouseEnter = (e: MouseEvent) => {
+    const updatePosition = (e: MouseEvent) => {
       const rect = element.getBoundingClientRect();
       const relX = e.clientX - rect.left;
       const relY = e.clientY - rect.top;
 
-      const span = element.querySelector("span");
+      const span = element.querySelector("span") as HTMLElement;
       if (span) {
-        (span as HTMLElement).style.top = `${relY}px`;
-        (span as HTMLElement).style.left = `${relX}px`;
+        span.style.top = `${relY}px`;
+        span.style.left = `${relX}px`;
       }
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = element.getBoundingClientRect();
-      const relX = e.clientX - rect.left;
-      const relY = e.clientY - rect.top;
-
-      const span = element.querySelector("span");
-      if (span) {
-        (span as HTMLElement).style.top = `${relY}px`;
-        (span as HTMLElement).style.left = `${relX}px`;
+    const onMouseMove = (e: MouseEvent) => {
+      if (requestRef.current !== null) {
+        cancelAnimationFrame(requestRef.current);
       }
+
+      requestRef.current = requestAnimationFrame(() => updatePosition(e));
     };
 
-    element.addEventListener("mouseenter", handleMouseEnter);
-    element.addEventListener("mousemove", handleMouseMove);
+    element.addEventListener("mouseenter", onMouseMove);
+    element.addEventListener("mousemove", onMouseMove);
 
     return () => {
-      element.removeEventListener("mouseenter", handleMouseEnter);
-      element.removeEventListener("mousemove", handleMouseMove);
+      element.removeEventListener("mouseenter", onMouseMove);
+      element.removeEventListener("mousemove", onMouseMove);
+
+      if (requestRef.current !== null) {
+        cancelAnimationFrame(requestRef.current);
+      }
     };
   }, []);
 

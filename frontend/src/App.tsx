@@ -1,33 +1,29 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./styles/GlobalStyles";
 import { theme } from "./styles/theme";
 import AppRouter from "./AppRouter";
 import { initGA } from "./utils/analytics";
-import NewsletterModal from "./components/NewsletterModal/NewsletterModal";
-import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+
+const NewsletterModal = lazy(
+  () => import("./components/NewsletterModal/NewsletterModal")
+);
 
 function App() {
   const IS_PRODUCTION = import.meta.env.PROD;
   const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
   const [showModal, setShowModal] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (IS_PRODUCTION && MEASUREMENT_ID) {
       initGA();
     }
-
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 800);
-
-    return () => clearTimeout(timer);
   }, [IS_PRODUCTION, MEASUREMENT_ID]);
 
   useEffect(() => {
     const hasSeenModal = localStorage.getItem("hasSeenNewsletterModal");
+
     if (!hasSeenModal) {
       const timer = setTimeout(() => {
         setShowModal(true);
@@ -44,21 +40,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <AppRouter />
 
-      {isLoading ? (
-        <div
-          className="app-loading-overlay"
-          role="status"
-          aria-label="Loading application"
-          aria-live="polite"
-        >
-          <LoadingSpinner />
-        </div>
-      ) : (
-        <>
-          <AppRouter />
+      {showModal && (
+        <Suspense fallback={null}>
           <NewsletterModal isOpen={showModal} onClose={handleCloseModal} />
-        </>
+        </Suspense>
       )}
     </ThemeProvider>
   );

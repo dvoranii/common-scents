@@ -4,28 +4,45 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, lazy } from "react";
 import { Layout } from "./components/Layout/Layout";
-import HomePage from "./pages/Home/Home";
-import OccasionLandingPage from "./pages/Occasions/LandingPage/OccasionLandingPage";
-import OccasionDetailPage from "./pages/Occasions/DetailPage/OccasionDetailPage";
-import SeasonLandingPage from "./pages/Seasons/LandingPage/SeasonLandingPage";
-import SeasonDetailPage from "./pages/Seasons/DetailPage/SeasonDetailPage";
-import CategoriesLandingPage from "./pages/Categories/Landing/CategoriesLandingPage";
-import CategoryDetailPage from "./pages/Categories/Detail/CategoryDetailPage";
-import NotFound from "./pages/NotFound/NotFound";
-import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
-import { guidesRoutes } from "./config/guideRoutes";
-import { academyRoutes } from "./config/academyRoute";
-import FragranceReviews from "./pages/FragranceReviews/FragranceReviews";
-import About from "./pages/About/About";
-import Guides from "./pages/TipsAndGuides/Landing/Guides";
-import Academy from "./pages/Academy/Landing/Academy";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 import { logPageView } from "./utils/analytics";
 
-import TermsOfService from "./pages/TermsOfService/TermsOfService";
-import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import { fragranceReviewRoutes } from "./config/fragranceReviewRoutes";
+import { guidesRoutes } from "./config/guideRoutes";
+import { academyRoutes } from "./config/academyRoute";
+
+const HomePage = lazy(() => import("./pages/Home/Home"));
+const OccasionLandingPage = lazy(
+  () => import("./pages/Occasions/LandingPage/OccasionLandingPage")
+);
+const OccasionDetailPage = lazy(
+  () => import("./pages/Occasions/DetailPage/OccasionDetailPage")
+);
+const SeasonLandingPage = lazy(
+  () => import("./pages/Seasons/LandingPage/SeasonLandingPage")
+);
+const SeasonDetailPage = lazy(
+  () => import("./pages/Seasons/DetailPage/SeasonDetailPage")
+);
+const CategoriesLandingPage = lazy(
+  () => import("./pages/Categories/Landing/CategoriesLandingPage")
+);
+const CategoryDetailPage = lazy(
+  () => import("./pages/Categories/Detail/CategoryDetailPage")
+);
+const FragranceReviews = lazy(
+  () => import("./pages/FragranceReviews/FragranceReviews")
+);
+const About = lazy(() => import("./pages/About/About"));
+const Guides = lazy(() => import("./pages/TipsAndGuides/Landing/Guides"));
+const Academy = lazy(() => import("./pages/Academy/Landing/Academy"));
+const TermsOfService = lazy(
+  () => import("./pages/TermsOfService/TermsOfService")
+);
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 
 function AnalyticsTracker() {
   const location = useLocation();
@@ -43,12 +60,13 @@ function AnalyticsTracker() {
 
 function AppRouter() {
   return (
-    <>
-      <Router>
-        <AnalyticsTracker />
-        <Layout>
+    <Router>
+      <AnalyticsTracker />
+      <Layout>
+        <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+
             <Route path="/occasions" element={<OccasionLandingPage />} />
             <Route
               path="/occasions/:occasionSlug"
@@ -57,16 +75,17 @@ function AppRouter() {
 
             <Route path="/seasons" element={<SeasonLandingPage />} />
             <Route path="/seasons/:seasonSlug" element={<SeasonDetailPage />} />
+
             <Route path="/categories" element={<CategoriesLandingPage />} />
             <Route
               path="/categories/:categorySlug"
               element={<CategoryDetailPage />}
             />
+
             <Route path="/fragrance-reviews" element={<FragranceReviews />} />
             <Route path="/about" element={<About />} />
             <Route path="/guides" element={<Guides />} />
             <Route path="/academy" element={<Academy />} />
-
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
@@ -74,11 +93,7 @@ function AppRouter() {
               <Route
                 key={slug}
                 path={`/fragrance-reviews/${slug}`}
-                element={
-                  <Suspense fallback={<LoadingSpinner />}>
-                    <Component />
-                  </Suspense>
-                }
+                element={<Component />}
               />
             ))}
 
@@ -86,30 +101,23 @@ function AppRouter() {
               <Route
                 key={slug}
                 path={`/guides/${slug}`}
-                element={
-                  <Suspense fallback={<LoadingSpinner />}>
-                    <Component />
-                  </Suspense>
-                }
+                element={<Component />}
               />
             ))}
+
             {academyRoutes.map(({ slug, component: Component }) => (
               <Route
                 key={slug}
                 path={`/academy/${slug}`}
-                element={
-                  <Suspense fallback={<LoadingSpinner />}>
-                    <Component />
-                  </Suspense>
-                }
+                element={<Component />}
               />
             ))}
 
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </Layout>
-      </Router>
-    </>
+        </Suspense>
+      </Layout>
+    </Router>
   );
 }
 
