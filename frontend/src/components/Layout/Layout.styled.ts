@@ -13,6 +13,8 @@ export const Wrapper = styled.div`
 
 export const Main = styled.main`
   flex: 1;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   width: 100%;
   position: relative;
