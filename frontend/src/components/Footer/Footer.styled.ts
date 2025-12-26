@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
   width: 100%;
-
   height: 280px;
 
   background: linear-gradient(to top, rgba(38, 50, 70, 0.8), rgb(38, 50, 70));
@@ -14,7 +13,7 @@ export const Container = styled.footer`
   display: flex;
   flex-direction: column;
 
-  contain: content;
+  flex-shrink: 0;
 
   &::after {
     content: "";
@@ -69,7 +68,7 @@ export const Trademark = styled.p`
 export const ImgWrapper = styled.div`
   height: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   padding: 20px;
 
   @media screen and (max-width: 643px) {
