@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
   width: 100%;
-  min-height: 250px;
+
+  height: 280px;
+
   background: linear-gradient(to top, rgba(38, 50, 70, 0.8), rgb(38, 50, 70));
   border-top: 4px solid whitesmoke;
   position: relative;
   padding-bottom: 50px;
+
+  display: flex;
+  flex-direction: column;
 
   contain: content;
 
@@ -27,6 +32,22 @@ export const Container = styled.footer`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
       inset 0 1px 1px rgba(255, 255, 255, 0.5);
   }
+
+  @media screen and (max-width: 643px) {
+    height: auto;
+    min-height: 280px;
+  }
+`;
+
+export const ContainerInner = styled.div`
+  width: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 643px) {
+    align-items: flex-start;
+  }
 `;
 
 export const Trademark = styled.p`
@@ -43,17 +64,6 @@ export const Trademark = styled.p`
   font-weight: 200;
   font-size: ${(props) => props.theme.fontSizes.sm};
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-`;
-
-export const ContainerInner = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  @media screen and (max-width: 643px) {
-    align-items: flex-start;
-  }
 `;
 
 export const ImgWrapper = styled.div`
