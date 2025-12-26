@@ -18,4 +18,5 @@ export const Main = styled.main`
   margin: 0 auto;
   width: 100%;
   position: relative;
+  min-height: 60vh;
 `;
