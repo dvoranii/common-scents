@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const NavWrapperOuter = styled.div`
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   z-index: 99;
 
   @media (max-width: 768px) {
@@ -20,7 +23,8 @@ export const Nav = styled.nav``;
 
 export const NavList = styled.ul<{ $isHomePage?: boolean }>`
   display: flex;
-  gap: ${(props) => props.theme.fontSizes.xxxl};
+  justify-content: center;
+  gap: ${(props) => props.theme.fontSizes.xl};
   font-size: ${(props) => props.theme.fontSizes.xl};
   list-style: none;
 
@@ -70,6 +74,11 @@ export const NavList = styled.ul<{ $isHomePage?: boolean }>`
 
 export const NavItem = styled.li`
   list-style: none;
+  min-width: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const NavLink = styled.a<{ $textColour?: string; $isActive?: boolean }>`

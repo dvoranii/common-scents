@@ -18,6 +18,7 @@ export const ReviewsGrid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   gap: ${(props) => props.theme.spacing.xl};
   padding: 0 20px;
+  min-height: 636.5px;
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(3, 1fr);

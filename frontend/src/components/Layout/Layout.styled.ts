@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  min-height: 100vh;
+  min-height: 200vh;
   display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
   overflow-x: hidden;
   max-width: 100vw;
+  min-width: 100%;
 `;
 
 export const Main = styled.main`

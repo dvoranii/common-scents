@@ -44,6 +44,7 @@ const Footer: React.FC = () => {
             width="65"
             height="87"
             loading="eager"
+            fetchPriority="high"
           />
         </S.ImgWrapper>
       </S.ContainerInner>

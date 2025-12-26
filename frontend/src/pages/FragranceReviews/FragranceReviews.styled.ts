@@ -5,6 +5,7 @@ export const PageWrapper = styled.div`
   max-width: 1600px;
   margin: 0 auto;
   padding: ${(props) => props.theme.spacing.xl};
+  min-height: 80vh;
 `;
 
 export const FragranceGrid = styled.ul`

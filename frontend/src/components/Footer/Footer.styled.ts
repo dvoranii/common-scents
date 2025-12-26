@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
   width: 100%;
-  height: 280px;
+  min-height: 280px;
 
   background: linear-gradient(to top, rgba(38, 50, 70, 0.8), rgb(38, 50, 70));
   border-top: 4px solid whitesmoke;
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 
   display: flex;
   flex-direction: column;
-
   flex-shrink: 0;
 
   &::after {
@@ -31,11 +30,6 @@ export const Container = styled.footer`
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
       inset 0 1px 1px rgba(255, 255, 255, 0.5);
   }
-
-  @media screen and (max-width: 643px) {
-    height: auto;
-    min-height: 280px;
-  }
 `;
 
 export const ContainerInner = styled.div`
@@ -50,14 +44,13 @@ export const ContainerInner = styled.div`
 `;
 
 export const Trademark = styled.p`
-  position: absolute;
-  font-family: "Lato", sans-serif;
-  margin: 0;
-  padding: 0;
-  left: 50%;
-  bottom: 12px;
-  transform: translateX(-50%);
+  position: relative;
+  width: 100%;
   text-align: center;
+  margin-top: 10px;
+
+  font-family: "Lato", sans-serif;
+  font-display: swap;
   color: whitesmoke;
   letter-spacing: 0.5px;
   font-weight: 200;
@@ -70,12 +63,6 @@ export const ImgWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   padding: 20px;
-
-  @media screen and (max-width: 643px) {
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
-  }
 `;
 
 export const LogoImg = styled.img`
@@ -102,7 +89,7 @@ export const NavList = styled.ul`
 
 export const NavListItem = styled.li`
   transition: transform 300ms ease;
-  width: fit-content;
+  width: max-content;
   cursor: pointer;
 `;
 
