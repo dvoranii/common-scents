@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-
   width: 100%;
   overflow-x: hidden;
   max-width: 100vw;

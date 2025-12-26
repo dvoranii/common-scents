@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
             alt="Common Scents Logo"
             width="65"
             height="87"
-            loading="lazy"
+            loading="eager"
           />
         </S.ImgWrapper>
       </S.ContainerInner>
