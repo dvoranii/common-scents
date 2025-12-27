@@ -17,17 +17,23 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2 {
-    font-family: ${(props) => props.theme.fonts.heading1};
+    font-family: ${(props) =>
+      props.theme.fonts
+        .heading1}, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 700;
   }
 
   h3, h4, h5, h6 {
-    font-family: ${(props) => props.theme.fonts.heading2};
+    font-family: ${(props) =>
+      props.theme.fonts
+        .heading2}, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 500;
   }
 
   button {
-    font-family: ${(props) => props.theme.fonts.body};
+    font-family: ${(props) =>
+      props.theme.fonts
+        .body}, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     cursor: pointer;
     border: none;
     outline: none;

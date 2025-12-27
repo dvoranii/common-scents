@@ -129,6 +129,7 @@ export const MainTitle = styled.h1<{
   ${(props) => props.$bgColor && `background: ${props.$bgColor};`};
   padding: ${(props) => (props.$padding ? props.$padding : "10px 20px")};
   opacity: 0;
+  visibility: hidden;
   animation: fadeInSlideDown 500ms ease 750ms forwards;
   margin: 0 auto;
 
@@ -149,8 +150,12 @@ export const MainTitle = styled.h1<{
 `;
 
 export const TitleContainer = styled.div`
-  width: fit-content;
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 interface TaglineProps {

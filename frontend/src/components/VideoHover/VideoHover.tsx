@@ -1,5 +1,4 @@
-// VideoHoverOptimized.tsx
-import React, { useRef, useState, useCallback } from "react";
+import React, { useRef, useState, useCallback, useEffect } from "react";
 import * as S from "./VideoHover.styled";
 
 interface VideoHoverProps {
@@ -14,61 +13,69 @@ export const VideoHover: React.FC<VideoHoverProps> = ({
   alt,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const hoverTimerRef = useRef<NodeJS.Timeout | null>(null);
   const isHoveredRef = useRef(false);
 
-  const handleMouseEnter = useCallback(() => {
-    isHoveredRef.current = true;
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [canHover, setCanHover] = useState(false);
 
-    if (hoverTimerRef.current) {
-      clearTimeout(hoverTimerRef.current);
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: hover)");
+    setCanHover(mediaQuery.matches);
+  }, []);
+
+  useEffect(() => {
+    if (hasInteracted && isHoveredRef.current && videoRef.current) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch((e) => console.debug("Video play prevented: ", e));
+      }
     }
+  }, [hasInteracted]);
+
+  const handleMouseEnter = useCallback(() => {
+    if (!canHover) return;
+
+    isHoveredRef.current = true;
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
 
     hoverTimerRef.current = setTimeout(() => {
-      if (isHoveredRef.current && videoRef.current && !isPlaying) {
-        videoRef.current.currentTime = 0;
-        const playPromise = videoRef.current.play();
+      if (!isHoveredRef.current) return;
 
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => setIsPlaying(true))
-            .catch((e) => console.debug("Video play prevented:", e));
-        }
+      if (!hasInteracted) {
+        setHasInteracted(true);
+      } else {
+        videoRef.current?.play().then(() => setIsPlaying(true));
       }
     }, 50);
-  }, [isPlaying]);
+  }, [canHover, hasInteracted]);
 
   const handleMouseLeave = useCallback(() => {
     isHoveredRef.current = false;
-
-    if (hoverTimerRef.current) {
-      clearTimeout(hoverTimerRef.current);
-    }
+    if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
 
     hoverTimerRef.current = setTimeout(() => {
-      if (!isHoveredRef.current && videoRef.current && isPlaying) {
+      if (!isHoveredRef.current && videoRef.current) {
         videoRef.current.pause();
         videoRef.current.currentTime = 0;
         setIsPlaying(false);
       }
     }, 150);
-  }, [isPlaying]);
-
-  const handleVideoEnded = useCallback(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play();
-    }
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
+    const videoNode = videoRef.current;
+
     return () => {
-      if (hoverTimerRef.current) {
-        clearTimeout(hoverTimerRef.current);
-      }
-      if (videoRef.current) {
-        videoRef.current.pause();
+      if (hoverTimerRef.current) clearTimeout(hoverTimerRef.current);
+
+      if (videoNode) {
+        videoNode.pause();
+        videoNode.src = "";
+        videoNode.load();
       }
     };
   }, []);
@@ -77,8 +84,6 @@ export const VideoHover: React.FC<VideoHoverProps> = ({
     <S.VideoContainer
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onTouchStart={handleMouseEnter}
-      onTouchEnd={handleMouseLeave}
     >
       <S.ThumbnailImage
         src={thumbnailSrc}
@@ -86,21 +91,19 @@ export const VideoHover: React.FC<VideoHoverProps> = ({
         $visible={!isPlaying}
         loading="lazy"
       />
-      <S.HoverVideo
-        ref={videoRef}
-        muted
-        playsInline
-        loop
-        preload="metadata"
-        $visible={isPlaying}
-        onEnded={handleVideoEnded}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-      >
-        <source src={videoSrc} type="video/webm" />
-        <source src={videoSrc.replace(".webm", ".mp4")} type="video/mp4" />
-        <img src={thumbnailSrc} alt={alt} />
-      </S.HoverVideo>
+      {canHover && hasInteracted && (
+        <S.HoverVideo
+          ref={videoRef}
+          muted
+          playsInline
+          loop
+          preload="auto"
+          $visible={isPlaying}
+        >
+          <source src={videoSrc} type="video/webm" />
+          <source src={videoSrc.replace(".webm", ".mp4")} type="video/mp4" />
+        </S.HoverVideo>
+      )}
     </S.VideoContainer>
   );
 };
