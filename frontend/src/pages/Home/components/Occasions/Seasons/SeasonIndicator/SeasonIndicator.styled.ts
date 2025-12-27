@@ -8,8 +8,8 @@ export const IndicatorContainer = styled.div`
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 120px;
-  height: 120px;
+  width: 170px;
+  height: 170px;
   z-index: 10;
 
   pointer-events: none;
@@ -36,8 +36,8 @@ export const CrossDivider = styled.img`
 
 export const SeasonIcon = styled.img<IconProps>`
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   object-fit: contain;
 
   opacity: ${(props) => (props.$isActive ? 1 : 0.3)};

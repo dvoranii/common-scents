@@ -1,9 +1,9 @@
 import * as S from "./SeasonIndicator.styled";
-import SpringIcon from "/assets/images/Occasions/Seasons/spring-icon.png";
-import AutumnIcon from "/assets/images/Occasions/Seasons/fall-icon.png";
-import WinterIcon from "/assets/images/Occasions/Seasons/winter-icon.png";
-import SummerIcon from "/assets/images/Occasions/Seasons/summer-icon.png";
-import CrossIcon from "/assets/images/Occasions/Seasons/cross.png";
+import SpringIcon from "/assets/images/Occasions/Seasons/spring-icon.webp";
+import AutumnIcon from "/assets/images/Occasions/Seasons/fall-icon.webp";
+import WinterIcon from "/assets/images/Occasions/Seasons/winter-icon.webp";
+import SummerIcon from "/assets/images/Occasions/Seasons/summer-icon.webp";
+import CrossIcon from "/assets/images/Occasions/Seasons/cross.webp";
 
 interface SeasonIndicatorProps {
   activeSeason: "Winter" | "Autumn" | "Summer" | "Spring";
