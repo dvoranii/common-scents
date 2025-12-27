@@ -141,10 +141,12 @@ export const MainTitle = styled.h1<{
     from {
       opacity: 0;
       transform: translateY(-4px);
+      visibility: visible;
     }
     to {
       opacity: 1;
       transform: translateY(0px);
+      visibility: visible;
     }
   }
 `;
