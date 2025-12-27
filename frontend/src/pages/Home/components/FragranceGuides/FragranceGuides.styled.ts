@@ -39,15 +39,21 @@ export const GuidesList = styled.ul`
   gap: ${(props) => props.theme.spacing.xl};
   list-style: none;
   padding: 0;
+
+  min-height: 588px;
+  content-visibility: auto;
+  contain-intrinsic-size: 588px;
 `;
 
 export const GuideItem = styled.li`
+  padding-bottom: 12px;
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
-  padding-bottom: ${(props) => props.theme.spacing.lg};
 
   opacity: 0;
   transform: translateY(-8px);
   will-change: transform, opacity;
+
+  contain: layout;
 
   &.fade-in-delay-0 {
     animation: fadeInDown 0.6s ease-out 0.2s forwards;
