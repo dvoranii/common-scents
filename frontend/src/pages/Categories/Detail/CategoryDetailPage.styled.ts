@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import WhiteBG from "/assets/images/white-texture-bg-2.jpg";
+import WhiteBG from "/assets/images/white-texture-bg-2.webp";
 
 export const PageWrapper = styled.div`
   min-height: 100vh;
