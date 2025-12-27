@@ -129,7 +129,6 @@ export const MainTitle = styled.h1<{
   ${(props) => props.$bgColor && `background: ${props.$bgColor};`};
   padding: ${(props) => (props.$padding ? props.$padding : "10px 20px")};
   opacity: 0;
-  visibility: hidden;
   animation: fadeInSlideDown 500ms ease 750ms forwards;
   margin: 0 auto;
 
