@@ -33,7 +33,11 @@ export const EventsActivities: React.FC = () => {
                 background: "transparent",
               }}
             >
-              <S.EventCard as={Link} to={`/occasions/${occasion.slug}`}>
+              <S.EventCard
+                as={Link}
+                to={`/occasions/${occasion.slug}`}
+                aria-label={`Explore fragrances for ${occasion.name}: ${occasion.description}`}
+              >
                 {occasion.video ? (
                   <VideoHover
                     videoSrc={occasion.video}

@@ -48,6 +48,11 @@ export const EventCard = styled.div`
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
+  &:focus-visible {
+    outline: 3px solid ${(props) => props.theme.colors.primary};
+    outline-offset: 4px;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -76,7 +81,9 @@ export const EventImage = styled.img`
   }
 `;
 
-export const EventOverlay = styled.div`
+export const EventOverlay = styled.div.attrs({
+  "aria-hidden": "true",
+})`
   position: absolute;
   bottom: 0;
   left: 0;

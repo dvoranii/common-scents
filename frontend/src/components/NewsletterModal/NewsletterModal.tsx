@@ -61,7 +61,7 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({
           updates, reviews, and tips.
         </S.ModalDescription>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} name="newsletter" id="newsletter-form">
           <S.EmailInput
             type="email"
             placeholder="Enter your email address"
