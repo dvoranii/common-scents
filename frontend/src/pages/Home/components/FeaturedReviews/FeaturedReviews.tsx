@@ -46,7 +46,12 @@ export const FeaturedReviews: React.FC = () => {
                 <S.ReviewImageLink to={`/fragrance-reviews/${fragrance.slug}`}>
                   <S.ReviewImage>
                     <S.BottleImage
-                      src={fragrance.thumbnailImage}
+                      src={fragrance.thumbnailDesktop}
+                      srcSet={`
+                        ${fragrance.thumbnailMobile} 300w,
+                        ${fragrance.thumbnailDesktop} 600w
+                      `}
+                      sizes="(max-width: 768px) 100vw, 300px"
                       alt={`${fragrance.name} by ${fragrance.house} bottle`}
                       width="300"
                       height="360"

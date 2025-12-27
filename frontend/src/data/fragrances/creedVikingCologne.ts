@@ -2,7 +2,9 @@ import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
-import VikingCologneThumbnail from "/assets/images/FragranceThumbnails/viking-cologne.webp";
+import VikingCologneThumbnailDesktop from "/assets/images/FragranceThumbnails/viking-cologne.webp";
+import VikingCologneThumbnailMobile from "/assets/images/FragranceThumbnails/viking-cologne-mobile.webp";
+
 import VikingCologneBottle from "/assets/images/FragranceReviews/FragranceBottles/VikingCologne.png";
 import CreedLogo from "/assets/images/FragranceReviews/FragranceLogos/Creed_Logo.png";
 import ErwinCreedImg from "/assets/images/FragranceReviews/Perfumers/Erwin-Creed.webp";
@@ -31,7 +33,9 @@ export const creedVikingCologne: Fragrance = {
   occasion: ["Formal", "Office", "Daily Driver"],
   category: ["Fresh", "Citrus", "Aromatic"],
   categorySlugs: ["fresh-citrus", "fougere"],
-  thumbnailImage: VikingCologneThumbnail,
+  thumbnailImage: VikingCologneThumbnailDesktop,
+  thumbnailDesktop: VikingCologneThumbnailDesktop,
+  thumbnailMobile: VikingCologneThumbnailMobile,
   heroImage: VikingCologneBottle,
   fragranticaUrl:
     "https://www.fragrantica.com/perfume/Creed/Viking-Cologne-67039.html",

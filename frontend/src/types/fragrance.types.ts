@@ -19,6 +19,8 @@ export interface Fragrance {
   accords?: Accords[];
   categorySlugs: string[];
   thumbnailImage: string;
+  thumbnailDesktop?: string;
+  thumbnailMobile?: string;
   heroImage?: string;
   fragranticaUrl: string;
   youtubeUrl?: string;

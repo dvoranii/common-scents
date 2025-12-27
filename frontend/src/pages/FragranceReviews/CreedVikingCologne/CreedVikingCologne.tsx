@@ -52,7 +52,7 @@ const CreedVikingCologneReview: React.FC = () => {
     },
     reviewRating: {
       "@type": "Rating",
-      ratingValue: "4.0", // Based on your 8/10 rating
+      ratingValue: "4.0",
       bestRating: "5",
       worstRating: "1",
     },

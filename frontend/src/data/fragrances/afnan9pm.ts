@@ -1,9 +1,10 @@
-// src/data/fragrances/afnan9pm.ts
 import { getNote } from "../noteImages";
 import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
-import Afnan9pmThumbnail from "/assets/images/FragranceThumbnails/Afnan-9pm.webp";
+import Afnan9pmThumbnailDesktop from "/assets/images/FragranceThumbnails/Afnan-9pm.webp";
+import Afnan9pmThumbnailMobile from "/assets/images/FragranceThumbnails/Afnan-9pm-mobile.webp";
+
 import Afnan9pmBottle from "/assets/images/FragranceReviews/FragranceBottles/9PM.png";
 import AfnanLogo from "/assets/images/FragranceReviews/FragranceLogos/Afnan_Logo.webp";
 import GaelMonteroImg from "/assets/images/FragranceReviews/Perfumers/Gael-Montero.png";
@@ -24,7 +25,9 @@ export const afnan9pm: Fragrance = {
   occasionSlugs: ["date-night", "night-out"],
   category: ["Oriental", "Gourmande"],
   categorySlugs: ["oriental", "gourmande"],
-  thumbnailImage: Afnan9pmThumbnail,
+  thumbnailImage: Afnan9pmThumbnailDesktop,
+  thumbnailDesktop: Afnan9pmThumbnailDesktop,
+  thumbnailMobile: Afnan9pmThumbnailMobile,
   heroImage: Afnan9pmBottle,
   fragranticaUrl: "https://www.fragrantica.com/perfume/Afnan/9pm-65414.html",
   youtubeUrl: "",

@@ -4,7 +4,8 @@ import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
 import ClubDeNuitManBottle from "/assets/images/FragranceReviews/FragranceBottles/armaf-cdnm.png";
-import ClubDeNuitManThumbnail from "/assets/images/FragranceThumbnails/armaf-cdnm.webp";
+import ClubDeNuitManThumbnailDesktop from "/assets/images/FragranceThumbnails/armaf-cdnm.webp";
+import ClubDeNuitManThumbnailMobile from "/assets/images/FragranceThumbnails/armaf-cdnm-mobile.webp";
 import ArmafLogo from "/assets/images/FragranceReviews/FragranceLogos/Armaf_Logo.png";
 
 export const armafClubDeNuitMan: Fragrance = {
@@ -20,7 +21,9 @@ export const armafClubDeNuitMan: Fragrance = {
   occasion: ["Date Night", "Night Out", "Daily Driver", "Evening"],
   category: ["Spicy", "Oriental", "Sweet"],
   categorySlugs: ["spicy", "oriental"],
-  thumbnailImage: ClubDeNuitManThumbnail,
+  thumbnailImage: ClubDeNuitManThumbnailDesktop,
+  thumbnailDesktop: ClubDeNuitManThumbnailDesktop,
+  thumbnailMobile: ClubDeNuitManThumbnailMobile,
   heroImage: ClubDeNuitManBottle,
   fragranticaUrl:
     "https://www.fragrantica.com/perfume/Armaf/Club-de-Nuit-Man-27687.html",

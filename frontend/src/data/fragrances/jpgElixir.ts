@@ -3,7 +3,10 @@ import { createAccord } from "../accordPresets";
 import type { Fragrance } from "../../types/fragrance.types";
 
 import JPGElixirBottle from "/assets/images/FragranceReviews/FragranceBottles/JPG-Elixir.png";
-import JPGElixirThumbnail from "/assets/images/FragranceThumbnails/JPG-Elixir.webp";
+
+import JPGElixirThumbnailDesktop from "/assets/images/FragranceThumbnails/JPG-Elixir.webp";
+import JPGElixirThumbnailMobile from "/assets/images/FragranceThumbnails/JPG-Elixir-mobile.webp";
+
 import JPGLogo from "/assets/images/FragranceReviews/FragranceLogos/JPG_Logo.png";
 
 import QuentinBischImg from "/assets/images/FragranceReviews/Perfumers/Quentin-Bisch.webp";
@@ -27,7 +30,9 @@ export const jpgElixir: Fragrance = {
   occasion: ["Date Night", "Night Out"],
   category: ["Oriental", "Gourmande", "Fougère"],
   categorySlugs: ["oriental", "gourmande", "fougere"],
-  thumbnailImage: JPGElixirThumbnail,
+  thumbnailImage: JPGElixirThumbnailDesktop,
+  thumbnailMobile: JPGElixirThumbnailMobile,
+  thumbnailDesktop: JPGElixirThumbnailDesktop,
   heroImage: JPGElixirBottle,
   fragranticaUrl:
     "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
