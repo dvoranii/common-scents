@@ -140,12 +140,10 @@ export const MainTitle = styled.h1<{
   @keyframes fadeInSlideDown {
     from {
       opacity: 0;
-      visibility: visible;
       transform: translateY(-4px);
     }
     to {
       opacity: 1;
-      visibility: visible;
       transform: translateY(0px);
     }
   }
