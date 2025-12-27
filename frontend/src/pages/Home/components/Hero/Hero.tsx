@@ -28,8 +28,8 @@ export const Hero: React.FC = () => {
           <img
             src={CommonScentsLogo}
             alt="Common Scents - Fragrance Demystified"
-            width="153"
-            height="205"
+            width="250"
+            height="334.95"
             loading="eager"
             decoding="async"
             fetchPriority="high"

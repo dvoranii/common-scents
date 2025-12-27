@@ -203,7 +203,6 @@ export const LogoContainer = styled.div<{ $animateInfinity?: boolean }>`
   justify-content: center;
 
   img {
-    width: 25vh;
     max-width: 250px;
     opacity: 0;
     animation: gentleReveal 900ms ease-out 150ms forwards;
@@ -250,6 +249,12 @@ export const LogoContainer = styled.div<{ $animateInfinity?: boolean }>`
 
     aspect-ratio: 153/205;
     background-color: transparent;
+  }
+
+  @media screen and (max-width: 768px) {
+    img {
+      width: 25vh;
+    }
   }
 `;
 
