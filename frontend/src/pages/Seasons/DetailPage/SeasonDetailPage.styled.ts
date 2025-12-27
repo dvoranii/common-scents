@@ -5,14 +5,11 @@ export const PageWrapper = styled.main`
   background-color: ${(props) => props.theme.colors.background};
 `;
 
-/* --- HERO SECTION --- */
-
 export const HeroHeader = styled.header`
   width: 100%;
   height: 700px;
   position: relative;
   overflow: hidden;
-  /* Optimization: Creates a stacking context */
   isolation: isolate;
 
   @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
@@ -31,9 +28,6 @@ export const HeroBgImage = styled.img`
   height: 100%;
   object-fit: cover;
   z-index: -2;
-
-  /* Creates the fixed/parallax feel without the mobile bugs */
-  /* If you want pure fixed: position: fixed; and adjust header accordingly */
 `;
 
 export const HeroOverlay = styled.div<{ $opacity?: number }>`
@@ -93,8 +87,6 @@ export const Uppercase = styled.span`
   text-transform: uppercase;
 `;
 
-/* --- CONTENT SECTION --- */
-
 export const ContentContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -150,14 +142,10 @@ export const GridItem = styled.li`
 
 export const SettingCard = styled.article`
   padding: ${(props) => props.theme.spacing.lg};
-  /* Tilt handles structural styles (borderRadius, etc) via inline styles now */
-  /* We just handle internal spacing and visuals here */
-
   height: 100%;
   overflow: visible;
   position: relative;
 
-  /* Visuals */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
@@ -166,7 +154,6 @@ export const SettingCard = styled.article`
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
-  /* Border effect */
   &::before {
     content: "";
     position: absolute;

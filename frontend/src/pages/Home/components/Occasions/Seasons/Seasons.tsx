@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import * as S from "./Seasons.styled";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import AutumnBg from "/assets/images/Occasions/Seasons/AutumnBG.avif";
-import SummerBg from "/assets/images/Occasions/Seasons/SummerBG.avif";
-import SpringBg from "/assets/images/Occasions/Seasons/SpringBG.avif";
-import WinterBg from "/assets/images/Occasions/Seasons/WinterBG.avif";
+import AutumnBg from "/assets/images/Occasions/Seasons/AutumnBG.webp";
+import SummerBg from "/assets/images/Occasions/Seasons/SummerBG.webp";
+import SpringBg from "/assets/images/Occasions/Seasons/SpringBG.webp";
+import WinterBg from "/assets/images/Occasions/Seasons/WinterBG.webp";
 import SeasonDonutWheel from "./SeasonDonutWheel/SeasonDonutWheel";
 import SeasonIndicator from "./SeasonIndicator/SeasonIndicator";
 

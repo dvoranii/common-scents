@@ -40,9 +40,9 @@ export const Hero: React.FC = () => {
           <MainTitle $center>Common&nbsp;Scents</MainTitle>
           <Tagline
             $capitalized
-            $fontSize="lg"
-            $color="#222"
-            $letterSpacing="1.6px"
+            $fontSize="base"
+            $color="#333"
+            $letterSpacing="2px"
           >
             Demystifying Fragrance
           </Tagline>

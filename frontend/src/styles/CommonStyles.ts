@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import WhiteTextureBG from "/assets/images/white-texture-bg.jpg";
+import WhiteTextureBG from "/assets/images/white-texture-bg.webp";
 import type { Theme } from "./theme";
 
 export const Section = styled.section<{
@@ -140,10 +140,12 @@ export const MainTitle = styled.h1<{
   @keyframes fadeInSlideDown {
     from {
       opacity: 0;
+      visibility: visible;
       transform: translateY(-4px);
     }
     to {
       opacity: 1;
+      visibility: visible;
       transform: translateY(0px);
     }
   }

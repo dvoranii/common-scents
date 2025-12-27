@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import WhiteTextureBG from "/assets/images/white-bg-3.png";
+import WhiteTextureBG from "/assets/images/white-bg-3.webp";
 
 export const OccasionsWrapper = styled.div`
   width: 100%;
