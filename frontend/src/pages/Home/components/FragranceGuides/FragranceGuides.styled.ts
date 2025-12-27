@@ -33,30 +33,36 @@ export const TextWrapper = styled.div`
   padding-top: ${(props) => props.theme.spacing.sm};
 `;
 
-export const GuideLink = styled(Link)`
+export const GuidesList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.theme.spacing.xl};
+  list-style: none;
+  padding: 0;
+`;
+
+export const GuideItem = styled.li`
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
+  padding-bottom: ${(props) => props.theme.spacing.lg};
+
   opacity: 0;
+  transform: translateY(-8px);
+  will-change: transform, opacity;
 
   &.fade-in-delay-0 {
     animation: fadeInDown 0.6s ease-out 0.2s forwards;
   }
-
   &.fade-in-delay-1 {
     animation: fadeInDown 0.6s ease-out 0.4s forwards;
   }
-
   &.fade-in-delay-2 {
     animation: fadeInDown 0.6s ease-out 0.6s forwards;
   }
-
   &.fade-in-delay-3 {
     animation: fadeInDown 0.6s ease-out 0.8s forwards;
   }
 
   @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-8px);
-    }
     to {
       opacity: 1;
       transform: translateY(0);
@@ -64,15 +70,14 @@ export const GuideLink = styled(Link)`
   }
 `;
 
-export const GuidesList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${(props) => props.theme.spacing.xl};
-`;
+export const GuideLink = styled(Link)`
+  text-decoration: none;
+  display: block;
 
-export const GuideItem = styled.div`
-  border-bottom: 1px solid ${(props) => props.theme.colors.border};
-  padding-bottom: ${(props) => props.theme.spacing.lg};
+  transition: transform 0.2s ease;
+  &:hover {
+    transform: translateX(4px);
+  }
 `;
 
 export const GuideTitle = styled.h3`

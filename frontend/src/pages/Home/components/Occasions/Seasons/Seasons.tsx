@@ -68,7 +68,6 @@ export const Seasons: React.FC<SeasonsProps> = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rotation, setRotation] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  // const [parallaxOffset, setParallaxOffset] = useState(0);
 
   const sectionRef = useRef<HTMLElement>(null);
   const currentSeason = SEASONS[currentIndex];
@@ -164,7 +163,7 @@ export const Seasons: React.FC<SeasonsProps> = () => {
             to={`/seasons/${currentSeason.slug}`}
             aria-label={`Learn more about ${currentSeason.name} fragrances`}
           >
-            See More
+            Explore {currentSeason.name} Fragrances
           </S.SeeMoreLink>
         </S.SeasonInfo>
         <S.NavigationControls>

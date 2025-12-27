@@ -42,23 +42,24 @@ export const FragranceGuides: React.FC = () => {
               </SectionSubtitle>
             </S.TextWrapper>
             <S.GuidesList
-              role="list"
+              as="ul"
               aria-label="Featured fragrance tips and guides"
             >
               {featuredGuides.map((guide, index) => (
-                <S.GuideLink
-                  to={`/guides/${guide.slug}`}
+                <S.GuideItem
+                  as="li"
                   key={guide.id}
                   className={isVisible ? `fade-in-delay-${index}` : ""}
-                  role="listitem"
-                  aria-label={`Read guide: ${guide.title}`}
                 >
-                  <S.GuideItem key={guide.id}>
+                  <S.GuideLink
+                    to={`/guides/${guide.slug}`}
+                    aria-label={`Read guide: ${guide.title}`}
+                  >
                     <S.GuideTitle>{guide.title}</S.GuideTitle>
                     {guide.author && <S.GuideMeta>{guide.author}</S.GuideMeta>}
                     {guide.date && <S.GuideMeta>{guide.date}</S.GuideMeta>}
-                  </S.GuideItem>
-                </S.GuideLink>
+                  </S.GuideLink>
+                </S.GuideItem>
               ))}
             </S.GuidesList>
           </S.DualSection>
@@ -76,18 +77,21 @@ export const FragranceGuides: React.FC = () => {
                 Learn the art, science, and history of perfumery.
               </SectionSubtitle>
             </S.TextWrapper>
-            <S.GuidesList>
+            <S.GuidesList as="ul" aria-label="Fragrance Academy guides">
               {academyGuides.map((guide, index) => (
-                <S.GuideLink
-                  to={`/academy/${guide.slug}`}
+                <S.GuideItem
+                  as="li"
                   key={guide.id}
                   className={isVisible ? `fade-in-delay-${index}` : ""}
                 >
-                  <S.GuideItem key={guide.id}>
+                  <S.GuideLink
+                    to={`/academy/${guide.slug}`}
+                    aria-label={`Read academy lesson: ${guide.title}`}
+                  >
                     <S.GuideTitle>{guide.title}</S.GuideTitle>
                     {guide.date && <S.GuideMeta>{guide.date}</S.GuideMeta>}
-                  </S.GuideItem>
-                </S.GuideLink>
+                  </S.GuideLink>
+                </S.GuideItem>
               ))}
             </S.GuidesList>
           </S.DualSection>
