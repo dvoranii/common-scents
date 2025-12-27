@@ -13,8 +13,9 @@ export default defineConfig({
           [
             "babel-plugin-styled-components",
             {
-              displayName: true,
-              fileName: true,
+              displayName: process.env.NODE_ENV !== "production",
+              fileName: false,
+              pure: true,
             },
           ],
         ],
@@ -39,7 +40,7 @@ export default defineConfig({
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: "CacheFirst",
+            handler: "StaleWhileRevalidate",
             options: {
               cacheName: "google-fonts-cache",
               expiration: {
@@ -88,20 +89,24 @@ export default defineConfig({
     }),
   ],
   build: {
-    minify: "esbuild",
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ["console.info", "console.debug", "console.warn"],
+      },
+      format: {
+        comments: false,
+      },
+    },
     sourcemap: false,
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 600,
     cssCodeSplit: true,
-    assetsInlineLimit: 4096,
+    assetsInlineLimit: 1024,
 
     rollupOptions: {
       output: {
-        manualChunks: {
-          "react-vendor": ["react", "react-dom", "react-router-dom"],
-          "styled-vendor": ["styled-components"],
-          utils: ["lucide-react", "react-scroll", "react-vanilla-tilt"],
-        },
-
         chunkFileNames: "assets/js/[name]-[hash].js",
         entryFileNames: "assets/js/[name]-[hash].js",
         assetFileNames: (assetInfo) => {
