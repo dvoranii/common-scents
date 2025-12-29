@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import Tilt from "react-vanilla-tilt";
 import * as S from "./EventsActivities.styled";
-import { occasions } from "../../../../../data/occasions";
+import { getOccasionSummaries } from "../../../../../utils/occasionsUtils";
 import { VideoHover } from "../../../../../components/VideoHover/VideoHover";
 
 const TILT_OPTIONS = {
@@ -18,11 +18,13 @@ const TILT_OPTIONS = {
 };
 
 export const EventsActivities: React.FC = () => {
+  const occasionSummaries = useMemo(() => getOccasionSummaries(), []);
+
   return (
     <S.EventsWrapperInner>
       <S.EventsSubtitle>Events & Activities</S.EventsSubtitle>
       <S.EventsGrid>
-        {occasions.map((occasion) => (
+        {occasionSummaries.map((occasion) => (
           <S.GridItem key={occasion.slug}>
             <Tilt
               options={TILT_OPTIONS}

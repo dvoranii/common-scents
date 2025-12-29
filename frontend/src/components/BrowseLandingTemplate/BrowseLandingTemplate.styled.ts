@@ -23,22 +23,42 @@ export const CardGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 30px;
-  margin-top: 40px;
   list-style: none;
   padding: 0;
-  place-items: center;
+
+  & > li {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+
+    & > a {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    & > li {
+      width: 80%;
+    }
+  }
+  @media screen and (max-width: 380px) {
+    & > li {
+      width: 100%;
+    }
+  }
 `;
 
 export const Card = styled.div<{ $bgColor?: string; $padding?: string }>`
   background: ${(props) => props.$bgColor || "#fff"};
   border-radius: 12px;
-  padding: ${(props) => (props.$padding ? props.$padding : "40px 30px")};
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  height: 80%;
+  height: 100%;
   width: 100%;
 
   display: flex;
@@ -53,16 +73,15 @@ export const Card = styled.div<{ $bgColor?: string; $padding?: string }>`
 
 export const CardIcon = styled.div<{ $color?: string }>`
   color: ${(props) => props.$color || "#000"};
-  margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  padding: 20px 0px 0px 0px;
 `;
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  margin-bottom: 20px;
   background-color: #f5f5f5;
   aspect-ratio: 3/2;
 `;
@@ -72,7 +91,6 @@ export const CardTitle = styled.h3<{ as?: React.ElementType }>`
   font-family: "Playfair Display", serif;
   margin-bottom: 8px;
   color: ${(props) => props.theme.colors.text};
-  min-height: 2.5em;
 `;
 
 export const CardDescription = styled.p`
@@ -80,6 +98,8 @@ export const CardDescription = styled.p`
   line-height: 1.6;
   color: ${(props) => props.theme.colors.text};
   text-wrap: pretty;
+  margin-bottom: 0;
+  min-height: 52px;
 `;
 
 export const CardTextWrapper = styled.div<{ $padding?: string }>`

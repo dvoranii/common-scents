@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { getAllCategories } from "../../../../utils/categoriesUtils";
+import { getCategorySummaries } from "../../../../utils/categoriesUtils";
 import { CarouselSlide, Carousel } from "../../../../components/Carousel";
 import * as S from "./ScentCategories.styled";
 import {
@@ -8,30 +8,13 @@ import {
   SectionContent,
   SectionTitle,
 } from "../../../../styles/CommonStyles";
-
-import { renderToStaticMarkup } from "react-dom/server";
-import type { LucideIcon } from "lucide-react";
-
-const getIconDataUri = (
-  IconComponent: LucideIcon | undefined,
-  color: string
-): string => {
-  if (!IconComponent) return "";
-  const svgString = renderToStaticMarkup(
-    <IconComponent color={color} size={24} strokeWidth={1.5} />
-  );
-  return `url("data:image/svg+xml;utf8,${encodeURIComponent(svgString)}")`;
-};
+import type { CategorySummary } from "../../../../types/summaries.types";
 
 export const ScentCategories: React.FC = () => {
-  const categories = getAllCategories();
-
-  const processedCategories = useMemo(() => {
-    return categories.map((category) => ({
-      ...category,
-      iconPattern: getIconDataUri(category.icon, category.iconColor || "#ccc"),
-    }));
-  }, [categories]);
+  const categories: CategorySummary[] = useMemo(
+    () => getCategorySummaries(),
+    []
+  );
 
   return (
     <Section
@@ -45,12 +28,12 @@ export const ScentCategories: React.FC = () => {
 
         <S.ScentCategoriesContainer>
           <Carousel>
-            {processedCategories.map((category) => (
+            {categories.map((category) => (
               <CarouselSlide key={category.slug}>
                 <S.CategoryCard
                   as={Link}
                   to={`/categories/${category.slug}`}
-                  $iconPattern={category.iconPattern}
+                  $patternColor={category.iconColor || "#ccc"}
                   $bgColor={category.iconBg}
                   aria-label={`Browse ${category.name} scents`}
                 >

@@ -2,6 +2,24 @@ import { occasions } from "../data/occasions";
 import type { Occasion } from "../types/fragrance.types";
 import { getFeaturedItems, findBySlug } from "./helpers";
 
+export interface OccasionSummary {
+  name: string;
+  slug: string;
+  video?: string;
+  thumbnail?: string;
+  description: string;
+}
+
+export const getOccasionSummaries = (): OccasionSummary[] => {
+  return occasions.map(({ name, slug, video, thumbnail, description }) => ({
+    name,
+    slug,
+    video,
+    thumbnail,
+    description,
+  }));
+};
+
 export const getFeaturedOccasions = (count: number = 8): Occasion[] => {
   return getFeaturedItems(occasions, count);
 };

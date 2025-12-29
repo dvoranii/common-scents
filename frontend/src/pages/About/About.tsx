@@ -98,8 +98,8 @@ const About: React.FC = () => {
               <img
                 src={CommonScentsLogo}
                 alt="Common Scents - Fragrance Demystified"
-                width="153"
-                height="205"
+                width="250"
+                height="334"
                 loading="lazy"
                 decoding="async"
                 fetchPriority="high"

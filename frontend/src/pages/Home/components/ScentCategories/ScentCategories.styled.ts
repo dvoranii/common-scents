@@ -70,7 +70,7 @@ export const ScentCategoriesContainer = styled.div`
 
 export const CategoryCard = styled(Link)<{
   $bgColor?: string;
-  $iconPattern: string;
+  $patternColor?: string;
 }>`
   display: block;
   text-decoration: none;
@@ -111,7 +111,10 @@ export const CategoryCard = styled(Link)<{
         rgba(255, 255, 255, 0.6) 100%,
         rgba(255, 255, 255, 0)
       ),
-      ${(props) => props.$iconPattern};
+      radial-gradient(
+        ${(props) => props.$patternColor || "#ffffff"} 1.5px,
+        transparent 1.5px
+      );
     background-size: 100% 100%, 32px 32px;
     background-repeat: no-repeat, repeat;
     pointer-events: none;

@@ -16,6 +16,7 @@ const CategoriesLandingPage: React.FC = () => {
         },
       ]}
       tagline="Discover Your Signature Scent Family"
+      cardTextPadding="20px 20px 40px 20px"
       seoTitle="Fragrance Categories Guide | Scent Families Explained | Common Scents HQ"
       seoDescription="Explore all fragrance categories including Woody, Fresh, Floral, Oriental, and Citrus scents. Find your perfect scent family with our comprehensive guide."
       canonical="https://commonscentshq.com/categories"

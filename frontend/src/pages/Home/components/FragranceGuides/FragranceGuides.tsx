@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { getFeaturedGuides } from "../../../../utils/guideUtils";
-import { getFeaturedAcademy } from "../../../../utils/academyUtils";
+import { getFeaturedGuideSummaries } from "../../../../utils/guideUtils";
+import { getFeaturedAcademySummaries } from "../../../../utils/academyUtils";
 import * as S from "./FragranceGuides.styled";
 import {
   Section,
@@ -11,8 +11,8 @@ import {
 import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserver";
 
 export const FragranceGuides: React.FC = () => {
-  const featuredGuides = useMemo(() => getFeaturedGuides(4), []);
-  const academyGuides = useMemo(() => getFeaturedAcademy(4), []);
+  const featuredGuides = useMemo(() => getFeaturedGuideSummaries(4), []);
+  const academyGuides = useMemo(() => getFeaturedAcademySummaries(4), []);
   const [sectionRef, isVisible] = useIntersectionObserver({
     threshold: 0.15,
     rootMargin: "0px",

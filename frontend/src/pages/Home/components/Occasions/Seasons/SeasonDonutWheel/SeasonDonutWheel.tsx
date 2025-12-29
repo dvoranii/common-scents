@@ -18,7 +18,7 @@ const SeasonDonutWheel: React.FC<SeasonDonutWheelProps> = ({
   summerImg = "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
   autumnImg = "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
 }) => {
-  const seasonOrder = ["winter", "autumn", "summer", "spring"];
+  const seasonOrder = ["winter", "spring", "summer", "autumn"];
   const activeSegment = seasonOrder[((activeIndex % 4) + 4) % 4];
 
   const getBg = (img?: string, fallback?: string) =>

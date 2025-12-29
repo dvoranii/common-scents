@@ -67,6 +67,7 @@ export const ImgWrapper = styled.div`
 
 export const LogoImg = styled.img`
   width: 65px;
+  min-width: 65px;
   height: 87px;
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 `;

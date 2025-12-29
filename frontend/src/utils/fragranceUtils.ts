@@ -7,6 +7,20 @@ import { getFeaturedItems, findBySlug, filterByField } from "./helpers";
 export const getFeaturedFragrances = (count: number = 3): Fragrance[] =>
   getFeaturedItems(fragrances, count);
 
+export const getFeaturedSummaries = (count: number) => {
+  const fullData = getFeaturedFragrances(count);
+
+  return fullData.map((f) => ({
+    id: f.id,
+    slug: f.slug,
+    name: f.name,
+    house: f.house,
+    shortDescription: f.shortDescription,
+    thumbnailDesktop: f.thumbnailDesktop,
+    thumbnailMobile: f.thumbnailMobile,
+  }));
+};
+
 export const getFragranceBySlug = (slug: string): Fragrance | undefined =>
   findBySlug(fragrances, slug);
 

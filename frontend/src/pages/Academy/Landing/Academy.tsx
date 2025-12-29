@@ -85,8 +85,8 @@ const Academy: React.FC = () => {
               <img
                 src={CommonScentsLogo}
                 alt="Common Scents HQ Logo - Fragrance Education Platform"
-                width="153"
-                height="205"
+                width="250"
+                height="334"
                 loading="lazy"
                 decoding="async"
               />

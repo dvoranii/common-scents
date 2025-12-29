@@ -118,8 +118,10 @@ export interface Accords {
   color: string;
 }
 
+export type SeasonName = "Winter" | "Autumn" | "Summer" | "Spring";
+
 export interface Season {
-  name: string;
+  name: SeasonName;
   slug: string;
   image: string;
   thumbnail: string;

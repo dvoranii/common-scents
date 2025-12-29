@@ -1,4 +1,4 @@
-import { getFeaturedFragrances } from "../../../../utils/fragranceUtils";
+import { getFeaturedSummaries } from "../../../../utils/fragranceUtils";
 import * as S from "./FeaturedReviews.styled";
 import {
   Section,
@@ -9,7 +9,7 @@ import { useIntersectionObserver } from "../../../../hooks/useIntersectionObserv
 import { useMemo } from "react";
 
 export const FeaturedReviews: React.FC = () => {
-  const featuredReviews = useMemo(() => getFeaturedFragrances(3), []);
+  const featuredSummaries = useMemo(() => getFeaturedSummaries(3), []);
   const [sectionRef, isVisible] = useIntersectionObserver({
     threshold: 0.15,
     rootMargin: "0px",
@@ -33,9 +33,9 @@ export const FeaturedReviews: React.FC = () => {
         </SectionTitle>
 
         <S.ReviewsGrid role="list" aria-label="Featured fragrance reviews">
-          {featuredReviews.map((fragrance, index) => {
+          {featuredSummaries.map((fragrance, index) => {
             const imageLoadingStrategy = index === 0 ? "eager" : "lazy";
-            const imagePriority = index === 0 ? "high" : "low";
+
             return (
               <S.ReviewCard
                 key={fragrance.id}
@@ -57,7 +57,6 @@ export const FeaturedReviews: React.FC = () => {
                       height="360"
                       loading={imageLoadingStrategy}
                       decoding="async"
-                      fetchPriority={imagePriority}
                     />
                   </S.ReviewImage>
                 </S.ReviewImageLink>
