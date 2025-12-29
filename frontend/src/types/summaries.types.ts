@@ -16,6 +16,7 @@ export type SeasonSummary = Pick<
   "name" | "slug" | "image" | "thumbnail" | "description"
 > & {
   backgroundColor: string;
+  backgroundImage: string;
   desktopDescription: string;
   mobileDescription: string;
 };

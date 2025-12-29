@@ -24,10 +24,14 @@ export const Seasons: React.FC<SeasonsProps> = ({ onSeasonChange }) => {
 
   const seasonImageMap = useMemo(
     () => ({
-      winter: seasonData.find((s) => s.name === "Winter")?.thumbnail || "",
-      autumn: seasonData.find((s) => s.name === "Autumn")?.thumbnail || "",
-      summer: seasonData.find((s) => s.name === "Summer")?.thumbnail || "",
-      spring: seasonData.find((s) => s.name === "Spring")?.thumbnail || "",
+      winter:
+        seasonData.find((s) => s.name === "Winter")?.backgroundImage || "",
+      autumn:
+        seasonData.find((s) => s.name === "Autumn")?.backgroundImage || "",
+      summer:
+        seasonData.find((s) => s.name === "Summer")?.backgroundImage || "",
+      spring:
+        seasonData.find((s) => s.name === "Spring")?.backgroundImage || "",
     }),
     [seasonData]
   );
@@ -92,7 +96,7 @@ export const Seasons: React.FC<SeasonsProps> = ({ onSeasonChange }) => {
     <S.SeasonsSection
       ref={sectionRef}
       $backgroundColor={currentSeason.backgroundColor}
-      $backgroundImg={currentSeason.image}
+      $backgroundImg={currentSeason.backgroundImage}
       aria-label="Seasonal Fragrance Collections"
     >
       <SeasonIndicator activeSeason={currentSeason.name} />

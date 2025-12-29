@@ -2,9 +2,15 @@ import { seasons } from "../data/seasons";
 import type { Season } from "../types/fragrance.types";
 import type { SeasonSummary } from "../types/summaries.types";
 
+import AutumnBg from "/assets/images/Occasions/Seasons/AutumnBG.webp";
+import SummerBg from "/assets/images/Occasions/Seasons/SummerBG.webp";
+import SpringBg from "/assets/images/Occasions/Seasons/SpringBG.webp";
+import WinterBg from "/assets/images/Occasions/Seasons/WinterBG.webp";
+
 const SEASON_UI_CONFIG = {
   Winter: {
     backgroundColor: "#7BA5C1",
+    backgroundImage: WinterBg,
     mobile:
       "The coldest season, bringing snow, shorter days, and cozy indoor activities with rich, warm fragrances perfect for intimate settings.",
     desktop:
@@ -12,6 +18,7 @@ const SEASON_UI_CONFIG = {
   },
   Spring: {
     backgroundColor: "#3e742e",
+    backgroundImage: SpringBg,
     mobile:
       "A season of renewal with blooming flowers, warmer temperatures, and delicate, optimistic fragrances that capture nature's awakening.",
     desktop:
@@ -19,6 +26,7 @@ const SEASON_UI_CONFIG = {
   },
   Summer: {
     backgroundColor: "#c45a0e",
+    backgroundImage: SummerBg,
     mobile:
       "The hottest season with long sunny days, perfect for fresh, light fragrances with citrus and aquatic notes that capture summer energy.",
     desktop:
@@ -26,6 +34,7 @@ const SEASON_UI_CONFIG = {
   },
   Autumn: {
     backgroundColor: "#5c2d0c",
+    backgroundImage: AutumnBg,
     mobile:
       "A season of transition with cooler temperatures, changing leaves, and earthy, spicy fragrances that capture the essence of harvest time.",
     desktop:
@@ -47,6 +56,7 @@ export const getSeasonSummaries = (): SeasonSummary[] => {
       return {
         ...season,
         backgroundColor: config.backgroundColor,
+        backgroundImage: config.backgroundImage,
         desktopDescription: config.desktop,
         mobileDescription: config.mobile,
       };
