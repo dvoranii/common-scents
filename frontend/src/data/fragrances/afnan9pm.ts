@@ -7,7 +7,7 @@ import Afnan9pmThumbnailMobile from "/assets/images/FragranceThumbnails/Afnan-9p
 
 import Afnan9pmBottle from "/assets/images/FragranceReviews/FragranceBottles/9PM.png";
 import AfnanLogo from "/assets/images/FragranceReviews/FragranceLogos/Afnan_Logo.webp";
-import GaelMonteroImg from "/assets/images/FragranceReviews/Perfumers/Gael-Montero.png";
+import GaelMonteroImg from "/assets/images/FragranceReviews/Perfumers/Gael-Montero.webp";
 
 export const afnan9pm: Fragrance = {
   id: "1",

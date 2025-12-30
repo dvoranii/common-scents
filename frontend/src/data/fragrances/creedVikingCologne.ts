@@ -8,7 +8,7 @@ import VikingCologneThumbnailMobile from "/assets/images/FragranceThumbnails/vik
 import VikingCologneBottle from "/assets/images/FragranceReviews/FragranceBottles/VikingCologne.png";
 import CreedLogo from "/assets/images/FragranceReviews/FragranceLogos/Creed_Logo.png";
 import ErwinCreedImg from "/assets/images/FragranceReviews/Perfumers/Erwin-Creed.webp";
-import OlivierCreedImg from "/assets/images/FragranceReviews/Perfumers/Olivier-Creed.jpg";
+import OlivierCreedImg from "/assets/images/FragranceReviews/Perfumers/Olivier-Creed.webp";
 
 export const creedVikingCologne: Fragrance = {
   id: "4",

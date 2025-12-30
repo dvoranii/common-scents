@@ -1,4 +1,3 @@
-// src/components/FragranceReviews/PerfumersDisplay.tsx
 import React from "react";
 import type { Perfumer } from "../../types/fragrance.types";
 import {
