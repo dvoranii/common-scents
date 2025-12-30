@@ -99,7 +99,7 @@ const About: React.FC = () => {
                 src={CommonScentsLogo}
                 alt="Common Scents - Fragrance Demystified"
                 width="250"
-                height="334"
+                height="335"
                 loading="lazy"
                 decoding="async"
                 fetchPriority="high"

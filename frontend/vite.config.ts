@@ -19,6 +19,16 @@ export default defineConfig({
             },
           ],
         ],
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              targets: { esmodules: true },
+              bugfixes: true,
+              modules: false,
+            },
+          ],
+        ],
       },
     }),
 

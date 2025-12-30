@@ -110,9 +110,10 @@ const BrowseLandingTemplate: React.FC<BrowseLandingTemplateProps> = ({
                 src={CommonScentsLogo}
                 alt="Common Scents HQ Logo"
                 width="250"
-                height="334"
+                height="335"
                 loading="lazy"
                 decoding="async"
+                fetchPriority="high"
               />
             </LogoContainer>
 
