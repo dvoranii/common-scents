@@ -130,7 +130,6 @@ const CategoryDetailPage: React.FC = () => {
                 height="600"
                 loading="lazy"
                 decoding="async"
-                fetchPriority="high"
               />
             </S.ImgWrapper>
             <S.DescriptionWrapper>
@@ -171,7 +170,6 @@ const CategoryDetailPage: React.FC = () => {
                             height="50"
                             loading="lazy"
                             decoding="async"
-                            fetchPriority="high"
                           />
                         ))}
                       </S.ExampleNotes>

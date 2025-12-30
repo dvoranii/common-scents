@@ -41,12 +41,7 @@ const SeasonDetailPage: React.FC = () => {
       <KeyboardNavTooltip section="seasons" />
 
       <S.HeroHeader>
-        <S.HeroBgImage
-          src={season.image}
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-        />
+        <S.HeroBgImage src={season.image} alt="" decoding="async" />
         <S.HeroOverlay $opacity={overlayOpacity(season.slug)} />
 
         <S.HeroContent>

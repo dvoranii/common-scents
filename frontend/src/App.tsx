@@ -5,6 +5,7 @@ import { GlobalStyles } from "./styles/GlobalStyles";
 import { theme } from "./styles/theme";
 import AppRouter from "./AppRouter";
 import { initGA } from "./utils/analytics";
+import { HelmetProvider } from "react-helmet-async";
 
 const NewsletterModal = lazy(
   () => import("./components/NewsletterModal/NewsletterModal")
@@ -17,7 +18,11 @@ function App() {
 
   useEffect(() => {
     if (IS_PRODUCTION && MEASUREMENT_ID) {
-      initGA();
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(() => initGA());
+      } else {
+        setTimeout(() => initGA(), 2000);
+      }
     }
   }, [IS_PRODUCTION, MEASUREMENT_ID]);
 
@@ -38,16 +43,18 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <AppRouter />
+    <HelmetProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <AppRouter />
 
-      {showModal && (
-        <Suspense fallback={null}>
-          <NewsletterModal isOpen={showModal} onClose={handleCloseModal} />
-        </Suspense>
-      )}
-    </ThemeProvider>
+        {showModal && (
+          <Suspense fallback={null}>
+            <NewsletterModal isOpen={showModal} onClose={handleCloseModal} />
+          </Suspense>
+        )}
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 
