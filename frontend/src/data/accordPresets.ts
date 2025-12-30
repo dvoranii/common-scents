@@ -1,4 +1,3 @@
-// src/data/accordPresets.ts
 import type { Accords } from "../types/fragrance.types";
 
 export const accordPresets: Record<string, Omit<Accords, "width">> = {

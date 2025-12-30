@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { visualizer } from "rollup-plugin-visualizer";
 import viteCompression from "vite-plugin-compression";
 import { VitePWA } from "vite-plugin-pwa";
 
@@ -79,13 +78,6 @@ export default defineConfig({
       threshold: 10240,
       algorithm: "brotliCompress",
       ext: ".br",
-    }),
-
-    visualizer({
-      open: false,
-      filename: "dist/stats.html",
-      gzipSize: true,
-      brotliSize: true,
     }),
   ],
   build: {

@@ -1,4 +1,3 @@
-// VideoHover.styled.ts
 import styled from "styled-components";
 
 interface VisibilityProps {
