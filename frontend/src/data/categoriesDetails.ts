@@ -97,7 +97,7 @@ import ButterscotchExampleImg from "/assets/images/Categories/Notes/Gourmande/Bu
 import CustardExampleImg from "/assets/images/Categories/Notes/Gourmande/custard.webp";
 import CocoaExampleImg from "/assets/images/Categories/Notes/Gourmande/cocoa.webp";
 import CoffeeExampleImg from "/assets/images/Categories/Notes/Gourmande/coffee.webp";
-import MochaExampleImg from "/assets/images/Categories/Notes/Gourmande/mocha.jpg";
+import MochaExampleImg from "/assets/images/Categories/Notes/Gourmande/mocha.webp";
 import DarkChocolateExampleImg from "/assets/images/Categories/Notes/Gourmande/dark-chocolate.webp";
 import CacaoExampleImg from "/assets/images/Categories/Notes/Gourmande/cacao.webp";
 import BerryCompoteExampleImg from "/assets/images/Categories/Notes/Gourmande/berries.webp";
