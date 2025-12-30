@@ -25,8 +25,8 @@ import {
   SecondaryLinkButton,
 } from "./About.styled";
 
-import AboutIntroImgLandscape from "/assets/images/About/about-stock-img.jpg";
-import AboutIntroImgPortrait from "/assets/images/About/about-stock-img.png";
+import AboutIntroImgLandscape from "/assets/images/About/about-stock-img.webp";
+import AboutIntroImgPortrait from "/assets/images/About/about-stock-img(1).webp";
 import CommonScentsLogo from "/assets/images/cs-bulb.webp";
 
 import {

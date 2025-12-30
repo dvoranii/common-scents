@@ -1,5 +1,5 @@
 // Fresh & Citrus
-import FreshAndCitrusImg from "/assets/images/Categories/freshAndCitrus.jpg";
+import FreshAndCitrusImg from "/assets/images/Categories/freshAndCitrus.webp";
 // Notes
 import BergamotExampleImg from "/assets/images/Categories/Notes/Fresh&Citrus/bergamot-48x48.png";
 import LemonExampleImg from "/assets/images/Categories/Notes/Fresh&Citrus/lemon-48x48.png";
@@ -17,7 +17,7 @@ import WaterAccordExampleImg from "/assets/images/Categories/Notes/Fresh&Citrus/
 import OzoneExampleImg from "/assets/images/Categories/Notes/Fresh&Citrus/ozonic.jpg";
 
 // Woody
-import WoodyImg from "/assets/images/Categories/woody.png";
+import WoodyImg from "/assets/images/Categories/woody.webp";
 // Notes
 import CedarExampleImg from "/assets/images/Categories/Notes/Woody/cedar.jpg";
 import SandalwoodExampleImg from "/assets/images/Categories/Notes/Woody/sandalwood.jpg";
@@ -37,7 +37,7 @@ import MyrrhExampleImg from "/assets/images/Categories/Notes/Woody/Myrrh.jpg";
 import AmberExampleImg from "/assets/images/Categories/Notes/Woody/Amber.jpg";
 
 // Floral
-import FloralImg from "/assets/images/Categories/floral-category-2.png";
+import FloralImg from "/assets/images/Categories/floral-category-2.webp";
 
 import RoseExampleImg from "/assets/images/Categories/Notes/Floral/Rose.jpg";
 import JasmineExampleImg from "/assets/images/Categories/Notes/Floral/Jasmine.jpg";
@@ -77,7 +77,7 @@ import LabdanumExampleImg from "/assets/images/Categories/Notes/Spicy/Labdanum.j
 import OpoponaxExampleImg from "/assets/images/Categories/Notes/Spicy/Opoponax.jpg";
 
 // Fougere
-import FougereImg from "/assets/images/Categories/fougere.png";
+import FougereImg from "/assets/images/Categories/fougere.webp";
 
 import TonkaBeanExampleImg from "/assets/images/Categories/Notes/Fougere/TonkaBean.jpg";
 import RosemaryExampleImg from "/assets/images/Categories/Notes/Fougere/Rosemary.jpg";
@@ -90,7 +90,7 @@ import MarineExampleImg from "/assets/images/Categories/Notes/Fougere/Marine.jpg
 import MuskExampleImg from "/assets/images/Categories/Notes/Fougere/Musk.jpg";
 
 // Gourmande
-import GourmandeImg from "/assets/images/Categories/Gourmande.png";
+import GourmandeImg from "/assets/images/Categories/Gourmande.webp";
 
 import CaramelExampleImg from "/assets/images/Categories/Notes/Gourmande/caramel.jpg";
 import ButterscotchExampleImg from "/assets/images/Categories/Notes/Gourmande/Butterscotch.jpg";
@@ -107,19 +107,19 @@ import StrawberryExampleImg from "/assets/images/Categories/Notes/Gourmande/stra
 import PeachExampleImg from "/assets/images/Categories/Notes/Gourmande/peach.jpg";
 
 // Oriental
-import OrientalImg from "/assets/images/Categories/Oriental.png";
+import OrientalImg from "/assets/images/Categories/Oriental.webp";
 
 import BenzoinExampleImg from "/assets/images/Categories/Notes/Oriental/Benzoin.jpg";
 import ToluBalsamExampleImg from "/assets/images/Categories/Notes/Oriental/ToluBalsam.jpg";
 
 // Chypre
-import ChypreImg from "/assets/images/Categories/Chypre.png";
+import ChypreImg from "/assets/images/Categories/Chypre.webp";
 import TropicalExampleImg from "/assets/images/Categories/Notes/Chypre/tropical.jpg";
 import ISOESuperExampleImg from "/assets/images/Categories/Notes/Chypre/ISO-E-Super.jpg";
 import CashmeranExampleImg from "/assets/images/Categories/Notes/Chypre/Cashmeran.jpg";
 
 // Niche
-import NicheImg from "/assets/images/Categories/Niche.png";
+import NicheImg from "/assets/images/Categories/Niche.webp";
 
 import GeosminExampleImg from "/assets/images/Categories/Notes/Niche/Geosmin.jpg";
 import PaperExampleImg from "/assets/images/Categories/Notes/Niche/Paper.jpg";

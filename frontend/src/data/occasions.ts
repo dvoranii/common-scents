@@ -1,23 +1,23 @@
 import DailyDriver from "/assets/images/Occasions/daily-driver.webp";
 import DailyDriverVid from "/assets/videos/daily-driver-vid.mp4";
 
-import DateNightThumbnail from "/assets/images/Occasions/date-night.avif";
+import DateNightThumbnail from "/assets/images/Occasions/date-night-home.webp";
 import DateNightVideo from "/assets/videos/Candles-Flickering.mp4";
 
-import DateNight from "/assets/images/Occasions/date-night.jpg";
+import DateNight from "/assets/images/Occasions/date-night-detail.webp";
 
-import Formal from "/assets/images/Occasions/formal-4.jpeg";
-import FormalThumbnail from "/assets/images/Occasions/formal-2.jpg";
+import Formal from "/assets/images/Occasions/formal-4.webp";
+import FormalThumbnail from "/assets/images/Occasions/formal-2.webp";
 import FormalVideo from "/assets/videos/suit-video.mp4";
 
-import Office from "/assets/images/Occasions/office-3.jpg";
+import Office from "/assets/images/Occasions/office-3.webp";
 import OfficeVid from "/assets/videos/typing-video.mp4";
 
-import NightOut from "/assets/images/Occasions/clubbing.png";
+import NightOut from "/assets/images/Occasions/clubbing.webp";
 import NightOutVideo from "/assets/videos/nightclub-live-video.mp4";
 
-import ActiveThumbnail from "/assets/images/Occasions/gym-1.jpg";
-import Active from "/assets/images/Occasions/gym-5.jpg";
+import ActiveThumbnail from "/assets/images/Occasions/gym-1.webp";
+import Active from "/assets/images/Occasions/gym-5.webp";
 import ActiveVid from "/assets/videos/gym-video.mp4";
 import type { Occasion } from "../types/fragrance.types";
 

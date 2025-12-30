@@ -1,6 +1,6 @@
-import WinterBg from "/assets/images/Occasions/Seasons/winter-lake.jpg";
+import WinterBg from "/assets/images/Occasions/Seasons/winter-lake.webp";
 import SpringBg from "/assets/images/Occasions/Seasons/spring.webp";
-import SummerBg from "/assets/images/Occasions/Seasons/big-beach.jpg";
+import SummerBg from "/assets/images/Occasions/Seasons/big-beach.webp";
 import AutumnBg from "/assets/images/Occasions/Seasons/autumn.webp";
 import type { Season } from "../types/fragrance.types";
 

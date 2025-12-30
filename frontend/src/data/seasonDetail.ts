@@ -1,15 +1,15 @@
 import HarvestSeasonImg from "/assets/images/Occasions/Seasons/harvest-season.webp";
-import FallFashionImg from "/assets/images/Occasions/Seasons/fall-fashion.jpg";
-import CoolEveningImg from "/assets/images/Occasions/Seasons/cool-evening.jpg";
-import BeachDaysImg from "/assets/images/Occasions/Seasons/beach-days.jpg";
-import TropicalVacationImg from "/assets/images/Occasions/Seasons/tropical-vacation.png";
-import SummerOfficeImg from "/assets/images/Occasions/Seasons/summer-office.png";
-import OutdoorActivitiesImg from "/assets/images/Occasions/Seasons/outdoor-activities.png";
-import DaytimeEventsImg from "/assets/images/Occasions/Seasons/daytime-events.png";
-import FreshStartsImg from "/assets/images/Occasions/Seasons/fresh-starts.jpg";
-import HolidayGatheringsImg from "/assets/images/Occasions/Seasons/holiday-gatherings.png";
-import CozyEveningImg from "/assets/images/Occasions/Seasons/cozy-evening.png";
-import ColdWeatherCommuteImg from "/assets/images/Occasions/Seasons/cold-weather-commute.png";
+import FallFashionImg from "/assets/images/Occasions/Seasons/fall-fashion.webp";
+import CoolEveningImg from "/assets/images/Occasions/Seasons/cool-evening.webp";
+import BeachDaysImg from "/assets/images/Occasions/Seasons/beach-days.webp";
+import TropicalVacationImg from "/assets/images/Occasions/Seasons/tropical-vacation.webp";
+import SummerOfficeImg from "/assets/images/Occasions/Seasons/summer-office.webp";
+import OutdoorActivitiesImg from "/assets/images/Occasions/Seasons/outdoor-activities.webp";
+import DaytimeEventsImg from "/assets/images/Occasions/Seasons/daytime-events.webp";
+import FreshStartsImg from "/assets/images/Occasions/Seasons/fresh-starts.webp";
+import HolidayGatheringsImg from "/assets/images/Occasions/Seasons/holiday-gatherings.webp";
+import CozyEveningImg from "/assets/images/Occasions/Seasons/cozy-evening.webp";
+import ColdWeatherCommuteImg from "/assets/images/Occasions/Seasons/cold-weather-commute.webp";
 
 interface SeasonSetting {
   title: string;

@@ -2,84 +2,84 @@
 
 import type { OccasionDetail } from "../types/data.types";
 
-import OpenOffice1 from "/assets/images/Occasions/Details/office-1.png";
-import OpenOffice2 from "/assets/images/Occasions/Details/office-2.png";
-import OpenOffice3 from "/assets/images/Occasions/Details/office-3.png";
+import OpenOffice1 from "/assets/images/Occasions/Details/office-1.webp";
+import OpenOffice2 from "/assets/images/Occasions/Details/office-2.webp";
+import OpenOffice3 from "/assets/images/Occasions/Details/office-3.webp";
 
-import ClientMeeting1 from "/assets/images/Occasions/Details/client-meeting.png";
-import ClientMeeting2 from "/assets/images/Occasions/Details/client-meeting-2.png";
-import ClientMeeting3 from "/assets/images/Occasions/Details/client-meeting-3.png";
+import ClientMeeting1 from "/assets/images/Occasions/Details/client-meeting.webp";
+import ClientMeeting2 from "/assets/images/Occasions/Details/client-meeting-2.webp";
+import ClientMeeting3 from "/assets/images/Occasions/Details/client-meeting-3.webp";
 
-import VideoCall1 from "/assets/images/Occasions/Details/video-call.png";
-import VideoCall2 from "/assets/images/Occasions/Details/video-call-2.png";
-import VideoCall3 from "/assets/images/Occasions/Details/video-call-3.png";
+import VideoCall1 from "/assets/images/Occasions/Details/video-call.webp";
+import VideoCall2 from "/assets/images/Occasions/Details/video-call-2.webp";
+import VideoCall3 from "/assets/images/Occasions/Details/video-call-3.webp";
 
-import WFH1 from "/assets/images/Occasions/Details/wfh.png";
-import WFH2 from "/assets/images/Occasions/Details/wfh-2.png";
-import WFH3 from "/assets/images/Occasions/Details/wfh-3.png";
+import WFH1 from "/assets/images/Occasions/Details/wfh.webp";
+import WFH2 from "/assets/images/Occasions/Details/wfh-2.webp";
+import WFH3 from "/assets/images/Occasions/Details/wfh-3.webp";
 
-import WeekendComfort1 from "/assets/images/Occasions/Details/weekend-comfort.png";
-import WeekendComfort2 from "/assets/images/Occasions/Details/weekend-comfort-2.png";
-import WeekendComfort3 from "/assets/images/Occasions/Details/weekend-comfort-3.png";
+import WeekendComfort1 from "/assets/images/Occasions/Details/weekend-comfort.webp";
+import WeekendComfort2 from "/assets/images/Occasions/Details/weekend-comfort-2.webp";
+import WeekendComfort3 from "/assets/images/Occasions/Details/weekend-comfort-3.webp";
 
-import CasualOuting1 from "/assets/images/Occasions/Details/casual-outing.png";
-import CasualOuting2 from "/assets/images/Occasions/Details/casual-outing-2.png";
-import CasualOuting3 from "/assets/images/Occasions/Details/casual-outing-3.png";
+import CasualOuting1 from "/assets/images/Occasions/Details/casual-outing.webp";
+import CasualOuting2 from "/assets/images/Occasions/Details/casual-outing-2.webp";
+import CasualOuting3 from "/assets/images/Occasions/Details/casual-outing-3.webp";
 
-import NightClub1 from "/assets/images/Occasions/Details/nightclub.png";
-import NightClub2 from "/assets/images/Occasions/Details/nightclub-2.png";
-import NightClub3 from "/assets/images/Occasions/Details/nightclub-3.png";
+import NightClub1 from "/assets/images/Occasions/Details/nightclub.webp";
+import NightClub2 from "/assets/images/Occasions/Details/nightclub-2.webp";
+import NightClub3 from "/assets/images/Occasions/Details/nightclub-3.webp";
 
-import HouseParty1 from "/assets/images/Occasions/Details/house-party.png";
-import HouseParty2 from "/assets/images/Occasions/Details/house-party-2.png";
-import HouseParty3 from "/assets/images/Occasions/Details/house-party-3.png";
+import HouseParty1 from "/assets/images/Occasions/Details/house-party.webp";
+import HouseParty2 from "/assets/images/Occasions/Details/house-party-2.webp";
+import HouseParty3 from "/assets/images/Occasions/Details/house-party-3.webp";
 
-import LateNightBar1 from "/assets/images/Occasions/Details/late-night-bar.png";
-import LateNightBar2 from "/assets/images/Occasions/Details/late-night-bar-2.png";
-import LateNightBar3 from "/assets/images/Occasions/Details/late-night-bar-3.png";
+import LateNightBar1 from "/assets/images/Occasions/Details/late-night-bar.webp";
+import LateNightBar2 from "/assets/images/Occasions/Details/late-night-bar-2.webp";
+import LateNightBar3 from "/assets/images/Occasions/Details/late-night-bar-3.webp";
 
-import BlackTie1 from "/assets/images/Occasions/Details/black-tie.png";
-import BlackTie2 from "/assets/images/Occasions/Details/black-tie-2.png";
-import BlackTie3 from "/assets/images/Occasions/Details/black-tie-3.png";
+import BlackTie1 from "/assets/images/Occasions/Details/black-tie.webp";
+import BlackTie2 from "/assets/images/Occasions/Details/black-tie-2.webp";
+import BlackTie3 from "/assets/images/Occasions/Details/black-tie-3.webp";
 
-import WeddingGuest1 from "/assets/images/Occasions/Details/wedding-guest.png";
-import WeddingGuest2 from "/assets/images/Occasions/Details/wedding-guest-2.png";
-import WeddingGuest3 from "/assets/images/Occasions/Details/wedding-guest-3.png";
+import WeddingGuest1 from "/assets/images/Occasions/Details/wedding-guest.webp";
+import WeddingGuest2 from "/assets/images/Occasions/Details/wedding-guest-2.webp";
+import WeddingGuest3 from "/assets/images/Occasions/Details/wedding-guest-3.webp";
 
-import BusinessDinner1 from "/assets/images/Occasions/Details/business-dinner.png";
-import BusinessDinner2 from "/assets/images/Occasions/Details/business-dinner-2.png";
-import BusinessDinner3 from "/assets/images/Occasions/Details/business-dinner-3.png";
+import BusinessDinner1 from "/assets/images/Occasions/Details/business-dinner.webp";
+import BusinessDinner2 from "/assets/images/Occasions/Details/business-dinner-2.webp";
+import BusinessDinner3 from "/assets/images/Occasions/Details/business-dinner-3.webp";
 
-import GymSession1 from "/assets/images/Occasions/Details/gym-session.png";
-import GymSession2 from "/assets/images/Occasions/Details/gym-session-2.png";
-import GymSession3 from "/assets/images/Occasions/Details/gym-session-3.png";
+import GymSession1 from "/assets/images/Occasions/Details/gym-session.webp";
+import GymSession2 from "/assets/images/Occasions/Details/gym-session-2.webp";
+import GymSession3 from "/assets/images/Occasions/Details/gym-session-3.webp";
 
-import OutdoorSports1 from "/assets/images/Occasions/Details/outdoor-sports.png";
-import OutdoorSports2 from "/assets/images/Occasions/Details/outdoor-sports-2.png";
-import OutdoorSports3 from "/assets/images/Occasions/Details/outdoor-sports-3.png";
+import OutdoorSports1 from "/assets/images/Occasions/Details/outdoor-sports.webp";
+import OutdoorSports2 from "/assets/images/Occasions/Details/outdoor-sports-2.webp";
+import OutdoorSports3 from "/assets/images/Occasions/Details/outdoor-sports-3.webp";
 
-import PostWorkout1 from "/assets/images/Occasions/Details/post-workout.png";
-import PostWorkout2 from "/assets/images/Occasions/Details/post-workout-2.png";
-import PostWorkout3 from "/assets/images/Occasions/Details/post-workout-3.png";
+import PostWorkout1 from "/assets/images/Occasions/Details/post-workout.webp";
+import PostWorkout2 from "/assets/images/Occasions/Details/post-workout-2.webp";
+import PostWorkout3 from "/assets/images/Occasions/Details/post-workout-3.webp";
 
-import DateNight1 from "/assets/images/Occasions/Details/date-night.png";
-import DateNight2 from "/assets/images/Occasions/Details/date-night-2.png";
-import DateNight3 from "/assets/images/Occasions/Details/date-night-3.png";
+import DateNight1 from "/assets/images/Occasions/Details/date-night.webp";
+import DateNight2 from "/assets/images/Occasions/Details/date-night-2.webp";
+import DateNight3 from "/assets/images/Occasions/Details/date-night-3.webp";
 
-import DinnerDate1 from "/assets/images/Occasions/Details/dinner-date.png";
-import DinnerDate2 from "/assets/images/Occasions/Details/dinner-date-2.png";
-import DinnerDate3 from "/assets/images/Occasions/Details/dinner-date-3.png";
+import DinnerDate1 from "/assets/images/Occasions/Details/dinner-date.webp";
+import DinnerDate2 from "/assets/images/Occasions/Details/dinner-date-2.webp";
+import DinnerDate3 from "/assets/images/Occasions/Details/dinner-date-3.webp";
 
-import OutdoorWalk1 from "/assets/images/Occasions/Details/outdoor-walk.png";
-import OutdoorWalk2 from "/assets/images/Occasions/Details/outdoor-walk-2.png";
-import OutdoorWalk3 from "/assets/images/Occasions/Details/outdoor-walk-3.png";
+import OutdoorWalk1 from "/assets/images/Occasions/Details/outdoor-walk.webp";
+import OutdoorWalk2 from "/assets/images/Occasions/Details/outdoor-walk-2.webp";
+import OutdoorWalk3 from "/assets/images/Occasions/Details/outdoor-walk-3.webp";
 
-import BeachDayImg from "/assets/images/Occasions/Details/beach-day.png";
-import SummerPartyImg from "/assets/images/Occasions/Details/summer-party.png";
-import VacationImg from "/assets/images/Occasions/Details/vacation.png";
-import WinterNightImg from "/assets/images/Occasions/Details/winter-night.png";
-import HolidayGatheringImg from "/assets/images/Occasions/Details/holiday-gathering.png";
-import CozyIndoorsImg from "/assets/images/Occasions/Details/cozy-indoors.png";
+import BeachDayImg from "/assets/images/Occasions/Details/beach-day.webp";
+import SummerPartyImg from "/assets/images/Occasions/Details/summer-party.webp";
+import VacationImg from "/assets/images/Occasions/Details/vacation.webp";
+import WinterNightImg from "/assets/images/Occasions/Details/winter-night.webp";
+import HolidayGatheringImg from "/assets/images/Occasions/Details/holiday-gathering.webp";
+import CozyIndoorsImg from "/assets/images/Occasions/Details/cozy-indoors.webp";
 
 export const occasionDetails: Record<string, OccasionDetail> = {
   "date-night": {
