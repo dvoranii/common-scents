@@ -35,7 +35,6 @@ jobs:
                       git reset --hard origin/staging
 
                       echo "📦 Installing Dependencies..."
-
                       npm install
 
                       cd frontend
