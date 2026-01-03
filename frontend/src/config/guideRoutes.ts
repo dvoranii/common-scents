@@ -1,28 +1,27 @@
 import { lazy } from "react";
 
-const SignatureScentWardrobe = lazy(
-  () =>
-    import(
-      "../pages/TipsAndGuides/Detail/pages/SignatureScentWardrobe/SignatureScentWardrobe"
-    )
-);
-
-const StorageTips = lazy(
-  () => import("../pages/TipsAndGuides/Detail/pages/StorageTips/StorageTips")
-);
-
-const FragranceBySeason = lazy(
+const SmartBuyingGuide = lazy(
   () =>
     import(
       "../pages/TipsAndGuides/Detail/pages/FragranceBySeason/FragranceBySeason"
     )
 );
 
-const HowToApplyFragrance = lazy(
+const LongevityGuide = lazy(
   () =>
     import(
-      "../pages/TipsAndGuides/Detail/pages/HowToApplyFragrance/HowToApplyFragrance"
+      "../pages/TipsAndGuides/Detail/pages/HowToApplyFragrance/LongevityGuide"
     )
+);
+
+const LayeringMyth = lazy(
+  () =>
+    import(
+      "../pages/TipsAndGuides/Detail/pages/SignatureScentWardrobe/LayeringMyth"
+    )
+);
+const CollectionBuildingGuide = lazy(
+  () => import("../pages/TipsAndGuides/Detail/pages/StorageTips/StorageTips")
 );
 
 export interface GuideRoute {
@@ -32,19 +31,19 @@ export interface GuideRoute {
 
 export const guidesRoutes: GuideRoute[] = [
   {
-    slug: "signature-scent-wardrobe",
-    component: SignatureScentWardrobe,
+    slug: "smart-guide-buying-wearing-fragrances",
+    component: SmartBuyingGuide,
   },
   {
-    slug: "storage-tips",
-    component: StorageTips,
+    slug: "why-longevity-does-not-matter",
+    component: LongevityGuide,
   },
   {
-    slug: "fragrance-by-season",
-    component: FragranceBySeason,
+    slug: "do-not-layer-fragrances",
+    component: LayeringMyth,
   },
   {
-    slug: "how-to-apply-fragrance",
-    component: HowToApplyFragrance,
+    slug: "how-to-build-a-collection",
+    component: CollectionBuildingGuide,
   },
 ];

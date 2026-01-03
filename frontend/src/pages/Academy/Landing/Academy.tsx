@@ -39,7 +39,7 @@ const Academy: React.FC = () => {
     "@type": "CollectionPage",
     name: "Common Scents Academy",
     description:
-      "Educational resources and articles about fragrance history, composition, and culture.",
+      "Deep-dive educational resources on the physics of scent, molecular volatility, and the architecture of sillage.",
     url: "https://commonscentshq.com/academy",
     mainEntity: {
       "@type": "ItemList",
@@ -71,8 +71,8 @@ const Academy: React.FC = () => {
   return (
     <>
       <SEO
-        title="Common Scents Academy | Fragrance Education & Guides"
-        description="Explore comprehensive fragrance education with our Academy. Learn about perfume history, note pyramids, concentration guides, and sustainable perfumery practices."
+        title="Common Scents Academy | The Science of Perfumery"
+        description="Master the technical side of fragrance. Explore the physics of molecular weight, volatility, and sillage architecture with our expert-led Academy lessons."
         canonical="https://commonscentshq.com/academy"
         image="https://commonscentshq.com/og-academy.jpg"
         structuredData={structuredData}
@@ -94,14 +94,15 @@ const Academy: React.FC = () => {
 
             <header>
               <TitleContainer>
-                <MainTitle $center>Fragrance Academy</MainTitle>
+                <MainTitle $center>Common Scents Academy</MainTitle>
                 <Tagline role="doc-subtitle">
-                  Practical advice for every fragrance enthusiast.
+                  The art, science, and physics of professional perfumery.
                 </Tagline>
               </TitleContainer>
             </header>
           </HeroContent>
         </HeroSection>
+
         <Section aria-labelledby="academy-articles">
           <SectionContent $animate>
             <h2 className="visually-hidden" id="academy-articles">
@@ -111,7 +112,7 @@ const Academy: React.FC = () => {
             <SearchAndFilter<AcademyItem>
               items={academy}
               tagGroups={tagGroups}
-              searchPlaceholder="Search articles..."
+              searchPlaceholder="Search technical articles..."
               getSearchableText={(item) => [item.title, item.description]}
               getItemTags={(item) => [
                 ...(item.topics || []),

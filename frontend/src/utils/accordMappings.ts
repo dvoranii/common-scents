@@ -2,6 +2,13 @@ import { accordNoteMappings } from "../data/accordMappings";
 import type { NoteName } from "../data/accordMappings";
 
 export const normalizeAccordName = (accordName: string): string => {
+  if (!accordName) {
+    console.warn(
+      "normalizeAccordName received an undefined or null accordName"
+    );
+    return "";
+  }
+
   return accordName
     .replace(/\s+/g, " ")
     .trim()
@@ -13,7 +20,6 @@ export const normalizeAccordName = (accordName: string): string => {
     )
     .join("");
 };
-
 export const getNotesForAccord = (accordName: string): NoteName[] => {
   const normalizedName = normalizeAccordName(accordName);
   return accordNoteMappings[normalizedName] || [];

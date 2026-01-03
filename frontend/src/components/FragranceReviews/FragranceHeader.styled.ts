@@ -188,7 +188,7 @@ export const HouseLogoWrapper = styled.div`
 
 export const HouseLogo = styled.img`
   min-width: 150px;
-  width: clamp(150px, 8vw, 200px);
+  width: clamp(250px, 8vw, 350px);
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     width: 40%;

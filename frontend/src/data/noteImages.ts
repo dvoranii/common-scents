@@ -31,19 +31,28 @@ import LeatherImg from "/assets/images/FragranceReviews/FragranceNotes/leather.w
 import TobaccoImg from "/assets/images/FragranceReviews/FragranceNotes/tobacco.webp";
 import HoneyImg from "/assets/images/FragranceReviews/FragranceNotes/honey.webp";
 import BenzoinImg from "/assets/images/FragranceReviews/FragranceNotes/benzoin.webp";
+import SaffronImg from "/assets/images/FragranceReviews/FragranceNotes/Saffron.jpg";
+import JasmineImg from "/assets/images/FragranceReviews/FragranceNotes/Jasmine.jpg";
+import AmberwoodImg from "/assets/images/FragranceReviews/FragranceNotes/Amberwood.jpg";
+import AmbergrisImg from "/assets/images/FragranceReviews/FragranceNotes/Ambergris.jpg";
+import HedioneImg from "/assets/images/FragranceReviews/FragranceNotes/Hedione.jpg";
 
 export const noteImages: Record<string, string> = {
   "Green Apple": GreenAppleImg,
+  Saffron: SaffronImg,
   Cinnamon: CinnamonImg,
+  Jasmine: JasmineImg,
   "Wild Lavender": LavenderImg,
   Lavender: LavenderImg,
   Bergamot: BergamotImg,
   "Orange Blossom": OrangeBlossomImg,
   "Lily of the Valley": LilyoftheValleyImg,
   Vanilla: VanillaImg,
+  Amberwood: AmberwoodImg,
   "Tonka Bean": TonkaBeanImg,
   Amber: AmberImg,
   Patchouli: PatchouliImg,
+  Ambergris: AmbergrisImg,
   Lemon: LemonImg,
   "Pink Pepper": PinkPepperImg,
   Geranium: GeraniumImg,
@@ -51,6 +60,7 @@ export const noteImages: Record<string, string> = {
   Sage: SageImg,
   Nutmeg: NutmegImg,
   Vetiver: VetiverImg,
+  Hedione: HedioneImg,
   Cedar: CedarImg,
   Sandalwood: SandalwoodImg,
   Olibanum: OlibanumImg,

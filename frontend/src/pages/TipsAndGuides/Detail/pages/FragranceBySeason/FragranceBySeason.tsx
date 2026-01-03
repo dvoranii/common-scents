@@ -1,114 +1,92 @@
+import React from "react";
 import GuideWrapper from "../../components/GuideWrapper/GuideWrapper";
 import * as S from "../../components/TipsTemplate/TipsTemplate.styled";
 
-const FragranceBySeason: React.FC = () => {
+const SmartBuyingGuide: React.FC = () => {
   return (
-    <GuideWrapper slug="fragrance-by-season">
+    <GuideWrapper slug="smart-guide-buying-wearing-fragrances">
       <S.Intro>
-        Just as we change our clothing with the seasons, our fragrance choices
-        should evolve to complement the changing weather. Temperature and
-        humidity significantly impact how fragrances develop on skin and project
-        into the air. Learning to match scents to seasons ensures your fragrance
-        always enhances the moment rather than working against it.
+        The fragrance hobby is a rabbit hole that often starts with one "nice"
+        designer scent and ends with a shelf full of bottles you never actually
+        wear. After building a collection of over 70 fragrances, I’ve realized
+        that most of us are buying the wrong way. If you want to move from being
+        the "guy who smells like the mall" to a truly cultured enthusiast, you
+        need to stop falling for the marketing and start understanding the
+        science of the drydown.
       </S.Intro>
 
       <S.Section>
-        <S.SectionTitle>Seasonal Selection</S.SectionTitle>
+        <S.SectionTitle>The Top Note Trap</S.SectionTitle>
         <S.Paragraph>
-          Building a seasonal fragrance rotation allows you to make the most of
-          your collection while ensuring each scent performs at its best. The
-          key is understanding how different fragrance families interact with
-          seasonal conditions and your body chemistry throughout the year.
+          The biggest mistake beginners make is buying a fragrance based on the
+          first 10 minutes.{" "}
+          <S.Highlight>Top notes are a marketing tool.</S.Highlight> They are
+          designed to hook you at the department store counter so you'll head
+          straight to the register. In reality, those bright, volatile molecules
+          are usually gone in less than an hour.
         </S.Paragraph>
         <S.Paragraph>
-          For spring, focus on light, airy scents that complement the renewal of
-          nature. Fresh florals, green notes, and gentle citrus fragrances work
-          beautifully as temperatures begin to warm. These scents are uplifting
-          without being overwhelming, perfectly matching spring's transitional
-          energy.
-        </S.Paragraph>
-        <S.Paragraph>
-          Summer calls for the lightest fragrances in your collection. High heat
-          and humidity amplify scent projection, so opt for aquatic notes, light
-          citrus, and clean musk compositions. These
-          <S.Highlight>&nbsp;refreshing choices</S.Highlight> provide a cooling
-          sensation without becoming cloying in humid conditions.
+          What you are actually buying—the scent people will associate with you
+          for the next 6 to 8 hours—is the drydown. As I discuss in my Academy
+          post, <strong>"The Art of Blending,"</strong> top notes are really
+          just a primer for your olfactory system, setting the stage for the
+          actual composition. Never judge a book by its cover, and never judge a
+          fragrance by its opening.
         </S.Paragraph>
       </S.Section>
 
       <S.Section>
-        <S.SectionTitle>Weather</S.SectionTitle>
+        <S.SectionTitle>The 3-Day Wear Rule</S.SectionTitle>
         <S.Paragraph>
-          Weather conditions dramatically affect how fragrances perform.
-          Understanding these effects helps you choose scents that work with the
-          environment rather than against it.
+          You don't truly know a fragrance until you've worn it for at least 3
+          to 4 days. Fragrance is dynamic; it reacts to your skin oil chemistry,
+          your natural body odor, and your environment.
         </S.Paragraph>
         <S.Paragraph>
-          In hot, humid weather, fragrance molecules evaporate more quickly and
-          project further. This is why heavy oriental or gourmand scents can
-          become overwhelming in summer—they're simply too potent for the
-          conditions. Instead, lighter compositions with good staying power but
-          moderate projection work best.
+          I remember smelling <strong>Hawas Malibu</strong> and{" "}
+          <strong>Kobra</strong> in a shop and hating them at first. But after
+          living with Malibu for a few days, it became one of my absolute
+          favorites. Fragrances are subjective and dependent on your mood—give
+          them a "work week" test before committing to a full bottle.
         </S.Paragraph>
-        <S.Paragraph>
-          Cold weather has the opposite effect—fragrances don't project as well
-          and may seem to fade faster. This is the perfect time for richer,
-          warmer scents with good sillage. The same fragrance that would be
-          overpowering in summer becomes comforting and intimate in winter.
-        </S.Paragraph>
-        <S.Paragraph>Consider these weather-appropriate choices:</S.Paragraph>
-        <S.List>
-          <S.ListItem>
-            <S.Highlight>Hot & Humid:</S.Highlight> Citrus, aquatic, light
-            floral, green tea, clean musk
-          </S.ListItem>
-          <S.ListItem>
-            <S.Highlight>Cold & Dry:</S.Highlight> Oriental, gourmand, woody,
-            amber, vanilla, spice
-          </S.ListItem>
-          <S.ListItem>
-            <S.Highlight>Mild & Transitional:</S.Highlight> Floral, fougère,
-            chypre, light woody
-          </S.ListItem>
-          <S.ListItem>
-            <S.Highlight>Rainy Days:</S.Highlight> Earthy, petrichor, vetiver,
-            oakmoss, leather
-          </S.ListItem>
-        </S.List>
       </S.Section>
 
       <S.Section>
-        <S.SectionTitle>Choosing</S.SectionTitle>
+        <S.SectionTitle>Cheapies vs. Niche: An Objective View</S.SectionTitle>
         <S.Paragraph>
-          Choosing the right seasonal fragrance involves more than just matching
-          scent families to temperatures. It's about creating an emotional
-          connection between your scent and the season's mood.
+          Blind buying "cheapies" is fine if you can afford the gamble, and
+          often we're just impressed by the value for money. However, from a
+          technical and cultured perspective, clones rarely match the
+          sophistication of the originals. Niche perfumery offers a level of
+          artistry and chemical balance that budget scents simply can't
+          replicate.
         </S.Paragraph>
         <S.Paragraph>
-          Start by evaluating your current collection through a seasonal lens.
-          Group your fragrances by their dominant notes and consider how they
-          might perform in different weather conditions. You might discover that
-          some fragrances you love in winter become completely different
-          experiences in summer heat.
+          It's about having a "cultured" approach rather than just liking a
+          specific DNA. Invest in quality when it matters, and use budget
+          alternatives for what they are: fun, temporary thrills.
+        </S.Paragraph>
+      </S.Section>
+
+      <S.Section>
+        <S.SectionTitle>Performance and Etiquette</S.SectionTitle>
+        <S.Paragraph>
+          Stop obsessing over longevity. If a fragrance smells incredible but
+          only lasts four hours, just use a{" "}
+          <S.Highlight>travel atomizer.</S.Highlight> This allows you to
+          re-apply and enjoy those top notes all over again throughout the day.
         </S.Paragraph>
         <S.Paragraph>
-          Don't be afraid to break "rules" occasionally—personal preference
-          always trumps general guidelines. If you love a warm vanilla scent in
-          summer and it makes you happy, wear it! The goal is to develop the
-          awareness to understand why certain scents work better in specific
-          conditions, not to restrict your enjoyment.
-        </S.Paragraph>
-        <S.Paragraph>
-          As you build your seasonal rotation, consider having 2-3 core scents
-          for each season plus a few transitional fragrances for those
-          in-between periods. This approach ensures you're always appropriately
-          scented while maintaining variety and preventing olfactory fatigue.
-          With practice, seasonal fragrance selection becomes an intuitive part
-          of your daily routine.
+          As for "offending" people—only worry about that in packed environments
+          like planes or long car rides. If you're going to a theme park, a
+          club, or a party, there is no such thing as over-spraying. I’ve found
+          that a bold sillage is one of the best ways to meet people and start
+          conversations. If you’re truly worried about the elevator ride, just
+          apply your scent once you hit the ground floor.
         </S.Paragraph>
       </S.Section>
     </GuideWrapper>
   );
 };
 
-export default FragranceBySeason;
+export default SmartBuyingGuide;

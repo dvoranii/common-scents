@@ -36,9 +36,9 @@ const Guides: React.FC = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Common Scents Guides",
+    name: "Common Scents: Smart Fragrance Guides",
     description:
-      "Practical fragrance guides and tips for enthusiasts. Learn how to choose, wear, and care for fragrances.",
+      "Expert advice from a 70+ bottle collection. Learn the truth about top notes, the economics of travel atomizers, and why layering is a mistake.",
     url: "https://commonscentshq.com/guides",
     mainEntity: {
       "@type": "ItemList",
@@ -70,8 +70,8 @@ const Guides: React.FC = () => {
   return (
     <>
       <SEO
-        title="Common Scents Guides | Practical Fragrance Tips & How-To's"
-        description="Step-by-step fragrance guides and practical tips. Learn how to choose, apply, layer, and store fragrances like an expert."
+        title="Fragrance Tips & Guides | The Smart Way to Build a Collection"
+        description="Move beyond the mall-counter hype. Master the 3-day wear rule, understand skin chemistry, and learn why longevity isn't everything."
         canonical="https://commonscentshq.com/guides"
         image="https://commonscentshq.com/og-guides.jpg"
         structuredData={structuredData}

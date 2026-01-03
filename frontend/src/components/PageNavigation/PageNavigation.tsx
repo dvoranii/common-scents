@@ -70,8 +70,8 @@ const PageNavigation: React.FC<PageNavigationProps> = ({
 
   return (
     <S.NavigationContainer $stackMobile={stackMobile}>
-      {renderNavSection(prevItem, "left")}
-      {renderNavSection(nextItem, "right")}
+      {prevItem ? renderNavSection(prevItem, "left") : <S.NavSection />}
+      {nextItem ? renderNavSection(nextItem, "right") : <S.NavSection />}
     </S.NavigationContainer>
   );
 };

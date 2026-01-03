@@ -1,58 +1,30 @@
 import { lazy } from "react";
 
-const HistoryOfCreed = lazy(
+const ArchitectureOfSillage = lazy(
   () =>
     import(
-      "../pages/Academy/Detail/components/pages/HistoryOfCreed/HistoryOfCreed"
+      "../pages/Academy/Detail/components/pages/ArchitectureOfSillage/ArchitectureOfSillage"
     )
 );
 
-const PerfumeryAroundTheWorld = lazy(
+const ArtOfBlending = lazy(
   () =>
     import(
-      "../pages/Academy/Detail/components/pages/PerfumeryAroundTheWorld/PerfumeryAroundTheWorld"
+      "../pages/Academy/Detail/components/pages/ArtOfBlending/ArtOfBlending"
     )
 );
 
-const WhatMakesAFragrance = lazy(
+const ScienceOfScent = lazy(
   () =>
     import(
-      "../pages/Academy/Detail/components/pages/WhatMakesAFragrance/WhatMakesAFragrance"
+      "../pages/Academy/Detail/components/pages/ScienceOfScent/ScienceOfScent"
     )
 );
 
-const EvolutionOfModernPerfumery = lazy(
+const GlobalPerfumery = lazy(
   () =>
     import(
-      "../pages/Academy/Detail/components/pages/EvolutionOfModernPerfumery/EvolutionOfModernPerfumery"
-    )
-);
-
-const NotePyramidsExplained = lazy(
-  () =>
-    import(
-      "../pages/Academy/Detail/components/pages/NotePyramidsExplained/NotePyramidsExplained"
-    )
-);
-
-const FragranceConcentrationGuide = lazy(
-  () =>
-    import(
-      "../pages/Academy/Detail/components/pages/FragranceConcentrationGuide/FragranceConcentrationGuide"
-    )
-);
-
-const SustainablePerfumery = lazy(
-  () =>
-    import(
-      "../pages/Academy/Detail/components/pages/SustainablePerfumery/SustainablePerfumery"
-    )
-);
-
-const OlfactoryFatigue = lazy(
-  () =>
-    import(
-      "../pages/Academy/Detail/components/pages/OlfactoryFatigue/OlfactoryFatigue"
+      "../pages/Academy/Detail/components/pages/GlobalPerfumery/GlobalPerfumery"
     )
 );
 
@@ -63,35 +35,19 @@ export interface AcademyRoute {
 
 export const academyRoutes: AcademyRoute[] = [
   {
-    slug: "history-of-creed",
-    component: HistoryOfCreed,
+    slug: "the-science-of-scent",
+    component: ScienceOfScent,
   },
   {
-    slug: "perfumery-around-the-world",
-    component: PerfumeryAroundTheWorld,
+    slug: "the-art-of-the-blend",
+    component: ArtOfBlending,
   },
   {
-    slug: "what-makes-a-fragrance",
-    component: WhatMakesAFragrance,
+    slug: "the-architecture-of-sillage",
+    component: ArchitectureOfSillage,
   },
   {
-    slug: "evolution-of-modern-perfumery",
-    component: EvolutionOfModernPerfumery,
-  },
-  {
-    slug: "note-pyramids-explained",
-    component: NotePyramidsExplained,
-  },
-  {
-    slug: "fragrance-concentration-guide",
-    component: FragranceConcentrationGuide,
-  },
-  {
-    slug: "sustainable-perfumery",
-    component: SustainablePerfumery,
-  },
-  {
-    slug: "olfactory-fatigue",
-    component: OlfactoryFatigue,
+    slug: "middle-eastern-vs-french-perfumery",
+    component: GlobalPerfumery,
   },
 ];
