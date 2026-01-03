@@ -36,6 +36,10 @@ import JasmineImg from "/assets/images/FragranceReviews/FragranceNotes/Jasmine.j
 import AmberwoodImg from "/assets/images/FragranceReviews/FragranceNotes/Amberwood.jpg";
 import AmbergrisImg from "/assets/images/FragranceReviews/FragranceNotes/Ambergris.jpg";
 import HedioneImg from "/assets/images/FragranceReviews/FragranceNotes/Hedione.jpg";
+import FirResinImg from "/assets/images/FragranceReviews/FragranceNotes/FirResin.jpg";
+import SugarImg from "/assets/images/FragranceReviews/FragranceNotes/sugar.jpg";
+import AmbroxanImg from "/assets/images/FragranceReviews/FragranceNotes/Ambroxan.jpg";
+import OakmossImg from "/assets/images/FragranceReviews/FragranceNotes/oakmoss.jpg";
 
 export const noteImages: Record<string, string> = {
   "Green Apple": GreenAppleImg,
@@ -54,12 +58,15 @@ export const noteImages: Record<string, string> = {
   Patchouli: PatchouliImg,
   Ambergris: AmbergrisImg,
   Lemon: LemonImg,
+  Oakmoss: OakmossImg,
   "Pink Pepper": PinkPepperImg,
   Geranium: GeraniumImg,
+  Sugar: SugarImg,
   Rosemary: RosemaryImg,
   Sage: SageImg,
   Nutmeg: NutmegImg,
   Vetiver: VetiverImg,
+  "Fir Resin": FirResinImg,
   Hedione: HedioneImg,
   Cedar: CedarImg,
   Sandalwood: SandalwoodImg,
@@ -67,6 +74,7 @@ export const noteImages: Record<string, string> = {
   "Mandarin Orange": MandarinOrangeImg,
   Grapefruit: GrapefruitImg,
   Mint: MintImg,
+  Ambroxan: AmbroxanImg,
   Cloves: ClovesImg,
   Ginger: GingerImg,
   Pepper: PepperImg,

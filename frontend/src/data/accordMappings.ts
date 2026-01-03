@@ -14,7 +14,8 @@ export const accordNoteMappings: AccordMapping = {
     "Green Apple",
     "Mandarin Orange",
     "Amber",
-    "Fir Resin",
+    "Fir Resin",
+    "Sugar",
   ],
   honey: ["Honey", "Benzoin"],
   aromatic: [
@@ -27,6 +28,9 @@ export const accordNoteMappings: AccordMapping = {
     "Tobacco",
     "Patchouli",
     "Olibanum",
+    "Saffron",
+    "Jasmine",
+    "Fir Resin",
   ],
   amber: [
     "Vanilla",
@@ -51,6 +55,18 @@ export const accordNoteMappings: AccordMapping = {
     "Cloves",
     "Spicy Notes",
     "Olibanum",
+    "Bergamot",
+    "Saffron",
+    "Jasmine",
+    "Oakmoss",
+    "Fir Resin",
+  ],
+  whiteFloral: [
+    "Jasmine",
+    "Sugar",
+    "Hedione",
+    "Orange Blossom",
+    "Lily of the Valley",
   ],
   powdery: [
     "Vanilla",
@@ -60,7 +76,18 @@ export const accordNoteMappings: AccordMapping = {
     "Iris",
     "Orange Blossom",
   ],
-  warmSpicy: ["Cinnamon", "Nutmeg", "Cloves", "Ginger", "Tobacco", "Saffron"],
+  animalic: ["Ambergris", "Musk", "Civet", "Castoreum", "Leather", "Amber"],
+
+  metallic: ["Saffron", "Rose Oxide", "Metallic Notes", "Geranium", "Lavender"],
+  warmSpicy: [
+    "Cinnamon",
+    "Nutmeg",
+    "Cloves",
+    "Ginger",
+    "Tobacco",
+    "Saffron",
+    "Tonka Bean",
+  ],
   cinnamon: ["Cinnamon"],
   fruity: ["Green Apple", "Mandarin Orange", "Grapefruit", "Lemon", "Bergamot"],
   fresh: [
@@ -71,6 +98,8 @@ export const accordNoteMappings: AccordMapping = {
     "Mandarin Orange",
     "Green Apple",
     "Lily of the Valley",
+    "Saffron",
+    "Hedione",
   ],
   citrus: ["Lemon", "Bergamot", "Grapefruit", "Mandarin Orange"],
   woody: [

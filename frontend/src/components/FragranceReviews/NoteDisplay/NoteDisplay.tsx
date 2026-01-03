@@ -43,8 +43,9 @@ const getHighlightColor = (accord: string | null): string => {
     earthy: "rgba(160, 120, 80, 0.2)",
     leather: "rgba(101, 67, 33, 0.2)",
     tobacco: "rgba(121, 68, 59, 0.2)",
-
-    // Additional mappings you have
+    whiteFloral: "rgba(240, 255, 240, 0.4)",
+    metallic: "rgba(192, 192, 192, 0.3)",
+    animalic: "rgba(165, 42, 42, 0.2)",
     floral: "rgba(255, 182, 193, 0.3)",
     spicy: "rgba(178, 34, 34, 0.2)",
     resinous: "rgba(210, 180, 140, 0.2)",

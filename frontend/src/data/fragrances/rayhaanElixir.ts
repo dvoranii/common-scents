@@ -42,10 +42,14 @@ export const rayhaanElixir: Fragrance = {
   shortDescription:
     "A viral, high-performance clone of JPG Le Male Elixir. It captures the honeyed-tobacco and minty-vanilla DNA with surprising accuracy at a fraction of the cost.",
   accords: [
-    createAccord("vanilla", "95%"),
-    createAccord("sweet", "90%"),
-    createAccord("honey", "85%"),
-    createAccord("amber", "70%"),
+    createAccord("vanilla", "100%"),
+    createAccord("aromatic", "68%"),
+    createAccord("amber", "68%"),
+    createAccord("green", "54%"),
+    createAccord("freshSpicy", "54%"),
+    createAccord("lavender", "54%"),
+    createAccord("sweet", "51%"),
+    createAccord("warmSpicy", "47%"),
   ],
   notes: {
     top: [getNote("Mint"), getNote("Bergamot")],

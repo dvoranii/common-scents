@@ -29,7 +29,9 @@ jobs:
                       git checkout main
                       git pull origin main
 
-                      npm run install:all
+                      npm install --legacy-peer-deps
+                      npm run install:all -- --legacy-peer-deps
+
                       npm run build:all
                       cd backend
 

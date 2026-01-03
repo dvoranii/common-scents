@@ -44,15 +44,26 @@ export const br540edp: Fragrance = {
 
   accords: [
     createAccord("woody", "100%"),
-    createAccord("amber", "90%"),
-    createAccord("sweet", "85%"),
-    createAccord("warmSpicy", "75%"),
-    createAccord("floral", "60%"),
+    createAccord("amber", "97%"),
+    createAccord("warmSpicy", "70%"),
+    createAccord("metallic", "47%%"),
+    createAccord("freshSpicy", "46%%"),
+    createAccord("aromatic", "45%"),
+    createAccord("whiteFloral", "45%"),
+    createAccord("animalic", "45%"),
+    createAccord("sweet", "45%"),
+    createAccord("fresh", "45%"),
   ],
 
   notes: {
     top: [getNote("Saffron"), getNote("Jasmine")],
     middle: [getNote("Amberwood"), getNote("Ambergris"), getNote("Hedione")],
-    base: [getNote("Cedar")],
+    base: [
+      getNote("Fir Resin"),
+      getNote("Cedar"),
+      getNote("Sugar"),
+      getNote("Ambroxan"),
+      getNote("Oakmoss"),
+    ],
   },
 };

@@ -16,6 +16,13 @@ export const accordPresets: Record<string, Omit<Accords, "width">> = {
     background: "#CC3300",
     color: "white",
   },
+  metallic: { name: "Metallic", background: "#b0c4de", color: "#000000" },
+  whiteFloral: {
+    name: "White Floral",
+    background: "#f5f5f5",
+    color: "#333333",
+  },
+  animalic: { name: "Animalic", background: "#8b4513", color: "#ffffff" },
   fruity: {
     name: "Fruity",
     background: "rgb(255, 204, 0)",
